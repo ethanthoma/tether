@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
-	"log"
 	"os"
 	"path/filepath"
 	"strings"
@@ -131,11 +130,9 @@ func RunNudges(store *Store, cfg *Config, now time.Time) error {
 	if err != nil {
 		return err
 	}
-	for _, nudge := range collectNudges(store, nl, now, productionBendEligibility(store, cfg, nl, now)) {
-		if nl.firedToday("", now) >= maxPushesPerDay {
-			log.Printf("nudge: daily cap reached, deferring %s/%s to digest", nudge.RuleID, nudge.EntityID)
-			break
-		}
+	nudges := collectNudges(store, nl, now, productionBendEligibility(store, cfg, nl, now))
+	planned := productionBendBatchCount(store, cfg, false, nl.firedToday("", now), len(nudges))
+	for _, nudge := range nudges[:planned] {
 		if err := PostDiscordButtons(cfg, "**"+nudge.Title+"**\n"+nudge.Body, nudge.buttons()); err != nil {
 			return err
 		}

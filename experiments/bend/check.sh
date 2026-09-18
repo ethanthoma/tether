@@ -19,10 +19,12 @@ bun "$bend_main" --version
 bun "$bend_main" "$experiment_dir/PROOF.bend"
 bun "$bend_main" "$experiment_dir/shadow.bend" -o "$trial_dir/tether-bend-shadow"
 
+bun "$bend_main" "$experiment_dir/dispatch_shadow.bend" -o "$trial_dir/tether-bend-dispatch"
+
 (
 	cd "$experiment_dir/../.."
-	TETHER_BEND_SHADOW="$trial_dir/tether-bend-shadow" BEND_MAIN="$bend_main" \
-		go test -mod=vendor -tags bend -run '^TestBend(FollowUp|Dispatch|Delivery|NativeShadow)Agreement$' -count=1 .
+	TETHER_BEND_DISPATCH="$trial_dir/tether-bend-dispatch" TETHER_BEND_SHADOW="$trial_dir/tether-bend-shadow" BEND_MAIN="$bend_main" \
+		go test -mod=vendor -tags bend -run '^TestBend(FollowUp|Dispatch|Delivery|NativeShadow|NativeDispatch)Agreement$' -count=1 .
 )
 
 mkdir "$trial_dir/mutant"

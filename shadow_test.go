@@ -13,18 +13,25 @@ import (
 func TestMain(tests *testing.M) {
 	mode := filepath.Base(os.Args[0])
 	if strings.HasPrefix(mode, "shadow-helper-") {
-		output := shadowPrefix + strings.Repeat("0", shadowTableSize) + "\n"
+		protocol := eligibilityProtocol
+		if strings.HasPrefix(mode, "shadow-helper-dispatch-") {
+			protocol = dispatchProtocol
+			mode = strings.Replace(mode, "dispatch-", "", 1)
+		}
+		output := protocol.prefix + strings.Repeat("0", protocol.size) + "\n"
 		switch mode {
 		case "shadow-helper-good":
 			if len(os.Environ()) != 0 {
 				os.Exit(3)
 			}
+		case "shadow-helper-five":
+			output = dispatchProtocol.prefix + strings.Repeat("5", dispatchProtocol.size) + "\n"
 		case "shadow-helper-error":
 			os.Exit(2)
 		case "shadow-helper-version":
 			output = strings.Replace(output, "v1", "v9", 1)
 		case "shadow-helper-decision":
-			output = shadowPrefix + strings.Repeat("x", shadowTableSize) + "\n"
+			output = protocol.prefix + strings.Repeat("x", protocol.size) + "\n"
 		case "shadow-helper-overflow":
 			output += strings.Repeat("extra", 10000)
 		case "shadow-helper-timeout":
@@ -58,7 +65,7 @@ func TestShadowProtocol(t *testing.T) {
 	for _, mode := range []string{"good", "error", "version", "decision", "overflow", "timeout"} {
 		t.Run(mode, func(t *testing.T) {
 			started := time.Now()
-			table, err := readShadowTable(shadowHelper(t, mode))
+			table, err := readBendTable(shadowHelper(t, mode), eligibilityProtocol)
 			if mode == "good" {
 				if err != nil || len(table) != shadowTableSize {
 					t.Fatalf("valid evaluator: table=%q error=%v", table, err)
@@ -71,7 +78,7 @@ func TestShadowProtocol(t *testing.T) {
 			}
 		})
 	}
-	if _, err := readShadowTable("relative-path"); err == nil {
+	if _, err := readBendTable("relative-path", eligibilityProtocol); err == nil {
 		t.Fatal("relative evaluator path accepted")
 	}
 }

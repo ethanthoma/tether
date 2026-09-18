@@ -9,6 +9,7 @@ let
   };
   tether = pkgs.writeShellScriptBin "tether" ''
     export TETHER_BEND_SHADOW=${bend-shadow}/bin/tether-bend-shadow
+    export TETHER_BEND_DISPATCH=${bend-shadow}/bin/tether-bend-dispatch
     set -a
     [ -f /var/lib/tether.env ] && . /var/lib/tether.env
     set +a
@@ -62,11 +63,15 @@ in
   };
 
   systemd.services.tether-bend-shadow = {
-    description = "tether read-only Bend eligibility comparison";
+    description = "tether read-only Bend policy comparisons";
     unitConfig.ConditionPathExists = "/var/lib/tether/lock";
     environment.TETHER_BEND_SHADOW = "${bend-shadow}/bin/tether-bend-shadow";
+    environment.TETHER_BEND_DISPATCH = "${bend-shadow}/bin/tether-bend-dispatch";
     serviceConfig = serviceDefaults // {
-      ExecStart = "${tether-bin}/bin/tether shadow";
+      ExecStart = [
+        "${tether-bin}/bin/tether shadow"
+        "${tether-bin}/bin/tether shadow-dispatch"
+      ];
       TimeoutStartSec = 10;
       MemoryMax = "128M";
       CPUQuota = "20%";

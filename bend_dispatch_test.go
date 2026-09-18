@@ -42,6 +42,12 @@ def main() -> IO(Unit):
 					if err := os.WriteFile(filepath.Join(store.dir, "bend-eligibility.enabled"), nil, 0600); err != nil {
 						t.Fatal(err)
 					}
+					if err := os.WriteFile(filepath.Join(store.dir, "bend-dispatch.enabled"), nil, 0600); err != nil {
+						t.Fatal(err)
+					}
+					if os.Getenv("TETHER_BEND_DISPATCH") == "" {
+						t.Fatal("native dispatch evaluator required")
+					}
 					if os.Getenv("TETHER_BEND_SHADOW") == "" {
 						t.Fatal("native evaluator required")
 					}
@@ -66,7 +72,7 @@ def main() -> IO(Unit):
 							State: ReminderOpen, Text: "Test reminder", Due: now.Add(-time.Hour)})
 					}
 					*transport = bendDiscordTransport{}
-					if err := RunNudges(store, &Config{DiscordChannel: "test", BendShadow: os.Getenv("TETHER_BEND_SHADOW")}, now); err != nil {
+					if err := RunNudges(store, &Config{DiscordChannel: "test", BendShadow: os.Getenv("TETHER_BEND_SHADOW"), BendDispatch: os.Getenv("TETHER_BEND_DISPATCH")}, now); err != nil {
 						t.Fatal(err)
 					}
 					remaining := max(0, maxPushesPerDay-fired)
@@ -129,6 +135,12 @@ def main() -> IO(Unit):
 							if err := os.WriteFile(filepath.Join(store.dir, "bend-eligibility.enabled"), nil, 0600); err != nil {
 								t.Fatal(err)
 							}
+							if err := os.WriteFile(filepath.Join(store.dir, "bend-dispatch.enabled"), nil, 0600); err != nil {
+								t.Fatal(err)
+							}
+							if os.Getenv("TETHER_BEND_DISPATCH") == "" {
+								t.Fatal("native dispatch evaluator required")
+							}
 							if os.Getenv("TETHER_BEND_SHADOW") == "" {
 								t.Fatal("native evaluator required")
 							}
@@ -153,7 +165,7 @@ def main() -> IO(Unit):
 									State: ReminderOpen, Text: "Test reminder", Due: now.Add(-time.Hour)})
 							}
 							*transport = bendDiscordTransport{failureAt: successes + 1, status: status}
-							cfg := &Config{DiscordChannel: "test", BendShadow: os.Getenv("TETHER_BEND_SHADOW")}
+							cfg := &Config{DiscordChannel: "test", BendShadow: os.Getenv("TETHER_BEND_SHADOW"), BendDispatch: os.Getenv("TETHER_BEND_DISPATCH")}
 							err = RunNudges(store, cfg, now)
 							if err != nil && !strings.Contains(err.Error(), "simulated rejection") {
 								t.Fatal(err)

@@ -17,7 +17,10 @@ func TestBendProductionSnapshot(t *testing.T) {
 	if snapshot == "" {
 		t.Skip("set TETHER_BEND_SNAPSHOT to an isolated production snapshot")
 	}
-	cfg := &Config{BendShadow: os.Getenv("TETHER_BEND_SHADOW"), DiscordChannel: "test"}
+	cfg := &Config{BendShadow: os.Getenv("TETHER_BEND_SHADOW"), DiscordChannel: "test", BendDispatch: os.Getenv("TETHER_BEND_DISPATCH")}
+	if _, err := readBendTable(cfg.BendDispatch, dispatchProtocol); err != nil {
+		t.Fatal(err)
+	}
 	now := time.Now().In(time.Local)
 	now = time.Date(now.Year(), now.Month(), now.Day(), 12, 0, 0, 0, now.Location())
 	var baseline []Nudge
@@ -82,12 +85,19 @@ func TestBendProductionSnapshot(t *testing.T) {
 			}
 			store.Threads = append(fixtures, store.Threads...)
 			marker := filepath.Join(store.dir, "bend-eligibility.enabled")
+			dispatchMarker := filepath.Join(store.dir, "bend-dispatch.enabled")
 			if mode != "go" {
+				if err := os.WriteFile(dispatchMarker, nil, 0600); err != nil {
+					t.Fatal(err)
+				}
 				if err := os.WriteFile(marker, nil, 0600); err != nil {
 					t.Fatal(err)
 				}
 			}
 			if mode == "rollback" {
+				if err := os.Remove(dispatchMarker); err != nil {
+					t.Fatal(err)
+				}
 				if productionBendEligibility(store, cfg, log, now) == nil {
 					t.Fatal("Bend must work before rollback")
 				}
@@ -98,6 +108,7 @@ func TestBendProductionSnapshot(t *testing.T) {
 			candidate := *cfg
 			if mode == "fallback" {
 				candidate.BendShadow = filepath.Join(store.dir, "missing-evaluator")
+				candidate.BendDispatch = candidate.BendShadow
 			}
 			decisions := productionBendEligibility(store, &candidate, log, now)
 			if (decisions != nil) != (mode == "bend") {
@@ -133,6 +144,20 @@ func TestBendProductionSnapshot(t *testing.T) {
 			if result.Status != "ok" || result.Eligible < 2 {
 				t.Fatal("controlled snapshot shadow gate failed")
 			}
+			dispatchReport, err := RunBendDispatchShadow(store, cfg.BendDispatch, now)
+			if err != nil {
+				t.Fatal(err)
+			}
+			var dispatchResult struct {
+				Status string `json:"status"`
+			}
+			if err := json.Unmarshal([]byte(dispatchReport), &dispatchResult); err != nil {
+				t.Fatal(err)
+			}
+			if dispatchResult.Status != "ok" {
+				t.Fatal("snapshot dispatch disagreement")
+			}
+			t.Log(dispatchReport)
 			before := len(log.records)
 			allowance := max(0, maxPushesPerDay-log.firedToday("", now))
 			*transport = bendDiscordTransport{}

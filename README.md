@@ -190,3 +190,28 @@ and switch-removal rollback. Reply/bump positives, snoozes, cooldowns, and done
 states are checked explicitly. Delivery uses a fake HTTP transport; daily caps
 and persisted confirmations must agree. Real production state is never modified.
 Delete the private snapshot after validation. No fixtures belong in production.
+
+### Bend dispatch migration
+
+`shadow-dispatch` compares Go and Bend batch sizes without sending or changing
+state. The existing shadow service runs both eligibility and dispatch checks.
+Dispatch reports include `quiet`, `fired_today`, `candidates`, `go_batch`, and
+`bend_batch`; a disagreement changes `status` to `mismatch`.
+
+`TETHER_BEND_DISPATCH` selects the native `tether-bend-dispatch` executable,
+packaged alongside the eligibility evaluator. Its versioned table contains 72
+single-digit counts: quiet (2) × prior deliveries (6) × candidates (6). Counts
+above five map to five because the daily cap is five. No LLM or Bun runs here.
+
+Dispatch authority is **disabled by default**. After native/failure tests, the
+isolated snapshot gate, and production shadow review, create an empty
+`bend-dispatch.enabled` in the state directory to let Bend select the batch size.
+Removing it restores Go batch selection on the next run without affecting Bend
+eligibility. Keep the two switches separate during rollout.
+
+Go's quiet-hour guard and daily/candidate upper bounds remain enforced. An invalid
+switch, evaluator error, timeout, malformed table, or an excessive proposed batch
+falls back to Go. Sending stops on the first failed delivery or log write; only
+confirmed sends enter the nudge log. Successful batches log `Bend dispatch active`.
+The snapshot test now requires both evaluator environment variables and checks
+both dispatch and eligibility through activation, failure fallback, and rollback.

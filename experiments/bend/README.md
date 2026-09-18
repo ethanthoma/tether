@@ -104,3 +104,18 @@ the files follow its documented two-space layout. Format the shell runner with
 
 References: [Bend guide](https://github.com/bendlang/bend/blob/main/guide/GUIDE.md),
 [pinned release](https://bend-lang.com/dl/2.0.5.tar.gz).
+
+## Native dispatch integration
+
+`dispatch_shadow.bend` compiles separately to `tether-bend-dispatch`. Its output is
+`tether-bend-dispatch-v1:` followed by 72 digits (`0`–`5`) and a newline (97 bytes).
+The table index is `quiet * 36 + min(fired, 5) * 6 + min(candidates, 5)`.
+`TestBendNativeDispatchAgreement` checks all entries plus saturated inputs against
+Go; the dispatch and delivery agreement tests now use this native policy inside
+`RunNudges`, with a fake Discord transport.
+
+`shadow-dispatch` independently compares complete Go candidate batches with Bend's
+batch count. It projects slipped commitments in memory, preserving the live store.
+Production dispatch is opt-in via `bend-dispatch.enabled`; Go's delivery safety
+limits still bound the native decision. Eligibility uses its own executable,
+protocol, and switch, so dispatch can be rolled back independently.

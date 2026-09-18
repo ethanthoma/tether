@@ -26,6 +26,7 @@ type Config struct {
 	LLMURL             string
 	LLMKey             string
 	BendShadow         string
+	BendDispatch       string
 }
 
 func loadConfig() *Config {
@@ -50,6 +51,7 @@ func loadConfig() *Config {
 		LLMURL:             env("TETHER_LLM_URL", "http://127.0.0.1:8080"),
 		LLMKey:             os.Getenv("LLAMA_API_KEY"),
 		BendShadow:         os.Getenv("TETHER_BEND_SHADOW"),
+		BendDispatch:       os.Getenv("TETHER_BEND_DISPATCH"),
 	}
 	cfg.MyEmail = env("TETHER_MY_EMAIL", cfg.IMAPUser)
 	return cfg
@@ -81,6 +83,7 @@ const usage = `usage: tether <command>
   triage                     LLM-classify new threads, extract commitments
   nudge                      evaluate nudge rules, post to Discord
   shadow                     compare Go/Bend eligibility without sending
+  shadow-dispatch            compare Go/Bend batch sizes without sending
   digest                     post morning digest to Discord
   pulse                      sync + triage + nudge (what the timer runs)
   bot                        serve Discord slash commands (long-running)
@@ -163,6 +166,8 @@ func Execute(store *Store, cfg *Config, now time.Time, command string, args []st
 			return "", err
 		}
 		return "nudges evaluated", nil
+	case "shadow-dispatch":
+		return RunBendDispatchShadow(store, cfg.BendDispatch, now)
 	case "shadow":
 		return RunBendShadow(store, cfg.BendShadow, now)
 	case "digest":

@@ -15,7 +15,7 @@ import (
 
 func TestBendNativeShadowAgreement(t *testing.T) {
 	evaluator := os.Getenv("TETHER_BEND_SHADOW")
-	table, err := readShadowTable(evaluator)
+	table, err := readBendTable(evaluator, eligibilityProtocol)
 	if err != nil {
 		t.Fatal(err)
 	}
