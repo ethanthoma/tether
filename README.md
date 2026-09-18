@@ -111,12 +111,11 @@ Stop future runs with `sudo systemctl stop tether-bend-shadow.timer`; any curren
 run finishes within the service's ten-second limit. Remove the timer's `wantedBy`
 entry before a NixOS rebuild to keep it disabled.
 
-The initial Atlas trial uses transient units, so it ends at reboot; the NixOS
-definitions become persistent on a subsequent deployment. Its two package closures
-are pinned by `/nix/var/nix/gcroots/tether-bend-shadow-observer` and
-`/nix/var/nix/gcroots/tether-bend-shadow-evaluator`. After stopping the trial, those
-two symlinks can be removed to allow garbage collection. No full NixOS rebuild or
-bot restart was needed for the trial.
+The initial Atlas trial used transient units. The September 18 deployment installed
+persistent NixOS units and enabled eligibility after the approved snapshot gate.
+NixOS generations now retain the package closures; the temporary trial GC roots
+are no longer needed. See [the rollout record](experiments/bend/ROLLOUT.md) for
+validation, deployed paths, monitoring, and rollback.
 
 Reports contain checked/skipped counts, disagreement counts, Go/Bend eligible
 counts, sorted distinct `cases_seen`, up to eight short thread IDs, and elapsed
