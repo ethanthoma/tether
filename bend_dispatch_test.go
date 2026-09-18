@@ -3,7 +3,9 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -72,7 +74,7 @@ def main() -> IO(Unit):
 							State: ReminderOpen, Text: "Test reminder", Due: now.Add(-time.Hour)})
 					}
 					*transport = bendDiscordTransport{}
-					if err := RunNudges(store, &Config{DiscordChannel: "test", BendShadow: os.Getenv("TETHER_BEND_SHADOW"), BendDispatch: os.Getenv("TETHER_BEND_DISPATCH")}, now); err != nil {
+					if err := RunNudges(store, &Config{DiscordChannel: "test", BendShadow: os.Getenv("TETHER_BEND_SHADOW"), BendDispatch: os.Getenv("TETHER_BEND_DISPATCH"), BendDelivery: os.Getenv("TETHER_BEND_DELIVERY")}, now); err != nil {
 						t.Fatal(err)
 					}
 					remaining := max(0, maxPushesPerDay-fired)
@@ -105,6 +107,13 @@ def main() -> IO(Unit):
 }
 
 func TestBendDeliveryAgreement(t *testing.T) {
+	if _, err := readDeliveryTable(os.Getenv("TETHER_BEND_DELIVERY")); err != nil {
+		t.Fatal(err)
+	}
+	originalLog := log.Writer()
+	var observations bytes.Buffer
+	log.SetOutput(&observations)
+	t.Cleanup(func() { log.SetOutput(originalLog) })
 	originalTransport := http.DefaultTransport
 	transport := &bendDiscordTransport{}
 	http.DefaultTransport = transport
@@ -165,7 +174,7 @@ def main() -> IO(Unit):
 									State: ReminderOpen, Text: "Test reminder", Due: now.Add(-time.Hour)})
 							}
 							*transport = bendDiscordTransport{failureAt: successes + 1, status: status}
-							cfg := &Config{DiscordChannel: "test", BendShadow: os.Getenv("TETHER_BEND_SHADOW"), BendDispatch: os.Getenv("TETHER_BEND_DISPATCH")}
+							cfg := &Config{DiscordChannel: "test", BendShadow: os.Getenv("TETHER_BEND_SHADOW"), BendDispatch: os.Getenv("TETHER_BEND_DISPATCH"), BendDelivery: os.Getenv("TETHER_BEND_DELIVERY")}
 							err = RunNudges(store, cfg, now)
 							if err != nil && !strings.Contains(err.Error(), "simulated rejection") {
 								t.Fatal(err)
@@ -210,5 +219,11 @@ def main() -> IO(Unit):
 		}
 	}
 	bendCompare(t, "dispatch.bend", program.String(), expected)
+	if strings.Contains(observations.String(), `"status":"mismatch"`) || strings.Contains(observations.String(), "delivery shadow: unavailable") {
+		t.Fatal("delivery observer failed or disagreed")
+	}
+	if !strings.Contains(observations.String(), `"policy":"bend-2.0.5/delivery-v1"`) {
+		t.Fatal("missing delivery observations")
+	}
 	t.Logf("Go and Bend agree on %d delivery and retry outcomes", len(expected))
 }

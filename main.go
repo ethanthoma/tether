@@ -27,6 +27,7 @@ type Config struct {
 	LLMKey             string
 	BendShadow         string
 	BendDispatch       string
+	BendDelivery       string
 }
 
 func loadConfig() *Config {
@@ -52,6 +53,7 @@ func loadConfig() *Config {
 		LLMKey:             os.Getenv("LLAMA_API_KEY"),
 		BendShadow:         os.Getenv("TETHER_BEND_SHADOW"),
 		BendDispatch:       os.Getenv("TETHER_BEND_DISPATCH"),
+		BendDelivery:       os.Getenv("TETHER_BEND_DELIVERY"),
 	}
 	cfg.MyEmail = env("TETHER_MY_EMAIL", cfg.IMAPUser)
 	return cfg

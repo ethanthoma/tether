@@ -21,6 +21,10 @@ pkgs.runCommand "tether-bend-shadow-2.0.5"
     mkdir -p $out/bin
     bun compiler/bend2/main.ts policy/shadow.bend -o $out/bin/tether-bend-shadow
     bun compiler/bend2/main.ts policy/dispatch_shadow.bend -o $out/bin/tether-bend-dispatch
+    bun compiler/bend2/main.ts policy/delivery_shadow.bend -o $out/bin/tether-bend-delivery
+    $out/bin/tether-bend-delivery > delivery-table
+    test "$(wc -c < delivery-table)" -eq 121
+    grep -Eq '^tether-bend-delivery-v1:([01][0-6]){48}$' delivery-table
     $out/bin/tether-bend-dispatch > dispatch-table
     test "$(wc -c < dispatch-table)" -eq 97
     grep -Eq '^tether-bend-dispatch-v1:[0-5]{72}$' dispatch-table

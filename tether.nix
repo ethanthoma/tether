@@ -10,6 +10,7 @@ let
   tether = pkgs.writeShellScriptBin "tether" ''
     export TETHER_BEND_SHADOW=${bend-shadow}/bin/tether-bend-shadow
     export TETHER_BEND_DISPATCH=${bend-shadow}/bin/tether-bend-dispatch
+    export TETHER_BEND_DELIVERY=${bend-shadow}/bin/tether-bend-delivery
     set -a
     [ -f /var/lib/tether.env ] && . /var/lib/tether.env
     set +a

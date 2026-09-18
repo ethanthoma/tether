@@ -18,12 +18,38 @@ func TestMain(tests *testing.M) {
 			protocol = dispatchProtocol
 			mode = strings.Replace(mode, "dispatch-", "", 1)
 		}
+		if strings.HasPrefix(mode, "shadow-helper-delivery-") {
+			protocol = deliveryProtocol
+			mode = strings.Replace(mode, "delivery-", "", 1)
+		}
 		output := protocol.prefix + strings.Repeat("0", protocol.size) + "\n"
 		switch mode {
 		case "shadow-helper-good":
 			if len(os.Environ()) != 0 {
 				os.Exit(3)
 			}
+		case "shadow-helper-model":
+			var decisions strings.Builder
+			for confirmed := 0; confirmed <= 5; confirmed++ {
+				for flags := 0; flags < 8; flags++ {
+					count, failed := confirmed, flags&2 != 0
+					if flags&1 != 0 && !failed {
+						if flags&4 != 0 {
+							count++
+						} else {
+							failed = true
+						}
+					}
+					tag := "0"
+					if failed {
+						tag = "1"
+					}
+					fmt.Fprintf(&decisions, "%s%d", tag, count)
+				}
+			}
+			output = deliveryProtocol.prefix + decisions.String() + "\n"
+		case "shadow-helper-state":
+			output = deliveryProtocol.prefix + strings.Repeat("20", 48) + "\n"
 		case "shadow-helper-five":
 			output = dispatchProtocol.prefix + strings.Repeat("5", dispatchProtocol.size) + "\n"
 		case "shadow-helper-error":

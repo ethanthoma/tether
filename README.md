@@ -215,3 +215,25 @@ falls back to Go. Sending stops on the first failed delivery or log write; only
 confirmed sends enter the nudge log. Successful batches log `Bend dispatch active`.
 The snapshot test now requires both evaluator environment variables and checks
 both dispatch and eligibility through activation, failure fallback, and rollback.
+
+### Bend delivery transition observer
+
+`TETHER_BEND_DELIVERY` selects `tether-bend-delivery`, supplied by the Nix wrapper.
+For nonempty daytime batches, the sender loads its finite transition table once
+and compares Bend's state after each send-and-log outcome with Go's state. Reports
+have policy `bend-2.0.5/delivery-v1`, source `batch`, transitions checked,
+disagreements, persisted confirmations, and failure status. They appear in the
+service that sends the batch, usually `tether-pulse.service`.
+
+This component is **shadow-only**: Go always controls continuation and stopping.
+A rejected request or failed log write stops the batch. An accepted HTTP request
+with a failed log write is unconfirmed in this model; it cannot undo the external
+send. Evaluator failures or mismatches only produce diagnostics. No observer runs
+for empty batches or during quiet hours. An empty `TETHER_BEND_DELIVERY` disables
+observation; a long-running bot needs restarting after changing its environment.
+
+The isolated snapshot test requires `TETHER_BEND_DELIVERY` alongside both other
+native evaluator paths. Native transition tests cover all 48 inputs, and delivery
+recovery tests exercise the observer through real sender code with fake HTTP.
+Dispatch activation still waits for daytime shadow evidence; delivery has no
+authority switch yet.

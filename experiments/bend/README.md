@@ -119,3 +119,20 @@ batch count. It projects slipped commitments in memory, preserving the live stor
 Production dispatch is opt-in via `bend-dispatch.enabled`; Go's delivery safety
 limits still bound the native decision. Eligibility uses its own executable,
 protocol, and switch, so dispatch can be rolled back independently.
+
+## Native delivery transition observer
+
+`delivery_shadow.bend` emits `tether-bend-delivery-v1:` followed by 48 two-digit
+states and a newline (121 bytes). Each state contains a tag (`0` ready, `1` failed)
+and confirmed count (`0`–`6`). Inputs index as `confirmed * 8 + flags`, with flag
+bits `allowed=1`, `failed=2`, `succeeded=4`. Input counts range from zero through
+five; the sixth output covers the model's boundary case. Production batches never
+attempt more than five deliveries.
+
+The sender compares actual send-and-persist outcomes against this table. A log
+write failure is a failed outcome even when HTTP succeeded. Go independently
+controls the loop; the observer cannot authorize another send or suppress an error.
+`TestBendNativeDeliveryAgreement` covers all 48 transitions, including disallowed
+steps and attempts to resume a failed state. Normal tests cover observer failures,
+incorrect output, idle batches, and stopping after persistence failure. Existing
+Bend delivery/retry tests additionally require zero observer disagreements.

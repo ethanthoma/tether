@@ -132,15 +132,23 @@ func RunNudges(store *Store, cfg *Config, now time.Time) error {
 	}
 	nudges := collectNudges(store, nl, now, productionBendEligibility(store, cfg, nl, now))
 	planned := productionBendBatchCount(store, cfg, false, nl.firedToday("", now), len(nudges))
+	var observer *deliveryShadow
+	if planned > 0 {
+		observer = openDeliveryShadow(cfg.BendDelivery)
+	}
+	defer observer.report()
 	for _, nudge := range nudges[:planned] {
-		if err := PostDiscordButtons(cfg, "**"+nudge.Title+"**\n"+nudge.Body, nudge.buttons()); err != nil {
-			return err
+		err := PostDiscordButtons(cfg, "**"+nudge.Title+"**\n"+nudge.Body, nudge.buttons())
+		if err == nil {
+			nudge.FiredAt = now
+			err = nl.append(nudge)
 		}
-		nudge.FiredAt = now
-		if err := nl.append(nudge); err != nil {
+		observer.observe(err == nil)
+		if err != nil {
 			return err
 		}
 	}
+
 	return nil
 }
 

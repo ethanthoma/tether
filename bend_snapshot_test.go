@@ -3,11 +3,14 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
+	"log"
 	"net/http"
 	"os"
 	"path/filepath"
 	"reflect"
+	"strings"
 	"testing"
 	"time"
 )
@@ -17,10 +20,17 @@ func TestBendProductionSnapshot(t *testing.T) {
 	if snapshot == "" {
 		t.Skip("set TETHER_BEND_SNAPSHOT to an isolated production snapshot")
 	}
-	cfg := &Config{BendShadow: os.Getenv("TETHER_BEND_SHADOW"), DiscordChannel: "test", BendDispatch: os.Getenv("TETHER_BEND_DISPATCH")}
+	cfg := &Config{BendShadow: os.Getenv("TETHER_BEND_SHADOW"), DiscordChannel: "test", BendDispatch: os.Getenv("TETHER_BEND_DISPATCH"), BendDelivery: os.Getenv("TETHER_BEND_DELIVERY")}
 	if _, err := readBendTable(cfg.BendDispatch, dispatchProtocol); err != nil {
 		t.Fatal(err)
 	}
+	if _, err := readDeliveryTable(cfg.BendDelivery); err != nil {
+		t.Fatal(err)
+	}
+	originalLog := log.Writer()
+	var deliveryReports bytes.Buffer
+	log.SetOutput(&deliveryReports)
+	t.Cleanup(func() { log.SetOutput(originalLog) })
 	now := time.Now().In(time.Local)
 	now = time.Date(now.Year(), now.Month(), now.Day(), 12, 0, 0, 0, now.Location())
 	var baseline []Nudge
@@ -180,4 +190,12 @@ func TestBendProductionSnapshot(t *testing.T) {
 			t.Logf("production_threads=%d controlled_threads=%d fake_deliveries=%d %s", productionCount, len(fixtures), transport.sent, report)
 		})
 	}
+	if strings.Contains(deliveryReports.String(), `"status":"mismatch"`) || strings.Contains(deliveryReports.String(), "delivery shadow: unavailable") {
+		t.Fatal("snapshot delivery observer failed or disagreed")
+	}
+	if !strings.Contains(deliveryReports.String(), `"policy":"bend-2.0.5/delivery-v1"`) {
+		t.Fatal("snapshot did not exercise delivery observer")
+	}
+	t.Log(deliveryReports.String())
+
 }
