@@ -1,52 +1,86 @@
-# Email triage evaluation
+# Triage classifier evaluation
 
-Run the opt-in evaluation against an available model endpoint:
+`cases.json` is a 22-case development challenge set: six anonymized paraphrases
+from the earlier mailbox review and sixteen synthetic cases. It contains no
+original addresses, identifiers, links, or message bodies. Each case records
+chronological messages, direction, expected label, rationale, and provenance.
+Labels are **provisional assistant judgments**, not human-approved ground truth.
+This set is too small and development-driven to estimate production accuracy or
+train a useful model. Keep it out of training if later used for evaluation.
+
+## Labels and review
+
+- `needs_reply`: the user owes a reply or concrete personal deadline action.
+- `waiting_on_them`: another person owes the user an answer or action.
+- `fyi`: information or a resolved exchange with no remaining obligation.
+- `noise`: bulk promotions/newsletters without a personal obligation.
+- `abstain`: missing context, unclear ownership, or material obligations both ways.
+
+Review the rationale as well as the label before using examples for training.
+Contrastive cases reverse message direction; others cover closing thanks versus
+unresolved requests, quoted questions, calendar notices, automated deadlines,
+missing attachments, and mixed obligations. This benchmark evaluates direction
+classification only. Commitment extraction needs a separate evaluation.
+
+## Run without any model
+
+```sh
+nix-shell -p go --run 'go test -mod=vendor -run "^TestTriageOfflineBaseline$" -count=1 -v .'
+```
+
+The baseline is a small hand-written lexical classifier, **not a trained model**.
+It looks at the latest message, strips common quoted tails, and abstains when no
+rule applies. It deliberately provides a simple reference for whether a learned
+model and thread context add value. It does not produce calibrated confidence.
+No production state, network, LLM, or notifications are involved.
+
+## Compare a purpose-trained classifier
+
+Export one prediction per case as a JSON object, for example
+`{"resolved_shipping":"fyi", "calendar_invitation":"abstain", ...}`.
+Use actual case IDs for every entry; ellipses are illustrative, not valid input.
+Allowed values are the five labels above. Feed only `messages` to the classifier;
+exclude IDs, expected labels, rationales, and provenance to prevent label leakage.
+
+```sh
+TETHER_TRIAGE_PREDICTIONS=/private/predictions.json \
+  nix-shell -p go --run 'go test -mod=vendor -run "^TestTriageImportedPredictions$" -count=1 -v .'
+```
+
+## Optional small-language-model comparison
+
+Use an explicitly configured endpoint when one is available; none is started or
+contacted by the offline benchmark. The request contains only anonymous messages.
+The endpoint selects the model; record its model/version and quantization alongside
+results. The fixed experimental prompt is in `triage_eval_test.go`, temperature is
+zero, and the output budget is 512 tokens. It supports abstention and does not
+change the production triage prompt or pipeline.
 
 ```sh
 TETHER_LLM_URL=http://127.0.0.1:8080 \
   nix-shell -p go --run 'go test -mod=vendor -tags triage_eval -run "^TestTriageEmailExamples$" -count=1 -v -timeout 10m .'
 ```
 
-Supply `LLAMA_API_KEY` in the environment if the endpoint requires authentication.
-The test calls the model, uses temporary stores, and sends no notifications.
-Normal `make test` stays offline.
+Supply `LLAMA_API_KEY` if required. Model/transport errors and invalid labels fail
+the evaluation; they are not silently scored as abstentions. No local-model result
+is available while llama is intentionally stopped.
 
-## Cases and expectations
+## Interpret results
 
-`triage_eval_test.go` contains six anonymized, paraphrased cases derived from a
-read-only review of stored email history, plus one synthetic inbound request.
-No original addresses, identifiers, links, tracking numbers, or message bodies
-are included. Expected labels are provisional reviewer judgments, not user-approved
-ground truth.
+Both runners emit identical counts and an expected-by-predicted confusion matrix:
 
-| Case | Expected state | Reason |
-| --- | --- | --- |
-| Shipment answered, user sends thanks | FYI | The request was resolved, including in quoted history. |
-| Calendar invitation | FYI | Calendar RSVP is not a prose reply owed to a person. |
-| Optional app permission update | FYI | The notice explicitly permits ignoring it. |
-| Thanks and interests, no request | FYI | No outstanding request appears in the supplied context. |
-| Explicit introduction request | Waiting on them | A person has been asked to make an introduction. |
-| Building entry timeout request | Waiting on them | A concrete change has been requested. |
-| Human asks for entrance details | Needs reply | The user owes the requested details. |
+- Coverage = `accepted / cases`; selective accuracy = `correct_accepted / accepted`
+  (undefined if none accepted).
+- `false_reminders`: an actionable prediction with the wrong obligation/owner,
+  including ambiguous cases confidently assigned an obligation.
+- `false_silencing`: a genuinely actionable example classified FYI or noise.
+- `actionable_abstained`: work left for review, rather than automatically silenced.
+- `ambiguous_accepted`: cases labeled abstain that the classifier decided anyway.
+- `correct_abstentions`: intentionally ambiguous cases correctly left undecided.
 
-All cases also require an empty commitments list: none contains an explicit promise
-by the user. Inspect the printed classification notes for who owes what; exact
-wording is not scored.
-
-## Observations and limits
-
-The reviewed store had 511 threads: 2 needs-reply, 10 waiting-on-them, 372 FYI,
-126 noise, and 1 done. The eight-thread convenience sample contained both
-needs-reply entries and six waiting-on-them entries. Clear errors included a
-calendar invitation, an optional permission notice, and a closing thank-you.
-All ten waiting-on-them records lacked triage notes, consistent with the old
-automatic outbound transition. This sample does not measure overall accuracy.
-
-The live evaluation was attempted but could not reach the configured Atlas endpoint
-at `127.0.0.1:8080`; llama was intentionally stopped while Atlas trains models.
-There is therefore no current-model accuracy result. Rerun after the service is available, review the
-provisional labels, and expand the cases before drawing quality conclusions.
-
-Existing stored classifications are unchanged. New reminder text displays bounded
-participant and triage-note context when available; it cannot recover missing notes
-or correct stale classifications by itself.
+Evaluation prints mistakes rather than asserting perfect model accuracy. Passing
+Go tests validates the harness, not model readiness. An all-abstaining classifier
+has zero false reminders but zero coverage; compare both. No automatic promotion
+threshold is configured. Before deployment, human-review more labels, collect a
+separate evaluation set grouped by thread/source to avoid leakage, and choose
+confidence thresholds on development data. Production classifications are unchanged.

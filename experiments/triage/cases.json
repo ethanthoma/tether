@@ -1,0 +1,291 @@
+{
+  "version": 1,
+  "review_status": "provisional_assistant_labels",
+  "usage": "development challenge set; not a held-out accuracy estimate",
+  "cases": [
+    {
+      "id": "resolved_shipping",
+      "expected": "fyi",
+      "rationale": "An answer followed by closing thanks resolves the request.",
+      "provenance": "paraphrased_history",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your certificate shipped last week. Use the tracking number to check its status."
+        },
+        {
+          "outbound": true,
+          "body": "That resolves everything, thank you!\n\nOn Monday, Support wrote:\n> Earlier you asked: Where is my shipment?"
+        }
+      ]
+    },
+    {
+      "id": "calendar_invitation",
+      "expected": "fyi",
+      "rationale": "Calendar RSVP is not a prose reply owed.",
+      "provenance": "paraphrased_history",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your attendance is optional. Reply to this invitation in Google Calendar. You are receiving Calendar notifications."
+        }
+      ]
+    },
+    {
+      "id": "optional_permissions",
+      "expected": "fyi",
+      "rationale": "The automated notice explicitly permits ignoring the request.",
+      "provenance": "paraphrased_history",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "An installed app requests updated permissions. Accept or ignore this request. If ignored, it retains its current permissions."
+        }
+      ]
+    },
+    {
+      "id": "thanks_only",
+      "expected": "fyi",
+      "rationale": "No outstanding request or promise is present.",
+      "provenance": "paraphrased_history",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Thank you for your time yesterday, it was helpful! My interests are small models and iterative computation."
+        }
+      ]
+    },
+    {
+      "id": "introduction_request",
+      "expected": "waiting_on_them",
+      "rationale": "The user asks the recipient for an introduction.",
+      "provenance": "paraphrased_history",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "An introduction to Morgan would mean a lot. Please let me know if you need anything else from me."
+        }
+      ]
+    },
+    {
+      "id": "building_request",
+      "expected": "waiting_on_them",
+      "rationale": "The recipient owes action on an explicit request.",
+      "provenance": "paraphrased_history",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you extend the entry timeout until the elevator is repaired? Thank you."
+        }
+      ]
+    },
+    {
+      "id": "human_reply_needed",
+      "expected": "needs_reply",
+      "rationale": "The sender asks the user for necessary details.",
+      "provenance": "synthetic",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Could you tell me which entrance times out? I need those details to adjust the system."
+        }
+      ]
+    },
+    {
+      "id": "inbound_confirmation",
+      "expected": "needs_reply",
+      "rationale": "A direct confirmation is requested.",
+      "provenance": "synthetic",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please confirm whether Tuesday works for you."
+        }
+      ]
+    },
+    {
+      "id": "outbound_confirmation",
+      "expected": "waiting_on_them",
+      "rationale": "Same wording, opposite direction: the recipient owes confirmation.",
+      "provenance": "synthetic",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please confirm whether Tuesday works for you."
+        }
+      ]
+    },
+    {
+      "id": "answered_question",
+      "expected": "fyi",
+      "rationale": "The latest message supplies the requested answer.",
+      "provenance": "synthetic",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you tell me which room we booked?"
+        },
+        {
+          "outbound": false,
+          "body": "We booked room twelve. No reply needed."
+        }
+      ]
+    },
+    {
+      "id": "thanks_with_request",
+      "expected": "needs_reply",
+      "rationale": "Polite thanks does not cancel the explicit request.",
+      "provenance": "synthetic",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Thank you for the draft. Could you send the editable version?"
+        }
+      ]
+    },
+    {
+      "id": "thanks_not_resolution",
+      "expected": "waiting_on_them",
+      "rationale": "Thanks alone does not resolve a prior unanswered request.",
+      "provenance": "synthetic",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send the revised contract?"
+        },
+        {
+          "outbound": false,
+          "body": "Thanks for your patience. I am still working on it."
+        }
+      ]
+    },
+    {
+      "id": "inbound_followup",
+      "expected": "needs_reply",
+      "rationale": "The user still owes the answer to the previous question.",
+      "provenance": "synthetic",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Could you send the signed form?"
+        },
+        {
+          "outbound": false,
+          "body": "Just following up on my earlier message."
+        }
+      ]
+    },
+    {
+      "id": "outbound_followup",
+      "expected": "waiting_on_them",
+      "rationale": "The user is following up on an unanswered request.",
+      "provenance": "synthetic",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send the signed form?"
+        },
+        {
+          "outbound": true,
+          "body": "Just following up on my earlier message."
+        }
+      ]
+    },
+    {
+      "id": "promotion",
+      "expected": "noise",
+      "rationale": "A generic commercial offer creates no personal obligation.",
+      "provenance": "synthetic",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Limited time offer: buy our premium bundle today. Unsubscribe from these promotions here."
+        }
+      ]
+    },
+    {
+      "id": "newsletter",
+      "expected": "noise",
+      "rationale": "A bulk newsletter contains no personal request.",
+      "provenance": "synthetic",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "This week in product news: our latest updates. Unsubscribe from this newsletter here."
+        }
+      ]
+    },
+    {
+      "id": "quoted_request_resolved",
+      "expected": "fyi",
+      "rationale": "Quoted questions must not override the current resolution.",
+      "provenance": "synthetic",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Everything is resolved; no reply needed.\n\nOn Monday, User wrote:\n> Could you fix my account?"
+        }
+      ]
+    },
+    {
+      "id": "missing_attachment",
+      "expected": "abstain",
+      "rationale": "The unseen attachment is necessary to determine an obligation.",
+      "provenance": "synthetic",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please see the attached document for the next steps."
+        }
+      ]
+    },
+    {
+      "id": "ambiguous_fragment",
+      "expected": "abstain",
+      "rationale": "A fragment without prior context cannot identify who owes what.",
+      "provenance": "synthetic",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What about that thing we discussed?"
+        }
+      ]
+    },
+    {
+      "id": "deadline_notice",
+      "expected": "needs_reply",
+      "rationale": "An automated notice specifies a deadline for personal action.",
+      "provenance": "synthetic",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your application is incomplete. You must upload your signature by Friday to keep it active."
+        }
+      ]
+    },
+    {
+      "id": "ambiguous_pronoun",
+      "expected": "abstain",
+      "rationale": "The responsible party is ambiguous without context.",
+      "provenance": "synthetic",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "They said you would handle it. Is that still the plan?"
+        }
+      ]
+    },
+    {
+      "id": "mixed_obligations",
+      "expected": "abstain",
+      "rationale": "Both parties owe different actions; a single direction loses information.",
+      "provenance": "synthetic",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will send the figures tomorrow. Could you send your revisions today?"
+        }
+      ]
+    }
+  ]
+}
