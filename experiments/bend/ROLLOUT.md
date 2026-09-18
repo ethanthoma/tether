@@ -60,3 +60,36 @@ The next nudge batch uses Go; an in-flight batch finishes with its selected poli
 No restart or data rollback is needed. Keep shadow monitoring on while diagnosing.
 The previous source and system path are retained privately under
 `/var/lib/tether-bend-rollout-20260918/` for a full application rollback if needed.
+
+## Dispatch shadow stage — 2026-09-18
+
+Source commit `cc5ed00` adds native dispatch batch selection with an independent
+`bend-dispatch.enabled` switch. The switch remains absent in production;
+eligibility remains enabled. Go retains quiet-hour and daily/candidate safety
+limits and all delivery/persistence effects.
+
+The Go suite, existing proofs and 11 mutation rejections passed. The 72-entry
+native dispatch table passed 200 comparisons including inputs above the cap.
+Existing dispatch and delivery-recovery tests now exercise the native production
+path. The isolated 513-thread snapshot plus eight fixtures passed Go, both Bend
+policies, evaluator-failure fallback, and rollback: three identical fake deliveries
+per lane, matching confirmations, and no shadow disagreements. The exact
+NixOS-built evaluator passed native and snapshot gates again before activation.
+
+Deployment generation:
+`/nix/store/mmrz9swv0nrh7ri4641f7f3fsj3r12if-nixos-system-atlas-26.11.20260831.34ab990`
+
+Policy package:
+`/nix/store/bm5ndi785kz65qyik8alvms0pfggvpfb-tether-bend-shadow-2.0.5`
+
+The persistent shadow service now runs eligibility and dispatch comparisons.
+First live dispatch report: `status=ok`, `quiet=true`, `fired_today=0`,
+`candidates=0`, `go_batch=0`, `bend_batch=0`. Eligibility still reports 513 threads,
+zero skips, and zero disagreements. Bot and timer are active; llama remains off.
+Daytime dispatch observation remains pending; this deployment does not enable
+Bend dispatch authority. Temporary snapshot/test files were removed afterward.
+
+After reviewing daytime shadow evidence, create an empty
+`/var/lib/tether/bend-dispatch.enabled` to activate batch selection. Remove only
+that file to roll dispatch back without changing eligibility. The previous source
+and system path are retained under `/var/lib/tether-dispatch-staging-20260918/`.
