@@ -11,6 +11,7 @@ import numpy as np
 
 if TYPE_CHECKING:
     from sentence_transformers import SentenceTransformer
+    from sklearn.linear_model import LogisticRegression
 
 os.environ.setdefault("HF_HUB_DISABLE_TELEMETRY", "1")
 os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
@@ -173,7 +174,6 @@ def score(cases: list[dict], predicted: list[str]) -> dict:
 
 def train_model(data: Path, output: Path) -> None:
     from sentence_transformers import SentenceTransformer
-    from sklearn.linear_model import LogisticRegression
 
     train, dev = training_split(load_cases(data))
     output.mkdir(parents=True, exist_ok=False)
@@ -181,12 +181,7 @@ def train_model(data: Path, output: Path) -> None:
         BASE, revision=REVISION, device="cpu", trust_remote_code=False
     )
     train_vectors = features(encoder, train)
-    classifier = LogisticRegression(
-        C=10, class_weight="balanced", max_iter=1000, random_state=42
-    )
-    classifier.fit(train_vectors, [case["expected"] for case in train])
-    if classifier.n_iter_.max() >= classifier.max_iter:
-        raise RuntimeError("classifier did not converge")
+    classifier = fit_classifier(train_vectors, [case["expected"] for case in train])
     head = {
         "version": 1,
         "base": BASE,
@@ -229,6 +224,18 @@ def train_model(data: Path, output: Path) -> None:
     (output / "head.json").write_text(json.dumps(head, indent=2) + "\n")
     (output / "training.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report, indent=2))
+
+
+def fit_classifier(matrix: np.ndarray, labels: list[str]) -> "LogisticRegression":
+    from sklearn.linear_model import LogisticRegression
+
+    classifier = LogisticRegression(
+        C=10, class_weight="balanced", max_iter=1000, random_state=42
+    )
+    classifier.fit(matrix, labels)
+    if classifier.n_iter_.max() >= classifier.max_iter:
+        raise RuntimeError("classifier did not converge")
+    return classifier
 
 
 def predict_model(model: Path, data: Path, output: Path) -> None:

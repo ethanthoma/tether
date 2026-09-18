@@ -1,5 +1,8 @@
 # Local triage classifier pilot
 
+The current fully synthetic dataset and MDL diagnostic are documented in
+[SYNTHETIC.md](SYNTHETIC.md). This page preserves the original pilot for comparison.
+
 This experiment trains a custom logistic-regression head over frozen
 [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)
 embeddings. The Apache-2.0 base has approximately 22.7 million parameters; the
@@ -59,8 +62,7 @@ trained from mail. CLI-created files use owner-only permissions.
 ## Decision
 
 See [RESULTS.md](RESULTS.md): this pilot underperforms the rules. Keep it offline.
-Next collect and review labels with permission, especially resolved conversations,
-promises, mixed ownership, and indirect requests. Split by original thread before
-augmentation; reserve a separate evaluation set. Do not use existing automatic
-thread states as gold labels. Consider encoder fine-tuning only after establishing
-this stronger dataset and compare against this frozen-encoder baseline.
+Continue with fully synthetic scenarios as specified in [SYNTHETIC.md](SYNTHETIC.md).
+Review labels and keep each scenario family together before augmentation; reserve
+separate evaluation families. Do not use existing automatic thread states as gold
+labels. Compare later encoder fine-tuning against this frozen-encoder baseline.

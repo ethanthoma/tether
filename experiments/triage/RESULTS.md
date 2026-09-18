@@ -1,5 +1,8 @@
 # Initial offline results — 2026-09-18
 
+The subsequent fully synthetic dataset experiment, same-test-set pilot comparison,
+and conditional MDL measurements are in [SYNTHETIC.md](SYNTHETIC.md).
+
 Dataset: `cases.json`, version 1, 22 development cases with provisional labels.
 These results describe this challenge set only; rules were written with the cases
 visible, so this is neither held-out accuracy nor evidence for production promotion.

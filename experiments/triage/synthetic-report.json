@@ -1,0 +1,1158 @@
+{
+  "audit": {
+    "status": "structural_checks_passed_semantic_labels_provisional",
+    "cases": 387,
+    "families": 72,
+    "authored_variants": 216,
+    "unique_thread_texts": 216,
+    "cross_split_trigram_jaccard_max": 0.1429,
+    "nearest_cross_split_pair": [
+      "locker_location_2",
+      "test_model_repair_2"
+    ],
+    "splits": {
+      "dev": {
+        "cases": 63,
+        "families": 12,
+        "labels": {
+          "abstain": 11,
+          "fyi": 19,
+          "needs_reply": 17,
+          "noise": 2,
+          "waiting_on_them": 14
+        },
+        "domains": {
+          "community": 12,
+          "creative": 6,
+          "education": 9,
+          "household": 6,
+          "personal": 15,
+          "work": 15
+        },
+        "capabilities": {
+          "automated_notice": 3,
+          "bulk_vs_personal": 3,
+          "direct_request": 6,
+          "followup": 6,
+          "indirect_request": 6,
+          "informal_format": 6,
+          "missing_context": 6,
+          "mixed_ownership": 6,
+          "negation": 3,
+          "promise": 6,
+          "quoted_history": 6,
+          "resolution": 6
+        }
+      },
+      "test": {
+        "cases": 63,
+        "families": 12,
+        "labels": {
+          "abstain": 13,
+          "fyi": 19,
+          "needs_reply": 16,
+          "noise": 2,
+          "waiting_on_them": 13
+        },
+        "domains": {
+          "community": 9,
+          "creative": 9,
+          "education": 12,
+          "household": 9,
+          "personal": 12,
+          "work": 12
+        },
+        "capabilities": {
+          "automated_notice": 3,
+          "bulk_vs_personal": 3,
+          "direct_request": 6,
+          "followup": 6,
+          "indirect_request": 6,
+          "informal_format": 6,
+          "missing_context": 6,
+          "mixed_ownership": 6,
+          "negation": 3,
+          "promise": 6,
+          "quoted_history": 6,
+          "resolution": 6
+        }
+      },
+      "train": {
+        "cases": 261,
+        "families": 48,
+        "labels": {
+          "abstain": 54,
+          "fyi": 79,
+          "needs_reply": 65,
+          "noise": 6,
+          "waiting_on_them": 57
+        },
+        "domains": {
+          "community": 42,
+          "creative": 27,
+          "education": 33,
+          "household": 48,
+          "personal": 42,
+          "work": 69
+        },
+        "capabilities": {
+          "automated_notice": 12,
+          "bulk_vs_personal": 12,
+          "direct_request": 24,
+          "followup": 24,
+          "indirect_request": 24,
+          "informal_format": 24,
+          "missing_context": 24,
+          "mixed_ownership": 24,
+          "negation": 21,
+          "promise": 24,
+          "quoted_history": 24,
+          "resolution": 24
+        }
+      }
+    },
+    "source_sha256": "bdf2f55e4c6a130a54c2663fdccbb6d2099c791eac40904c9e118537c10c414e"
+  },
+  "mdl": {
+    "interpretation": "conditional prequential label code; not Kolmogorov complexity or a quality certificate",
+    "side_information": "frozen encoder, messages/directions, family boundaries, order seeds, learner and coding protocol",
+    "data_sha256": "bca6d3b5d50beea98e5067dead9aee9eb56de359d905be8b21fcff1607d1d8f0",
+    "train_cases": 261,
+    "train_families": 48,
+    "uniform_bits_per_case": 2.321928094887362,
+    "learner_bits_per_case_mean": 1.950371257859242,
+    "prior_bits_per_case_mean": 2.162360962472896,
+    "shuffled_bits_per_case_mean": 2.3447781017506593,
+    "runs": [
+      {
+        "seed": 41,
+        "learner_bits": 518.1886517885649,
+        "prior_bits": 562.033092087268,
+        "blocks": [
+          {
+            "train_families": 0,
+            "encoded_families": 8,
+            "encoded_cases": 42,
+            "learner_bits": 97.52097998526922
+          },
+          {
+            "train_families": 8,
+            "encoded_families": 8,
+            "encoded_cases": 39,
+            "learner_bits": 74.16486813601972
+          },
+          {
+            "train_families": 16,
+            "encoded_families": 16,
+            "encoded_cases": 87,
+            "learner_bits": 176.07060586160196
+          },
+          {
+            "train_families": 32,
+            "encoded_families": 16,
+            "encoded_cases": 93,
+            "learner_bits": 170.432197805674
+          }
+        ]
+      },
+      {
+        "seed": 42,
+        "learner_bits": 501.04255977579237,
+        "prior_bits": 566.4973872252883,
+        "blocks": [
+          {
+            "train_families": 0,
+            "encoded_families": 8,
+            "encoded_cases": 45,
+            "learner_bits": 104.48676426993133
+          },
+          {
+            "train_families": 8,
+            "encoded_families": 8,
+            "encoded_cases": 39,
+            "learner_bits": 85.04589689802313
+          },
+          {
+            "train_families": 16,
+            "encoded_families": 16,
+            "encoded_cases": 87,
+            "learner_bits": 153.22312782156828
+          },
+          {
+            "train_families": 32,
+            "encoded_families": 16,
+            "encoded_cases": 90,
+            "learner_bits": 158.28677078626956
+          }
+        ]
+      },
+      {
+        "seed": 43,
+        "learner_bits": 507.90948333942924,
+        "prior_bits": 564.5981543037212,
+        "blocks": [
+          {
+            "train_families": 0,
+            "encoded_families": 8,
+            "encoded_cases": 42,
+            "learner_bits": 97.52097998526922
+          },
+          {
+            "train_families": 8,
+            "encoded_families": 8,
+            "encoded_cases": 45,
+            "learner_bits": 85.28499677737996
+          },
+          {
+            "train_families": 16,
+            "encoded_families": 16,
+            "encoded_cases": 90,
+            "learner_bits": 168.15690935626554
+          },
+          {
+            "train_families": 32,
+            "encoded_families": 16,
+            "encoded_cases": 84,
+            "learner_bits": 156.94659722051446
+          }
+        ]
+      }
+    ],
+    "shuffled_label_runs": [
+      {
+        "seed": 41,
+        "learner_bits": 619.408490707266,
+        "prior_bits": 565.2852752144106,
+        "blocks": [
+          {
+            "train_families": 0,
+            "encoded_families": 8,
+            "encoded_cases": 42,
+            "learner_bits": 97.52097998526922
+          },
+          {
+            "train_families": 8,
+            "encoded_families": 8,
+            "encoded_cases": 39,
+            "learner_bits": 85.11021977387313
+          },
+          {
+            "train_families": 16,
+            "encoded_families": 16,
+            "encoded_cases": 87,
+            "learner_bits": 192.4815742745944
+          },
+          {
+            "train_families": 32,
+            "encoded_families": 16,
+            "encoded_cases": 93,
+            "learner_bits": 244.2957166735292
+          }
+        ]
+      },
+      {
+        "seed": 42,
+        "learner_bits": 618.4077011053782,
+        "prior_bits": 569.2026514285487,
+        "blocks": [
+          {
+            "train_families": 0,
+            "encoded_families": 8,
+            "encoded_cases": 45,
+            "learner_bits": 104.48676426993133
+          },
+          {
+            "train_families": 8,
+            "encoded_families": 8,
+            "encoded_cases": 39,
+            "learner_bits": 105.63850522467538
+          },
+          {
+            "train_families": 16,
+            "encoded_families": 16,
+            "encoded_cases": 87,
+            "learner_bits": 193.16863713450113
+          },
+          {
+            "train_families": 32,
+            "encoded_families": 16,
+            "encoded_cases": 90,
+            "learner_bits": 215.1137944762704
+          }
+        ]
+      },
+      {
+        "seed": 43,
+        "learner_bits": 598.1450618581218,
+        "prior_bits": 557.7114894860188,
+        "blocks": [
+          {
+            "train_families": 0,
+            "encoded_families": 8,
+            "encoded_cases": 42,
+            "learner_bits": 97.52097998526922
+          },
+          {
+            "train_families": 8,
+            "encoded_families": 8,
+            "encoded_cases": 45,
+            "learner_bits": 108.52509052245784
+          },
+          {
+            "train_families": 16,
+            "encoded_families": 16,
+            "encoded_cases": 90,
+            "learner_bits": 205.93482259979012
+          },
+          {
+            "train_families": 32,
+            "encoded_families": 16,
+            "encoded_cases": 84,
+            "learner_bits": 186.16416875060463
+          }
+        ]
+      }
+    ]
+  },
+  "training": {
+    "base": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "encoder_frozen": true,
+    "classifier": {
+      "type": "logistic_regression",
+      "C": 10,
+      "class_weight": "balanced",
+      "max_iter": 1000,
+      "seed": 42
+    },
+    "features": "ordered previous/latest message; separate inbound/outbound embedding and presence slots",
+    "training_scenarios": 48,
+    "dev_scenarios": 12,
+    "data_sha256": "bca6d3b5d50beea98e5067dead9aee9eb56de359d905be8b21fcff1607d1d8f0",
+    "train_count": 261,
+    "dev_count": 63,
+    "threshold": 0.85,
+    "threshold_selection": "maximum dev coverage with zero accepted dev errors; ties choose lower threshold",
+    "dev_raw": {
+      "cases": 63,
+      "accepted": 41,
+      "correct_accepted": 24,
+      "correct_abstentions": 7,
+      "false_reminders": 11,
+      "false_silencing": 5,
+      "actionable_abstained": 11,
+      "ambiguous_accepted": 4
+    },
+    "dev_selective": {
+      "cases": 63,
+      "accepted": 1,
+      "correct_accepted": 1,
+      "correct_abstentions": 11,
+      "false_reminders": 0,
+      "false_silencing": 0,
+      "actionable_abstained": 31,
+      "ambiguous_accepted": 0
+    }
+  },
+  "holdout_sha256": "a9192351556ba3aa062ce0ebf08984572b47592ac4cb0d8d22ec39b4bdbb68b9",
+  "evaluation": {
+    "minilm-pilot": {
+      "threshold": 0.65,
+      "raw": {
+        "cases": 63,
+        "accepted": 50,
+        "correct_accepted": 20,
+        "correct_abstentions": 6,
+        "false_reminders": 22,
+        "false_silencing": 6,
+        "actionable_abstained": 6,
+        "ambiguous_accepted": 7
+      },
+      "selective": {
+        "cases": 63,
+        "accepted": 12,
+        "correct_accepted": 6,
+        "correct_abstentions": 13,
+        "false_reminders": 6,
+        "false_silencing": 0,
+        "actionable_abstained": 21,
+        "ambiguous_accepted": 0
+      },
+      "capabilities": {
+        "automated_notice": {
+          "cases": 3,
+          "accepted": 3,
+          "correct_accepted": 1,
+          "correct_abstentions": 0,
+          "false_reminders": 2,
+          "false_silencing": 0,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 1
+        },
+        "bulk_vs_personal": {
+          "cases": 3,
+          "accepted": 2,
+          "correct_accepted": 2,
+          "correct_abstentions": 0,
+          "false_reminders": 0,
+          "false_silencing": 0,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 0
+        },
+        "direct_request": {
+          "cases": 6,
+          "accepted": 6,
+          "correct_accepted": 2,
+          "correct_abstentions": 0,
+          "false_reminders": 4,
+          "false_silencing": 0,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 0
+        },
+        "followup": {
+          "cases": 6,
+          "accepted": 6,
+          "correct_accepted": 4,
+          "correct_abstentions": 0,
+          "false_reminders": 0,
+          "false_silencing": 2,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 0
+        },
+        "indirect_request": {
+          "cases": 6,
+          "accepted": 6,
+          "correct_accepted": 2,
+          "correct_abstentions": 0,
+          "false_reminders": 2,
+          "false_silencing": 0,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 2
+        },
+        "informal_format": {
+          "cases": 6,
+          "accepted": 4,
+          "correct_accepted": 2,
+          "correct_abstentions": 2,
+          "false_reminders": 0,
+          "false_silencing": 2,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 0
+        },
+        "missing_context": {
+          "cases": 6,
+          "accepted": 6,
+          "correct_accepted": 2,
+          "correct_abstentions": 0,
+          "false_reminders": 4,
+          "false_silencing": 0,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 2
+        },
+        "mixed_ownership": {
+          "cases": 6,
+          "accepted": 0,
+          "correct_accepted": 0,
+          "correct_abstentions": 2,
+          "false_reminders": 0,
+          "false_silencing": 0,
+          "actionable_abstained": 4,
+          "ambiguous_accepted": 0
+        },
+        "negation": {
+          "cases": 3,
+          "accepted": 3,
+          "correct_accepted": 1,
+          "correct_abstentions": 0,
+          "false_reminders": 2,
+          "false_silencing": 0,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 0
+        },
+        "promise": {
+          "cases": 6,
+          "accepted": 6,
+          "correct_accepted": 2,
+          "correct_abstentions": 0,
+          "false_reminders": 4,
+          "false_silencing": 0,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 0
+        },
+        "quoted_history": {
+          "cases": 6,
+          "accepted": 6,
+          "correct_accepted": 0,
+          "correct_abstentions": 0,
+          "false_reminders": 4,
+          "false_silencing": 2,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 2
+        },
+        "resolution": {
+          "cases": 6,
+          "accepted": 2,
+          "correct_accepted": 2,
+          "correct_abstentions": 2,
+          "false_reminders": 0,
+          "false_silencing": 0,
+          "actionable_abstained": 2,
+          "ambiguous_accepted": 0
+        }
+      },
+      "predictions": {
+        "test_insurance_value_0": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "test_insurance_value_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "test_insurance_value_1": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "test_insurance_value_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "test_insurance_value_2": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "test_insurance_value_2_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "test_language_partner_0": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_language_partner_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "test_language_partner_1": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_language_partner_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "test_language_partner_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_language_partner_2_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_model_repair_0": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "test_model_repair_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "test_model_repair_1": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_model_repair_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "test_model_repair_2": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_model_repair_2_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "test_ticket_transfer_0": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "test_ticket_transfer_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "test_ticket_transfer_1": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_ticket_transfer_1_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_ticket_transfer_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_ticket_transfer_2_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_archive_box_0": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "test_archive_box_0_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "test_archive_box_1": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_archive_box_1_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_archive_box_2": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_archive_box_2_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_chess_event_0": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_chess_event_0_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_chess_event_1": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_chess_event_1_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_chess_event_2": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_chess_event_2_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_voicemail_0": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_voicemail_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "test_voicemail_1": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_voicemail_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "test_voicemail_2": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_voicemail_2_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "test_old_invoice_0": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_old_invoice_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "test_old_invoice_1": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_old_invoice_1_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_old_invoice_2": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_old_invoice_2_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "test_pool_pass_0": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_pool_pass_1": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_pool_pass_2": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_woodworking_news_0": {
+          "raw": "noise",
+          "selective": "abstain"
+        },
+        "test_woodworking_news_1": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_woodworking_news_2": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_change_optional_0": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_change_optional_1": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_change_optional_2": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_hurried_reply_0": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_hurried_reply_0_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_hurried_reply_1": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_hurried_reply_1_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_hurried_reply_2": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_hurried_reply_2_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        }
+      }
+    },
+    "minilm-synthetic-v1": {
+      "threshold": 0.85,
+      "raw": {
+        "cases": 63,
+        "accepted": 50,
+        "correct_accepted": 26,
+        "correct_abstentions": 6,
+        "false_reminders": 10,
+        "false_silencing": 11,
+        "actionable_abstained": 4,
+        "ambiguous_accepted": 7
+      },
+      "selective": {
+        "cases": 63,
+        "accepted": 1,
+        "correct_accepted": 1,
+        "correct_abstentions": 13,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 29,
+        "ambiguous_accepted": 0
+      },
+      "capabilities": {
+        "automated_notice": {
+          "cases": 3,
+          "accepted": 3,
+          "correct_accepted": 1,
+          "correct_abstentions": 0,
+          "false_reminders": 0,
+          "false_silencing": 1,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 1
+        },
+        "bulk_vs_personal": {
+          "cases": 3,
+          "accepted": 3,
+          "correct_accepted": 2,
+          "correct_abstentions": 0,
+          "false_reminders": 0,
+          "false_silencing": 1,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 0
+        },
+        "direct_request": {
+          "cases": 6,
+          "accepted": 6,
+          "correct_accepted": 6,
+          "correct_abstentions": 0,
+          "false_reminders": 0,
+          "false_silencing": 0,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 0
+        },
+        "followup": {
+          "cases": 6,
+          "accepted": 6,
+          "correct_accepted": 2,
+          "correct_abstentions": 0,
+          "false_reminders": 2,
+          "false_silencing": 2,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 0
+        },
+        "indirect_request": {
+          "cases": 6,
+          "accepted": 2,
+          "correct_accepted": 0,
+          "correct_abstentions": 0,
+          "false_reminders": 2,
+          "false_silencing": 0,
+          "actionable_abstained": 2,
+          "ambiguous_accepted": 2
+        },
+        "informal_format": {
+          "cases": 6,
+          "accepted": 3,
+          "correct_accepted": 0,
+          "correct_abstentions": 2,
+          "false_reminders": 2,
+          "false_silencing": 1,
+          "actionable_abstained": 1,
+          "ambiguous_accepted": 0
+        },
+        "missing_context": {
+          "cases": 6,
+          "accepted": 2,
+          "correct_accepted": 2,
+          "correct_abstentions": 2,
+          "false_reminders": 0,
+          "false_silencing": 0,
+          "actionable_abstained": 1,
+          "ambiguous_accepted": 0
+        },
+        "mixed_ownership": {
+          "cases": 6,
+          "accepted": 6,
+          "correct_accepted": 2,
+          "correct_abstentions": 0,
+          "false_reminders": 4,
+          "false_silencing": 0,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 2
+        },
+        "negation": {
+          "cases": 3,
+          "accepted": 3,
+          "correct_accepted": 2,
+          "correct_abstentions": 0,
+          "false_reminders": 0,
+          "false_silencing": 1,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 0
+        },
+        "promise": {
+          "cases": 6,
+          "accepted": 6,
+          "correct_accepted": 5,
+          "correct_abstentions": 0,
+          "false_reminders": 0,
+          "false_silencing": 1,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 0
+        },
+        "quoted_history": {
+          "cases": 6,
+          "accepted": 6,
+          "correct_accepted": 2,
+          "correct_abstentions": 0,
+          "false_reminders": 0,
+          "false_silencing": 2,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 2
+        },
+        "resolution": {
+          "cases": 6,
+          "accepted": 4,
+          "correct_accepted": 2,
+          "correct_abstentions": 2,
+          "false_reminders": 0,
+          "false_silencing": 2,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 0
+        }
+      },
+      "predictions": {
+        "test_insurance_value_0": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_insurance_value_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "test_insurance_value_1": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "test_insurance_value_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_insurance_value_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_insurance_value_2_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_language_partner_0": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_language_partner_0_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_language_partner_1": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_language_partner_1_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_language_partner_2": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_language_partner_2_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_model_repair_0": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "test_model_repair_0_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_model_repair_1": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_model_repair_1_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_model_repair_2": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_model_repair_2_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_ticket_transfer_0": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_ticket_transfer_0_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_ticket_transfer_1": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "test_ticket_transfer_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_ticket_transfer_2": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "test_ticket_transfer_2_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_archive_box_0": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "test_archive_box_0_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_archive_box_1": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_archive_box_1_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_archive_box_2": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_archive_box_2_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_chess_event_0": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_chess_event_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "test_chess_event_1": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_chess_event_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "test_chess_event_2": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_chess_event_2_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "test_voicemail_0": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_voicemail_0_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_voicemail_1": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_voicemail_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "test_voicemail_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_voicemail_2_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_old_invoice_0": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_old_invoice_0_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_old_invoice_1": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_old_invoice_1_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_old_invoice_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_old_invoice_2_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_pool_pass_0": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_pool_pass_1": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_pool_pass_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_woodworking_news_0": {
+          "raw": "noise",
+          "selective": "abstain"
+        },
+        "test_woodworking_news_1": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_woodworking_news_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_change_optional_0": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_change_optional_1": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_change_optional_2": {
+          "raw": "noise",
+          "selective": "abstain"
+        },
+        "test_hurried_reply_0": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_hurried_reply_0_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "test_hurried_reply_1": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "test_hurried_reply_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "test_hurried_reply_2": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "test_hurried_reply_2_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        }
+      }
+    }
+  }
+}

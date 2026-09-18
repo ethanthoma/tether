@@ -1,0 +1,2915 @@
+{
+  "version": 1,
+  "provenance": "fully_synthetic_assistant_authored",
+  "review_status": "single_author_self_reviewed_not_independently_validated",
+  "scenarios": [
+    {
+      "id": "ceramics_booking",
+      "split": "train",
+      "domain": "community",
+      "capability": "direct_request",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "Which session",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Hi, I'm arranging the pottery class. Which session would you like, morning or evening?"
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "allocated you the morning session",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Hi, I've allocated you the morning session as agreed. Your place is confirmed."
+            }
+          ]
+        },
+        {
+          "state": "unknown",
+          "evidence": "the arrangement we mentioned",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Hi, about the arrangement we mentioned at the studio — is that happening?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bike_service",
+      "split": "train",
+      "domain": "household",
+      "capability": "direct_request",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "send a photo",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The rear brake is rubbing. Could you send a photo of the caliper so I can check the mounting?"
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "I'll send a photo",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The rear brake is rubbing. I'll send a photo of the caliper once I get home."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "adjusted the caliper",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The rear brake was rubbing. I adjusted the caliper and the wheel spins freely now."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "costume_size",
+      "split": "train",
+      "domain": "community",
+      "capability": "direct_request",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "What size",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Quick costume question: What size jacket do you wear? I need it for the order."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "size medium",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "For the costume order, my jacket is size medium. That's the only detail you asked for."
+            }
+          ]
+        },
+        {
+          "state": "both",
+          "evidence": "you send the measurements",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll collect the fabric tomorrow. Can you send the measurements tonight? Both are still needed."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lab_sample",
+      "split": "train",
+      "domain": "work",
+      "capability": "direct_request",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "identify which vial",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Before I run the assay, please identify which vial contains the control sample."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "I'll identify the control vial",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll identify the control vial and send you the number before the assay begins."
+            }
+          ]
+        },
+        {
+          "state": "unknown",
+          "evidence": "which one they meant",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The vial question from the hallway conversation — which one they meant wasn't recorded here."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "historian_contact",
+      "split": "train",
+      "domain": "community",
+      "capability": "indirect_request",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "an introduction",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "You mentioned knowing the town historian. I'd really appreciate an introduction; I don't have a way to contact them."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "will introduce you",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I know the town historian and will introduce you by email this week."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "I've already contacted",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "You mentioned the town historian. I've already contacted them independently, so an introduction isn't needed."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "missing_appendix",
+      "split": "train",
+      "domain": "work",
+      "capability": "indirect_request",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "missing appendix would let me finish",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The report stops at page eight. A copy of the missing appendix would let me finish the review."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "found the appendix",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The report seemed to stop at page eight, but I found the appendix in the second file. Review complete."
+            }
+          ]
+        },
+        {
+          "state": "both",
+          "evidence": "please send the appendix",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I still need to write the summary; please send the appendix while I work on it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "door_access",
+      "split": "train",
+      "domain": "household",
+      "capability": "indirect_request",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "A longer unlock interval",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "With my hands full, I can't get through before the latch closes. A longer unlock interval would solve this — would you arrange it?"
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "adjusted the latch",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The caretaker adjusted the latch yesterday; I can get through comfortably now. Thanks for helping."
+            }
+          ]
+        },
+        {
+          "state": "unknown",
+          "evidence": "the access matter",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Following our unrecorded conversation, the access matter is back. You know the one."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "audio_permission",
+      "split": "train",
+      "domain": "creative",
+      "capability": "indirect_request",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "your permission",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'd like to include your recording in the exhibition. I need your permission before I use it."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "permission is granted",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "You may include my recording in the exhibition; permission is granted. No paperwork remains."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "I'll check the license",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll check the license for the recording and get back to you before the exhibition."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "recipe_promise",
+      "split": "train",
+      "domain": "personal",
+      "capability": "promise",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "sender",
+          "evidence": "I'll type out the recipe",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Glad you liked dinner. I'll type out the recipe and send it over on Sunday."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "type out that recipe",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Loved dinner! When you have a moment, could you type out that recipe for me?"
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "recipe is below",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "As promised, the recipe is below: simmer lentils with stock for twenty minutes, then add lemon. Enjoy!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "research_reference",
+      "split": "train",
+      "domain": "education",
+      "capability": "promise",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "sender",
+          "evidence": "I'll find the citation",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I remember the paper you mean. I'll find the citation and forward it tomorrow."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "Here is the citation",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Here is the citation you wanted: A. Example, 'Synthetic Gardens', Fictional Journal, 2024. That completes my search."
+            }
+          ]
+        },
+        {
+          "state": "both",
+          "evidence": "you check the publication year",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll find the author's name; would you check the publication year? We still need both details."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lamp_collection",
+      "split": "train",
+      "domain": "household",
+      "capability": "promise",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "sender",
+          "evidence": "I'm going to collect",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'm going to collect the repaired lamp on Saturday. I'll let you know once it's here."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "collected the repaired lamp",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I collected the repaired lamp this morning and put it on the shelf. All sorted."
+            }
+          ]
+        },
+        {
+          "state": "unknown",
+          "evidence": "who's collecting",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The lamp is ready but I can't tell from this message who's collecting it. The assignment was on a missing note."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spreadsheet_audit",
+      "split": "train",
+      "domain": "work",
+      "capability": "promise",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "sender",
+          "evidence": "I'll check the totals",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll check the totals in your spreadsheet this afternoon. You don't need to do anything meanwhile."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "checked the totals",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I checked the totals in your spreadsheet. They reconcile, and the audit is finished."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "check the totals",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Could you check the totals in my spreadsheet? I haven't been able to reconcile them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "garden_plot",
+      "split": "train",
+      "domain": "community",
+      "capability": "followup",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "still need your choice",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Do you want the sunny plot or the shaded plot?"
+            },
+            {
+              "outbound": false,
+              "body": "Nudging this because I still need your choice before I allocate the garden plots."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "I'll decide tonight",
+          "messages": [
+            {
+              "outbound": true,
+              "body": "Which garden plot would you prefer?"
+            },
+            {
+              "outbound": false,
+              "body": "Sorry, I haven't chosen yet. I'll decide tonight and let you know."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "sunny plot, please",
+          "messages": [
+            {
+              "outbound": true,
+              "body": "Which garden plot would you prefer?"
+            },
+            {
+              "outbound": false,
+              "body": "The sunny plot, please. Nothing else to arrange; I have the key."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scanner_loan",
+      "split": "train",
+      "domain": "work",
+      "capability": "followup",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "haven't had an answer",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "May I borrow the scanner for an hour on Thursday?"
+            },
+            {
+              "outbound": false,
+              "body": "I haven't had an answer about Thursday's scanner loan. Does that work?"
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "won't need to borrow",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "May I borrow the scanner for an hour on Thursday?"
+            },
+            {
+              "outbound": false,
+              "body": "Found another scanner, so I won't need to borrow yours."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "will check",
+          "messages": [
+            {
+              "outbound": true,
+              "body": "Can I borrow your scanner on Thursday?"
+            },
+            {
+              "outbound": false,
+              "body": "Thanks for waiting. I will check my booking sheet after the meeting."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "venue_capacity",
+      "split": "train",
+      "domain": "community",
+      "capability": "followup",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "sender",
+          "evidence": "still counting",
+          "messages": [
+            {
+              "outbound": true,
+              "body": "How many people fit in the hall?"
+            },
+            {
+              "outbound": false,
+              "body": "We're still counting usable seats. I haven't got a number for you yet."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "capacity is eighty",
+          "messages": [
+            {
+              "outbound": true,
+              "body": "How many people fit in the hall?"
+            },
+            {
+              "outbound": false,
+              "body": "The certified capacity is eighty people. That's the final answer."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "need that headcount",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "How many people are coming to your event?"
+            },
+            {
+              "outbound": false,
+              "body": "Still need that headcount from you so I can size the room."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "print_proof",
+      "split": "train",
+      "domain": "creative",
+      "capability": "followup",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "your approval is outstanding",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Please approve the poster proof before printing."
+            },
+            {
+              "outbound": false,
+              "body": "The printer is holding the job because your approval is outstanding."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "proof has been approved",
+          "messages": [
+            {
+              "outbound": true,
+              "body": "Is the poster proof approved?"
+            },
+            {
+              "outbound": false,
+              "body": "Yes, the proof has been approved and the print run is complete."
+            }
+          ]
+        },
+        {
+          "state": "both",
+          "evidence": "send the replacement photo",
+          "messages": [
+            {
+              "outbound": true,
+              "body": "Can you fix the poster proof?"
+            },
+            {
+              "outbound": false,
+              "body": "I'll repair the title spacing; please send the replacement photo. Both changes are pending."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "locker_location",
+      "split": "train",
+      "domain": "education",
+      "capability": "resolution",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "none",
+          "evidence": "Locker nineteen",
+          "messages": [
+            {
+              "outbound": true,
+              "body": "Which locker is mine?"
+            },
+            {
+              "outbound": false,
+              "body": "Locker nineteen, beside the east staircase. Your code hasn't changed."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "which locker",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Can you tell me which locker was assigned to you? I need to update the register."
+            }
+          ]
+        },
+        {
+          "state": "unknown",
+          "evidence": "that locker thing",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Is that locker thing settled? I don't have the earlier conversation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deposit_return",
+      "split": "train",
+      "domain": "household",
+      "capability": "resolution",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "none",
+          "evidence": "refund arrived",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The deposit refund was sent yesterday."
+            },
+            {
+              "outbound": true,
+              "body": "The refund arrived. That closes this out, much appreciated."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "confirm the amount",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The deposit refund was sent yesterday."
+            },
+            {
+              "outbound": true,
+              "body": "The refund arrived, but it is short. Please confirm the amount you sent."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "I'll reconcile",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Was the deposit refund correct?"
+            },
+            {
+              "outbound": true,
+              "body": "I haven't checked the statement yet. I'll reconcile it this evening."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "travel_plan",
+      "split": "train",
+      "domain": "personal",
+      "capability": "resolution",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "none",
+          "evidence": "no pickup needed",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Can you collect me from the bus station?"
+            },
+            {
+              "outbound": false,
+              "body": "I've arranged a taxi instead; no pickup needed."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "Can you collect me",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Can you collect me from the bus station at seven?"
+            }
+          ]
+        },
+        {
+          "state": "both",
+          "evidence": "you collect me",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll buy the tickets later today; can you collect me from the bus station tonight? Neither is arranged yet."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "roof_report",
+      "split": "train",
+      "domain": "household",
+      "capability": "resolution",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "none",
+          "evidence": "inspection is complete",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The roof inspection is complete. The covering is sound, and no remedial work or response is required."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "choose a repair date",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The roof inspection found a leak. Please choose a repair date so we can book the roofer."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "I'll schedule the repair",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The roof inspection found a leak. I'll schedule the repair and send you the appointment."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "festival_jobs",
+      "split": "train",
+      "domain": "community",
+      "capability": "mixed_ownership",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "both",
+          "evidence": "you arrange the lighting",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll hire the sound desk, and could you arrange the lighting? Neither booking has been made."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "you arrange the lighting",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I've hired the sound desk. Could you arrange the lighting? That's the only task left."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "I'll hire the sound desk",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "You've arranged the lighting already. I'll hire the sound desk; that is the only task left."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "publication_edit",
+      "split": "train",
+      "domain": "creative",
+      "capability": "mixed_ownership",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "both",
+          "evidence": "Please send your bio",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll proofread the article tomorrow. Please send your bio today; it hasn't arrived yet."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "I'll proofread",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Your bio has arrived and needs no changes. I'll proofread the article tomorrow."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "proofreading are finished",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The bio and proofreading are finished. The article is ready for publication without further input."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shared_tools",
+      "split": "train",
+      "domain": "personal",
+      "capability": "mixed_ownership",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "both",
+          "evidence": "You still need to return",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "You still need to return my saw, and I still need to return your drill."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "return my saw",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I've returned your drill. Please return my saw; that's the last tool outstanding."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "Both tools are back",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Both tools are back with their owners. We're square."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "workshop_prep",
+      "split": "train",
+      "domain": "education",
+      "capability": "mixed_ownership",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "both",
+          "evidence": "you prepare the handouts",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll book the workshop room; would you prepare the handouts? We haven't done either yet."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "room booking is still mine",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The handouts are printed. The room booking is still mine to do, and I'll confirm it shortly."
+            }
+          ]
+        },
+        {
+          "state": "unknown",
+          "evidence": "One of us",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "One of us still has a workshop preparation task, but the allocation sheet is missing."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "missing_minutes",
+      "split": "train",
+      "domain": "work",
+      "capability": "missing_context",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "unknown",
+          "evidence": "next steps are only in the attachment",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The committee's next steps are only in the attachment, which hasn't come through in this thread."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "send me the minutes",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The attachment failed. Please send me the minutes again so I can read the decision."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "no actions assigned",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "For the record, the committee adjourned without a decision and there are no actions assigned to either of us."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unassigned_delivery",
+      "split": "train",
+      "domain": "household",
+      "capability": "missing_context",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "unknown",
+          "evidence": "No one knows who",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "No one knows who agreed to receive the furniture delivery. The rota has disappeared."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "I agreed to receive",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I agreed to receive the furniture delivery and will be home when it arrives."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "delivery is already inside",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The furniture delivery is already inside and checked off. Nobody needs to wait for it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cryptic_reference",
+      "split": "train",
+      "domain": "personal",
+      "capability": "missing_context",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "unknown",
+          "evidence": "the other thing",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Not that thing, the other thing we talked about. Any update?"
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "replace the kettle",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "To be specific, can you replace the kettle you borrowed and broke? I'm still without one."
+            }
+          ]
+        },
+        {
+          "state": "both",
+          "evidence": "return your saucepan",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll return your saucepan, but you still need to replace my kettle. We haven't done either."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "forwarded_job",
+      "split": "train",
+      "domain": "work",
+      "capability": "missing_context",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "unknown",
+          "evidence": "assignee is missing",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Fwd: An expense correction is outstanding. The assignee is missing from this forwarded fragment."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "correct your expense entry",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The finance desk assigned this to you: please correct your expense entry for the train fare."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "correction has been posted",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The expense correction has been posted by finance. Your account balances and no response is needed."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quoted_question",
+      "split": "train",
+      "domain": "work",
+      "capability": "quoted_history",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "none",
+          "evidence": "supplied and accepted",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The missing figures were supplied and accepted; the report is closed.\n\nEarlier message:\n> Can you send the figures urgently?"
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "need the corrected figures",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I still need the corrected figures, please send them today.\n\nEarlier message:\n> Can you send the figures urgently?"
+            }
+          ]
+        },
+        {
+          "state": "unknown",
+          "evidence": "cannot see the response",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I cannot see the response to this old question, so I don't know whether it remains open.\n> Can you send the figures urgently?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quoted_delivery",
+      "split": "train",
+      "domain": "household",
+      "capability": "quoted_history",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "none",
+          "evidence": "reschedule it myself",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I managed to reschedule it myself, so you can disregard the question below.\n\n> Can you move the delivery to Friday?"
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "I'll call the depot",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll call the depot this afternoon; I haven't rescheduled it yet.\n\n> Can you move the delivery to Friday?"
+            }
+          ]
+        },
+        {
+          "state": "both",
+          "evidence": "send the order number",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll call the depot; please send the order number first. Both steps are outstanding.\n\n> Can you move the delivery to Friday?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quoted_thanks",
+      "split": "train",
+      "domain": "creative",
+      "capability": "quoted_history",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "which drawing",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Thanks for helping earlier. Could you tell me which drawing should go on the cover?\n\n> Everything from last week's job is complete."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "selected drawing four",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Thanks for helping earlier. We've selected drawing four for the cover; the selection is final.\n\n> Could you choose a drawing?"
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "I'll choose the drawing",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll choose the drawing for the cover tomorrow. I haven't looked through them yet.\n\n> Everything from last week's job is complete."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quoted_security",
+      "split": "train",
+      "domain": "work",
+      "capability": "quoted_history",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "none",
+          "evidence": "removed the stale account",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "We removed the stale account and verified access. The old request below is complete.\n\n> Please revoke access for the old account."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "revoke the old account",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Please revoke the old account; the removal still hasn't happened.\n\n> Everything is secure now."
+            }
+          ]
+        },
+        {
+          "state": "unknown",
+          "evidence": "don't have the current status",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The only record I have is this quote; I don't have the current status.\n\n> Please revoke access for the old account."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "membership_notice",
+      "split": "train",
+      "domain": "community",
+      "capability": "automated_notice",
+      "mirror": false,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "must renew",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Automated library notice: your volunteer membership expires tomorrow. You must renew it today to keep your scheduled shift."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "renewed automatically",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Automated library notice: your volunteer membership renewed automatically. Your scheduled shift remains confirmed."
+            }
+          ]
+        },
+        {
+          "state": "bulk",
+          "evidence": "premium book club",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Explore our premium book club! Members of this marketing list can browse this month's offers. Unsubscribe in preferences."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "course_portal",
+      "split": "train",
+      "domain": "education",
+      "capability": "automated_notice",
+      "mirror": false,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "submit your consent",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Course portal alert: submit your consent form by 17:00 tomorrow or your field-trip place will be released."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "consent form is recorded",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Course portal alert: your consent form is recorded and your field-trip place is secure. This is a receipt."
+            }
+          ]
+        },
+        {
+          "state": "unknown",
+          "evidence": "unavailable portal notice",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Course portal alert: consult the unavailable portal notice to find out whether any action is required."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calendar_update",
+      "split": "train",
+      "domain": "work",
+      "capability": "automated_notice",
+      "mirror": false,
+      "variants": [
+        {
+          "state": "none",
+          "evidence": "Attendance is optional",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Calendar notice: the drop-in demo moved to 15:00. Attendance is optional; use the calendar controls if you want to RSVP."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "personally confirm",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The calendar moved our client demo to 15:00. Can you personally confirm you'll lead it? We can't proceed without a presenter."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "demo is cancelled",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Calendar notice: the client demo is cancelled. There is no replacement session to arrange."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "account_permissions",
+      "split": "train",
+      "domain": "personal",
+      "capability": "automated_notice",
+      "mirror": false,
+      "variants": [
+        {
+          "state": "none",
+          "evidence": "can ignore this",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "An app offers extra calendar permissions. You can ignore this; existing access and features remain unchanged."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "choose whether to approve",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'm administering your workspace and need your decision: choose whether to approve the integration before I configure it."
+            }
+          ]
+        },
+        {
+          "state": "unknown",
+          "evidence": "exact request is not included",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The app's exact request is not included in this notice. Its details determine whether you need to act."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "outdoor_catalog",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "mirror": false,
+      "variants": [
+        {
+          "state": "bulk",
+          "evidence": "seasonal catalogue",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Our seasonal catalogue is here: browse tents, packs, and boots. You received this because you joined our offers list."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "Which pack did you want",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Thanks for visiting our shop. Which pack did you want me to reserve for you? I can't hold one without your answer."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "reserved pack is ready",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Your reserved pack is ready for the pickup you already arranged. This message confirms the reservation; no reply is required."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conference_digest",
+      "split": "train",
+      "domain": "work",
+      "capability": "bulk_vs_personal",
+      "mirror": false,
+      "variants": [
+        {
+          "state": "bulk",
+          "evidence": "conference digest",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "This month's conference digest: keynote highlights and partner advertisements for our subscribers."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "approve your speaker bio",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Conference desk to speaker: please approve your speaker bio today so we can print the programme."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "speaker bio is approved",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Conference desk: your speaker bio is approved and printed exactly as you supplied it. The programme is complete."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ceramic_promo",
+      "split": "train",
+      "domain": "creative",
+      "capability": "bulk_vs_personal",
+      "mirror": false,
+      "variants": [
+        {
+          "state": "bulk",
+          "evidence": "discount for subscribers",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Fresh glaze colours are in stock, with a discount for subscribers! Shop the whole range or leave this mailing list."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "choose a glaze",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Your commissioned bowl is shaped. Please choose a glaze colour before I put it in the kiln."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "fired and dispatched",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Your commissioned bowl has been fired and dispatched in the blue glaze you chose. This is the dispatch receipt."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tooling_news",
+      "split": "train",
+      "domain": "work",
+      "capability": "bulk_vs_personal",
+      "mirror": false,
+      "variants": [
+        {
+          "state": "bulk",
+          "evidence": "Monthly product bulletin",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Monthly product bulletin: platform launches, sponsor messages, and our favourite tips. Manage your subscription below."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "send the failed job number",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Regarding your support ticket, please send the failed job number so we can trace the build error."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "will inspect the failed job",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Regarding your support ticket, we will inspect the failed job and send our findings tomorrow. We have all the details."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "do_not_order",
+      "split": "train",
+      "domain": "household",
+      "capability": "negation",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "none",
+          "evidence": "don't place the order",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Please don't place the order for tiles after all. We have enough in storage; nothing else is needed."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "do place the order",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Please do place the order for tiles. We counted again and need six more boxes."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "I'll place the order",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "You don't need to order the tiles. I'll place the order myself this afternoon."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "no_answer_yet",
+      "split": "train",
+      "domain": "work",
+      "capability": "negation",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "haven't answered",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "You haven't answered whether the room needs a projector. Please let me know so I can set it up."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "answered the projector question",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "You've already answered the projector question, and it's installed. I don't need anything else."
+            }
+          ]
+        },
+        {
+          "state": "unknown",
+          "evidence": "can't tell whether",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I can't tell whether the projector question was answered. The reply was in a deleted message."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "optional_survey",
+      "split": "train",
+      "domain": "community",
+      "capability": "negation",
+      "mirror": false,
+      "variants": [
+        {
+          "state": "none",
+          "evidence": "purely optional",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Your building's resident survey is purely optional. Ignoring it will not affect your tenancy or any service."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "need your answer",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'm arranging the building's water shutdown and need your answer: will anyone in your unit need access at noon?"
+            }
+          ]
+        },
+        {
+          "state": "bulk",
+          "evidence": "win a discount voucher",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Tell us about your dream home and win a discount voucher! A promotional survey for subscribers."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conditional_offer",
+      "split": "train",
+      "domain": "personal",
+      "capability": "negation",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "none",
+          "evidence": "No need to respond",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "If you ever want my spare easel, it's available. No need to respond unless you decide you want it."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "tell me by tonight",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "You said you wanted my spare easel. Please tell me by tonight when you'll collect it so I can clear the hallway."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "I'll deliver the easel",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "We've agreed you'll take it. I'll deliver the easel tomorrow morning; I'll confirm once I've dropped it off."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mobile_reply",
+      "split": "train",
+      "domain": "personal",
+      "capability": "informal_format",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "what time",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "hey :) what time r u getting to the climbing gym? need to know before i leave"
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "home now",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "made it back from climbing, home now. cheers for the lift!"
+            }
+          ]
+        },
+        {
+          "state": "both",
+          "evidence": "bring my chalk bag",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "i'll bring ur shoes next time. can u bring my chalk bag? we both forgot stuff lol"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "terse_lab",
+      "split": "train",
+      "domain": "education",
+      "capability": "informal_format",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "Need your sign-off",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Microscope booking. Need your sign-off today; the form is still unsigned."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "Will sign",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Microscope booking received. Will sign the form after lunch; haven't signed yet."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "signed and filed",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Microscope booking: signed and filed. Nothing outstanding."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bullet_jobs",
+      "split": "train",
+      "domain": "work",
+      "capability": "informal_format",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "both",
+          "evidence": "You: review",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Release jobs, both pending:\n- Me: package the build.\n- You: review the changelog."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "review the changelog",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Release jobs:\n- Build: packaged.\n- Remaining: please review the changelog."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "approved",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Release jobs:\n- Build: packaged.\n- Changelog: approved.\nAll release work is complete."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "formal_enquiry",
+      "split": "train",
+      "domain": "education",
+      "capability": "informal_format",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "kindly advise",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Dear registrar, kindly advise whether the archived transcript includes the laboratory module. I await your clarification."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "shall consult",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Dear applicant, I shall consult the archive and provide the module list by next week."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "does include",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Dear applicant, the archived transcript does include the laboratory module. This answers your sole enquiry in full."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dev_piano",
+      "split": "dev",
+      "domain": "personal",
+      "capability": "direct_request",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "Which evening",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Which evening can you help move the piano? I need to tell the other movers."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "moved the piano",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "We moved the piano yesterday with the neighbours. No lifting help needed anymore."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "I'll recruit",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll recruit two movers for the piano and send you their availability once I've spoken to them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dev_floorplan",
+      "split": "dev",
+      "domain": "work",
+      "capability": "indirect_request",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "floor plan would unblock",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'm stuck on the seating layout. The updated floor plan would unblock me; would you share your copy?"
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "located a copy",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I located a copy of the floor plan in the project folder and finished the seating layout."
+            }
+          ]
+        },
+        {
+          "state": "both",
+          "evidence": "you locate the floor plan",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll count the desks; can you locate the floor plan? We need both pieces of information."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dev_swim_roster",
+      "split": "dev",
+      "domain": "community",
+      "capability": "promise",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "sender",
+          "evidence": "I'll compile",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll compile the swim-club roster after tonight's practice. You can leave that with me."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "roster is compiled",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The swim-club roster is compiled and has been posted on the noticeboard."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "compile",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Would you compile the swim-club roster? You're the only person with all the registrations."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dev_transit_map",
+      "split": "dev",
+      "domain": "personal",
+      "capability": "followup",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "still awaiting",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Can you mark the bus stop on the map?"
+            },
+            {
+              "outbound": false,
+              "body": "I'm still awaiting the marked map before setting off."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "haven't marked",
+          "messages": [
+            {
+              "outbound": true,
+              "body": "Could you mark the bus stop for me?"
+            },
+            {
+              "outbound": false,
+              "body": "I haven't marked it yet, sorry. I'll do it when I reach my laptop."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "highlighted in orange",
+          "messages": [
+            {
+              "outbound": true,
+              "body": "Could you mark the bus stop for me?"
+            },
+            {
+              "outbound": false,
+              "body": "The stop is highlighted in orange on the map below, as requested."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dev_fence",
+      "split": "dev",
+      "domain": "household",
+      "capability": "resolution",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "none",
+          "evidence": "panel is fixed",
+          "messages": [
+            {
+              "outbound": true,
+              "body": "Is the fence panel repaired?"
+            },
+            {
+              "outbound": false,
+              "body": "Yes, the panel is fixed and the loose nails removed. The job is finished."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "check the fence panel",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Could you check the fence panel after last night's wind and tell me if it held?"
+            }
+          ]
+        },
+        {
+          "state": "unknown",
+          "evidence": "previous fence arrangement",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Does the previous fence arrangement still stand? The actual arrangement isn't in this thread."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dev_film_edit",
+      "split": "dev",
+      "domain": "creative",
+      "capability": "mixed_ownership",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "both",
+          "evidence": "you export the captions",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll mix the soundtrack; could you export the captions? We haven't started those tasks yet."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "I'll mix the soundtrack",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The captions have been exported. I'll mix the soundtrack; that is our final task."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "export the captions",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The soundtrack is mixed. Please export the captions to finish the film."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dev_scan_missing",
+      "split": "dev",
+      "domain": "education",
+      "capability": "missing_context",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "unknown",
+          "evidence": "a scan we can't read here",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The supervisor's decision is in a scan we can't read here. It says who should revise the abstract."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "rewrite the abstract",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The supervisor assigned the abstract to you. Please rewrite the abstract before submitting the paper."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "abstract was accepted",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The supervisor says the abstract was accepted unchanged. No revisions or replies are requested."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dev_old_booking",
+      "split": "dev",
+      "domain": "community",
+      "capability": "quoted_history",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "none",
+          "evidence": "cancelled the duplicate",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I've cancelled the duplicate booking. The request quoted below is fully handled.\n\n> Can you cancel one of the two choir bookings?"
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "cancel the duplicate",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "We still have two choir bookings. Please cancel the duplicate; it hasn't been handled.\n\n> I thought we were done."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "I'll call the bookings desk",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll call the bookings desk to cancel the extra choir booking. I haven't reached them yet.\n\n> Can you cancel one of the two choir bookings?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dev_license",
+      "split": "dev",
+      "domain": "work",
+      "capability": "automated_notice",
+      "mirror": false,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "upload the signed agreement",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "License portal: upload the signed agreement before Monday to retain access to your design files."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "agreement was received",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "License portal: your signed agreement was received. Your access is extended for another year."
+            }
+          ]
+        },
+        {
+          "state": "unknown",
+          "evidence": "renewal instructions are absent",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "License portal: the renewal instructions are absent from this message. Open the missing notice to determine your next step."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dev_roast_catalog",
+      "split": "dev",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "mirror": false,
+      "variants": [
+        {
+          "state": "bulk",
+          "evidence": "roasting newsletter",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "In our roasting newsletter this month: new blends, tasting stories, and subscriber offers. Opt out anytime."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "which grind",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Your coffee order is waiting for one detail: which grind do you want me to use?"
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "coffee order has shipped",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Your coffee order has shipped with the grind you selected. This is an informational dispatch message."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dev_optional_training",
+      "split": "dev",
+      "domain": "education",
+      "capability": "negation",
+      "mirror": false,
+      "variants": [
+        {
+          "state": "none",
+          "evidence": "entirely voluntary",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The extra statistics tutorial is entirely voluntary. Missing it has no effect on your course result."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "must choose",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "You must choose a tutorial group by Friday to complete your course registration. Your selection is still blank."
+            }
+          ]
+        },
+        {
+          "state": "bulk",
+          "evidence": "Save on our tutorial packages",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Save on our tutorial packages this week! An advertising offer for everyone on our learning mailing list."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dev_short_note",
+      "split": "dev",
+      "domain": "work",
+      "capability": "informal_format",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "pls send",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "hey, pls send the warehouse alarm code before my shift. can't open up without it"
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "got the alarm code",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "got the alarm code, opened up fine. thx!"
+            }
+          ]
+        },
+        {
+          "state": "both",
+          "evidence": "u send",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "i'll bring the inventory sheet. can u send the alarm code? neither's done yet"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "test_insurance_value",
+      "split": "test",
+      "domain": "household",
+      "capability": "direct_request",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "How much",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "How much should I insure the antique desk for? I need your valuation before submitting the form."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "I'll value",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll value the antique desk on my next visit and send you a written estimate."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "valued at four hundred",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The desk is valued at four hundred pounds. That answers the valuation question; there are no other requirements."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "test_language_partner",
+      "split": "test",
+      "domain": "education",
+      "capability": "indirect_request",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "welcome a referral",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'd welcome a referral to a conversation partner who speaks Icelandic. You mentioned knowing someone; could you connect us?"
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "found a partner independently",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I found a partner independently through the language club, so the referral is no longer needed."
+            }
+          ]
+        },
+        {
+          "state": "both",
+          "evidence": "you ask your contact",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll check the club schedule; could you ask your contact about partnering with me? Both are still to do."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "test_model_repair",
+      "split": "test",
+      "domain": "creative",
+      "capability": "promise",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "sender",
+          "evidence": "I'll repair",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll repair the broken wing on your model this weekend and send a photo when it's ready."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "wing is repaired",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The model's wing is repaired and painted. I've placed the finished model in your display cabinet."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "repair",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Would you repair the broken wing on my model? I don't have the right glue."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "test_ticket_transfer",
+      "split": "test",
+      "domain": "personal",
+      "capability": "followup",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "remains unconfirmed",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Will you take my spare theatre ticket?"
+            },
+            {
+              "outbound": false,
+              "body": "The transfer remains unconfirmed. I need your yes or no before the box office closes."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "I'll make up my mind",
+          "messages": [
+            {
+              "outbound": true,
+              "body": "Would you like my spare theatre ticket?"
+            },
+            {
+              "outbound": false,
+              "body": "I'm checking whether I can get there. I'll make up my mind before the box office closes."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "I'll take it",
+          "messages": [
+            {
+              "outbound": true,
+              "body": "Would you like my spare theatre ticket? It transfers automatically when you accept."
+            },
+            {
+              "outbound": false,
+              "body": "Yes, I'll take it. The automatic transfer just completed; we have nothing else to arrange."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "test_archive_box",
+      "split": "test",
+      "domain": "work",
+      "capability": "resolution",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "none",
+          "evidence": "box is in cabinet six",
+          "messages": [
+            {
+              "outbound": true,
+              "body": "Where did you put the archive box?"
+            },
+            {
+              "outbound": false,
+              "body": "The archive box is in cabinet six, on the lowest shelf."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "tell me where",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Could you tell me where the archive box was put? I've checked all the cabinets."
+            }
+          ]
+        },
+        {
+          "state": "unknown",
+          "evidence": "archive-box arrangement",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "That archive-box arrangement from the call: does it still apply? The call notes aren't available."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "test_chess_event",
+      "split": "test",
+      "domain": "community",
+      "capability": "mixed_ownership",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "both",
+          "evidence": "you collect the chess clocks",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll print the pairing sheets, and you collect the chess clocks. Neither task is complete."
+            }
+          ]
+        },
+        {
+          "state": "sender",
+          "evidence": "I'll print the pairing sheets",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "You collected the chess clocks. I'll print the pairing sheets; nothing else remains."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "collect the chess clocks",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The pairing sheets are printed. Please collect the chess clocks to finish preparations."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "test_voicemail",
+      "split": "test",
+      "domain": "personal",
+      "capability": "missing_context",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "unknown",
+          "evidence": "only in a voicemail",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The requested action and who should do it are only in a voicemail we haven't transcribed."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "send the parcel dimensions",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The voicemail was for you: please send the parcel dimensions to me so I can price the postage."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "postage is already paid",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The voicemail is obsolete; the parcel was measured and postage is already paid. Nothing remains to arrange."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "test_old_invoice",
+      "split": "test",
+      "domain": "work",
+      "capability": "quoted_history",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "none",
+          "evidence": "duplicate charge is reversed",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The duplicate charge is reversed and the balance is zero. The quoted request is resolved.\n\n> Please investigate the duplicate invoice charge."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "reverse the duplicate charge",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Please reverse the duplicate charge. It remains on my statement despite the old note below.\n\n> The balance is zero."
+            }
+          ]
+        },
+        {
+          "state": "both",
+          "evidence": "you reverse the duplicate",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "I'll resend the receipt. Can you reverse the duplicate charge? Neither action is done.\n\n> Please investigate the duplicate invoice charge."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "test_pool_pass",
+      "split": "test",
+      "domain": "community",
+      "capability": "automated_notice",
+      "mirror": false,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "must supply",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Pool registration notice: you must supply a guardian's signature by Wednesday or your child's lesson place will lapse."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "signature is on file",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Pool registration notice: the guardian's signature is on file. Your child's lesson place is fully confirmed."
+            }
+          ]
+        },
+        {
+          "state": "unknown",
+          "evidence": "action is specified in an unavailable attachment",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Pool registration notice: any required action is specified in an unavailable attachment. The message itself gives no details."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "test_woodworking_news",
+      "split": "test",
+      "domain": "creative",
+      "capability": "bulk_vs_personal",
+      "mirror": false,
+      "variants": [
+        {
+          "state": "bulk",
+          "evidence": "woodworking bulletin",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The weekend woodworking bulletin: project ideas, sponsor deals, and reader photos. Unsubscribe from these mailings in settings."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "pick the handle style",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Your custom cabinet is ready for hardware. Please pick the handle style so I can finish it."
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "cabinet is finished",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Your custom cabinet is finished with the handles you selected. Delivery is already booked; this is just a completion notice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "test_change_optional",
+      "split": "test",
+      "domain": "household",
+      "capability": "negation",
+      "mirror": false,
+      "variants": [
+        {
+          "state": "none",
+          "evidence": "may keep",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "You may keep the existing meter display. The new optional display is cosmetic and declining it changes no service."
+            }
+          ]
+        },
+        {
+          "state": "recipient",
+          "evidence": "tell me whether",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "The installer is asking for your decision: please tell me whether you want the new meter display before I schedule the visit."
+            }
+          ]
+        },
+        {
+          "state": "bulk",
+          "evidence": "Decorate your home",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "Decorate your home with our designer meter covers! A seasonal promotion for our home-improvement mailing list."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "test_hurried_reply",
+      "split": "test",
+      "domain": "education",
+      "capability": "informal_format",
+      "mirror": true,
+      "variants": [
+        {
+          "state": "recipient",
+          "evidence": "can u check",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "sry to chase — can u check which seminar i'm assigned to? portal wont load"
+            }
+          ]
+        },
+        {
+          "state": "none",
+          "evidence": "found my seminar",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "nvm, portal works now, found my seminar. sorted :)"
+            }
+          ]
+        },
+        {
+          "state": "both",
+          "evidence": "u check",
+          "messages": [
+            {
+              "outbound": false,
+              "body": "i'll find the reading list; can u check the seminar allocation? still missing both"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

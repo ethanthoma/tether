@@ -1,5 +1,9 @@
 # Triage classifier evaluation
 
+For the current fully synthetic corpus, research rationale, and prequential MDL
+diagnostic, see [SYNTHETIC.md](SYNTHETIC.md). The older challenge set below remains
+a development artifact and is excluded from the new training and test run.
+
 `cases.json` is a 22-case development challenge set: six anonymized paraphrases
 from the earlier mailbox review and sixteen synthetic cases. It contains no
 original addresses, identifiers, links, or message bodies. Each case records
