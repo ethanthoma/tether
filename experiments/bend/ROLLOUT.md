@@ -93,3 +93,41 @@ After reviewing daytime shadow evidence, create an empty
 `/var/lib/tether/bend-dispatch.enabled` to activate batch selection. Remove only
 that file to roll dispatch back without changing eligibility. The previous source
 and system path are retained under `/var/lib/tether-dispatch-staging-20260918/`.
+
+## Delivery observer stage — 2026-09-18
+
+Source commit `65bcd71` adds `tether-bend-delivery` and a shadow observer inside
+nonempty nudge batches. Go still controls every send, log write, and stop decision.
+Dispatch authority remains disabled because daytime evidence is still pending.
+
+The Go suite, Bend proofs, 11 mutation rejections, and all 48 native delivery
+transitions passed. Delivery/retry comparisons exercise the observer and require
+zero disagreements. Regression tests confirm invalid, failing, timed-out, and
+semantically wrong evaluators cannot alter sending. A successful HTTP send followed
+by a log-write failure stops the batch and reports zero persisted confirmations.
+No observer is invoked during quiet hours or for empty batches.
+
+The isolated production snapshot (513 real threads plus eight fixtures) passed
+all four lanes with three identical fake deliveries each and zero delivery
+transition disagreements. The exact NixOS-built policy package passed the native
+and snapshot gates again before activation. Staging had no network or credentials;
+its temporary snapshot and executable were removed after validation.
+
+Deployment generation:
+`/nix/store/3civgvpj834hlr9xz5qwgc1fml1zjx9k-nixos-system-atlas-26.11.20260831.34ab990`
+
+Policy package:
+`/nix/store/bx810xk8zq7qi6b9sd7708n0wg8f794d-tether-bend-shadow-2.0.5`
+
+The running bot's `TETHER_BEND_DELIVERY` points to this package. Bot and shadow timer
+are active; llama remains inactive. Eligibility still has 513 checks and no skips
+or disagreements; dispatch remains an agreeing quiet-hour zero batch. There are
+no live delivery-transition results yet. On the next nonempty daytime batch, look
+for policy `bend-2.0.5/delivery-v1` in the sender's journal, usually
+`tether-pulse.service`. Require zero mismatches; observer-unavailable messages are
+missing evidence, not agreement.
+
+There is no delivery authority switch. Set `TETHER_BEND_DELIVERY` to an empty value
+in the service environment and restart the bot to disable its observation; future
+oneshot services reload the environment automatically. The previous source and
+system path are retained under `/var/lib/tether-delivery-staging-20260918/`.
