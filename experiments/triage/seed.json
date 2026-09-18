@@ -1,0 +1,1423 @@
+{
+  "version": 1,
+  "review_status": "provisional_assistant_labels",
+  "provenance": "synthetic; manually authored scenarios with direction-reversed pairs",
+  "cases": [
+    {
+      "id": "budget_sheet",
+      "group": "budget_sheet",
+      "split": "train",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Would you share the budget spreadsheet with me?"
+        }
+      ]
+    },
+    {
+      "id": "budget_sheet_reversed",
+      "group": "budget_sheet",
+      "split": "train",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Would you share the budget spreadsheet with me?"
+        }
+      ]
+    },
+    {
+      "id": "colour_choice",
+      "group": "colour_choice",
+      "split": "train",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which colour should the printer use for the badges?"
+        }
+      ]
+    },
+    {
+      "id": "colour_choice_reversed",
+      "group": "colour_choice",
+      "split": "train",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which colour should the printer use for the badges?"
+        }
+      ]
+    },
+    {
+      "id": "access_code",
+      "group": "access_code",
+      "split": "train",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I need the access code before I can enter the lab. Please send it."
+        }
+      ]
+    },
+    {
+      "id": "access_code_reversed",
+      "group": "access_code",
+      "split": "train",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I need the access code before I can enter the lab. Please send it."
+        }
+      ]
+    },
+    {
+      "id": "review_request",
+      "group": "review_request",
+      "split": "train",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I'd appreciate your review of my proposal by tomorrow."
+        }
+      ]
+    },
+    {
+      "id": "review_request_reversed",
+      "group": "review_request",
+      "split": "train",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I'd appreciate your review of my proposal by tomorrow."
+        }
+      ]
+    },
+    {
+      "id": "availability",
+      "group": "availability",
+      "split": "train",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Let me know when you are free for a call this afternoon."
+        }
+      ]
+    },
+    {
+      "id": "availability_reversed",
+      "group": "availability",
+      "split": "train",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Let me know when you are free for a call this afternoon."
+        }
+      ]
+    },
+    {
+      "id": "receipt_request",
+      "group": "receipt_request",
+      "split": "train",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The purchase receipt would help me close the expense report. Can you forward it?"
+        }
+      ]
+    },
+    {
+      "id": "receipt_request_reversed",
+      "group": "receipt_request",
+      "split": "train",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The purchase receipt would help me close the expense report. Can you forward it?"
+        }
+      ]
+    },
+    {
+      "id": "status_question",
+      "group": "status_question",
+      "split": "train",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Has the technician replaced the broken sensor yet?"
+        }
+      ]
+    },
+    {
+      "id": "status_question_reversed",
+      "group": "status_question",
+      "split": "train",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Has the technician replaced the broken sensor yet?"
+        }
+      ]
+    },
+    {
+      "id": "correction",
+      "group": "correction",
+      "split": "train",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The surname on the invoice is misspelled. Please correct it and send a new copy."
+        }
+      ]
+    },
+    {
+      "id": "correction_reversed",
+      "group": "correction",
+      "split": "train",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The surname on the invoice is misspelled. Please correct it and send a new copy."
+        }
+      ]
+    },
+    {
+      "id": "polite_question",
+      "group": "polite_question",
+      "split": "train",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Much appreciated! One last question: what is the package weight?"
+        }
+      ]
+    },
+    {
+      "id": "polite_question_reversed",
+      "group": "polite_question",
+      "split": "train",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Much appreciated! One last question: what is the package weight?"
+        }
+      ]
+    },
+    {
+      "id": "promise",
+      "group": "promise",
+      "split": "train",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will prepare the agenda and email it to you later today."
+        }
+      ]
+    },
+    {
+      "id": "promise_reversed",
+      "group": "promise",
+      "split": "train",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I will prepare the agenda and email it to you later today."
+        }
+      ]
+    },
+    {
+      "id": "pending_promise",
+      "group": "pending_promise",
+      "split": "train",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please send the measurements."
+        },
+        {
+          "outbound": false,
+          "body": "I haven't measured it yet. I'll get that to you after lunch."
+        }
+      ]
+    },
+    {
+      "id": "pending_promise_reversed",
+      "group": "pending_promise",
+      "split": "train",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please send the measurements."
+        },
+        {
+          "outbound": true,
+          "body": "I haven't measured it yet. I'll get that to you after lunch."
+        }
+      ]
+    },
+    {
+      "id": "pending_ack",
+      "group": "pending_ack",
+      "split": "train",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you check whether the equipment is insured?"
+        },
+        {
+          "outbound": false,
+          "body": "Received your question. I'm checking with the insurer."
+        }
+      ]
+    },
+    {
+      "id": "pending_ack_reversed",
+      "group": "pending_ack",
+      "split": "train",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you check whether the equipment is insured?"
+        },
+        {
+          "outbound": true,
+          "body": "Received your question. I'm checking with the insurer."
+        }
+      ]
+    },
+    {
+      "id": "repeat_ask",
+      "group": "repeat_ask",
+      "split": "train",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "When will the revised estimate be ready?"
+        },
+        {
+          "outbound": true,
+          "body": "Checking in again as I still haven't received an estimate."
+        }
+      ]
+    },
+    {
+      "id": "repeat_ask_reversed",
+      "group": "repeat_ask",
+      "split": "train",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "When will the revised estimate be ready?"
+        },
+        {
+          "outbound": false,
+          "body": "Checking in again as I still haven't received an estimate."
+        }
+      ]
+    },
+    {
+      "id": "not_done",
+      "group": "not_done",
+      "split": "train",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please upload the recording."
+        },
+        {
+          "outbound": false,
+          "body": "Apologies for the delay, the upload is still pending."
+        }
+      ]
+    },
+    {
+      "id": "not_done_reversed",
+      "group": "not_done",
+      "split": "train",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please upload the recording."
+        },
+        {
+          "outbound": true,
+          "body": "Apologies for the delay, the upload is still pending."
+        }
+      ]
+    },
+    {
+      "id": "deadline",
+      "group": "deadline",
+      "split": "train",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Action required: verify your identity by the end of the month or your account will be suspended."
+        }
+      ]
+    },
+    {
+      "id": "deadline_reversed",
+      "group": "deadline",
+      "split": "train",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Action required: verify your identity by the end of the month or your account will be suspended."
+        }
+      ]
+    },
+    {
+      "id": "requested_answer",
+      "group": "requested_answer",
+      "split": "train",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "How many chairs are in the storage room?"
+        },
+        {
+          "outbound": false,
+          "body": "There are thirty chairs in storage."
+        }
+      ]
+    },
+    {
+      "id": "requested_answer_reversed",
+      "group": "requested_answer",
+      "split": "train",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "How many chairs are in the storage room?"
+        },
+        {
+          "outbound": true,
+          "body": "There are thirty chairs in storage."
+        }
+      ]
+    },
+    {
+      "id": "delivered_file",
+      "group": "delivered_file",
+      "split": "train",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please send the final invoice."
+        },
+        {
+          "outbound": false,
+          "body": "Here is the final invoice you requested. The balance is paid."
+        }
+      ]
+    },
+    {
+      "id": "delivered_file_reversed",
+      "group": "delivered_file",
+      "split": "train",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please send the final invoice."
+        },
+        {
+          "outbound": true,
+          "body": "Here is the final invoice you requested. The balance is paid."
+        }
+      ]
+    },
+    {
+      "id": "closed_ticket",
+      "group": "closed_ticket",
+      "split": "train",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The issue has been fixed and this ticket is closed. Nothing further is required."
+        }
+      ]
+    },
+    {
+      "id": "closed_ticket_reversed",
+      "group": "closed_ticket",
+      "split": "train",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The issue has been fixed and this ticket is closed. Nothing further is required."
+        }
+      ]
+    },
+    {
+      "id": "appreciation",
+      "group": "appreciation",
+      "split": "train",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "It was great meeting you at the workshop. I enjoyed our conversation."
+        }
+      ]
+    },
+    {
+      "id": "appreciation_reversed",
+      "group": "appreciation",
+      "split": "train",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "It was great meeting you at the workshop. I enjoyed our conversation."
+        }
+      ]
+    },
+    {
+      "id": "schedule_notice",
+      "group": "schedule_notice",
+      "split": "train",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The cafeteria will be closed for cleaning on Wednesday. This is for your information."
+        }
+      ]
+    },
+    {
+      "id": "schedule_notice_reversed",
+      "group": "schedule_notice",
+      "split": "train",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The cafeteria will be closed for cleaning on Wednesday. This is for your information."
+        }
+      ]
+    },
+    {
+      "id": "payment_notice",
+      "group": "payment_notice",
+      "split": "train",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your payment was received successfully. Keep this receipt for your records."
+        }
+      ]
+    },
+    {
+      "id": "payment_notice_reversed",
+      "group": "payment_notice",
+      "split": "train",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Your payment was received successfully. Keep this receipt for your records."
+        }
+      ]
+    },
+    {
+      "id": "optional_event",
+      "group": "optional_event",
+      "split": "train",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "You are welcome to join our optional social hour. No response is required."
+        }
+      ]
+    },
+    {
+      "id": "optional_event_reversed",
+      "group": "optional_event",
+      "split": "train",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "You are welcome to join our optional social hour. No response is required."
+        }
+      ]
+    },
+    {
+      "id": "cancelled_request",
+      "group": "cancelled_request",
+      "split": "train",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you locate the missing adapter?"
+        },
+        {
+          "outbound": true,
+          "body": "I found it in my bag, so please disregard my earlier request."
+        }
+      ]
+    },
+    {
+      "id": "cancelled_request_reversed",
+      "group": "cancelled_request",
+      "split": "train",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Could you locate the missing adapter?"
+        },
+        {
+          "outbound": false,
+          "body": "I found it in my bag, so please disregard my earlier request."
+        }
+      ]
+    },
+    {
+      "id": "answered_thanks",
+      "group": "answered_thanks",
+      "split": "train",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The office opens at nine."
+        },
+        {
+          "outbound": true,
+          "body": "Excellent, that is all I needed to know. Much appreciated."
+        }
+      ]
+    },
+    {
+      "id": "answered_thanks_reversed",
+      "group": "answered_thanks",
+      "split": "train",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The office opens at nine."
+        },
+        {
+          "outbound": false,
+          "body": "Excellent, that is all I needed to know. Much appreciated."
+        }
+      ]
+    },
+    {
+      "id": "quoted_closed",
+      "group": "quoted_closed",
+      "split": "train",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The refund is complete and no action remains.\n\n> Please investigate my missing payment."
+        }
+      ]
+    },
+    {
+      "id": "quoted_closed_reversed",
+      "group": "quoted_closed",
+      "split": "train",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The refund is complete and no action remains.\n\n> Please investigate my missing payment."
+        }
+      ]
+    },
+    {
+      "id": "sale",
+      "group": "sale",
+      "split": "train",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Flash sale! Save forty percent on shoes this weekend. Manage your marketing preferences below."
+        }
+      ]
+    },
+    {
+      "id": "sale_reversed",
+      "group": "sale",
+      "split": "train",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Flash sale! Save forty percent on shoes this weekend. Manage your marketing preferences below."
+        }
+      ]
+    },
+    {
+      "id": "digest",
+      "group": "digest",
+      "split": "train",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your weekly tech digest: five stories from the industry. Update your newsletter subscription here."
+        }
+      ]
+    },
+    {
+      "id": "digest_reversed",
+      "group": "digest",
+      "split": "train",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Your weekly tech digest: five stories from the industry. Update your newsletter subscription here."
+        }
+      ]
+    },
+    {
+      "id": "advert",
+      "group": "advert",
+      "split": "train",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Try our new productivity plan! Upgrade today for exclusive features. Promotional mailing."
+        }
+      ]
+    },
+    {
+      "id": "advert_reversed",
+      "group": "advert",
+      "split": "train",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Try our new productivity plan! Upgrade today for exclusive features. Promotional mailing."
+        }
+      ]
+    },
+    {
+      "id": "coupon",
+      "group": "coupon",
+      "split": "train",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "A special coupon for all our subscribers: take ten dollars off your next order."
+        }
+      ]
+    },
+    {
+      "id": "coupon_reversed",
+      "group": "coupon",
+      "split": "train",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "A special coupon for all our subscribers: take ten dollars off your next order."
+        }
+      ]
+    },
+    {
+      "id": "webinar_ad",
+      "group": "webinar_ad",
+      "split": "train",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Join thousands of readers at our free marketing webinar. Browse our offers or opt out of future mailings."
+        }
+      ]
+    },
+    {
+      "id": "webinar_ad_reversed",
+      "group": "webinar_ad",
+      "split": "train",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Join thousands of readers at our free marketing webinar. Browse our offers or opt out of future mailings."
+        }
+      ]
+    },
+    {
+      "id": "missing_context",
+      "group": "missing_context",
+      "split": "train",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Same as last time?"
+        }
+      ]
+    },
+    {
+      "id": "missing_context_reversed",
+      "group": "missing_context",
+      "split": "train",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Same as last time?"
+        }
+      ]
+    },
+    {
+      "id": "attachment_only",
+      "group": "attachment_only",
+      "split": "train",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The instructions are in the attachment. Refer to it to find out what comes next."
+        }
+      ]
+    },
+    {
+      "id": "attachment_only_reversed",
+      "group": "attachment_only",
+      "split": "train",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The instructions are in the attachment. Refer to it to find out what comes next."
+        }
+      ]
+    },
+    {
+      "id": "mixed_work",
+      "group": "mixed_work",
+      "split": "train",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I'll revise the slides. Please collect the attendance numbers while I do that."
+        }
+      ]
+    },
+    {
+      "id": "mixed_work_reversed",
+      "group": "mixed_work",
+      "split": "train",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I'll revise the slides. Please collect the attendance numbers while I do that."
+        }
+      ]
+    },
+    {
+      "id": "unknown_owner",
+      "group": "unknown_owner",
+      "split": "train",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Someone needs to deal with the remaining item. We haven't decided who."
+        }
+      ]
+    },
+    {
+      "id": "unknown_owner_reversed",
+      "group": "unknown_owner",
+      "split": "train",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Someone needs to deal with the remaining item. We haven't decided who."
+        }
+      ]
+    },
+    {
+      "id": "vague_reference",
+      "group": "vague_reference",
+      "split": "train",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Regarding the earlier discussion: is that sorted?"
+        }
+      ]
+    },
+    {
+      "id": "vague_reference_reversed",
+      "group": "vague_reference",
+      "split": "train",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Regarding the earlier discussion: is that sorted?"
+        }
+      ]
+    },
+    {
+      "id": "two_promises",
+      "group": "two_promises",
+      "split": "train",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will bring the equipment and you will reserve the venue. Neither task is done yet."
+        }
+      ]
+    },
+    {
+      "id": "two_promises_reversed",
+      "group": "two_promises",
+      "split": "train",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I will bring the equipment and you will reserve the venue. Neither task is done yet."
+        }
+      ]
+    },
+    {
+      "id": "parking_query",
+      "group": "parking_query",
+      "split": "dev",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Is overnight parking permitted in the north lot?"
+        }
+      ]
+    },
+    {
+      "id": "parking_query_reversed",
+      "group": "parking_query",
+      "split": "dev",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is overnight parking permitted in the north lot?"
+        }
+      ]
+    },
+    {
+      "id": "translation",
+      "group": "translation",
+      "split": "dev",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "It would be helpful if you could translate this paragraph into French."
+        }
+      ]
+    },
+    {
+      "id": "translation_reversed",
+      "group": "translation",
+      "split": "dev",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "It would be helpful if you could translate this paragraph into French."
+        }
+      ]
+    },
+    {
+      "id": "account_change",
+      "group": "account_change",
+      "split": "dev",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Kindly update the billing address on my account."
+        }
+      ]
+    },
+    {
+      "id": "account_change_reversed",
+      "group": "account_change",
+      "split": "dev",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Kindly update the billing address on my account."
+        }
+      ]
+    },
+    {
+      "id": "unfulfilled",
+      "group": "unfulfilled",
+      "split": "dev",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Would you send the test results?"
+        },
+        {
+          "outbound": false,
+          "body": "They are not ready. I expect to finish processing them next week."
+        }
+      ]
+    },
+    {
+      "id": "unfulfilled_reversed",
+      "group": "unfulfilled",
+      "split": "dev",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Would you send the test results?"
+        },
+        {
+          "outbound": true,
+          "body": "They are not ready. I expect to finish processing them next week."
+        }
+      ]
+    },
+    {
+      "id": "reminder",
+      "group": "reminder",
+      "split": "dev",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please return the borrowed projector."
+        },
+        {
+          "outbound": true,
+          "body": "A reminder that the projector has not been returned."
+        }
+      ]
+    },
+    {
+      "id": "reminder_reversed",
+      "group": "reminder",
+      "split": "dev",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please return the borrowed projector."
+        },
+        {
+          "outbound": false,
+          "body": "A reminder that the projector has not been returned."
+        }
+      ]
+    },
+    {
+      "id": "commitment",
+      "group": "commitment",
+      "split": "dev",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I'll arrange the courier pickup this evening."
+        }
+      ]
+    },
+    {
+      "id": "commitment_reversed",
+      "group": "commitment",
+      "split": "dev",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I'll arrange the courier pickup this evening."
+        }
+      ]
+    },
+    {
+      "id": "required_upload",
+      "group": "required_upload",
+      "split": "dev",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your registration is on hold until you submit proof of residence. The deadline is tomorrow."
+        }
+      ]
+    },
+    {
+      "id": "required_upload_reversed",
+      "group": "required_upload",
+      "split": "dev",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Your registration is on hold until you submit proof of residence. The deadline is tomorrow."
+        }
+      ]
+    },
+    {
+      "id": "resolved_answer",
+      "group": "resolved_answer",
+      "split": "dev",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "What is the wireless network name?"
+        },
+        {
+          "outbound": false,
+          "body": "The network is called GuestWest, with no password."
+        }
+      ]
+    },
+    {
+      "id": "resolved_answer_reversed",
+      "group": "resolved_answer",
+      "split": "dev",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What is the wireless network name?"
+        },
+        {
+          "outbound": true,
+          "body": "The network is called GuestWest, with no password."
+        }
+      ]
+    },
+    {
+      "id": "no_longer_needed",
+      "group": "no_longer_needed",
+      "split": "dev",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please book a table for tonight."
+        },
+        {
+          "outbound": true,
+          "body": "Our plans changed; you can ignore the table booking request."
+        }
+      ]
+    },
+    {
+      "id": "no_longer_needed_reversed",
+      "group": "no_longer_needed",
+      "split": "dev",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please book a table for tonight."
+        },
+        {
+          "outbound": false,
+          "body": "Our plans changed; you can ignore the table booking request."
+        }
+      ]
+    },
+    {
+      "id": "done_notice",
+      "group": "done_notice",
+      "split": "dev",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The backup completed successfully. This is an automated confirmation for your records."
+        }
+      ]
+    },
+    {
+      "id": "done_notice_reversed",
+      "group": "done_notice",
+      "split": "dev",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The backup completed successfully. This is an automated confirmation for your records."
+        }
+      ]
+    },
+    {
+      "id": "courtesy",
+      "group": "courtesy",
+      "split": "dev",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I really enjoyed your presentation. Thanks for sharing your insights."
+        }
+      ]
+    },
+    {
+      "id": "courtesy_reversed",
+      "group": "courtesy",
+      "split": "dev",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I really enjoyed your presentation. Thanks for sharing your insights."
+        }
+      ]
+    },
+    {
+      "id": "voluntary",
+      "group": "voluntary",
+      "split": "dev",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Participation in the office book swap is entirely voluntary; no response is expected."
+        }
+      ]
+    },
+    {
+      "id": "voluntary_reversed",
+      "group": "voluntary",
+      "split": "dev",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Participation in the office book swap is entirely voluntary; no response is expected."
+        }
+      ]
+    },
+    {
+      "id": "retail",
+      "group": "retail",
+      "split": "dev",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Shop our seasonal furniture collection and enjoy subscriber discounts. Stop promotional emails via the preferences link."
+        }
+      ]
+    },
+    {
+      "id": "retail_reversed",
+      "group": "retail",
+      "split": "dev",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Shop our seasonal furniture collection and enjoy subscriber discounts. Stop promotional emails via the preferences link."
+        }
+      ]
+    },
+    {
+      "id": "roundup",
+      "group": "roundup",
+      "split": "dev",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Monthly science roundup for our mailing list: new discoveries and editor picks. Unsubscribe below."
+        }
+      ]
+    },
+    {
+      "id": "roundup_reversed",
+      "group": "roundup",
+      "split": "dev",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Monthly science roundup for our mailing list: new discoveries and editor picks. Unsubscribe below."
+        }
+      ]
+    },
+    {
+      "id": "campaign",
+      "group": "campaign",
+      "split": "dev",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Discover our premium travel membership. Sign up now to unlock our launch offer. Advertisement."
+        }
+      ]
+    },
+    {
+      "id": "campaign_reversed",
+      "group": "campaign",
+      "split": "dev",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Discover our premium travel membership. Sign up now to unlock our launch offer. Advertisement."
+        }
+      ]
+    },
+    {
+      "id": "unseen_image",
+      "group": "unseen_image",
+      "split": "dev",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Everything you need to decide is in the screenshot, which isn't included here."
+        }
+      ]
+    },
+    {
+      "id": "unseen_image_reversed",
+      "group": "unseen_image",
+      "split": "dev",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Everything you need to decide is in the screenshot, which isn't included here."
+        }
+      ]
+    },
+    {
+      "id": "fragment",
+      "group": "fragment",
+      "split": "dev",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Any movement on that situation?"
+        }
+      ]
+    },
+    {
+      "id": "fragment_reversed",
+      "group": "fragment",
+      "split": "dev",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Any movement on that situation?"
+        }
+      ]
+    },
+    {
+      "id": "shared_tasks",
+      "group": "shared_tasks",
+      "split": "dev",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I still owe you the dataset, and you still owe me the revised outline."
+        }
+      ]
+    },
+    {
+      "id": "shared_tasks_reversed",
+      "group": "shared_tasks",
+      "split": "dev",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I still owe you the dataset, and you still owe me the revised outline."
+        }
+      ]
+    },
+    {
+      "id": "unassigned",
+      "group": "unassigned",
+      "split": "dev",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "There is a remaining task from the call, but nobody has been assigned to it."
+        }
+      ]
+    },
+    {
+      "id": "unassigned_reversed",
+      "group": "unassigned",
+      "split": "dev",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "There is a remaining task from the call, but nobody has been assigned to it."
+        }
+      ]
+    }
+  ]
+}

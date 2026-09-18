@@ -36,6 +36,10 @@ No production state, network, LLM, or notifications are involved.
 
 ## Compare a purpose-trained classifier
 
+[TRAINING.md](TRAINING.md) describes the runnable local MiniLM pilot, synthetic
+training data, and saved offline artifact. Its initial results are below the rule
+baseline; it is not connected to production.
+
 Export one prediction per case as a JSON object, for example
 `{"resolved_shipping":"fyi", "calendar_invitation":"abstain", ...}`.
 Use actual case IDs for every entry; ellipses are illustrative, not valid input.

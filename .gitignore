@@ -3,3 +3,7 @@ result-*
 client_secret_*.json
 
 /tether
+/experiments/triage/.venv/
+/experiments/triage/runs/
+/experiments/triage/private/
+__pycache__/
