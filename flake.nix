@@ -14,6 +14,7 @@
     in
     {
       packages = forAllSystems (pkgs: {
+        bend-shadow = import ./bend-shadow.nix { inherit pkgs; };
         default = pkgs.buildGoModule {
           pname = "tether";
           version = "0.1.0";

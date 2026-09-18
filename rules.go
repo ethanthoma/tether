@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 )
 
@@ -29,7 +30,23 @@ type Nudge struct {
 	EntityID string    `json:"entity_id"`
 	Title    string    `json:"-"`
 	Body     string    `json:"-"`
+	Target   string    `json:"-"` // id the buttons act on: thread short id, or commitment/reminder id
+	Thread   bool      `json:"-"` // threads can also be snoozed and shown
 	FiredAt  time.Time `json:"fired_at"`
+}
+
+func (n Nudge) buttons() []map[string]any {
+	if n.Target == "" {
+		return nil
+	}
+	if !n.Thread {
+		return []map[string]any{Button("Done", "done:"+n.Target)}
+	}
+	return []map[string]any{
+		Button("Done", "done:"+n.Target),
+		Button("Snooze 3d", "snooze:"+n.Target+":3d"),
+		Button("Show", "show:"+n.Target),
+	}
 }
 
 type nudgeLog struct {
@@ -114,12 +131,12 @@ func RunNudges(store *Store, cfg *Config, now time.Time) error {
 	if err != nil {
 		return err
 	}
-	for _, nudge := range collectNudges(store, nl, now) {
+	for _, nudge := range collectNudges(store, nl, now, productionBendEligibility(store, cfg, nl, now)) {
 		if nl.firedToday("", now) >= maxPushesPerDay {
 			log.Printf("nudge: daily cap reached, deferring %s/%s to digest", nudge.RuleID, nudge.EntityID)
 			break
 		}
-		if err := NotifyNtfy(cfg, nudge.Title, nudge.Body); err != nil {
+		if err := PostDiscordButtons(cfg, "**"+nudge.Title+"**\n"+nudge.Body, nudge.buttons()); err != nil {
 			return err
 		}
 		nudge.FiredAt = now
@@ -130,12 +147,12 @@ func RunNudges(store *Store, cfg *Config, now time.Time) error {
 	return nil
 }
 
-func collectNudges(store *Store, nl *nudgeLog, now time.Time) []Nudge {
+func collectNudges(store *Store, nl *nudgeLog, now time.Time, bendEligible map[*Thread]bool) []Nudge {
 	var out []Nudge
 
 	for _, r := range store.Reminders {
 		if r.State == ReminderOpen && !now.Before(r.Due) && nl.firesWithin("reminder", r.ID, reminderCooldown, now) == 0 {
-			out = append(out, Nudge{RuleID: "reminder", EntityID: r.ID,
+			out = append(out, Nudge{RuleID: "reminder", EntityID: r.ID, Target: r.ID,
 				Title: "Reminder", Body: r.Text})
 		}
 	}
@@ -153,27 +170,30 @@ func collectNudges(store *Store, nl *nudgeLog, now time.Time) []Nudge {
 			if age == "slipped" {
 				title = "Commitment slipped"
 			}
-			out = append(out, Nudge{RuleID: age, EntityID: c.ID,
+			out = append(out, Nudge{RuleID: age, EntityID: c.ID, Target: c.ID,
 				Title: title, Body: fmt.Sprintf("%s (due %s)", c.Text, c.Due.Local().Format("Mon Jan 2"))})
 		}
 	}
 
 	for _, t := range store.Threads {
-		if t.Snoozed(now) {
-			continue
-		}
-		if t.State == ThreadNeedsReply && now.Sub(t.LastInbound) > replyOverdue &&
+		reply := !t.Snoozed(now) && t.State == ThreadNeedsReply && now.Sub(t.LastInbound) > replyOverdue &&
 			nl.firesWithin("needs_reply", t.ID, replyCooldown, now) == 0 &&
-			nl.firesWithin("needs_reply", t.ID, nudgeLogMaxAge, now) < replyMaxFires {
-			days := int(now.Sub(t.LastInbound).Hours() / 24)
-			out = append(out, Nudge{RuleID: "needs_reply", EntityID: t.ID,
-				Title: "Reply owed", Body: fmt.Sprintf("[%s] %s — waiting %dd for your reply", t.ShortID(), t.Subject, days)})
+			nl.firesWithin("needs_reply", t.ID, nudgeLogMaxAge, now) < replyMaxFires
+		bump := !t.Snoozed(now) && t.State == ThreadWaitingOnThem && now.Sub(t.LastOutbound) > bumpQuiet &&
+			nl.firesWithin("bump", t.ID, bumpQuiet, now) == 0
+		if bendEligible != nil {
+			reply = t.State == ThreadNeedsReply && bendEligible[t]
+			bump = t.State == ThreadWaitingOnThem && bendEligible[t]
 		}
-		if t.State == ThreadWaitingOnThem && now.Sub(t.LastOutbound) > bumpQuiet &&
-			nl.firesWithin("bump", t.ID, bumpQuiet, now) == 0 {
+		if reply {
+			days := int(now.Sub(t.LastInbound).Hours() / 24)
+			out = append(out, Nudge{RuleID: "needs_reply", EntityID: t.ID, Target: t.ShortID(), Thread: true,
+				Title: "Reply owed", Body: threadNudgeBody(t, fmt.Sprintf("waiting %dd for your reply", days))})
+		}
+		if bump {
 			days := int(now.Sub(t.LastOutbound).Hours() / 24)
-			out = append(out, Nudge{RuleID: "bump", EntityID: t.ID,
-				Title: "Worth a bump?", Body: fmt.Sprintf("[%s] %s — quiet for %dd", t.ShortID(), t.Subject, days)})
+			out = append(out, Nudge{RuleID: "bump", EntityID: t.ID, Target: t.ShortID(), Thread: true,
+				Title: "Worth a bump?", Body: threadNudgeBody(t, fmt.Sprintf("quiet for %dd", days))})
 		}
 	}
 
@@ -199,6 +219,21 @@ func collectNudges(store *Store, nl *nudgeLog, now time.Time) []Nudge {
 	return out
 }
 
+func threadNudgeBody(thread *Thread, timing string) string {
+	body := fmt.Sprintf("[%s] %s — %s", thread.ShortID(), truncate(clean(thread.Subject), 200), timing)
+	participants := thread.Participants
+	if len(participants) > 3 {
+		participants = participants[:3]
+	}
+	if people := clean(strings.Join(participants, ", ")); people != "" {
+		body += "\nWith: " + truncate(people, 240)
+	}
+	if note := clean(thread.TriageNote); note != "" {
+		body += "\nContext: " + truncate(note, 400)
+	}
+	return body
+}
+
 func eventPrepNudges(store *Store, nl *nudgeLog, now time.Time) []Nudge {
 	var out []Nudge
 	for _, e := range store.Events {
@@ -216,7 +251,7 @@ func eventPrepNudges(store *Store, nl *nudgeLog, now time.Time) []Nudge {
 			if nl.firesWithin("event_prep", entity, nudgeLogMaxAge, now) == 0 {
 				out = append(out, Nudge{RuleID: "event_prep", EntityID: entity,
 					Title: "Before your meeting", Body: fmt.Sprintf("%q at %s — you still owe a reply on [%s] %s",
-						e.Summary, e.Start.Local().Format("Mon 15:04"), t.ShortID(), t.Subject)})
+						clean(e.Summary), e.Start.Local().Format("Mon 15:04"), t.ShortID(), clean(t.Subject))})
 			}
 		}
 	}

@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"log"
 	"strings"
@@ -13,15 +14,25 @@ const (
 	triageMaxAttempts  = 3
 	triageMsgChars     = 4000
 	triageMsgsInPrompt = 2
+	// Generous because reasoning tokens are billed against the same budget as the answer.
+	triageMaxTokens = 2500
 )
 
 const triageSystemPrompt = `Reasoning strength: low
 You classify email threads for a single user. Answer with ONE JSON object, nothing else:
 {"state": "needs_reply" | "waiting_on_them" | "fyi" | "noise",
- "note": "one short sentence explaining the classification",
+ "note": "one short sentence naming who owes what response or action, or why no response is needed",
  "commitments": [{"text": "what the user promised to do", "due": "YYYY-MM-DD or empty string"}]}
-States: needs_reply = the user owes a human a reply; waiting_on_them = the user is waiting on someone;
-fyi = worth seeing, no action; noise = newsletters, promotions, automated mail, never worth a nudge.
+States: needs_reply = the user owes a HUMAN a reply, in prose, to something a person actually asked;
+waiting_on_them = a HUMAN still owes a response or action to an explicit request from the user;
+fyi = worth seeing, no outstanding response or action;
+noise = newsletters, promotions, automated mail, never worth a nudge.
+Sending a message does not by itself mean waiting_on_them. Closing thanks, acknowledgments,
+and completed exchanges are fyi unless a specific request remains unanswered.
+Use the latest messages to decide what remains outstanding; do not revive requests already resolved.
+Calendar mail ("Invitation:", "Updated invitation:", "Cancelled event", accepted/declined notices)
+is fyi, never needs_reply, even when the user organised it — the calendar already tracks it.
+Automated mail is never needs_reply unless it states a deadline the user must personally act on.
 Commitments: ONLY explicit promises made in messages sent BY the user ("I'll send X by Friday"). Usually [].`
 
 type triageVerdict struct {
@@ -42,6 +53,10 @@ func RunTriage(store *Store, cfg *Config, now time.Time) error {
 		verdict, err := triageThread(store, cfg, thread, now)
 		triaged++
 		if err != nil {
+			if errors.Is(err, errLLMUnavailable) {
+				log.Printf("triage: paused, queued threads unchanged: %v", err)
+				return nil
+			}
 			thread.TriageAttempts++
 			log.Printf("triage: thread %s attempt %d: %v", thread.ShortID(), thread.TriageAttempts, err)
 			if thread.TriageAttempts >= triageMaxAttempts {
@@ -64,7 +79,7 @@ func RunTriage(store *Store, cfg *Config, now time.Time) error {
 func triageThread(store *Store, cfg *Config, thread *Thread, now time.Time) (*triageVerdict, error) {
 	prompt := triagePrompt(store, cfg, thread, now)
 	for attempt := 0; attempt < 2; attempt++ {
-		content, err := LLMChat(cfg, triageSystemPrompt, prompt, 0, 600)
+		content, err := LLMChat(cfg, triageSystemPrompt, prompt, 0, triageMaxTokens)
 		if err != nil {
 			return nil, err
 		}

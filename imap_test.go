@@ -78,8 +78,8 @@ func TestApplyMessageThreading(t *testing.T) {
 	if len(s.Threads) != 1 {
 		t.Fatalf("reply must join existing thread, got %d threads", len(s.Threads))
 	}
-	if s.Threads[0].State != ThreadWaitingOnThem {
-		t.Fatalf("outbound reply: got %s, want waiting_on_them", s.Threads[0].State)
+	if s.Threads[0].State != ThreadNew {
+		t.Fatalf("outbound reply: got %s, want new", s.Threads[0].State)
 	}
 	if s.ContactByEmail("bob@example.com") == nil {
 		t.Fatal("counterparty contact not touched")

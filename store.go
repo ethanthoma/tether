@@ -59,9 +59,9 @@ func (t *Thread) ApplyInbound(at time.Time) {
 }
 
 func (t *Thread) ApplyOutbound(at time.Time) {
-	if t.State == ThreadNeedsReply || t.State == ThreadNew {
-		t.State = ThreadWaitingOnThem
-	}
+	t.State = ThreadNew
+	t.TriageNote = ""
+	t.TriageAttempts = 0
 	if at.After(t.LastOutbound) {
 		t.LastOutbound = at
 	}
@@ -141,10 +141,13 @@ type Event struct {
 }
 
 type SyncState struct {
-	UIDValidity uint32    `json:"uidvalidity"`
-	LastUID     uint32    `json:"last_uid"`
-	ICSFetched  time.Time `json:"ics_fetched,omitzero"`
-	MailFetched time.Time `json:"mail_fetched,omitzero"`
+	UIDValidity  uint32    `json:"uidvalidity"`
+	LastUID      uint32    `json:"last_uid"`
+	ICSFetched   time.Time `json:"ics_fetched,omitzero"`
+	MailFetched  time.Time `json:"mail_fetched,omitzero"`
+	CalendarID   string    `json:"calendar_id,omitempty"`
+	ChatThread   string    `json:"chat_thread,omitempty"`
+	ChatThreadAt time.Time `json:"chat_thread_at,omitzero"`
 }
 
 type Message struct {

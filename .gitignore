@@ -1,2 +1,5 @@
 result
 result-*
+client_secret_*.json
+
+/tether

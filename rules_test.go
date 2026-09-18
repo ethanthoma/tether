@@ -1,9 +1,50 @@
 package main
 
 import (
+	"strings"
 	"testing"
 	"time"
 )
+
+func TestThreadNudgeContext(t *testing.T) {
+	now := time.Date(2026, 9, 17, 12, 0, 0, 0, time.UTC)
+	for _, state := range []ThreadState{ThreadNeedsReply, ThreadWaitingOnThem} {
+		t.Run(string(state), func(t *testing.T) {
+			thread := &Thread{ID: "<context@example.com>", State: state, Subject: "**Entry timeout**",
+				Participants: []string{"alex@example.com"}, TriageNote: "Alex owes an answer about extending the entry timeout.",
+				LastInbound: now.Add(-7 * 24 * time.Hour), LastOutbound: now.Add(-7 * 24 * time.Hour)}
+			nudges := collectNudges(&Store{Threads: []*Thread{thread}}, &nudgeLog{}, now, nil)
+			if len(nudges) != 1 {
+				t.Fatalf("want one reminder, got %+v", nudges)
+			}
+			for _, fragment := range []string{"Entry timeout", "With: alex@example.com", "Context: " + thread.TriageNote} {
+				if !strings.Contains(nudges[0].Body, fragment) {
+					t.Errorf("missing %q in %q", fragment, nudges[0].Body)
+				}
+			}
+			if strings.Contains(nudges[0].Body, "**") {
+				t.Error("subject markdown was not cleaned")
+			}
+			if nudges[0].Target != thread.ShortID() || !nudges[0].Thread {
+				t.Error("thread action target changed")
+			}
+		})
+	}
+}
+
+func TestThreadNudgeContextBounds(t *testing.T) {
+	thread := &Thread{ID: "<context@example.com>", Subject: "Shipment"}
+	if body := threadNudgeBody(thread, "quiet for 6d"); body != "["+thread.ShortID()+"] Shipment — quiet for 6d" {
+		t.Fatalf("missing context should retain the basic reminder: %q", body)
+	}
+	thread.Subject = strings.Repeat("界", 500)
+	thread.TriageNote = strings.Repeat("界", 1000)
+	thread.Participants = []string{"a@example.com", "b@example.com", "c@example.com", "omitted@example.com"}
+	body := threadNudgeBody(thread, "quiet for 6d")
+	if len([]rune(body)) > 900 || strings.Contains(body, "omitted@example.com") {
+		t.Fatal("reminder context exceeded its bounds")
+	}
+}
 
 func fireAll(t *testing.T, nl *nudgeLog, nudges []Nudge, at time.Time) {
 	t.Helper()
@@ -26,21 +67,21 @@ func TestNeedsReplyRule(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	first := collectNudges(s, nl, now)
+	first := collectNudges(s, nl, now, nil)
 	if len(first) != 1 || first[0].RuleID != "needs_reply" {
 		t.Fatalf("expected one needs_reply nudge, got %+v", first)
 	}
 	fireAll(t, nl, first, now)
 
-	if again := collectNudges(s, nl, now.Add(time.Hour)); len(again) != 0 {
+	if again := collectNudges(s, nl, now.Add(time.Hour), nil); len(again) != 0 {
 		t.Fatalf("cooldown violated: %+v", again)
 	}
-	second := collectNudges(s, nl, now.Add(80*time.Hour))
+	second := collectNudges(s, nl, now.Add(80*time.Hour), nil)
 	if len(second) != 1 {
 		t.Fatalf("expected second fire after cooldown, got %+v", second)
 	}
 	fireAll(t, nl, second, now.Add(80*time.Hour))
-	if third := collectNudges(s, nl, now.Add(200*time.Hour)); len(third) != 0 {
+	if third := collectNudges(s, nl, now.Add(200*time.Hour), nil); len(third) != 0 {
 		t.Fatalf("max 2 fires violated: %+v", third)
 	}
 }
@@ -53,7 +94,7 @@ func TestSnoozeSuppressesNudges(t *testing.T) {
 		SnoozeUntil: now.Add(24 * time.Hour),
 	})
 	nl, _ := openNudgeLog(s.dir)
-	if nudges := collectNudges(s, nl, now); len(nudges) != 0 {
+	if nudges := collectNudges(s, nl, now, nil); len(nudges) != 0 {
 		t.Fatalf("snoozed thread must not nudge: %+v", nudges)
 	}
 }
@@ -72,7 +113,7 @@ func TestCommitmentAndReminderRules(t *testing.T) {
 	)
 	nl, _ := openNudgeLog(s.dir)
 	got := map[string]bool{}
-	for _, n := range collectNudges(s, nl, now) {
+	for _, n := range collectNudges(s, nl, now, nil) {
 		got[n.RuleID+"/"+n.EntityID] = true
 	}
 	for _, want := range []string{"due_soon/soon", "slipped/late", "reminder/r1"} {
@@ -96,7 +137,7 @@ func TestStaleContactDailyCap(t *testing.T) {
 	)
 	nl, _ := openNudgeLog(s.dir)
 	stale := 0
-	for _, n := range collectNudges(s, nl, now) {
+	for _, n := range collectNudges(s, nl, now, nil) {
 		if n.RuleID == "stale_contact" {
 			stale++
 		}
@@ -118,7 +159,7 @@ func TestEventPrepRule(t *testing.T) {
 	})
 	nl, _ := openNudgeLog(s.dir)
 	found := false
-	for _, n := range collectNudges(s, nl, now) {
+	for _, n := range collectNudges(s, nl, now, nil) {
 		if n.RuleID == "event_prep" {
 			found = true
 		}

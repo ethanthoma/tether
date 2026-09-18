@@ -9,36 +9,75 @@ import (
 )
 
 const digestSystemPrompt = `Reasoning strength: low
-You write the 2-3 sentence opening of a personal morning briefing. Plain, direct, lowercase-leaning,
-no greetings, no emoji. Point at the one or two things that matter most today. Output only the sentences.`
+You write the 2-3 sentence opening of a personal morning briefing addressed to %s, who is
+reading it about their OWN mailbox. Address them as "you" and never by name; a name in a
+subject line is the other party or the calendar organiser, not a third person to contact.
+Right now it is %s — never suggest acting before a time that has already passed.
+Plain, direct, lowercase-leaning, no greetings, no emoji. Point at the one or two things
+that matter most. Output ONLY 2-3 plain prose sentences: no headings, no bullet points,
+no restating the list, no questions, no offers of help.`
+
+const introMaxChars = 400
 
 func RunDigest(store *Store, cfg *Config, now time.Time) error {
 	body := buildDigest(store, now)
-	intro, err := LLMChat(cfg, digestSystemPrompt, body, 0.4, 300)
+	system := fmt.Sprintf(digestSystemPrompt, cfg.MyEmail, now.Format("Mon Jan 2 15:04"))
+	raw, err := LLMChat(cfg, system, body, 0.2, 4000)
 	if err != nil {
 		log.Printf("digest: intro skipped: %v", err)
 	} else {
-		body = strings.TrimSpace(intro) + "\n\n" + body
+		body = composeDigest(body, introProse(raw))
 	}
-	if err := NotifyDiscord(cfg, body); err != nil {
+	posted, err := PostDiscordMessage(cfg, body)
+	if err != nil {
 		return err
 	}
-	return NotifyNtfy(cfg, "Morning digest", digestPing(store, now))
+	// A thread under the digest is where follow-up questions live.
+	thread, err := OpenThread(cfg, posted, "digest "+now.Local().Format("Mon Jan 2"))
+	if err != nil {
+		log.Printf("digest: thread not opened: %v", err)
+		return nil
+	}
+	store.Sync.ChatThread = thread
+	store.Sync.ChatThreadAt = now
+	return store.Save()
 }
 
-func digestPing(store *Store, now time.Time) string {
-	replies, commitments := 0, 0
-	for _, t := range store.Threads {
-		if t.State == ThreadNeedsReply && !t.Snoozed(now) {
-			replies++
+// The header stays the first line: the intro reads as a lede under it, not as a
+// paragraph arriving before you know what you are looking at.
+func composeDigest(body, intro string) string {
+	if intro == "" {
+		return body
+	}
+	header, sections, found := strings.Cut(body, "\n")
+	if !found {
+		return body + "\n\n" + intro
+	}
+	return header + "\n\n" + intro + "\n" + sections
+}
+
+// The intro is the one part of the digest a model writes, and it strays: it
+// reformats the list, adds emoji, asks questions. Keep only plain prose.
+func introProse(raw string) string {
+	var kept []string
+	for _, line := range strings.Split(raw, "\n") {
+		line = strings.TrimSpace(line)
+		switch {
+		case line == "":
+			continue
+		case strings.HasPrefix(line, "-"), strings.HasPrefix(line, "*"), strings.HasPrefix(line, "#"):
+			continue
+		case strings.HasPrefix(line, ">"), strings.HasPrefix(line, "|"):
+			continue
+		case strings.HasSuffix(line, "?"):
+			continue
+		}
+		kept = append(kept, line)
+		if len(kept) == 3 {
+			break
 		}
 	}
-	for _, c := range store.Commitments {
-		if c.State == CommitmentOpen || c.State == CommitmentSlipped {
-			commitments++
-		}
-	}
-	return fmt.Sprintf("digest ready: %d need reply, %d commitments open", replies, commitments)
+	return truncate(clean(strings.Join(kept, " ")), introMaxChars)
 }
 
 func buildDigest(store *Store, now time.Time) string {
@@ -135,7 +174,7 @@ func threadLines(threads []*Thread, now time.Time, direction string) []string {
 			last = t.LastOutbound
 		}
 		days := int(now.Sub(last).Hours() / 24)
-		lines = append(lines, fmt.Sprintf("`%s` %s — %dd", t.ShortID(), t.Subject, days))
+		lines = append(lines, fmt.Sprintf("`%s` %s — %dd", t.ShortID(), clean(t.Subject), days))
 	}
 	return lines
 }

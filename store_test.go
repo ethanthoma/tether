@@ -20,8 +20,8 @@ func TestThreadTransitions(t *testing.T) {
 	thread := &Thread{ID: "<a@x>", State: ThreadNeedsReply}
 
 	thread.ApplyOutbound(now)
-	if thread.State != ThreadWaitingOnThem {
-		t.Fatalf("outbound on needs_reply: got %s, want waiting_on_them", thread.State)
+	if thread.State != ThreadNew {
+		t.Fatalf("outbound on needs_reply: got %s, want new", thread.State)
 	}
 	thread.ApplyInbound(now.Add(time.Hour))
 	if thread.State != ThreadNew {
