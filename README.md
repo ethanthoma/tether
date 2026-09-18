@@ -105,8 +105,8 @@ with `nix build path:.#default path:.#bend-shadow --no-link --print-out-paths`.
 
 `tether.nix` defines a separate `tether-bend-shadow.timer` running every 15 minutes.
 The service has no credentials or network access and mounts the state read-only
-except for its shared lock. Go's existing bot and notification services remain
-authoritative. View reports with `journalctl -u tether-bend-shadow.service`.
+except for its shared lock. It compares against Go independently of the production
+eligibility switch. View reports with `journalctl -u tether-bend-shadow.service`.
 Stop future runs with `sudo systemctl stop tether-bend-shadow.timer`; any current
 run finishes within the service's ten-second limit. Remove the timer's `wantedBy`
 entry before a NixOS rebuild to keep it disabled.
@@ -131,19 +131,21 @@ Go indexes that table with live inputs. Bun and Clang are build dependencies onl
 This checks reply/bump eligibility, not message classification or the final dispatch
 decision. See [the experiment](experiments/bend/README.md) for proof coverage and tests.
 
-Before considering production authority, require passing native comparisons and
-failure tests, no unexplained observer errors, skips, or disagreements, and live
-observations of both eligible and suppressed reply/bump decisions. The current
-trial does not promote itself. Case IDs encode `state * 24 + flags * 3 + fires`:
+Before production authority, require passing native comparisons and failure tests,
+and no unexplained observer errors, skips, or disagreements. Positive and suppressed
+reply/bump cases must pass either live observation or an explicitly approved staging
+gate against an isolated production snapshot with controlled fixtures. Staging
+evidence is not live-positive evidence. The trial does not promote itself.
+Case IDs encode `state * 24 + flags * 3 + fires`:
 states are new, needs-reply, waiting-on-them, FYI, noise, done; flag bits are snoozed,
 recent, overdue; fires is capped at two. The live input mapping normalizes irrelevant
 fields, so only 36 of the 144 native table entries are reachable. Missing live cases
 remain supported by offline tests, not production evidence.
 
-### Prepared production switch (disabled by default)
+### Production switch (disabled by default)
 
 The Nix service wrapper supplies the pinned native evaluator. After deploying
-this version **and observing positive reply and bump cases agree in shadow**,
+this version **and passing the eligibility gate above**,
 create an empty `/var/lib/tether/bend-eligibility.enabled` file to enable Bend
 eligibility. For an isolated store, use the same filename in `TETHER_STATE_DIR`.
 No enable file is created by packaging or deployment.
@@ -161,3 +163,31 @@ Evaluator errors, invalid output, a two-second timeout, unknown thread states,
 an invalid switch file, or more than 4,096 threads fall back to Go for the entire
 batch and log the reason. Shadow comparison always uses the independent Go
 policy, even when production Bend eligibility is enabled.
+
+Successful Bend batches log `Bend eligibility active`; fallback batches log their
+reason. Quiet hours return before invoking either eligibility backend. The local
+LLM is not required for Bend, buttons, or already classified threads. New email
+classification and free-text chat still require it; service outages preserve the
+triage queue without consuming classification attempts.
+
+### Isolated production snapshot gate
+
+Copy `threads.json`, `contacts.json`, `commitments.json`, `reminders.json`,
+`calendar.json`, `sync.json`, and `nudges.jsonl` while holding the production
+`lock`. Keep the snapshot private and on the production host; omit credentials
+and message bodies. Compile the tagged test binary locally and run only
+`TestBendProductionSnapshot` in a service with `PrivateNetwork=yes`:
+
+```sh
+CGO_ENABLED=0 go test -mod=vendor -tags bend -c -o /tmp/tether-bend-check.test
+TETHER_BEND_SNAPSHOT=/private/snapshot \
+TETHER_BEND_SHADOW=/nix/store/.../bin/tether-bend-shadow \
+  /tmp/tether-bend-check.test -test.run '^TestBendProductionSnapshot$' -test.v
+```
+
+The test copies metadata into disposable stores, adds eight controlled threads,
+and compares complete nudge selections across Go, Bend, evaluator-failure fallback,
+and switch-removal rollback. Reply/bump positives, snoozes, cooldowns, and done
+states are checked explicitly. Delivery uses a fake HTTP transport; daily caps
+and persisted confirmations must agree. Real production state is never modified.
+Delete the private snapshot after validation. No fixtures belong in production.

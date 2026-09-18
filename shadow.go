@@ -197,5 +197,6 @@ func productionBendEligibility(store *Store, cfg *Config, nl *nudgeLog, now time
 		}
 		eligible[thread] = table[index] == '1'
 	}
+	log.Printf("nudge: Bend eligibility active for %d threads", len(eligible))
 	return eligible
 }
