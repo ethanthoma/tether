@@ -59,3 +59,46 @@ regardless of test content. The complete history is in `training-report.json`.
 The runtime may be deployed for read-only observation with this artifact, but
 `triage-model.enabled` must remain absent. Improving training coverage and
 retesting under a separately recorded release plan is required before activation.
+
+## Production read-only deployment — 2026-09-19
+
+Committed source `d2eb9d8` was deployed from an archive and built before switching.
+Activated NixOS generation:
+`/nix/store/6bv3dgxmkbs2a6m7f3idvwi9zrasdlsy-nixos-system-atlas-26.11.20260831.34ab990`.
+The system closure roots runtime
+`/nix/store/mk3cxyh659zj57xp0giw39gyv88j0mkg-tether-triage-runtime-v2`.
+
+Artifact identity:
+`078b9eec37e2a3fc05b3c69e5b37d5d4728440a779b9882373ec11e429a03fe1`.
+Its versioned directory is `/var/lib/tether-model/models/<identity>`, with `current`
+pointing there. The parent and models directories are `root:users`, mode `0750`;
+artifact directories are `0550`, files `0440`. The service user cannot write the
+parent, model directory, or contents. No credentials or message data enter the
+runtime closure. The authority switch remains absent: this candidate is still
+rejected for live classification.
+
+Before timer activation, the exact runtime passed a synthetic smoke request as
+`ethoma` with network isolation, no credential environment, and live state
+inaccessible. It returned the expected v2 policy, exact artifact identity, and an
+abstention. Cold runtime was 11.533 seconds and peak memory 371.6 MiB.
+
+The production shadow report at `2026-09-19T06:56:41Z` recorded 15 checked cases,
+519 skipped threads, 15 abstentions, and five token-rejected inputs. Duration was
+11,779 ms; service peak memory was 470,556,672 bytes. The unit exited successfully.
+There were zero classification comparisons because every prediction abstained;
+this is plumbing and input-coverage evidence, not production accuracy evidence.
+The full report remains private, owned by root with mode `0600`, under
+`/var/lib/tether-classifier-staging-20260919/shadow-report.json`.
+
+The bot and pulse, digest, Bend shadow, and classifier shadow timers are active.
+Llama remains inactive. All three independent Bend switches remain enabled.
+The rebuilt Bend executables have different binary bytes, but all three emitted
+policy tables match the previously validated package byte-for-byte. A live Bend
+shadow run checked 534 threads with zero skips or disagreements; dispatch agreed
+on the quiet-hour zero batch. No manual notifications or nudge runs were invoked.
+
+The prior Bend-enabled source and generation remain privately backed up in
+`/var/lib/tether-classifier-staging-20260919/` as `source-before` and `system-before`.
+To stop observation, disable `tether-triage-shadow.timer`; to roll back the code,
+restore that source and switch to the recorded generation. Do not create
+`triage-model.enabled` for this artifact.
