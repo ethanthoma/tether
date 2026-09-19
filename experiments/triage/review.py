@@ -26,7 +26,7 @@ def main() -> None:
     prepare.add_argument("--output", type=Path, required=True)
     reconcile = commands.add_parser("reconcile")
     reconcile.add_argument("--bundle", type=Path, required=True)
-    reconcile.add_argument("--responses", type=Path, required=True)
+    reconcile.add_argument("--responses", type=Path, nargs="+", required=True)
     reconcile.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if args.command == "prepare":
@@ -217,7 +217,9 @@ def validate_reviews(
     return reviews
 
 
-def reconcile_review(bundle: Path, responses: Path, output: Path) -> None:
+def reconcile_review(bundle: Path, responses: list[Path], output: Path) -> None:
+    if not 1 <= len(responses) <= 32:
+        raise ValueError("expected 1–32 response files")
     manifest = read_json(bundle / "author/manifest.json")
     packet_path = bundle / "reviewer/packet.json"
     packet = read_json(packet_path)
@@ -256,8 +258,21 @@ def reconcile_review(bundle: Path, responses: Path, output: Path) -> None:
         ]
         if case["messages"] != expected_messages:
             raise ValueError("packet messages differ from author source")
-    response = read_json(responses)
-    reviews = validate_reviews(response, packet, manifest["author"], digest)
+    reviews, submissions = {}, []
+    for path in responses:
+        response = read_json(path)
+        submitted = validate_reviews(response, packet, manifest["author"], digest)
+        if reviews.keys() & submitted.keys():
+            raise ValueError("case reviewed more than once across response files")
+        for identifier, record in submitted.items():
+            reviews[identifier] = {**record, "reviewer": response["reviewer"]}
+        submissions.append(
+            {
+                "reviewer": response["reviewer"],
+                "responses_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+                "cases": len(submitted),
+            }
+        )
     decisions, blocked = [], set()
     for identifier, source_id in mapping.items():
         case = originals[source_id]
@@ -283,9 +298,8 @@ def reconcile_review(bundle: Path, responses: Path, output: Path) -> None:
     report = {
         "version": 1,
         "packet_sha256": digest,
-        "responses_sha256": hashlib.sha256(responses.read_bytes()).hexdigest(),
+        "submissions": submissions,
         "author": manifest["author"],
-        "reviewer": response["reviewer"],
         "independence": "reviewer_attested_not_externally_verified",
         "cases": len(cases),
         "reviewed": len(reviews),

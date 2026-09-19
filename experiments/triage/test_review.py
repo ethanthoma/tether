@@ -85,7 +85,7 @@ class ReviewTests(unittest.TestCase):
         responses.write_text(json.dumps(response))
         output = self.root / "reconciled"
         with contextlib.redirect_stdout(io.StringIO()):
-            reconcile_review(self.bundle, responses, output)
+            reconcile_review(self.bundle, [responses], output)
         return json.loads((output / "report.json").read_text()), output
 
     def test_packet_hides_labels_metadata_and_evaluation_cases(self) -> None:
@@ -131,6 +131,38 @@ class ReviewTests(unittest.TestCase):
         self.assertEqual(
             sum(row["status"] == "disputed" for row in report["decisions"]), 1
         )
+
+    def test_sharded_reviews_preserve_attribution_and_reject_overlapping_ids(
+        self,
+    ) -> None:
+        paths = []
+        for index in range(2):
+            response = copy.deepcopy(self.response)
+            response["reviewer"] = f"reviewer-{index}"
+            response["reviews"] = response["reviews"][index * 2 : index * 2 + 2]
+            for record in response["reviews"]:
+                record["reviewer"] = "untrusted-attribution"
+            path = self.root / f"response-{index}.json"
+            path.write_text(json.dumps(response))
+            paths.append(path)
+        output = self.root / "sharded"
+        with contextlib.redirect_stdout(io.StringIO()):
+            reconcile_review(self.bundle, paths, output)
+        report = json.loads((output / "report.json").read_text())
+        self.assertEqual(report["accepted_cases"], 4)
+        self.assertEqual(len(report["submissions"]), 2)
+        for decision in report["decisions"]:
+            identifier = decision["review_id"]
+            index = next(
+                i
+                for i, path in enumerate(paths)
+                if identifier
+                in {record["id"] for record in json.loads(path.read_text())["reviews"]}
+            )
+            self.assertEqual(decision["review"]["reviewer"], f"reviewer-{index}")
+        with self.assertRaisesRegex(ValueError, "more than once"):
+            reconcile_review(self.bundle, [paths[0], paths[0]], self.root / "duplicate")
+        self.assertFalse((self.root / "duplicate").exists())
 
     def test_partial_review_never_exports_a_partial_family(self) -> None:
         self.response["reviews"] = self.response["reviews"][:1]

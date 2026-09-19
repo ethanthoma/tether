@@ -1,0 +1,45 @@
+{
+  "review_method": "three disjoint OpenAI Codex subagent shards; one review per case",
+  "context": "fork_turns=none; inherited model settings without override",
+  "blinding": "reviewers instructed to read only assigned temporary packet and own outputs; filesystem access not sandboxed",
+  "author_labels_unseen": "attested by all three reviewers",
+  "model_diversity": "not established; same inherited model settings",
+  "packet_sha256": "c8d70b3c031c97a9a0a03aab564f007ad60afaf748e1ae5175165cfdf6ee8191",
+  "report_sha256": "a114ac922584415aab7267496fce9af3c734fecf6d97f12420a110ac56935367",
+  "cases": 981,
+  "reviewed": 981,
+  "label_agreement": 979,
+  "label_disagreements": [
+    "locker_location_2_reversed",
+    "ceramics_booking_2_reversed"
+  ],
+  "flag_counts": {
+    "insufficient_context": 104,
+    "policy_mismatch": 231,
+    "unnatural_direction": 1
+  },
+  "flagged_cases": 336,
+  "unflagged_agreements": 643,
+  "blocked_families": 120,
+  "accepted_families": 28,
+  "accepted_cases": 109,
+  "accepted_label_counts": {
+    "fyi": 30,
+    "needs_reply": 30,
+    "noise": 44,
+    "waiting_on_them": 5
+  },
+  "direction_pairs": 437,
+  "inconsistent_direction_pairs": [
+    [
+      "locker_location_2",
+      "locker_location_2_reversed"
+    ],
+    [
+      "ceramics_booking_2",
+      "ceramics_booking_2_reversed"
+    ]
+  ],
+  "training_ready": false,
+  "reason": "accepted export lacks abstain examples and policy/context flags remain unresolved"
+}

@@ -36,7 +36,9 @@ The fresh output directory contains:
   and integrity hashes. Keep this directory away from the blind reviewer.
 
 Give the separate reviewer **only the reviewer directory**. For a model reviewer,
-use a fresh context without authoring history or repository access. Keep provider,
+use a fresh context without authoring history and restrict its task to the blinded
+files. Shared-workspace agents retain technical filesystem access; this restriction
+is an instruction, not an operating-system sandbox. Keep provider,
 model/version or human identity in the `reviewer` field; record meaningful provenance,
 not merely a different name for the author. No local LLM is required by this tool.
 
@@ -73,6 +75,11 @@ evidence before creating output. It writes `report.json` with agreement,
 disagreement, pending cases, flags, and blocked families. It writes `reviewed.json`
 only if at least one **whole family** has complete, unflagged agreement.
 
+For disjoint reviewer shards, pass multiple paths after `--responses`. Each file
+must identify its reviewer and reference the original full packet hash. Every
+record retains its reviewer identity in the report. Duplicate IDs across files
+are rejected; this combines coverage, not multiple votes on the same case.
+
 A single disputed, flagged, or missing variant withholds its entire family,
 including direction reversals. Original labels are never silently replaced.
 The report explicitly records that reviewer independence is self-attested;
@@ -92,8 +99,10 @@ can still train their explicitly provisional datasets.
 
 ## Current status
 
-A packet for 981 training cases across 148 families is prepared locally under
-`runs/review-v1/`. No independent reviewer responses have been collected, and no
-case is newly certified as reviewed. Generated packets/results remain ignored.
-The next useful step is a separate blind review, followed by adjudication before
-authoring and training on a larger batch. Fresh evaluation families remain separate.
+The [completed first blind pass](reviews/v1/README.md) covers all 981 training cases
+across 148 families using three fresh model contexts. Author/reviewer labels agree
+on 979 cases; 336 cases carry review flags. The family gate retains 109 cases from
+28 families, but this subset lacks abstain examples and must not replace training
+data. The committed audit includes original judgments and reproducible inputs.
+Scratch run directories remain ignored. Resolve the policy and context flags before
+further training; fresh evaluation families remain separate.
