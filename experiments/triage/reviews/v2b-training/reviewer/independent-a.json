@@ -1,0 +1,2724 @@
+{
+  "version": 1,
+  "packet_sha256": "451fa82f67703d484c19d94ea04ebb02b81de129aa3e762d54f6cf58c3b1ec2e",
+  "reviewer": "v2b-training-blind-a",
+  "author_labels_unseen": true,
+  "reviews": [
+    {
+      "id": "c938abde5f3a7cd3f7c6d78b94a5655a",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "The first page is now available on the shared drive."
+        },
+        {
+          "message_index": 1,
+          "quote": "I'll read the first page tomorrow."
+        }
+      ],
+      "rationale": "Unsolicited promise to read requires commitment routing.",
+      "flags": []
+    },
+    {
+      "id": "f323c051b605a7934bc40579c3b66958",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please connect the speakers and the microphone."
+        },
+        {
+          "message_index": 1,
+          "quote": "Both the speakers and the microphone are connected and tested."
+        }
+      ],
+      "rationale": "Both requested connections are complete.",
+      "flags": []
+    },
+    {
+      "id": "b5cf4decfb72d0b4051766f602947b4f",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Can you make lunch at noon on Tuesday?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks for the invitation. I have not checked my plans yet."
+        }
+      ],
+      "rationale": "Lunch availability remains unanswered.",
+      "flags": []
+    },
+    {
+      "id": "6e26eb0644bff96dc3d3ef4c095f6269",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is class in room 12 this week?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Class is in room 12 this week, as confirmed by the tutor."
+        }
+      ],
+      "rationale": "Tutor confirmation resolves the room question.",
+      "flags": []
+    },
+    {
+      "id": "9c26b0e238a9361cc9c920fa4bf5f556",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Does your quoted price include tax, or is tax added separately?"
+        }
+      ],
+      "rationale": "User explicitly asks whether tax is included.",
+      "flags": []
+    },
+    {
+      "id": "7e159c59571c1822c0381558703ce63b",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "The main road has reopened after the work."
+        },
+        {
+          "message_index": 1,
+          "quote": "I'll send directions when I get home."
+        }
+      ],
+      "rationale": "Unsolicited directions promise has no visible user request.",
+      "flags": []
+    },
+    {
+      "id": "a70e77a74d5b32147ee7774a114a2c46",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Travel portal newsletter: last chance for our summer getaway deals. Sale closes tonight."
+        }
+      ],
+      "rationale": "Generic getaway promotion has no personal deadline.",
+      "flags": []
+    },
+    {
+      "id": "f2bbbdd04ac22d2f7d234aec260ff292",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Can you make lunch at noon on Tuesday?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Yes, Tuesday at noon works for lunch."
+        }
+      ],
+      "rationale": "Lunch availability is answered.",
+      "flags": []
+    },
+    {
+      "id": "0fc4032063cf50f6f55f12ccccb0e6af",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "The mop head broke during cleaning."
+        },
+        {
+          "message_index": 1,
+          "quote": "I'll clean the windows. Could you replace the mop head?"
+        }
+      ],
+      "rationale": "User promises cleaning and requests replacement from the other person.",
+      "flags": []
+    },
+    {
+      "id": "8224f6eb4cf7e472135616d44503644f",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please send me the photograph of the meter."
+        },
+        {
+          "message_index": 1,
+          "quote": "The photograph of the meter is attached here."
+        }
+      ],
+      "rationale": "Requested meter photograph is supplied.",
+      "flags": []
+    },
+    {
+      "id": "db5e40950ab75af272cfa76a4ba95284",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "How do I reach the visitor parking from the main road?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Take the first left after the bridge; visitor parking is straight ahead."
+        }
+      ],
+      "rationale": "Parking directions answer the request.",
+      "flags": []
+    },
+    {
+      "id": "2a775dd21ac5c88bfe3119abb75123ab",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Fitness portal: your treadmill workout synced successfully."
+        }
+      ],
+      "rationale": "Routine automatic workout synchronization.",
+      "flags": []
+    },
+    {
+      "id": "fa3ca0395baca9d196df74a180b92586",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Council bulletin: this month's recycling statistics are now available."
+        }
+      ],
+      "rationale": "Generic council bulletin.",
+      "flags": []
+    },
+    {
+      "id": "28863e028808a9df2f11388b0c7a6ea8",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Studio bot: your kiln booking payment was received."
+        }
+      ],
+      "rationale": "Routine booking payment receipt.",
+      "flags": []
+    },
+    {
+      "id": "5d98cc95bbf3bfb73d9a2078e09a95b6",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Calendar update: your backstage tour moved from Friday morning to Friday afternoon at 2 pm."
+        }
+      ],
+      "rationale": "Calendar time change is informational.",
+      "flags": []
+    },
+    {
+      "id": "15685c9a1da92db5b299d3c35c3c087c",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Account robot: your statement is available and your scheduled payment completed successfully."
+        }
+      ],
+      "rationale": "Routine statement and successful payment notice.",
+      "flags": []
+    },
+    {
+      "id": "4c71795e4de3d7fcd5c90d033d8dc885",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Does the projector take HDMI or only USB-C?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The projector label says HDMI. I have the answer now."
+        }
+      ],
+      "rationale": "Sender found the projector answer.",
+      "flags": []
+    },
+    {
+      "id": "4b3518584bd9fdde145570a9f13d2a9b",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What total is printed on the receipt?"
+        },
+        {
+          "message_index": 1,
+          "quote": "I found the receipt, but have not read the total yet."
+        }
+      ],
+      "rationale": "Receipt total remains unanswered.",
+      "flags": []
+    },
+    {
+      "id": "7e7bce36e257a129418c14fcfdb74ac5",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please fix the menu spelling and change the soup price to $8."
+        },
+        {
+          "message_index": 1,
+          "quote": "The spelling is fixed. The prices have not been changed yet."
+        }
+      ],
+      "rationale": "Requested soup price change remains undone.",
+      "flags": []
+    },
+    {
+      "id": "a9f1aa68bf71a7fac6cb0a2a01c4139c",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Library calendar: your reading group meeting on Thursday has moved from 6 pm to 7 pm."
+        }
+      ],
+      "rationale": "Reading group calendar change is informational.",
+      "flags": []
+    },
+    {
+      "id": "9b261eec9a58e453e10ff09c8e25ed6e",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please return my frying pan to the kitchen tonight."
+        },
+        {
+          "message_index": 1,
+          "quote": "Sure, thanks for the reminder."
+        }
+      ],
+      "rationale": "User owes a physical return task, not prose.",
+      "flags": []
+    },
+    {
+      "id": "576867a16014b172d05f263f1cbae636",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "How many guests are coming with you?"
+        }
+      ],
+      "rationale": "Sender asks guest count.",
+      "flags": []
+    },
+    {
+      "id": "520ffeb377de09a421b877ad7b413c8c",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "For that size cake, the quote is $65. Is that within your budget?"
+        }
+      ],
+      "rationale": "Sender asks whether the quote fits the budget.",
+      "flags": []
+    },
+    {
+      "id": "0b50e27e99f315e9ea0ec7157d92208f",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "The curtains need to fit the full window."
+        },
+        {
+          "message_index": 1,
+          "quote": "I'll measure the window. Please bring the tape measure over."
+        }
+      ],
+      "rationale": "User commits to measuring and requests delivery of the tape.",
+      "flags": []
+    },
+    {
+      "id": "33fb1c19ba182b361a2b0a57ab352cee",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which park entrance should we meet at?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks, I read this earlier."
+        }
+      ],
+      "rationale": "Acknowledgment does not answer the entrance question.",
+      "flags": []
+    },
+    {
+      "id": "0bb8e6adac4ee543978de7cbf52f1b67",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is your share of rent $720 this month?"
+        }
+      ],
+      "rationale": "User asks the rent amount.",
+      "flags": []
+    },
+    {
+      "id": "8f3b81be853198f42549e886e9efe779",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Any food allergies I should know about for dinner?"
+        }
+      ],
+      "rationale": "Sender asks about food allergies.",
+      "flags": []
+    },
+    {
+      "id": "fa87979da6a5556c521e4a369493aa96",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is class in room 12 this week?"
+        }
+      ],
+      "rationale": "User asks the classroom location.",
+      "flags": []
+    },
+    {
+      "id": "c8cf4608646617bd8014f6045c840637",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please connect the speakers and the microphone."
+        },
+        {
+          "message_index": 1,
+          "quote": "The speakers are connected. The microphone is not connected yet."
+        }
+      ],
+      "rationale": "Requested microphone connection remains outstanding.",
+      "flags": []
+    },
+    {
+      "id": "13e5cc46c66f03f521f77ab52e84e0fa",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Calendar cancellation: your claim review call on October 1 is cancelled."
+        }
+      ],
+      "rationale": "Calendar cancellation is informational.",
+      "flags": []
+    },
+    {
+      "id": "005f49438047632cad2723f9fceb63ee",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Laundry robot: your wash cycle is complete. This is an automated status update."
+        }
+      ],
+      "rationale": "Routine automated wash status.",
+      "flags": []
+    },
+    {
+      "id": "79f88b5d91e9ea9b730646b0624559d0",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Library newsletter: our weekend book sale ends Sunday. Everyone is welcome."
+        }
+      ],
+      "rationale": "Public book sale promotion.",
+      "flags": []
+    },
+    {
+      "id": "dd2b5bf09286bce6e8d83bd18e588422",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Rental portal: your maintenance ticket was closed after repair. This is an automated status message."
+        }
+      ],
+      "rationale": "Automated closed maintenance status.",
+      "flags": []
+    },
+    {
+      "id": "f7f690c39ee7c7b5a7832fa0070985d6",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Parcel newsletter: holiday shipping discounts end next week."
+        }
+      ],
+      "rationale": "Generic shipping promotion.",
+      "flags": []
+    },
+    {
+      "id": "1cfe0beb890b28ec1a457fb9c3fe53a0",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "If it rains, should we meet at your place?"
+        }
+      ],
+      "rationale": "User asks the rain contingency location.",
+      "flags": []
+    },
+    {
+      "id": "a0a17a2ec43feb8ac6f714e2823d44f7",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Laundry newsletter: dry-cleaning discounts run through Thursday."
+        }
+      ],
+      "rationale": "Generic laundry promotion.",
+      "flags": []
+    },
+    {
+      "id": "58c06e576f6c607f6f93531260e5de1b",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Would four o'clock work for tea?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Four works for tea. See you then."
+        }
+      ],
+      "rationale": "Tea time is confirmed.",
+      "flags": []
+    },
+    {
+      "id": "8d5f990254874f1d19d5e448966c609b",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Council portal: you must submit the missing plan for your permit application by September 30 at 5 pm."
+        }
+      ],
+      "rationale": "Automated permit notice requires a personal submission by a deadline.",
+      "flags": []
+    },
+    {
+      "id": "d9076f542780ed98fd43ca30996ada14",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I'll book the afternoon crossing when I get home."
+        }
+      ],
+      "rationale": "User's booking commitment needs extraction.",
+      "flags": []
+    },
+    {
+      "id": "2d70290f168dcfad5ee79bb1a0265563",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Can rehearsal start at seven instead of six?"
+        }
+      ],
+      "rationale": "User requests rehearsal time agreement.",
+      "flags": []
+    },
+    {
+      "id": "4b26497606fade9780dbe42fa540c201",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Calendar update: your apartment viewing appointment moved to Tuesday at 1 pm."
+        }
+      ],
+      "rationale": "Viewing appointment change is informational.",
+      "flags": []
+    },
+    {
+      "id": "b6985c080c30b833b3bafbbb993c9410",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Calendar update: your meter inspection appointment is now Friday at 2 pm."
+        }
+      ],
+      "rationale": "Inspection appointment change is informational.",
+      "flags": []
+    },
+    {
+      "id": "a708fadd61bf6254920edf3464bb570e",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Locker service newsletter: new lockers have arrived. Early-bird discounts end Friday."
+        }
+      ],
+      "rationale": "Generic locker promotion.",
+      "flags": []
+    },
+    {
+      "id": "8506e1bb3ec66b0a45b52359322dbf4b",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Garden box robot: your subscription payment was processed."
+        }
+      ],
+      "rationale": "Routine subscription receipt.",
+      "flags": []
+    },
+    {
+      "id": "3db1ccc513253efaae27592d501188d9",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Garden box robot: your delivery address is incomplete. You must correct it by 3 pm Wednesday to receive your reserved box."
+        }
+      ],
+      "rationale": "Personal address correction is required by a stated deadline.",
+      "flags": []
+    },
+    {
+      "id": "752522311c3239129c58fe2011b30f4b",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Do you arrive on the 6:40 train or the later one?"
+        }
+      ],
+      "rationale": "User asks arrival train.",
+      "flags": []
+    },
+    {
+      "id": "82d71cc7592fb7d4f04a7efe9130c4d7",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Are the floor and the windows both clean?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The floor is clean. I have not checked the windows."
+        }
+      ],
+      "rationale": "Window cleanliness remains unanswered.",
+      "flags": []
+    },
+    {
+      "id": "6d70b88f8bac1d4447cd679bd02e8867",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What is the code for the garden gate?"
+        }
+      ],
+      "rationale": "User asks the gate code.",
+      "flags": []
+    },
+    {
+      "id": "2e55ae8c2418dd4eb2d026f4242d903b",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Clinic portal: your profile update was saved. No further action is required."
+        }
+      ],
+      "rationale": "Routine saved-profile confirmation.",
+      "flags": []
+    },
+    {
+      "id": "a557697345a28c44085fcf8a5acba2ab",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Would four o'clock work for tea?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Four works for tea. I'll bake a cake before you arrive."
+        }
+      ],
+      "rationale": "Tea answer also introduces a separate cake-baking commitment.",
+      "flags": []
+    },
+    {
+      "id": "abbffb07f5c564a1be32c5cf844b9aa2",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "If it rains, should we meet at your place?"
+        }
+      ],
+      "rationale": "Sender asks the rain contingency location.",
+      "flags": []
+    },
+    {
+      "id": "c01bfda55ffe6e1cb851ed38cb08b376",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Calendar update: your event check-in appointment moved to Friday at 4 pm."
+        }
+      ],
+      "rationale": "Check-in calendar change is informational.",
+      "flags": []
+    },
+    {
+      "id": "27905ab3dfa139b027557382c5ab703c",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which entrance should I use tonight, the alley or the main door?"
+        }
+      ],
+      "rationale": "User asks which entrance to use.",
+      "flags": []
+    },
+    {
+      "id": "55863b469f464d365359dc052718742c",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please water the fern and the ivy today."
+        },
+        {
+          "message_index": 1,
+          "quote": "The fern is watered; I have not done the ivy."
+        }
+      ],
+      "rationale": "User still owes watering the ivy, a physical task.",
+      "flags": []
+    },
+    {
+      "id": "e298ddc86067f01becf210fd21d6f869",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please carry the class supplies into room 12."
+        }
+      ],
+      "rationale": "Carrying supplies is a user task without a prose request.",
+      "flags": []
+    },
+    {
+      "id": "c88e3645075c1c276ae8d0f07343dc6c",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please fix the menu spelling and change the soup price to $8."
+        },
+        {
+          "message_index": 1,
+          "quote": "The spelling is fixed and the soup now shows $8."
+        }
+      ],
+      "rationale": "Both menu changes are complete.",
+      "flags": []
+    },
+    {
+      "id": "25c647db6ac086cda5c4544753bea641",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is your mailing address still 48 Juniper Street? I want to get the card right."
+        }
+      ],
+      "rationale": "Sender requests mailing address confirmation.",
+      "flags": []
+    },
+    {
+      "id": "688131b0c37e41aa43fcc20ed5cc2214",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is a guest pass included in the pool fee?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The pool leaflet says one guest pass is included. My question is answered."
+        }
+      ],
+      "rationale": "Sender found the guest-pass answer.",
+      "flags": []
+    },
+    {
+      "id": "1a5d585d02d9ea6a0ec320035a812299",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Can rehearsal start at seven instead of six?"
+        }
+      ],
+      "rationale": "Sender asks agreement to change rehearsal time.",
+      "flags": []
+    },
+    {
+      "id": "549b3216303985c3b65470cf4d0519e3",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is the lunch menu $15 per person or for two?"
+        }
+      ],
+      "rationale": "Sender asks what the menu price covers.",
+      "flags": []
+    },
+    {
+      "id": "7c34646e7150f9077cba8ef9ff7dac7f",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What are the width and height of the window?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The window is 90 cm wide and 120 cm high."
+        }
+      ],
+      "rationale": "Both window dimensions are supplied.",
+      "flags": []
+    },
+    {
+      "id": "cd0f630c88e9683d4cd792564cd6f76e",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Are we still visiting on Sunday, or has that changed?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Sunday visit cancelled. Everyone knows, and no replacement date is being arranged."
+        }
+      ],
+      "rationale": "Visit cancellation closes the question.",
+      "flags": []
+    },
+    {
+      "id": "90eef34319d87d8066629a560728d65c",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Housing portal: you must correct the missing employment dates in your application by 5 pm Tuesday to remain under consideration."
+        }
+      ],
+      "rationale": "Personal application correction has an explicit deadline.",
+      "flags": []
+    },
+    {
+      "id": "561ec7c508255d487bdbc833f752201f",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "For book club, do you vote for the mystery or the memoir?"
+        }
+      ],
+      "rationale": "Sender asks for a book choice.",
+      "flags": []
+    },
+    {
+      "id": "3735c8f006d404ffe2842680b195fb33",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is the lunch menu $15 per person or for two?"
+        }
+      ],
+      "rationale": "User asks what the menu price covers.",
+      "flags": []
+    },
+    {
+      "id": "bd30811c056c0c909795f815a220c5f1",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What are the names of both your guests?"
+        },
+        {
+          "message_index": 1,
+          "quote": "My guests are Mira and Devon."
+        }
+      ],
+      "rationale": "Both guest names are supplied.",
+      "flags": []
+    },
+    {
+      "id": "7f4f888fff44c92b8881d989c3c61f8f",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What is the code for the garden gate?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The host gave me the garden gate code. You can forget my earlier question."
+        }
+      ],
+      "rationale": "Sender explicitly withdraws the gate-code question.",
+      "flags": []
+    },
+    {
+      "id": "52f2fcbe4da190c48c2fabf072bd26b0",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Coworking newsletter: new offices are available; promotional rates end Friday."
+        }
+      ],
+      "rationale": "Generic office promotion.",
+      "flags": []
+    },
+    {
+      "id": "eadc509b812bfc76dd60ca431bb83d68",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Pet service newsletter: five indoor games for rainy afternoons."
+        }
+      ],
+      "rationale": "Generic pet newsletter.",
+      "flags": []
+    },
+    {
+      "id": "c18f7ddcba64855aac0c9c96eb0af132",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Was the music too loud last night?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The music was fine last night. Just letting you know."
+        }
+      ],
+      "rationale": "Sender resolves the music question with an informational update.",
+      "flags": []
+    },
+    {
+      "id": "b88753d8a612f7fc6934cd714a9d1a05",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "At what time can you join the call tomorrow?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Thank you for the nudge; I am between meetings."
+        }
+      ],
+      "rationale": "Acknowledgment leaves call availability unanswered.",
+      "flags": []
+    },
+    {
+      "id": "05528cda444c37be6bb09d73b29398b0",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please pick Pepper up from the sitter at five."
+        },
+        {
+          "message_index": 1,
+          "quote": "All right, I'll pick Pepper up at five."
+        }
+      ],
+      "rationale": "Requested pickup is promised but not completed.",
+      "flags": []
+    },
+    {
+      "id": "74db140f01141520037ed32e37d1c4e8",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Calendar update: your garden design consultation moved to Wednesday at 1 pm."
+        }
+      ],
+      "rationale": "Calendar consultation change is informational.",
+      "flags": []
+    },
+    {
+      "id": "ea27b8c8ae1bc0acab65c00cfd88cf48",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Pet service robot: you must upload Pepper's vaccination record by Thursday at noon to keep your boarding reservation."
+        }
+      ],
+      "rationale": "Personal vaccination upload is required by a deadline.",
+      "flags": []
+    },
+    {
+      "id": "125f6825fe4f515345839a0c13b7d0e2",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Do you arrive on the 6:40 train or the later one?"
+        }
+      ],
+      "rationale": "Sender asks arrival train.",
+      "flags": []
+    },
+    {
+      "id": "86d84bcf5c3590bb5b88b32ca1b1a980",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Housing portal: your application attachment was received. This message is automatic."
+        }
+      ],
+      "rationale": "Routine automated attachment receipt.",
+      "flags": []
+    },
+    {
+      "id": "c0a83c4ed22f843c9c768fefe5bcc762",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please proofread the first page before publication."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks, I'll read the page tomorrow."
+        }
+      ],
+      "rationale": "Requested proofreading remains promised for tomorrow.",
+      "flags": []
+    },
+    {
+      "id": "41f64afd79dc71d25e67cb86367268b5",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Course platform: you must confirm your exam location by 8 pm Monday to keep your reserved exam place."
+        }
+      ],
+      "rationale": "Personal exam confirmation is required by a deadline.",
+      "flags": []
+    },
+    {
+      "id": "cebbfdd7c65ba4ea0a0942e93d9b7f71",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "How wide is the sofa with the arms included?"
+        }
+      ],
+      "rationale": "User asks the sofa width.",
+      "flags": []
+    },
+    {
+      "id": "b866237cf01321b766be8f1c040ababb",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Coffee before work tomorrow? Does 8:15 suit you?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Coffee before work is off tomorrow. My shift changed; no need to answer about 8:15."
+        }
+      ],
+      "rationale": "Coffee cancellation explicitly closes availability question.",
+      "flags": []
+    },
+    {
+      "id": "23ef0e5775d18358a9573bfd2efa387b",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please put the new desk by the window."
+        }
+      ],
+      "rationale": "Moving the desk is a user task without a prose request.",
+      "flags": []
+    },
+    {
+      "id": "7c869953c4262013bedcee954860e73d",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Should we meet by the fountain or the benches?"
+        }
+      ],
+      "rationale": "Sender asks meeting location.",
+      "flags": []
+    },
+    {
+      "id": "74f293de7eba48135b3a73259aa9b78f",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please carry the parcel upstairs without opening it."
+        }
+      ],
+      "rationale": "Carrying a parcel is a user task without a prose request.",
+      "flags": []
+    },
+    {
+      "id": "d9652ead99df95290ed7edfca6621c92",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I'll move the keyboard before rehearsal. Can you confirm the start time?"
+        }
+      ],
+      "rationale": "User promises moving the keyboard and requests a time answer.",
+      "flags": []
+    },
+    {
+      "id": "fc6e32a022846b5670d2cb5614d8f9b7",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please move the sofa away from the radiator."
+        }
+      ],
+      "rationale": "Moving the sofa is a user task without a prose request.",
+      "flags": []
+    },
+    {
+      "id": "6652fac0f71b0fc61668f0d311c67a8b",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I'll put a sign on the benches before everyone arrives."
+        }
+      ],
+      "rationale": "User's sign placement promise needs commitment routing.",
+      "flags": []
+    },
+    {
+      "id": "24d49278bc849a5fcbbfa43b709f9687",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Will four people fit at the small table?"
+        }
+      ],
+      "rationale": "User asks table capacity.",
+      "flags": []
+    },
+    {
+      "id": "bf0d897c540234ab9a0865d2d7c8871c",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "How wide is the sofa with the arms included?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The listing gives the sofa width including the arms. I found what I needed."
+        }
+      ],
+      "rationale": "Sender found the requested sofa dimensions.",
+      "flags": []
+    },
+    {
+      "id": "800e293bf5c59d1d9321d36e2f5dfd38",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which venue do you choose, the garden or the hall?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The hall, please. I'll collect the decorations this afternoon."
+        }
+      ],
+      "rationale": "Venue answer also includes a separate decoration collection commitment.",
+      "flags": []
+    },
+    {
+      "id": "affa30d80bf6f35dc4a6baaa25ef34c8",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Housing newsletter: newly listed apartments are available for viewing this month."
+        }
+      ],
+      "rationale": "Generic housing newsletter.",
+      "flags": []
+    },
+    {
+      "id": "57e66cf7f71b7e6cc05f702a154e662e",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Calendar update: your vendor orientation moved to Friday at noon."
+        }
+      ],
+      "rationale": "Orientation calendar change is informational.",
+      "flags": []
+    },
+    {
+      "id": "0fd6594b110a70bb0926630bbe91f048",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "How many chairs and how many tables are in storage?"
+        },
+        {
+          "message_index": 1,
+          "quote": "There are eight chairs. I have not counted the tables."
+        }
+      ],
+      "rationale": "Requested table count remains unanswered.",
+      "flags": []
+    },
+    {
+      "id": "7d2f72c96e6e2ce114ac6155f9959aa3",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Will the catch-up take half an hour or a full hour?"
+        }
+      ],
+      "rationale": "Sender asks meeting duration.",
+      "flags": []
+    },
+    {
+      "id": "a37ae5d57ce19caf0ffb3a54f4f04f90",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "The repair estimate is $90. May we go ahead?"
+        }
+      ],
+      "rationale": "Sender asks permission to proceed at the quoted price.",
+      "flags": []
+    },
+    {
+      "id": "0c0ed32597b48008b579048787f3a69d",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "The sample is warmer in daylight. Do you prefer cream or white?"
+        }
+      ],
+      "rationale": "User asks a colour preference.",
+      "flags": []
+    },
+    {
+      "id": "2961a00ab0ca4520005320f9e22d27c4",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please print the Alexandra badge and leave it at reception."
+        }
+      ],
+      "rationale": "Printing and placing a badge are user tasks without a prose request.",
+      "flags": []
+    },
+    {
+      "id": "8ad961640b8aa37c71235ecf91a5a763",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Can you make lunch at noon on Tuesday?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Yes, Tuesday at noon works. I'll pick up the sandwiches that morning."
+        }
+      ],
+      "rationale": "Lunch answer also introduces a sandwich pickup commitment.",
+      "flags": []
+    },
+    {
+      "id": "c9865f624c6b594903ef109533bf0ec6",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Market system: you must submit your insurance certificate by 9 am Friday to keep your assigned stall."
+        }
+      ],
+      "rationale": "Personal insurance submission is required by a deadline.",
+      "flags": []
+    },
+    {
+      "id": "491ac0f7f666866c084300aa4bfa0117",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I'll borrow a bigger table from next door."
+        }
+      ],
+      "rationale": "Unsolicited table borrowing promise lacks a visible user request.",
+      "flags": []
+    },
+    {
+      "id": "765d587abf9cbd7568f8aac3cceeaa42",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Utility robot: your meter reading was recorded successfully."
+        }
+      ],
+      "rationale": "Routine automated meter reading receipt.",
+      "flags": []
+    },
+    {
+      "id": "6a88d0356229495de70c894bd4dfe681",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "At what time will Pepper be picked up?"
+        },
+        {
+          "message_index": 1,
+          "quote": "All right, I saw your question."
+        }
+      ],
+      "rationale": "Acknowledgment does not answer pickup time.",
+      "flags": []
+    },
+    {
+      "id": "c71b68bd1e50bbaf9c57c12b7c1524ab",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please connect the speakers and the microphone."
+        },
+        {
+          "message_index": 1,
+          "quote": "The speakers are connected. The microphone is not connected yet."
+        }
+      ],
+      "rationale": "User still owes microphone connection, a task without prose.",
+      "flags": []
+    },
+    {
+      "id": "b8e4645a23fdcbbec47e2b40a8c4d5ae",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Would you rather split fuel evenly or pay per mile?"
+        },
+        {
+          "message_index": 1,
+          "quote": "We settled the fuel cost evenly at the table. No balance or decision left."
+        }
+      ],
+      "rationale": "Sender states the fuel split is already settled.",
+      "flags": []
+    },
+    {
+      "id": "74907cd48567e920cb60fb17709814cc",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Do you want the morning ferry or the afternoon crossing?"
+        }
+      ],
+      "rationale": "Sender asks ferry preference.",
+      "flags": []
+    },
+    {
+      "id": "d3e77ced837764a7120da71131e1dd0b",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Would delivery on Friday work for you?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Noted, thank you. I am away from the calendar."
+        }
+      ],
+      "rationale": "Acknowledgment leaves delivery availability unanswered.",
+      "flags": []
+    },
+    {
+      "id": "fc57607a836a90aa97dd5e08967f7828",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What date was the garden gate latch repaired?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Understood. I'll look up the repair date on Tuesday."
+        }
+      ],
+      "rationale": "Requested repair date remains unanswered; lookup supports that response.",
+      "flags": []
+    },
+    {
+      "id": "7a89b05560ca0d748afe0f28995d67eb",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please repair the garden gate latch."
+        },
+        {
+          "message_index": 1,
+          "quote": "Understood. I'll repair the latch on Tuesday."
+        }
+      ],
+      "rationale": "User promises the requested repair task, requiring commitment routing.",
+      "flags": []
+    },
+    {
+      "id": "4599e26536f8ea5360923109d3575747",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which venue do you choose, the garden or the hall?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks! The options both look lovely."
+        }
+      ],
+      "rationale": "Acknowledgment leaves venue choice unanswered.",
+      "flags": []
+    },
+    {
+      "id": "d5c4e58e646286a16b30be617836749c",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What street address should I put on the envelope?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Use 23 Willow Lane. I'll replace the broken letterbox tomorrow."
+        }
+      ],
+      "rationale": "Address answer introduces separate letterbox replacement commitment.",
+      "flags": []
+    },
+    {
+      "id": "8ebf994d1224954eb8814ac26a1c765b",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Should the new desk go by the window?"
+        }
+      ],
+      "rationale": "Sender asks where the desk should go.",
+      "flags": []
+    },
+    {
+      "id": "0b725e7d041ab689abb20791f7f1e5ea",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is your share of rent $720 this month?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Your $720 rent share is received and the month is settled."
+        }
+      ],
+      "rationale": "Rent payment update settles the earlier amount question.",
+      "flags": []
+    },
+    {
+      "id": "d7b4bc013c6f25f7c8f854f367958f2f",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is the lunch menu $15 per person or for two?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The lunch menu says $15 per person. I found the detail I needed."
+        }
+      ],
+      "rationale": "Sender found the menu price answer.",
+      "flags": []
+    },
+    {
+      "id": "2538aa6ff1ab9df042825ce187c61d90",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Would four o'clock work for tea?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks, saw this while heading out."
+        }
+      ],
+      "rationale": "Acknowledgment leaves tea availability unanswered.",
+      "flags": []
+    },
+    {
+      "id": "87710bc4e02e1fca3d21e04c3360a1a1",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Will four people fit at the small table?"
+        }
+      ],
+      "rationale": "Sender asks table capacity.",
+      "flags": []
+    },
+    {
+      "id": "2b5c4d36e110266f7665d4cc63e65d81",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Parking app alert: your permit renewal is incomplete. You must upload proof of residency by Monday at noon to retain your space."
+        }
+      ],
+      "rationale": "Personal residency upload is required by a deadline.",
+      "flags": []
+    },
+    {
+      "id": "1c734adefea0e2ed592244aa9fb64277",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "For your sweater, would medium or large fit better?"
+        }
+      ],
+      "rationale": "Sender asks sweater size preference.",
+      "flags": []
+    },
+    {
+      "id": "bff49d11e73401c6ed36d04e77166f5a",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Clinic portal: you must complete your pre-visit questionnaire by 6 pm Tuesday to keep your consultation."
+        }
+      ],
+      "rationale": "Personal questionnaire completion is required by a deadline.",
+      "flags": []
+    },
+    {
+      "id": "fda79cd0933ed176373947e89d8e85fa",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Course newsletter: our new language classes launch this month."
+        }
+      ],
+      "rationale": "Generic language course newsletter.",
+      "flags": []
+    },
+    {
+      "id": "4f8164cf496fab6acd830ef4da0cda32",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Travel portal: your booking is on hold. You must correct your passport number by 8 pm tomorrow or your reservation will be cancelled."
+        }
+      ],
+      "rationale": "Personal passport correction is required by a deadline.",
+      "flags": []
+    },
+    {
+      "id": "5570677ab08adaccb0b19873c7e0f983",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "How wide is the sofa with the arms included?"
+        }
+      ],
+      "rationale": "Sender asks sofa width.",
+      "flags": []
+    },
+    {
+      "id": "a4e1eb2c739b869b7024bc16baea5f3c",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Calendar update: your account consultation is now on Monday at 10 am."
+        }
+      ],
+      "rationale": "Account consultation calendar change is informational.",
+      "flags": []
+    },
+    {
+      "id": "4ba8230d5aabe7ff0970059f9c0d42b5",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Calendar update: your lease review appointment on Thursday is cancelled."
+        }
+      ],
+      "rationale": "Lease appointment cancellation is informational.",
+      "flags": []
+    },
+    {
+      "id": "c5e2b5f6dc4ecf0cc903e94b6b6ae7bc",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Does your quoted price include tax, or is tax added separately?"
+        }
+      ],
+      "rationale": "Sender asks whether tax is included.",
+      "flags": []
+    },
+    {
+      "id": "bdfeeffc32bd12344fced446ad2c3ca1",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Should the new desk go by the window?"
+        }
+      ],
+      "rationale": "User asks where the desk should go.",
+      "flags": []
+    },
+    {
+      "id": "c88f5155a8171080650cb2706722d188",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Do you want the morning ferry or the afternoon crossing?"
+        }
+      ],
+      "rationale": "User asks ferry preference.",
+      "flags": []
+    },
+    {
+      "id": "db66a32d10c6b2f0deb505a7198f1e4d",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please call the locksmith today and book a visit."
+        }
+      ],
+      "rationale": "Calling a locksmith and booking a visit are tasks without a prose request.",
+      "flags": []
+    },
+    {
+      "id": "a5fd8181855c03e73267e3c1eb701354",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Does the projector take HDMI or only USB-C?"
+        }
+      ],
+      "rationale": "Sender asks projector connector type.",
+      "flags": []
+    },
+    {
+      "id": "1da53bb87455331a8bf6cf036c16c959",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "For your sweater, would medium or large fit better?"
+        }
+      ],
+      "rationale": "User asks sweater size preference.",
+      "flags": []
+    },
+    {
+      "id": "22185176552084c8d2b6ab420ac8d26d",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Parking app offers: discounted evening parking this weekend only."
+        }
+      ],
+      "rationale": "Generic parking promotion.",
+      "flags": []
+    },
+    {
+      "id": "821e1593e1d01aaa1f7f691dbb771e57",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Transit account robot: your balance top-up completed successfully."
+        }
+      ],
+      "rationale": "Routine balance top-up receipt.",
+      "flags": []
+    },
+    {
+      "id": "1d17290b83276c24a6d053fd0c007d1c",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Library robot: the reserved book is ready for you. You must collect your hold by September 24 at noon or it will expire."
+        }
+      ],
+      "rationale": "Personal book collection is required by a stated deadline.",
+      "flags": []
+    },
+    {
+      "id": "5991dc7a46837839acee010883231c28",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I'll set two extra places. How many guests are coming with you?"
+        }
+      ],
+      "rationale": "User promises table setting and requests guest count.",
+      "flags": []
+    },
+    {
+      "id": "8ae4254fce8abb16e73289aa5d97ad4d",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "School portal: you must submit consent for your child's museum trip by 4 pm Wednesday for their place to be held."
+        }
+      ],
+      "rationale": "Personal school consent is required by a deadline.",
+      "flags": []
+    },
+    {
+      "id": "762b3124d48ebad5818a13ef49d5c5aa",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I'll rewrite the agenda before our half-hour catch-up."
+        }
+      ],
+      "rationale": "Unsolicited agenda rewrite promise lacks a visible user request.",
+      "flags": []
+    },
+    {
+      "id": "3a99637700c4831a02a76b528d35bcd4",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please proofread the first page before publication."
+        },
+        {
+          "message_index": 1,
+          "quote": "The first page is proofread and all corrections are saved."
+        }
+      ],
+      "rationale": "Requested proofreading is completed.",
+      "flags": []
+    },
+    {
+      "id": "1b7d7d208d40893246215640b705777b",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "For that size cake, the quote is $65. Is that within your budget?"
+        },
+        {
+          "message_index": 1,
+          "quote": "For that size cake, the quote is $65. No need to answer my budget question; the order is cancelled."
+        }
+      ],
+      "rationale": "Order cancellation explicitly withdraws budget question.",
+      "flags": []
+    },
+    {
+      "id": "14e577f003cb1f21b7abf8dbe6a60f19",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What time do you normally walk Pepper?"
+        },
+        {
+          "message_index": 1,
+          "quote": "I found Pepper's walk schedule on the fridge. That clears up my question."
+        }
+      ],
+      "rationale": "Sender found the walking schedule.",
+      "flags": []
+    },
+    {
+      "id": "bc7b4653674edc31356280c4fc499eea",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is the spare key in the kitchen drawer?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Found the spare key in the kitchen drawer. All sorted."
+        }
+      ],
+      "rationale": "Sender found the key, resolving the question.",
+      "flags": []
+    },
+    {
+      "id": "fd6dcf6469a2972cd33d55cea79fb4a5",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I'll fill the tank tonight; please tell me your preferred cost split."
+        }
+      ],
+      "rationale": "User commits to buying fuel and requests a cost split answer.",
+      "flags": []
+    },
+    {
+      "id": "4160d17fa38dbe37e03a7c098bf61261",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Would you rather split fuel evenly or pay per mile?"
+        }
+      ],
+      "rationale": "User requests fuel split preference.",
+      "flags": []
+    },
+    {
+      "id": "e37fbe9efa64cafbd4e0684e9c307a54",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What street address should I put on the envelope?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Got your note, thank you!"
+        }
+      ],
+      "rationale": "Acknowledgment leaves address request unanswered.",
+      "flags": []
+    },
+    {
+      "id": "bbd7432493e374ca40f9a34f73962831",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "For dinner, would Monday or Wednesday suit you?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Wednesday suits me. Monday does not."
+        }
+      ],
+      "rationale": "Dinner day preference is answered.",
+      "flags": []
+    },
+    {
+      "id": "ff9590e1f8d2f4f8ac8431a4f6500c11",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I'll buy the guest pass tomorrow morning."
+        }
+      ],
+      "rationale": "Unsolicited guest-pass purchase promise lacks a visible user request.",
+      "flags": []
+    },
+    {
+      "id": "f998dd9fc4a64656c50b37080252f6c6",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is your mailing address still 48 Juniper Street? I want to get the card right."
+        },
+        {
+          "message_index": 1,
+          "quote": "Your mailing address is already confirmed as 48 Juniper Street. The card arrived safely."
+        }
+      ],
+      "rationale": "Address is confirmed and delivery completed.",
+      "flags": []
+    },
+    {
+      "id": "74da95c7abe7808ba5418bec6f1703de",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Calendar update: your parent-teacher meeting is now Wednesday at 5:30 pm."
+        }
+      ],
+      "rationale": "Parent-teacher calendar change is informational.",
+      "flags": []
+    },
+    {
+      "id": "13db2550e70d52f284dc367c7a195367",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Photo lab robot: your print order is packed. This is an automated progress update."
+        }
+      ],
+      "rationale": "Routine automated print progress update.",
+      "flags": []
+    },
+    {
+      "id": "3a1a33998b1debeda05c99461d7017c9",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I noticed that shop has a new sign."
+        },
+        {
+          "message_index": 1,
+          "quote": "I'll find out the Saturday hours tomorrow."
+        }
+      ],
+      "rationale": "Unsolicited shop-hours lookup promise lacks a visible user request.",
+      "flags": []
+    },
+    {
+      "id": "ee50eacf5a97b87d3bc83d3a36b1764b",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Workshop system: you must select your clay type in your booking by 5 pm Friday or your reserved session will be released."
+        }
+      ],
+      "rationale": "Personal clay selection is required by a deadline.",
+      "flags": []
+    },
+    {
+      "id": "3ff201148610b427ac179ffbd454ad2c",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "If it rains, should we meet at your place?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The picnic is cancelled regardless of weather. No indoor backup needed."
+        }
+      ],
+      "rationale": "Picnic cancellation closes the contingency question.",
+      "flags": []
+    },
+    {
+      "id": "97a8f74a59436f5d38286c40c3f1ca50",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is a guest pass included in the pool fee?"
+        }
+      ],
+      "rationale": "User asks about included guest pass.",
+      "flags": []
+    },
+    {
+      "id": "313072dd58af44568096f04facfe7f1b",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Are you free after your shift on Saturday?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Forget Saturday; the gathering is cancelled. No availability answer needed."
+        }
+      ],
+      "rationale": "User explicitly withdraws Saturday availability request.",
+      "flags": []
+    },
+    {
+      "id": "db5f89d94f5da83c7d663fe403ec6067",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Membership newsletter: members can enjoy shop discounts through Saturday."
+        }
+      ],
+      "rationale": "Generic membership discount newsletter.",
+      "flags": []
+    },
+    {
+      "id": "f5287a81d0da8620f3575bd013a1b623",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please repair the garden gate latch."
+        },
+        {
+          "message_index": 1,
+          "quote": "Understood. I'll repair the latch on Tuesday."
+        }
+      ],
+      "rationale": "Requested latch repair is promised but not completed.",
+      "flags": []
+    },
+    {
+      "id": "e17decf8b552463f0fe736aa389e6da5",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Transit newsletter: our autumn travel guide is now online."
+        }
+      ],
+      "rationale": "Generic transit newsletter.",
+      "flags": []
+    },
+    {
+      "id": "19b4bc46086d13faa5e1b1d19bdbc118",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Calendar update: your scheduled courier visit is now Thursday at 3 pm."
+        }
+      ],
+      "rationale": "Courier calendar change is informational.",
+      "flags": []
+    },
+    {
+      "id": "89014d11f93b3a9f77f35bde927b3339",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is the spare key in the kitchen drawer?"
+        }
+      ],
+      "rationale": "Sender asks where the key is.",
+      "flags": []
+    },
+    {
+      "id": "e71cdca92da2f965fcda9e32cda1b866",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Tickets went up to $28. I'll buy yours tonight."
+        }
+      ],
+      "rationale": "Unsolicited ticket purchase promise requires commitment routing.",
+      "flags": []
+    },
+    {
+      "id": "391e125bf6ffc44e4784b93df0bc80f5",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What are the names of both your guests?"
+        },
+        {
+          "message_index": 1,
+          "quote": "One guest is Mira. The other name is not confirmed yet."
+        }
+      ],
+      "rationale": "Second requested guest name remains unanswered.",
+      "flags": []
+    },
+    {
+      "id": "2a9149407458d89e1bd7a952965a5aec",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "For dinner, would Monday or Wednesday suit you?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Seen, thanks. I have not checked my diary."
+        }
+      ],
+      "rationale": "Acknowledgment leaves dinner availability unanswered.",
+      "flags": []
+    },
+    {
+      "id": "a185f4476ae21e1fb8cd3fe65011b9ef",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I'll move the speakers away from the shared wall."
+        }
+      ],
+      "rationale": "User's speaker-moving promise needs commitment routing.",
+      "flags": []
+    },
+    {
+      "id": "7f95a7203372d77da9daebd8a952e5c3",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Will four people fit at the small table?"
+        },
+        {
+          "message_index": 1,
+          "quote": "I checked: four people fit at the small table. You need not answer."
+        }
+      ],
+      "rationale": "Sender found table capacity and withdraws the question.",
+      "flags": []
+    },
+    {
+      "id": "b9a96dbdfccbe3508bba055528a0369c",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What is the code for the garden gate?"
+        }
+      ],
+      "rationale": "Sender requests gate code.",
+      "flags": []
+    },
+    {
+      "id": "99a8e923a4721859932bf59edd75a5c8",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Calendar update: your travel consultation has moved to Wednesday at 3 pm."
+        }
+      ],
+      "rationale": "Travel consultation calendar change is informational.",
+      "flags": []
+    },
+    {
+      "id": "a8f5006020122ad50afd4ed1842185ca",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please pick Pepper up from the sitter at five."
+        },
+        {
+          "message_index": 1,
+          "quote": "Pepper is home with me now; pickup is done."
+        }
+      ],
+      "rationale": "Requested pickup is completed.",
+      "flags": []
+    },
+    {
+      "id": "6d438715e887bf43161b59e201aeac28",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Calendar update: your consultation with Dr Vale is now at 10:30 on Tuesday."
+        }
+      ],
+      "rationale": "Medical consultation calendar change is informational.",
+      "flags": []
+    },
+    {
+      "id": "1d9f740db88c30a7ce562aba5f6d4621",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Coffee before work tomorrow? Does 8:15 suit you?"
+        }
+      ],
+      "rationale": "Sender requests coffee availability.",
+      "flags": []
+    },
+    {
+      "id": "fec1cdab2dbcc9e5aeca6e6f4dcc83cd",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "At what time can you join the call tomorrow?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Thank you for the nudge; I am between meetings."
+        }
+      ],
+      "rationale": "Acknowledgment leaves call availability unanswered.",
+      "flags": []
+    },
+    {
+      "id": "4775bde1121ba7cae8d71e0acbb2b793",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "When do you open on Saturdays?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Saturday hours are nine until two."
+        }
+      ],
+      "rationale": "Saturday hours answer the question.",
+      "flags": []
+    },
+    {
+      "id": "5cf77818f2335fb4a7e057053e36a691",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Any food allergies I should know about for dinner?"
+        },
+        {
+          "message_index": 1,
+          "quote": "I have your allergy note already. Nothing more needed for dinner."
+        }
+      ],
+      "rationale": "Sender already has the allergy answer.",
+      "flags": []
+    },
+    {
+      "id": "466d55ece6d5b800efe06d6de1a5e668",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What are the joining fee and the monthly charge?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The joining fee is $20. I still need to check the monthly charge."
+        }
+      ],
+      "rationale": "Monthly charge remains unanswered.",
+      "flags": []
+    },
+    {
+      "id": "2df37674ce385208267f4eca0b60c6c6",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What are the materials and labour costs separately?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The materials cost $40. The labour figure is not ready yet."
+        }
+      ],
+      "rationale": "Requested labour cost remains unanswered.",
+      "flags": []
+    },
+    {
+      "id": "adb91b9b5a392a453aea2115bdace831",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Event newsletter: last day for everyone to buy early-bird tickets is Friday."
+        }
+      ],
+      "rationale": "Generic early-bird ticket promotion.",
+      "flags": []
+    },
+    {
+      "id": "6a9e7a1a4967edb69b1124390988bca5",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Tickets went up to $28. Still interested at that price?"
+        }
+      ],
+      "rationale": "Sender asks whether the price is acceptable.",
+      "flags": []
+    },
+    {
+      "id": "b96d0674be7b7929cf1cc654d78b4876",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What are the materials and labour costs separately?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The materials cost $40. The labour figure is not ready yet."
+        }
+      ],
+      "rationale": "Requested labour cost remains unanswered.",
+      "flags": []
+    },
+    {
+      "id": "94f2ad726cd852b098975629f4903fd3",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is a guest pass included in the pool fee?"
+        }
+      ],
+      "rationale": "Sender asks about included guest pass.",
+      "flags": []
+    },
+    {
+      "id": "6cdaa2f171ed0863014a1f952746241c",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Parcel robot: you must collect your parcel from locker 62 by 7 pm Thursday before it is returned to the sender."
+        }
+      ],
+      "rationale": "Personal parcel collection is required by a deadline.",
+      "flags": []
+    },
+    {
+      "id": "9a37a234e77fb91dfc9f3780d67159e4",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Would four o'clock work for tea?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks, saw this while heading out."
+        }
+      ],
+      "rationale": "Acknowledgment leaves tea availability unanswered.",
+      "flags": []
+    },
+    {
+      "id": "0a9e1f8e972c1b7ac95f9d7f79170e4a",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Does your quoted price include tax, or is tax added separately?"
+        },
+        {
+          "message_index": 1,
+          "quote": "I found the tax line on the quote. That answers my pricing question."
+        }
+      ],
+      "rationale": "Sender found the tax information.",
+      "flags": []
+    },
+    {
+      "id": "ba13f6e804899f03b988d69f9205d7ec",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please repair the garden gate latch."
+        },
+        {
+          "message_index": 1,
+          "quote": "The garden gate latch is repaired and working now."
+        }
+      ],
+      "rationale": "Requested latch repair is complete.",
+      "flags": []
+    },
+    {
+      "id": "9ea12efb81335aa6b1b07f27b8f1353c",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which venue do you choose, the garden or the hall?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks! The options both look lovely."
+        }
+      ],
+      "rationale": "Acknowledgment leaves venue choice unanswered.",
+      "flags": []
+    },
+    {
+      "id": "618ad2ee851bb8b55ea1e060cb10545a",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What street address should I put on the envelope?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Got your note, thank you!"
+        }
+      ],
+      "rationale": "Acknowledgment leaves address request unanswered.",
+      "flags": []
+    },
+    {
+      "id": "60c341cee422f5ce7467aaf66fc34c76",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I'll reserve us a table for coffee before work tomorrow."
+        }
+      ],
+      "rationale": "User's table reservation promise needs commitment routing.",
+      "flags": []
+    },
+    {
+      "id": "14304808c33ae4886ab4c95d2f333897",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Rental portal newsletter: apartment decorating ideas for autumn."
+        }
+      ],
+      "rationale": "Generic rental newsletter.",
+      "flags": []
+    },
+    {
+      "id": "e92918071cb0e34fe39f47a436cf9cbf",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Coworking bot: you must clear your assigned desk by Friday at 6 pm before the floor renovation."
+        }
+      ],
+      "rationale": "Personal desk clearing is required by a deadline.",
+      "flags": []
+    },
+    {
+      "id": "92bec190de99544c48d2cb0e239d2623",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Storage service promotion: save on larger units until the end of the month."
+        }
+      ],
+      "rationale": "Generic storage promotion.",
+      "flags": []
+    },
+    {
+      "id": "b8b8abc76d15aac3ad1a62b5ef6b1e4e",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Parking app receipt: your parking payment was processed successfully."
+        }
+      ],
+      "rationale": "Routine parking payment receipt.",
+      "flags": []
+    },
+    {
+      "id": "508cd4daed829e75a74cbaa22af55f4c",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "At what time can you join the call tomorrow?"
+        },
+        {
+          "message_index": 1,
+          "quote": "No call tomorrow after all; ignore the time question."
+        }
+      ],
+      "rationale": "User explicitly withdraws the call-time question.",
+      "flags": []
+    },
+    {
+      "id": "eef6fed090a78fb13223b0c0a601ef08",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Calendar invitation: your fitness assessment is booked for Thursday at 11 am."
+        }
+      ],
+      "rationale": "Calendar invitation is informational.",
+      "flags": []
+    },
+    {
+      "id": "e65f85064c19c5cf2a8270319df4ee12",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please change the ticket name from Pat to Patricia."
+        },
+        {
+          "message_index": 1,
+          "quote": "The ticket now says Patricia. The change is complete."
+        }
+      ],
+      "rationale": "Requested ticket name change is complete.",
+      "flags": []
+    },
+    {
+      "id": "2c7afa7b6d2014f75800c4a5d6d2dae6",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please email me a scan of the receipt."
+        },
+        {
+          "message_index": 1,
+          "quote": "I found the receipt, but the scan is not ready."
+        }
+      ],
+      "rationale": "Requested receipt scan remains undelivered.",
+      "flags": []
+    },
+    {
+      "id": "b474ef582c341c49c29b74119d21c709",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What are the names of both your guests?"
+        },
+        {
+          "message_index": 1,
+          "quote": "One guest is Mira. The other name is not confirmed yet."
+        }
+      ],
+      "rationale": "Second requested guest name remains unanswered.",
+      "flags": []
+    },
+    {
+      "id": "ba8d4059adcaa2ac2dd5527c4e5e0d45",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Hire portal: you must return your rented drill by 4 pm Tuesday to avoid an overdue charge."
+        }
+      ],
+      "rationale": "Personal rented-drill return is required by a deadline.",
+      "flags": []
+    },
+    {
+      "id": "b1b6cb650c6595e79d939a547b188cd2",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What time do you normally walk Pepper?"
+        }
+      ],
+      "rationale": "User asks walking schedule.",
+      "flags": []
+    },
+    {
+      "id": "ad6f6a940b3e40c028f21994e9eaf9c1",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which platform does the airport train leave from?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Message received. I am still on the bus."
+        }
+      ],
+      "rationale": "Acknowledgment leaves platform question unanswered.",
+      "flags": []
+    },
+    {
+      "id": "46915913bff0a3d95f9fa254dbd2af50",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Account robot: you must verify your identity by September 30 at 6 pm to prevent restrictions on your account."
+        }
+      ],
+      "rationale": "Personal identity verification is required by a deadline.",
+      "flags": []
+    },
+    {
+      "id": "a41e72e50fe794b7e5564ed7259d1ee8",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Insurance newsletter: an introduction to common policy terms."
+        }
+      ],
+      "rationale": "Generic insurance newsletter.",
+      "flags": []
+    },
+    {
+      "id": "f988a6d4401647d2b9ae6f3caac8e387",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Storage service: you must remove your bicycle from the shared hallway by Friday at noon under your unit agreement."
+        }
+      ],
+      "rationale": "Personal bicycle removal is required by a deadline.",
+      "flags": []
+    },
+    {
+      "id": "8a72ad986d2d439f0a1221d10aa7b2ab",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What are the joining fee and the monthly charge?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The joining fee is $20. I still need to check the monthly charge."
+        }
+      ],
+      "rationale": "Requested monthly charge remains unanswered.",
+      "flags": []
+    },
+    {
+      "id": "ad02d008429afda3ebf8222399a9c219",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Rental portal: you must sign your lease renewal by October 1 at noon to retain this apartment."
+        }
+      ],
+      "rationale": "Personal lease signing is required by a deadline.",
+      "flags": []
+    },
+    {
+      "id": "64ff30726780b5fbdd916a1a39552ad9",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Are you free after your shift on Saturday?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks for checking. I have not looked at the roster."
+        }
+      ],
+      "rationale": "Acknowledgment leaves Saturday availability unanswered.",
+      "flags": []
+    }
+  ]
+}
