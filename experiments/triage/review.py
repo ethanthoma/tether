@@ -1,4 +1,4 @@
-"""Prepare blind training-label review and quarantine unresolved scenario families."""
+"""Prepare blind label review and quarantine unresolved scenario families."""
 
 import argparse
 import hashlib
@@ -25,13 +25,16 @@ def main() -> None:
     prepare.add_argument("--data", type=Path, required=True)
     prepare.add_argument("--author", required=True)
     prepare.add_argument("--output", type=Path, required=True)
+    prepare.add_argument(
+        "--splits", nargs="+", choices=("train", "dev", "test"), default=["train"]
+    )
     reconcile = commands.add_parser("reconcile")
     reconcile.add_argument("--bundle", type=Path, required=True)
     reconcile.add_argument("--responses", type=Path, nargs="+", required=True)
     reconcile.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if args.command == "prepare":
-        prepare_review(args.data, args.author, args.output)
+        prepare_review(args.data, args.author, args.output, tuple(args.splits))
     else:
         reconcile_review(args.bundle, args.responses, args.output)
 
@@ -56,8 +59,16 @@ def identity(value: str) -> str:
     return value.strip().casefold()
 
 
-def prepare_review(data: Path, author: str, output: Path) -> None:
+def prepare_review(
+    data: Path, author: str, output: Path, splits: tuple[str, ...] = ("train",)
+) -> None:
     identity(author)
+    if (
+        not splits
+        or len(set(splits)) != len(splits)
+        or not set(splits) <= {"train", "dev", "test"}
+    ):
+        raise ValueError("select distinct train, dev, or test splits")
     source = read_json(data)
     if source.get("provenance") != "fully_synthetic_assistant_authored":
         raise ValueError("fully synthetic source required")
@@ -77,16 +88,16 @@ def prepare_review(data: Path, author: str, output: Path) -> None:
             raise ValueError("each source case needs a split and family")
         if partitions.setdefault(group, split) != split:
             raise ValueError("family crosses source splits")
-    cases = [case for case in all_cases if case["split"] == "train"]
+    cases = [case for case in all_cases if case["split"] in splits]
     if not 1 <= len(cases) <= 2000:
-        raise ValueError("review requires 1–2000 training cases")
+        raise ValueError("review requires 1–2000 selected cases")
     for case in cases:
         if (
             case.get("expected") not in LABELS
             or not isinstance(case.get("group"), str)
             or not case["group"]
         ):
-            raise ValueError("each training case needs a label and family")
+            raise ValueError("each selected case needs a label and family")
     SystemRandom().shuffle(cases)
     mapping = {}
     blinded = []

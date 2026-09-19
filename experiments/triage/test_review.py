@@ -11,6 +11,18 @@ from review import LABEL_POLICY, prepare_review, reconcile_review, validate_revi
 
 
 class ReviewTests(unittest.TestCase):
+    def test_explicit_evaluation_review_preserves_splits(self) -> None:
+        output = self.root / "evaluation"
+        with contextlib.redirect_stdout(io.StringIO()):
+            prepare_review(self.data, "author", output, ("dev", "test"))
+        source = json.loads((output / "author/source.json").read_text())
+        packet = json.loads((output / "reviewer/packet.json").read_text())
+        self.assertEqual({case["split"] for case in source["cases"]}, {"dev", "test"})
+        self.assertEqual(len(packet["cases"]), 2)
+        self.assertTrue(
+            all(set(case) == {"id", "messages"} for case in packet["cases"])
+        )
+
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
