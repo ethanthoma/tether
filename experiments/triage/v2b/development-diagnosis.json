@@ -1,0 +1,555 @@
+{
+  "max_wrong_nonabstain_confidence": 0.9742592309172636,
+  "exact_cutoff": 0.9742592309172637,
+  "raw": {
+    "cases": 120,
+    "accepted": 87,
+    "correct_accepted": 70,
+    "correct_abstentions": 19,
+    "false_reminders": 7,
+    "false_silencing": 3,
+    "actionable_abstained": 4,
+    "ambiguous_accepted": 10
+  },
+  "selective": {
+    "cases": 120,
+    "accepted": 22,
+    "correct_accepted": 22,
+    "correct_abstentions": 29,
+    "false_reminders": 0,
+    "false_silencing": 0,
+    "actionable_abstained": 38,
+    "ambiguous_accepted": 0
+  },
+  "accepted_per_class": {
+    "waiting_on_them": 3,
+    "fyi": 4,
+    "needs_reply": 15
+  },
+  "errors": [
+    {
+      "id": "v2_dev_astronomy_occultation_2",
+      "expected": "abstain",
+      "predicted": "needs_reply",
+      "confidence": 0.9742592309172636,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The north-station thing is yours, I think. Or was it mine?"
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_tram_model_3",
+      "expected": "abstain",
+      "predicted": "waiting_on_them",
+      "confidence": 0.9681963646937661,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the model tram's finished length."
+        },
+        {
+          "outbound": false,
+          "body": "I can measure it, but please tell me first whether you want couplers included."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_crossword_collab_2",
+      "expected": "fyi",
+      "predicted": "abstain",
+      "confidence": 0.9531547995443189,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "My note said '> Is twelve a verb?' You answered that yesterday. I've now fixed the clue; no more questions."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_street_magic_2",
+      "expected": "fyi",
+      "predicted": "abstain",
+      "confidence": 0.948550061591056,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "That old note asks 'was the coin visible?' We've already reviewed the footage and closed that question."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_bus_card_4",
+      "expected": "noise",
+      "predicted": "fyi",
+      "confidence": 0.944799998331013,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Auto-reload receipt: 20 credits added to your transit balance. Payment complete. Keep this for your records."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_underwater_club_3",
+      "expected": "abstain",
+      "predicted": "fyi",
+      "confidence": 0.930387254851846,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Bring your fins to the tank and rinse them in the side basin."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_hearing_aid_2",
+      "expected": "abstain",
+      "predicted": "fyi",
+      "confidence": 0.8818393797634139,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Put fresh batteries in both hearing aids before the appointment."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_climbing_competition_3",
+      "expected": "abstain",
+      "predicted": "fyi",
+      "confidence": 0.8652438309866297,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Tie the demonstration knot and leave it clipped to the practice rail."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_translation_idiom_2",
+      "expected": "fyi",
+      "predicted": "abstain",
+      "confidence": 0.8577778739887725,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Quoted query: 'Does break a plate sound insulting?' That question was answered in the glossary. No response needed on this copy."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_robot_vacuum_2",
+      "expected": "abstain",
+      "predicted": "fyi",
+      "confidence": 0.851158134866155,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Lift the robot onto the charging dock and clean the left wheel."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_sourdough_circle_2",
+      "expected": "fyi",
+      "predicted": "waiting_on_them",
+      "confidence": 0.84302742013362,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Mine is all rye; that's the only detail you asked for."
+        },
+        {
+          "outbound": false,
+          "body": "Got it, rye explains the darker colour. cheers!"
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_telescope_mirror_1",
+      "expected": "needs_reply",
+      "predicted": "abstain",
+      "confidence": 0.842983939161638,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is the mirror scratch visible through the eyepiece, or only when inspecting the surface? Please tell me."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_translation_idiom_4",
+      "expected": "waiting_on_them",
+      "predicted": "abstain",
+      "confidence": 0.7997803874328163,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you give me two written examples of that idiom?"
+        },
+        {
+          "outbound": false,
+          "body": "I have one example so far; I'll find a second before replying properly."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_taxi_lost_scarf_4",
+      "expected": "noise",
+      "predicted": "fyi",
+      "confidence": 0.790083199416243,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Ride receipt: fare 18.40, paid with your saved card. This receipt was generated automatically."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_piano_pedal_4",
+      "expected": "waiting_on_them",
+      "predicted": "fyi",
+      "confidence": 0.7812689743184658,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you lubricate the right pedal hinge?"
+        },
+        {
+          "outbound": false,
+          "body": "I located the hinge but haven't lubricated it yet."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_phone_repair_2",
+      "expected": "waiting_on_them",
+      "predicted": "fyi",
+      "confidence": 0.7520116967670136,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please test the microphone before returning the handset."
+        },
+        {
+          "outbound": false,
+          "body": "The screen is repaired. I haven't tested the microphone yet."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_indie_film_credit_4",
+      "expected": "fyi",
+      "predicted": "abstain",
+      "confidence": 0.7381017949965578,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Forget the request to remove my middle initial; the current credit is fine."
+        },
+        {
+          "outbound": false,
+          "body": "Understood, we'll keep the current credit."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_telescope_mirror_4",
+      "expected": "abstain",
+      "predicted": "waiting_on_them",
+      "confidence": 0.7348096396609944,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please inspect the mirror coating. I'll remove the mirror from its tube first."
+        },
+        {
+          "outbound": false,
+          "body": "I can do the inspection once it's out."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_piano_pedal_3",
+      "expected": "abstain",
+      "predicted": "needs_reply",
+      "confidence": 0.7201382012506428,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The pedal business, whenever. You know."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_family_reunion_name_3",
+      "expected": "fyi",
+      "predicted": "abstain",
+      "confidence": 0.7118129670130847,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Badge spellings are finalized using the names everyone already confirmed. No further replies needed."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_fountain_pen_4",
+      "expected": "abstain",
+      "predicted": "waiting_on_them",
+      "confidence": 0.6912048231336942,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me your nib repair price. I'll mail the pen to you tomorrow."
+        },
+        {
+          "outbound": false,
+          "body": "I can work out the price this evening."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_mushroom_identification_4",
+      "expected": "fyi",
+      "predicted": "abstain",
+      "confidence": 0.6834705365397168,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your observation has been added to the survey as unidentified. This is just a record of the decision, not a request to identify it."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_mushroom_identification_3",
+      "expected": "waiting_on_them",
+      "predicted": "abstain",
+      "confidence": 0.6755972530718343,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you explain which features rule out the lookalike species?"
+        },
+        {
+          "outbound": false,
+          "body": "The gill colour is one feature; I'll explain the other distinguishing signs when I finish checking."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_bat_rescue_3",
+      "expected": "waiting_on_them",
+      "predicted": "abstain",
+      "confidence": 0.6278173776069038,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you describe the safe release conditions for this bat?"
+        },
+        {
+          "outbound": false,
+          "body": "I'll ask our wildlife specialist and get back to you with the conditions."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_tram_model_4",
+      "expected": "fyi",
+      "predicted": "abstain",
+      "confidence": 0.5905861679577991,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The model tram's route number is now corrected to 6. No changes or answers needed from you."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_astronomy_occultation_4",
+      "expected": "fyi",
+      "predicted": "abstain",
+      "confidence": 0.5807308364191137,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The occultation was visible from both stations. This is the final observing summary, with no follow-up requested."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_orienteering_checkpoint_2",
+      "expected": "abstain",
+      "predicted": "needs_reply",
+      "confidence": 0.5160474977656205,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Checkpoint C again. same business as before..."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_school_lunch_2",
+      "expected": "fyi",
+      "predicted": "abstain",
+      "confidence": 0.4955358179289571,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "You can ignore my earlier question about Ren's lunch. The office already confirmed dairy-free and I updated the list."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_game_server_4",
+      "expected": "noise",
+      "predicted": "fyi",
+      "confidence": 0.4565912809043682,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated shard health report: all regions normal, no incidents detected in the last 24 hours."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_street_magic_4",
+      "expected": "waiting_on_them",
+      "predicted": "fyi",
+      "confidence": 0.3996305008974845,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you film the coin trick from overhead?"
+        },
+        {
+          "outbound": false,
+          "body": "I have a side view only; the overhead take still needs recording."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_phone_repair_4",
+      "expected": "noise",
+      "predicted": "abstain",
+      "confidence": 0.3512376530924267,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automatic repair ticket notification: ticket P62 was opened successfully. This message does not require a response."
+        }
+      ]
+    }
+  ],
+  "models": [
+    {
+      "name": "joint-frozen-C0.1",
+      "threshold": 0.4,
+      "raw": {
+        "cases": 120,
+        "accepted": 86,
+        "correct_accepted": 49,
+        "correct_abstentions": 17,
+        "false_reminders": 14,
+        "false_silencing": 12,
+        "actionable_abstained": 12,
+        "ambiguous_accepted": 12
+      },
+      "selective": {
+        "cases": 120,
+        "accepted": 2,
+        "correct_accepted": 2,
+        "correct_abstentions": 29,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 56,
+        "ambiguous_accepted": 0
+      }
+    },
+    {
+      "name": "joint-frozen-C1",
+      "threshold": 0.6,
+      "raw": {
+        "cases": 120,
+        "accepted": 86,
+        "correct_accepted": 57,
+        "correct_abstentions": 18,
+        "false_reminders": 16,
+        "false_silencing": 7,
+        "actionable_abstained": 10,
+        "ambiguous_accepted": 11
+      },
+      "selective": {
+        "cases": 120,
+        "accepted": 8,
+        "correct_accepted": 8,
+        "correct_abstentions": 29,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 54,
+        "ambiguous_accepted": 0
+      }
+    },
+    {
+      "name": "joint-frozen-C10",
+      "threshold": 0.95,
+      "raw": {
+        "cases": 120,
+        "accepted": 82,
+        "correct_accepted": 49,
+        "correct_abstentions": 18,
+        "false_reminders": 18,
+        "false_silencing": 7,
+        "actionable_abstained": 12,
+        "ambiguous_accepted": 11
+      },
+      "selective": {
+        "cases": 120,
+        "accepted": 1,
+        "correct_accepted": 1,
+        "correct_abstentions": 29,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 56,
+        "ambiguous_accepted": 0
+      }
+    }
+  ],
+  "per_class_boundaries": {
+    "fyi": {
+      "wrong_count": 10,
+      "max_wrong_confidence": 0.944799998331013,
+      "exact": 0.9447999983310131,
+      "grid": 0.95,
+      "exact_accepted": 5,
+      "grid_accepted": 5
+    },
+    "needs_reply": {
+      "wrong_count": 3,
+      "max_wrong_confidence": 0.9742592309172636,
+      "exact": 0.9742592309172637,
+      "grid": 1.0,
+      "exact_accepted": 15,
+      "grid_accepted": 0
+    },
+    "noise": {
+      "wrong_count": 0,
+      "max_wrong_confidence": -1.0,
+      "exact": 0.0,
+      "grid": 0.0,
+      "exact_accepted": 6,
+      "grid_accepted": 6
+    },
+    "waiting_on_them": {
+      "wrong_count": 4,
+      "max_wrong_confidence": 0.9681963646937661,
+      "exact": 0.9681963646937662,
+      "grid": 1.0,
+      "exact_accepted": 3,
+      "grid_accepted": 0
+    }
+  }
+}
