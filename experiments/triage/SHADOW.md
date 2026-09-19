@@ -7,7 +7,7 @@ It is a separate command, also configured on a production timer every 30 minutes
 Reports identify the artifact's policy: historical `synthetic-obligations-v1`
 sets `policy_aligned: false`, while `reply-triage-v2` sets it true. Policy alignment
 describes the label contract, not model quality. Shadow observations are diagnostic,
-not permission to classify live threads. See the [v2 rollout](v2/PRODUCTION.md)
+not permission to classify live threads. See the [current rollout](v2j/PRODUCTION.md)
 for quality gates and the separate hash-pinned authority switch.
 
 ## Run locally
@@ -29,7 +29,7 @@ import sys
 from pathlib import Path
 
 root = Path.cwd()
-model = root / "experiments/triage/runs/v2d-joint/model"
+model = root / "experiments/triage/runs/v2j-production/model"
 wrapper = root / "experiments/triage/runs/shadow-infer"
 with wrapper.open("x") as output:
     output.write(
@@ -99,7 +99,8 @@ The fixtures exercised plumbing, not a fresh model-quality evaluation.
 Go tests cover read-only state, exact message context, privacy, selection bounds,
 credential isolation, timeout, and adversarial evaluator output. Python tests cover
 artifact identity, input rejection, threshold handling, and sanitized failures.
-All 34 Python tests and the Go suite passed, with Ruff and gofmt checks clean.
+That initial smoke revision passed all 34 Python tests and the Go suite, with
+Ruff and gofmt checks clean. Current validation is in the production record.
 
 The production service uses the [immutable CPU runtime](RUNTIME.md), offline model
 files, a private network, and read-only state except for the normal store lock.

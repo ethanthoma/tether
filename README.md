@@ -1,13 +1,13 @@
 # tether
 
 Single-user comms hub: syncs Gmail (IMAP) + Google Calendar (secret ICS URL)
-into a JSON state dir on atlas, triages threads with the local llama-server,
-extracts commitments, and reaches you through a Discord bot that both posts
-nudges and takes commands.
+into a JSON state dir on atlas, triages threads with a CPU classifier and local
+llama-server fallback, extracts commitments, and reaches you through a Discord bot
+that both posts nudges and takes commands.
 
 ```
 tether sync                        fetch new mail + calendar
-tether triage                      LLM-classify new threads, extract commitments
+tether triage                      classify new threads, extract commitments via LLM
 tether nudge                       evaluate nudge rules, post to Discord
 tether digest                      post morning digest to Discord
 tether pulse                       sync + triage + nudge (what the timer runs)
@@ -96,14 +96,22 @@ and merges into the tunnel that also serves llama-server.
 `make build`, `make test`. Local runs: `TETHER_STATE_DIR=/tmp/tether-dev ./tether sync`.
 On this machine, prefix with `nix-shell -p go --run '...'`.
 
-## Local triage shadow
+## CPU triage and shadow
 
-For the separate read-only CPU email classifier, see
-[triage shadow inference](experiments/triage/SHADOW.md). `tether triage-shadow`
-uses `TETHER_TRIAGE_SHADOW` and does not change thread state or send reminders.
-Its current model still uses the experimental v1 label policy.
+The production CPU classifier uses the `reply-triage-v2` policy and an exact
+artifact-hash authority switch. It classifies up to 20 new threads per run;
+uncertain or oversized inputs use the LLM fallback. With llama offline, those
+threads stay queued without consuming retry attempts. Commitment extraction and
+free-text chat still need the LLM. See [deployment and rollback](experiments/triage/v2j/PRODUCTION.md).
 
-## Bend shadow trial
+The separate [read-only shadow command](experiments/triage/SHADOW.md),
+`tether triage-shadow`, uses `TETHER_TRIAGE_SHADOW` and changes no thread state
+or reminders. Its production timer provides coverage and operational diagnostics.
+
+## Bend policies and shadow
+
+Eligibility, dispatch, and delivery-transition authority are enabled in production
+through three independent switches. See [rollout and rollback](experiments/bend/ROLLOUT.md).
 
 `tether shadow` compares Go's thread reminder eligibility with the verified Bend
 policy. It reads the store and nudge history, emits a JSON report, and sends nothing.
@@ -172,9 +180,9 @@ policy, even when production Bend eligibility is enabled.
 
 Successful Bend batches log `Bend eligibility active`; fallback batches log their
 reason. Quiet hours return before invoking either eligibility backend. The local
-LLM is not required for Bend, buttons, or already classified threads. New email
-classification and free-text chat still require it; service outages preserve the
-triage queue without consuming classification attempts.
+LLM is not required for Bend, buttons, already classified threads, or accepted CPU
+classifications. Free-text chat, commitment extraction, and classifier abstentions
+use the LLM; outages preserve undecided threads without consuming triage attempts.
 
 ### Isolated production snapshot gate
 

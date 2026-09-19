@@ -43,9 +43,10 @@ for version 2; it must not generate new labels unchanged.
 
 ## Relabel and review protocol
 
-The [first v2 training pass](v2/README.md) now retains 893 blind-reviewed cases
-from 134 families. Development/evaluation preparation and model training remain
-pending. The protocol below records the requirements for this and future passes.
+The [first v2 training pass](v2/README.md) retained 893 blind-reviewed cases from
+134 families. Later training and evaluation are recorded in [JOINT.md](JOINT.md),
+with the approved deployment in [v2j/PRODUCTION.md](v2j/PRODUCTION.md).
+The protocol below records the requirements for every review pass.
 
 1. Preserve all v1 corpora, review packets, judgments, reports, and model artifacts.
    Create a separately versioned candidate corpus. Review preparation requires

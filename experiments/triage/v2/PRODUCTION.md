@@ -1,5 +1,8 @@
 # V2 CPU classifier rollout
 
+This records the first rejected candidate and its read-only deployment. For the
+later approved classifier, see [the v2j production record](../v2j/PRODUCTION.md).
+
 ## Inputs and scope
 
 The release uses 893 training cases from 134 approved v2 families, plus 120 new

@@ -43,8 +43,8 @@ cutoffs against development data before making held-out predictions.
   evaluation accepted 73/154 with four false reminders: rejected.
 - [V2i](v2i/RESULT.md) retained safe coverage but its extra cutoff margin removed
   all waiting_on_them support: rejected before test.
-- [V2j](v2j/RELEASE.md) keeps the larger calibration set and actionable 0.90 floor,
-  omitting that extra grid step. The 198-case v2i test remains unused.
+- [V2j](v2j/RESULT.md) passed: 64/198 held-out cases accepted, all correct,
+  with both actionable classes supported. Its test is now consumed.
 
 Run the CPU fine-tuner with a fresh output directory:
 
@@ -75,8 +75,9 @@ records the exact data hash, recipe, checkpoint history, and cutoffs. The releas
 gate first requires 25% development coverage and both actionable classes before
 held-out inference. It additionally requires zero accepted held-out errors, at least 25% coverage,
 and both actionable classes. Synthetic evidence does not establish real-mail
-accuracy. Production authority remains off until the gate, native CLI check,
-and operational shadow verification pass; Bend's three switches are independent.
+accuracy. Production authority requires the gate, native CLI check, and operational
+shadow verification; see the [v2j deployment](v2j/PRODUCTION.md).
+Bend's three switches are independent.
 
 `release.py` exclusively reserves its report path after development readiness and
 before held-out inference. Existing reports cannot be reused. An empty or partial

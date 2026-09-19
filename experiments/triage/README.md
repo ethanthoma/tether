@@ -4,14 +4,13 @@
 [POLICY.md](POLICY.md) records the production-aligned v2 labeling contract;
 the [v2 training corpus](v2/README.md) supplies the reviewed base data.
 The [joint-context candidate](JOINT.md) is the current training implementation.
-Bend is active in production; the CPU classifier remains a read-only observer
-until a candidate passes its frozen release gate. V2c failed with four accepted
-test errors; v2e failed with two, and v2f was rejected before test on weak
-development results. V2g also failed development readiness (19.1% safe coverage).
-V2h improved coverage but failed with four held-out false reminders. V2i's extra
-cutoff margin lost waiting_on_them support. V2j tests zero-error cutoff selection
-with an actionable 0.90 floor on the larger calibration set and unused holdout.
-Earlier results remain archived and are not production approvals.
+[V2j](v2j/RESULT.md) passed its frozen synthetic gate: 64/198 accepted with zero
+errors and support for both actionable classes. See [production status and rollback](v2j/PRODUCTION.md).
+Bend's three policy switches are independent of classifier authority.
+
+V2c, v2e, and v2h failed held-out gates. V2f and v2g failed development readiness;
+v2i lost waiting_on_them support after an extra cutoff margin. Earlier results
+remain archived and are not production approvals.
 
 [REVIEW.md](REVIEW.md) describes the blind training-label review workflow and
 [LABELING.md](LABELING.md) specifies the experimental labels and production-policy
@@ -116,4 +115,4 @@ Go tests validates the harness, not model readiness. An all-abstaining classifie
 has zero false reminders but zero coverage; compare both. The current candidate's
 [release plan](v2j/RELEASE.md) defines development and held-out quality gates plus
 operational checks. Synthetic blind review is not a human audit or proof of real
-mail accuracy. Production classifier authority remains disabled pending approval.
+mail accuracy. Only the exact approved artifact may receive production authority.

@@ -220,3 +220,17 @@ For independent rollback remove the relevant switch; no restart is required.
 For complete application rollback restore the backed-up source and switch to the
 generation recorded in `system-before`. Keep the current source and system backup
 until the new production observations are reviewed.
+
+## Classifier rollout preservation — 2026-09-19
+
+The [approved CPU classifier rollout](../triage/v2j/PRODUCTION.md) deployed source
+`384c91a` and generation
+`/nix/store/nsd0kgjbsklfyv9m6hpfg41w54wk0967-nixos-system-atlas-26.11.20260831.34ab990`.
+All three Bend authority switches remained enabled, empty, and mode `0600`, owned
+by `ethoma:users`. The existing Bend package
+`/nix/store/acgzkqq75s8cqnq9x5rnlb6xqh8vl8yn-tether-bend-shadow-2.0.5` was preserved.
+Classifier rollback is independent of those switches. Llama remained off, and no
+manual pulse, nudge, or external test notification was invoked.
+
+The overnight observations still precede quiet-hour completion at 08:00 PDT;
+positive delivery under Bend authority awaits an ordinary eligible daytime batch.

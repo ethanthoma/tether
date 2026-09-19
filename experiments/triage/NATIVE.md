@@ -52,5 +52,15 @@ packaged CLI and runtime: one synthetic case, zero accepted, one abstained. Tota
 runtime was 22.868 seconds and peak memory 376.9 MiB. The transient unit had no
 external network or production-state access; its HTTP traffic was solely the
 loopback 503 fixture. Temporary gate files were removed. Production authority
-remained absent. Accepted-classification integration is still pending a candidate
-that passes the release gate.
+remained absent. This first check did not establish accepted-classification
+integration; the later v2j verification below does.
+
+## Approved v2j verification
+
+The [approved v2j artifact](v2j/PRODUCTION.md) passed all four lanes with five
+fixed cases: one accepted example of each non-abstaining label and one abstention.
+The packet preserves independently reviewed test labels. The actual trusted
+runtime and bare Go CLI completed in 25.670 seconds, with 648.4M reported peak
+memory, no production-state access, and only a loopback unavailable-LLM fixture.
+This verifies integration; the separate held-out report establishes synthetic
+quality, and neither establishes real-mail accuracy.
