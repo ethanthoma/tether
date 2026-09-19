@@ -1,5 +1,8 @@
 # Synthetic data scaling
 
+The subsequent [blind review workflow](REVIEW.md) prepares this training corpus
+for a separate reviewer under the explicit [labeling specification](LABELING.md).
+
 The original training set had 261 cases from 48 scenario families. The expansion
 in `scale_scenarios.json` adds 100 training families, 20 development families, and
 20 fresh test families. Combining the original train/dev splits with these new

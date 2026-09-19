@@ -1,5 +1,9 @@
 # Triage classifier evaluation
 
+[REVIEW.md](REVIEW.md) describes the blind training-label review workflow and
+[LABELING.md](LABELING.md) specifies the experimental labels and production-policy
+boundary. [SCALING.md](SCALING.md) records the expansion to 981 training cases.
+
 [CALIBRATION.md](CALIBRATION.md) records the separate synthetic temperature-fitting,
 cutoff-selection, and audit experiment. Confidence metrics improve on the audit,
 but ambiguous-case errors remain; the policy stays offline.
