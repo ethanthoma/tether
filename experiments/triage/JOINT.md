@@ -17,6 +17,12 @@ Schema 3 requires `feature_layout: joint-thread-v1`, a 5×388 coefficient matrix
 and finite per-class `thresholds`. Archived layouts are rejected.
 
 Class cutoffs use only development labels and the frozen grid in `train.py`.
+The current fine-tuner fits a bounded scalar temperature at each checkpoint and
+selects the first minimum calibrated development cross-entropy. It preserves the
+unscaled head, folds temperature into both weights and biases, and binds that
+source head's hash in the inference artifact. Release checks independently
+reproduce the calibration before held-out inference. Development estimates are
+adaptive because checkpoint, temperature, and cutoffs share that partition.
 Selection maximizes accepted cases with zero accepted development errors for each
 predicted class. Unsupported classes use 1; 1 always abstains. Raw class probability
 is not an accuracy guarantee. The release evaluator independently checks the
@@ -31,16 +37,18 @@ cutoffs against development data before making held-out predictions.
   rejected. Its test is consumed.
 - [V2f](v2f/RESULT.md) accepted only 26/152 development cases and was rejected
   before test. Its 154-case test remains unused.
-- [V2g](v2g/RELEASE.md) changes the pretrained encoder while preserving v2f's
-  reviewed data, optimizer recipe, and held-out acceptance gate.
+- [V2g](v2g/RESULT.md) accepted 29/152 development cases (19.1%): rejected
+  before test despite passing the synthetic Atlas resource check.
+- [V2h](v2h/RELEASE.md) adds 200 reviewed direction examples and calibrated
+  checkpoint selection. Its unchanged held-out gate remains mandatory.
 
 Run the CPU fine-tuner with a fresh output directory:
 
 ```sh
 nix-shell experiments/triage/shell.nix
 HF_HUB_OFFLINE=1 experiments/triage/.venv/bin/python experiments/triage/finetune.py \
-  --data experiments/triage/v2f/training.json \
-  --output experiments/triage/runs/v2g-production/model
+  --data experiments/triage/v2h/training.json \
+  --output experiments/triage/runs/v2h-production/model
 ```
 
 For the first run, cache the pinned base inside the same Nix shell:

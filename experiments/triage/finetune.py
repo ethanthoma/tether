@@ -8,13 +8,17 @@ from pathlib import Path
 
 import numpy as np
 import torch
+from calibrate import fit_temperature, negative_log_likelihood, scaled_probabilities
 from sentence_transformers import SentenceTransformer
 from train import (
     BASE,
+    CHECKPOINT_SELECTION,
     CONTEXT_TOKENS_MAX,
     FEATURE_LAYOUT,
     HEAD_VERSION,
     REVISION,
+    TEMPERATURE_BOUNDS,
+    TEMPERATURE_SELECTION,
     THRESHOLD_SELECTION,
     features,
     fit_classifier,
@@ -40,7 +44,7 @@ def main() -> None:
     torch.use_deterministic_algorithms(True)
     cases, policy = load_dataset(args.data)
     train, dev = training_split(cases)
-    if policy != "reply-triage-v2" or len(train) > 2000 or len(dev) > 1000:
+    if policy != "reply-triage-v2" or len(train) > 3000 or len(dev) > 1000:
         raise ValueError("expected bounded v2 training/development data")
     encoder = load_base_encoder()
     position_capacity = encoder[0].auto_model.config.max_position_embeddings
@@ -55,6 +59,7 @@ def main() -> None:
         )
     classifier = fit_classifier(train_vectors, [case["expected"] for case in train])
     labels = classifier.classes_.tolist()
+    dev_targets = np.array([labels.index(case["expected"]) for case in dev])
     head = torch.nn.Linear(388, len(labels))
     with torch.no_grad():
         head.weight.copy_(torch.from_numpy(classifier.coef_))
@@ -91,34 +96,29 @@ def main() -> None:
                 torch.nn.utils.clip_grad_norm_(parameters, 1.0, error_if_nonfinite=True)
                 optimizer.step()
                 loss_total += float(loss.detach()) * len(indices)
-        values = evaluate(encoder, head, dev)
-        if not np.isfinite(values).all():
-            raise RuntimeError("nonfinite development probabilities")
-        dev_loss = float(
-            -np.log(
-                np.maximum(
-                    values[
-                        np.arange(len(dev)),
-                        [labels.index(case["expected"]) for case in dev],
-                    ],
-                    1e-12,
-                )
-            ).mean()
-        )
+        logits = evaluate(encoder, head, dev)
+        if not np.isfinite(logits).all():
+            raise RuntimeError("nonfinite development logits")
+        temperature = fit_temperature(logits, dev_targets)
+        dev_loss = negative_log_likelihood(logits, dev_targets, 1.0)
+        calibrated_dev_loss = negative_log_likelihood(logits, dev_targets, temperature)
+        values = scaled_probabilities(logits, temperature)
         history.append(
             {
                 "epoch": epoch,
                 "train_loss": loss_total / len(train) if epoch else None,
                 "dev_loss": dev_loss,
+                "calibrated_dev_loss": calibrated_dev_loss,
+                "temperature": temperature,
                 "dev_raw": score(dev, predictions({"labels": labels}, values)),
             }
         )
         print(json.dumps(history[-1]), flush=True)
-        if dev_loss < best_loss:
-            best_loss, best_epoch = dev_loss, epoch
+        if calibrated_dev_loss < best_loss:
+            best_loss, best_epoch = calibrated_dev_loss, epoch
             best_values = values.copy()
             encoder.save_pretrained(args.output / "encoder", safe_serialization=True)
-            saved_head = {
+            unscaled_head = {
                 "version": HEAD_VERSION,
                 "feature_layout": FEATURE_LAYOUT,
                 "label_policy": policy,
@@ -129,6 +129,11 @@ def main() -> None:
                 "coefficients": head.weight.detach().tolist(),
                 "intercepts": head.bias.detach().tolist(),
             }
+            unscaled_content = (json.dumps(unscaled_head, indent=2) + "\n").encode()
+            (args.output / "unscaled-head.json").write_bytes(unscaled_content)
+            saved_head = fold_temperature(
+                unscaled_head, temperature, hashlib.sha256(unscaled_content).hexdigest()
+            )
             (args.output / "head.json").write_text(
                 json.dumps(saved_head, indent=2) + "\n"
             )
@@ -141,7 +146,18 @@ def main() -> None:
     if encoder.max_seq_length != CONTEXT_TOKENS_MAX:
         raise ValueError("saved encoder token limit changed")
     saved_head = json.loads((args.output / "head.json").read_text())
-    values = probabilities(saved_head, features(encoder, dev))
+    unscaled_content = (args.output / "unscaled-head.json").read_bytes()
+    if (
+        hashlib.sha256(unscaled_content).hexdigest()
+        != saved_head["unscaled_head_sha256"]
+    ):
+        raise ValueError("unscaled checkpoint provenance mismatch")
+    unscaled_head = json.loads(unscaled_content)
+    matrix = features(encoder, dev)
+    values = probabilities(saved_head, matrix)
+    raw_values = probabilities(unscaled_head, matrix)
+    if predictions(saved_head, values) != predictions(unscaled_head, raw_values):
+        raise ValueError("temperature scaling changed predicted classes")
     assert best_values is not None
     np.testing.assert_allclose(values, best_values, rtol=1e-4, atol=1e-5)
     saved_head["thresholds"] = select_thresholds(saved_head, dev, values)
@@ -164,8 +180,12 @@ def main() -> None:
         "gradient_norm_max": 1.0,
         "loss": "inverse-frequency-weighted cross entropy",
         "head_initialization": "frozen-encoder logistic regression",
-        "checkpoint_selection": "lowest unweighted development cross entropy, including epoch zero",
+        "checkpoint_selection": CHECKPOINT_SELECTION,
         "selected_epoch": best_epoch,
+        "temperature": saved_head["temperature"],
+        "temperature_bounds": TEMPERATURE_BOUNDS,
+        "temperature_selection": TEMPERATURE_SELECTION,
+        "unscaled_head_sha256": saved_head["unscaled_head_sha256"],
         "max_seq_length": CONTEXT_TOKENS_MAX,
         "base_position_capacity": position_capacity,
         "thresholds": saved_head["thresholds"],
@@ -185,6 +205,38 @@ def main() -> None:
     )
 
 
+def fold_temperature(
+    unscaled_head: dict, temperature: float, source_sha256: str
+) -> dict:
+    if "temperature" in unscaled_head or "unscaled_head_sha256" in unscaled_head:
+        raise ValueError("head has already been temperature-scaled")
+    if (
+        type(temperature) not in (int, float)
+        or not np.isfinite(temperature)
+        or not TEMPERATURE_BOUNDS[0] <= temperature <= TEMPERATURE_BOUNDS[1]
+    ):
+        raise ValueError("temperature outside the frozen bounds")
+    if (
+        not isinstance(source_sha256, str)
+        or len(source_sha256) != 64
+        or any(character not in "0123456789abcdef" for character in source_sha256)
+    ):
+        raise ValueError("invalid unscaled head hash")
+    coefficients = np.asarray(unscaled_head["coefficients"], dtype=np.float64)
+    intercepts = np.asarray(unscaled_head["intercepts"], dtype=np.float64)
+    if not np.isfinite(coefficients).all() or not np.isfinite(intercepts).all():
+        raise ValueError("nonfinite classifier weights")
+    return {
+        **unscaled_head,
+        "coefficients": (coefficients / temperature).tolist(),
+        "intercepts": (intercepts / temperature).tolist(),
+        "temperature": temperature,
+        "temperature_bounds": TEMPERATURE_BOUNDS.copy(),
+        "temperature_selection": TEMPERATURE_SELECTION,
+        "unscaled_head_sha256": source_sha256,
+    }
+
+
 def batch_features(encoder: SentenceTransformer, cases: list[dict]) -> torch.Tensor:
     if not 1 <= len(cases) <= 16:
         raise ValueError("expected 1–16 cases per batch")
@@ -201,15 +253,10 @@ def evaluate(
 ) -> np.ndarray:
     encoder.eval()
     head.eval()
-    with torch.no_grad():
-        return np.concatenate(
-            [
-                torch.softmax(
-                    head(batch_features(encoder, cases[start : start + 16])), dim=1
-                ).numpy()
-                for start in range(0, len(cases), 16)
-            ]
-        )
+    matrix = features(encoder, cases)
+    coefficients = np.asarray(head.weight.detach().tolist(), dtype=np.float64)
+    intercepts = np.asarray(head.bias.detach().tolist(), dtype=np.float64)
+    return matrix @ coefficients.T + intercepts
 
 
 if __name__ == "__main__":

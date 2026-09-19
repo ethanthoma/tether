@@ -1,9 +1,21 @@
+import hashlib
+import json
+import tempfile
 import unittest
+from pathlib import Path
 
 import numpy as np
 import torch
-from finetune import batch_features
-from train import CONTEXT_TOKENS_MAX, LABELS, features, predictions, select_thresholds
+from calibrate import scaled_probabilities
+from finetune import batch_features, evaluate, fold_temperature
+from train import (
+    CONTEXT_TOKENS_MAX,
+    LABELS,
+    features,
+    predictions,
+    probabilities,
+    select_thresholds,
+)
 
 
 class DifferentiableEncoder(torch.nn.Module):
@@ -32,6 +44,66 @@ class DifferentiableEncoder(torch.nn.Module):
 
 
 class FinetuningTests(unittest.TestCase):
+    def test_evaluation_preserves_full_logits_for_calibration(self) -> None:
+        encoder = DifferentiableEncoder()
+        head = torch.nn.Linear(388, 5)
+        with torch.no_grad():
+            head.weight.zero_()
+            head.bias.copy_(torch.tensor([1000.0, -1000.0, 0.0, 1.0, 2.0]))
+        cases = [{"messages": [{"outbound": False, "body": "Please reply"}]}]
+        logits = evaluate(encoder, head, cases)
+        self.assertEqual(logits.dtype, np.float64)
+        np.testing.assert_array_equal(logits, [[1000.0, -1000.0, 0.0, 1.0, 2.0]])
+
+    def test_temperature_folding_survives_reload_and_binds_original_head(self) -> None:
+        unscaled = {
+            "labels": LABELS,
+            "coefficients": (np.arange(5 * 388).reshape(5, 388) / 1000).tolist(),
+            "intercepts": [-1.0, 2.0, -0.5, 1.0, 0.0],
+        }
+        original = (json.dumps(unscaled, indent=2) + "\n").encode()
+        identity = hashlib.sha256(original).hexdigest()
+        matrix = np.random.default_rng(42).normal(size=(8, 388)).astype(np.float32)
+        temperature = 2.5
+        folded = fold_temperature(unscaled, temperature, identity)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "unscaled-head.json").write_bytes(original)
+            (root / "head.json").write_text(json.dumps(folded))
+            reloaded = json.loads((root / "head.json").read_text())
+            self.assertEqual(
+                hashlib.sha256((root / "unscaled-head.json").read_bytes()).hexdigest(),
+                reloaded["unscaled_head_sha256"],
+            )
+            np.testing.assert_array_equal(
+                reloaded["coefficients"],
+                np.asarray(unscaled["coefficients"]) / temperature,
+            )
+            np.testing.assert_array_equal(
+                reloaded["intercepts"], np.asarray(unscaled["intercepts"]) / temperature
+            )
+            logits = matrix @ np.asarray(unscaled["coefficients"]).T + np.asarray(
+                unscaled["intercepts"]
+            )
+            np.testing.assert_allclose(
+                probabilities(reloaded, matrix),
+                scaled_probabilities(logits, temperature),
+                rtol=1e-12,
+                atol=1e-12,
+            )
+            self.assertEqual(
+                predictions(unscaled, probabilities(unscaled, matrix)),
+                predictions(reloaded, probabilities(reloaded, matrix)),
+            )
+        self.assertEqual((json.dumps(unscaled, indent=2) + "\n").encode(), original)
+        with self.assertRaisesRegex(ValueError, "already"):
+            fold_temperature(folded, temperature, identity)
+        for invalid in (0.0, 0.1, 9.0, float("nan"), float("inf"), True):
+            with self.subTest(temperature=invalid), self.assertRaises(ValueError):
+                fold_temperature(unscaled, invalid, identity)
+        with self.assertRaisesRegex(ValueError, "hash"):
+            fold_temperature(unscaled, temperature, "wrong")
+
     def test_layout_matches_frozen_inference_and_backpropagates(self) -> None:
         cases = [
             {"messages": [{"outbound": False, "body": "First"}]},

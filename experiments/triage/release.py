@@ -4,16 +4,22 @@ import argparse
 import hashlib
 import json
 import math
+import os
+import stat
 from pathlib import Path
 
-from calibrate import check_separation
+import numpy as np
+from calibrate import check_separation, fit_temperature, negative_log_likelihood
 from shadow import load_artifact
 from train import (
     BASE,
+    CHECKPOINT_SELECTION,
     CONTEXT_TOKENS_MAX,
     FEATURE_LAYOUT,
     LABELS,
     REVISION,
+    TEMPERATURE_BOUNDS,
+    TEMPERATURE_SELECTION,
     THRESHOLD_SELECTION,
     features,
     load_dataset,
@@ -67,7 +73,10 @@ def main() -> None:
         or encoder[0].auto_model.config.max_position_embeddings != CONTEXT_TOKENS_MAX
     ):
         raise ValueError("encoder context limit differs from release recipe")
-    development = probabilities(head, features(encoder, dev))
+    unscaled_bytes = read_unscaled_head(model / "unscaled-head.json")
+    development = validate_calibration(
+        training_report, head, unscaled_bytes, dev, features(encoder, dev)
+    )
     if select_thresholds(head, dev, development) != head["thresholds"]:
         raise ValueError("artifact cutoffs do not match development-only selection")
     readiness = validate_development(
@@ -91,6 +100,8 @@ def main() -> None:
         "separation": separation,
         "thresholds": head["thresholds"],
         "development_readiness": readiness,
+        "temperature": head["temperature"],
+        "unscaled_head_sha256": head["unscaled_head_sha256"],
         **release_metrics(cases, selected, raw),
         "limitations": "Synthetic, correlated families; not an estimate of real-mail accuracy.",
         "predictions": [
@@ -174,7 +185,9 @@ def validate_training(
         "gradient_norm_max": 1.0,
         "loss": "inverse-frequency-weighted cross entropy",
         "head_initialization": "frozen-encoder logistic regression",
-        "checkpoint_selection": "lowest unweighted development cross entropy, including epoch zero",
+        "checkpoint_selection": CHECKPOINT_SELECTION,
+        "temperature_bounds": TEMPERATURE_BOUNDS,
+        "temperature_selection": TEMPERATURE_SELECTION,
         "threshold_selection": THRESHOLD_SELECTION,
         "thresholds": head["thresholds"],
     }
@@ -192,18 +205,129 @@ def validate_training(
             not isinstance(row, dict)
             or type(row.get("epoch")) is not int
             or row["epoch"] != index
-            or type(row.get("dev_loss")) not in (int, float)
-            or not math.isfinite(row["dev_loss"])
-            or row["dev_loss"] < 0
         ):
             raise ValueError("invalid development history")
-    if epoch != min(range(13), key=lambda index: history[index]["dev_loss"]):
-        raise ValueError("selected epoch is not first minimum development loss")
+        for key in ("dev_loss", "calibrated_dev_loss", "temperature"):
+            if type(row.get(key)) not in (int, float) or not math.isfinite(row[key]):
+                raise ValueError("invalid development history")
+        if (
+            row["dev_loss"] < 0
+            or not 0 <= row["calibrated_dev_loss"] <= row["dev_loss"]
+            or not TEMPERATURE_BOUNDS[0] <= row["temperature"] <= TEMPERATURE_BOUNDS[1]
+        ):
+            raise ValueError("invalid development calibration history")
+    if epoch != min(range(13), key=lambda index: history[index]["calibrated_dev_loss"]):
+        raise ValueError(
+            "selected epoch is not first minimum calibrated development loss"
+        )
     if report.get("encoder_frozen") is not (epoch == 0):
         raise ValueError("training encoder state differs from selected epoch")
-    for key in ("base", "revision", "encoder_frozen", "feature_layout"):
-        if head.get(key) != report[key]:
+    temperature = report.get("temperature")
+    unscaled_hash = report.get("unscaled_head_sha256")
+    if (
+        type(temperature) is not float
+        or not math.isfinite(temperature)
+        or not TEMPERATURE_BOUNDS[0] <= temperature <= TEMPERATURE_BOUNDS[1]
+        or temperature != history[epoch]["temperature"]
+        or not isinstance(unscaled_hash, str)
+        or len(unscaled_hash) != 64
+        or any(character not in "0123456789abcdef" for character in unscaled_hash)
+    ):
+        raise ValueError("invalid selected calibration metadata")
+    for key in (
+        "base",
+        "revision",
+        "encoder_frozen",
+        "feature_layout",
+        "temperature",
+        "temperature_bounds",
+        "temperature_selection",
+        "unscaled_head_sha256",
+    ):
+        if type(head.get(key)) is not type(report[key]) or head[key] != report[key]:
             raise ValueError(f"model and training metadata differ: {key}")
+
+
+def read_unscaled_head(path: Path) -> bytes:
+    with os.fdopen(
+        os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK), "rb"
+    ) as source:
+        metadata = os.fstat(source.fileno())
+        if (
+            not stat.S_ISREG(metadata.st_mode)
+            or not 1 <= metadata.st_size <= 1024 * 1024
+        ):
+            raise ValueError("unscaled head must be a regular file of at most 1 MiB")
+        content = source.read(1024 * 1024 + 1)
+        if len(content) != metadata.st_size:
+            raise ValueError("unscaled head size changed while reading")
+    return content
+
+
+def validate_calibration(
+    report: dict,
+    head: dict,
+    unscaled_bytes: bytes,
+    cases: list[dict],
+    matrix: np.ndarray,
+) -> np.ndarray:
+    if not 1 <= len(cases) <= 1000 or any(case.get("split") != "dev" for case in cases):
+        raise ValueError("development-only calibration cases required")
+    identity = hashlib.sha256(unscaled_bytes).hexdigest()
+    if any(source.get("unscaled_head_sha256") != identity for source in (head, report)):
+        raise ValueError("unscaled head hash differs from calibration provenance")
+    unscaled = json.loads(unscaled_bytes)
+    keys = {
+        "version",
+        "feature_layout",
+        "label_policy",
+        "base",
+        "revision",
+        "encoder_frozen",
+        "labels",
+        "coefficients",
+        "intercepts",
+    }
+    if not isinstance(unscaled, dict) or set(unscaled) != keys:
+        raise ValueError("invalid unscaled head fields")
+    for key in keys - {"coefficients", "intercepts"}:
+        if type(unscaled[key]) is not type(head.get(key)) or unscaled[key] != head[key]:
+            raise ValueError(f"unscaled head metadata differs: {key}")
+    if unscaled["labels"] != LABELS:
+        raise ValueError("unscaled head label order differs")
+    coefficients = np.asarray(unscaled["coefficients"], dtype=np.float64)
+    intercepts = np.asarray(unscaled["intercepts"], dtype=np.float64)
+    if (
+        coefficients.shape != (len(LABELS), 388)
+        or intercepts.shape != (len(LABELS),)
+        or matrix.shape != (len(cases), 388)
+        or not np.isfinite(coefficients).all()
+        or not np.isfinite(intercepts).all()
+        or not np.isfinite(matrix).all()
+    ):
+        raise ValueError("invalid unscaled head or development features")
+    targets = np.array([LABELS.index(case["expected"]) for case in cases])
+    logits = matrix @ coefficients.T + intercepts
+    temperature = fit_temperature(logits, targets)
+    for source in (head, report):
+        value = source.get("temperature")
+        if (
+            type(value) is not float
+            or not math.isfinite(value)
+            or not math.isclose(value, temperature, rel_tol=1e-6, abs_tol=1e-8)
+        ):
+            raise ValueError("temperature differs from development-only fit")
+    for key, values in (("coefficients", coefficients), ("intercepts", intercepts)):
+        if not np.array_equal(np.asarray(head[key]), values / head["temperature"]):
+            raise ValueError(f"calibrated {key} are not scaled exactly once")
+    selected = report["history"][report["selected_epoch"]]
+    for key, value in (
+        ("dev_loss", negative_log_likelihood(logits, targets, 1.0)),
+        ("calibrated_dev_loss", negative_log_likelihood(logits, targets, temperature)),
+    ):
+        if not math.isclose(selected[key], value, rel_tol=1e-6, abs_tol=1e-8):
+            raise ValueError(f"selected checkpoint {key} differs from actual logits")
+    return probabilities(head, matrix)
 
 
 def validate_test(cases: list[dict]) -> None:

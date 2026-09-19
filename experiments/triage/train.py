@@ -23,6 +23,9 @@ LABEL_POLICIES = {"synthetic-obligations-v1", "reply-triage-v2"}
 HEAD_VERSION = 3
 FEATURE_LAYOUT = "joint-thread-v1"
 CONTEXT_TOKENS_MAX = 512
+CHECKPOINT_SELECTION = "lowest temperature-calibrated development cross entropy, including epoch zero; ties keep earliest epoch"
+TEMPERATURE_BOUNDS = [0.25, 8.0]
+TEMPERATURE_SELECTION = "minimum development negative log likelihood; bounded log-temperature optimization, max 100 iterations, xatol 1e-6; retain one unless improved"
 THRESHOLD_GRID = [
     0.0,
     *[i / 100 for i in range(40, 100, 5)],
@@ -132,8 +135,8 @@ def thread_inputs(
 ) -> tuple[list[str], np.ndarray]:
     if encoder.max_seq_length != CONTEXT_TOKENS_MAX:
         raise ValueError("encoder must preserve the 512-token joint context")
-    if not 1 <= len(cases) <= 2000:
-        raise ValueError("expected 1–2000 cases")
+    if not 1 <= len(cases) <= 3000:
+        raise ValueError("expected 1–3000 cases")
     texts, present = [], np.zeros((len(cases), 4), dtype=np.float32)
     for row, case in enumerate(cases):
         if not 1 <= len(case["messages"]) <= 2:

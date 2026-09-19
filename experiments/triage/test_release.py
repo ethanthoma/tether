@@ -1,8 +1,18 @@
 import copy
+import hashlib
+import json
+import tempfile
 import unittest
+from pathlib import Path
+from unittest.mock import patch
 
+import numpy as np
+from calibrate import fit_temperature, negative_log_likelihood
 from release import (
+    main,
+    read_unscaled_head,
     release_metrics,
+    validate_calibration,
     validate_development,
     validate_reviewed_source,
     validate_test,
@@ -10,10 +20,14 @@ from release import (
 )
 from train import (
     BASE,
+    CHECKPOINT_SELECTION,
     CONTEXT_TOKENS_MAX,
     FEATURE_LAYOUT,
+    HEAD_VERSION,
     LABELS,
     REVISION,
+    TEMPERATURE_BOUNDS,
+    TEMPERATURE_SELECTION,
     THRESHOLD_SELECTION,
 )
 
@@ -119,10 +133,39 @@ class ReleaseTests(unittest.TestCase):
         report = release_metrics(self.cases, self.correct, raw)
         self.assertEqual(report["raw_accuracy"], 0.2)
 
-    def test_training_provenance_rejects_recipe_input_and_selection_changes(
-        self,
-    ) -> None:
+    def training_fixture(self) -> tuple[dict, dict, bytes, list[dict], np.ndarray]:
+        cases = [{"split": "dev", "expected": label} for label in LABELS] * 4
+        matrix = np.zeros((20, 388), dtype=np.float32)
+        for index in range(20):
+            matrix[index, index % 5] = 0.5
+        coefficients = np.zeros((5, 388))
+        coefficients[:, :5] = np.eye(5)
+        intercepts = np.arange(5) * 0.01
+        logits = matrix @ coefficients.T + intercepts
+        targets = np.array([LABELS.index(case["expected"]) for case in cases])
+        temperature = fit_temperature(logits, targets)
+        raw_loss = negative_log_likelihood(logits, targets, 1.0)
+        calibrated_loss = negative_log_likelihood(logits, targets, temperature)
+        unscaled = {
+            "version": HEAD_VERSION,
+            "label_policy": "reply-triage-v2",
+            "labels": LABELS,
+            "coefficients": coefficients.tolist(),
+            "intercepts": intercepts.tolist(),
+            "feature_layout": FEATURE_LAYOUT,
+            "base": BASE,
+            "revision": REVISION,
+            "encoder_frozen": False,
+        }
+        unscaled_bytes = json.dumps(unscaled).encode()
         head = {
+            **unscaled,
+            "coefficients": (coefficients / temperature).tolist(),
+            "intercepts": (intercepts / temperature).tolist(),
+            "temperature": temperature,
+            "temperature_bounds": TEMPERATURE_BOUNDS,
+            "temperature_selection": TEMPERATURE_SELECTION,
+            "unscaled_head_sha256": hashlib.sha256(unscaled_bytes).hexdigest(),
             "feature_layout": FEATURE_LAYOUT,
             "base": BASE,
             "revision": REVISION,
@@ -150,16 +193,40 @@ class ReleaseTests(unittest.TestCase):
             "gradient_norm_max": 1.0,
             "loss": "inverse-frequency-weighted cross entropy",
             "head_initialization": "frozen-encoder logistic regression",
-            "checkpoint_selection": "lowest unweighted development cross entropy, including epoch zero",
+            "checkpoint_selection": CHECKPOINT_SELECTION,
+            "temperature": temperature,
+            "temperature_bounds": TEMPERATURE_BOUNDS,
+            "temperature_selection": TEMPERATURE_SELECTION,
+            "unscaled_head_sha256": head["unscaled_head_sha256"],
             "threshold_selection": THRESHOLD_SELECTION,
             "thresholds": head["thresholds"],
             "selected_epoch": 12,
             "encoder_frozen": False,
-            "history": [{"epoch": i, "dev_loss": 13.0 - i} for i in range(13)],
+            "history": [
+                {
+                    "epoch": i,
+                    "dev_loss": raw_loss + 12 - i,
+                    "calibrated_dev_loss": calibrated_loss + 12 - i,
+                    "temperature": temperature,
+                }
+                for i in range(13)
+            ],
         }
+        return report, head, unscaled_bytes, cases, matrix
+
+    def test_training_provenance_rejects_recipe_input_and_selection_changes(
+        self,
+    ) -> None:
+        report, head, _, _, _ = self.training_fixture()
         validate_training(report, head, "input-hash", 100, 20)
         for field, value in (
             ("seed", 43),
+            ("checkpoint_selection", "raw loss"),
+            ("temperature_bounds", [0.1, 10.0]),
+            ("temperature_selection", "test fit"),
+            ("temperature", True),
+            ("temperature", 9.0),
+            ("unscaled_head_sha256", "invalid"),
             ("feature_layout", "old-layout"),
             ("max_seq_length", 256),
             ("base_position_capacity", 256),
@@ -185,18 +252,172 @@ class ReleaseTests(unittest.TestCase):
         ):
             with self.subTest(field=field), self.assertRaises(ValueError):
                 validate_training({**report, field: value}, head, "input-hash", 100, 20)
-        for loss in (float("nan"), float("inf"), -1):
-            changed = copy.deepcopy(report)
-            changed["history"][0]["dev_loss"] = loss
-            with self.subTest(loss=loss), self.assertRaises(ValueError):
-                validate_training(changed, head, "input-hash", 100, 20)
+        for field in ("dev_loss", "calibrated_dev_loss", "temperature"):
+            for value in (float("nan"), float("inf"), -1, True):
+                changed = copy.deepcopy(report)
+                changed["history"][0][field] = value
+                with (
+                    self.subTest(field=field, value=value),
+                    self.assertRaises(ValueError),
+                ):
+                    validate_training(changed, head, "input-hash", 100, 20)
         tied = copy.deepcopy(report)
-        tied["history"][0]["dev_loss"] = 1.0
+        tied["history"][0]["calibrated_dev_loss"] = tied["history"][12][
+            "calibrated_dev_loss"
+        ]
         with self.assertRaises(ValueError):
             validate_training(tied, head, "input-hash", 100, 20)
         tied["selected_epoch"] = 0
         tied["encoder_frozen"] = True
         validate_training(tied, {**head, "encoder_frozen": True}, "input-hash", 100, 20)
+
+    def test_calibration_verifies_actual_logits_and_single_parameter_scaling(
+        self,
+    ) -> None:
+        report, head, unscaled_bytes, cases, matrix = self.training_fixture()
+        values = validate_calibration(report, head, unscaled_bytes, cases, matrix)
+        self.assertEqual(values.shape, (20, 5))
+        self.assertTrue(np.isfinite(values).all())
+        self.assertNotEqual(head["temperature"], 1.0)
+        for key in ("coefficients", "intercepts"):
+            changed = copy.deepcopy(head)
+            changed[key] = (np.asarray(changed[key]) / head["temperature"]).tolist()
+            with (
+                self.subTest(key=key),
+                self.assertRaisesRegex(ValueError, "scaled exactly once"),
+            ):
+                validate_calibration(report, changed, unscaled_bytes, cases, matrix)
+        changed = copy.deepcopy(head)
+        changed["intercepts"][0] += 0.01
+        with self.assertRaisesRegex(ValueError, "scaled exactly once"):
+            validate_calibration(report, changed, unscaled_bytes, cases, matrix)
+        for source in ("head", "report"):
+            for temperature in (True, float("nan"), 0.5):
+                changed_head, changed_report = (
+                    copy.deepcopy(head),
+                    copy.deepcopy(report),
+                )
+                (changed_head if source == "head" else changed_report)[
+                    "temperature"
+                ] = temperature
+                with (
+                    self.subTest(source=source, temperature=temperature),
+                    self.assertRaises(ValueError),
+                ):
+                    validate_calibration(
+                        changed_report, changed_head, unscaled_bytes, cases, matrix
+                    )
+        for key in ("dev_loss", "calibrated_dev_loss"):
+            changed = copy.deepcopy(report)
+            changed["history"][12][key] += 0.01
+            with (
+                self.subTest(key=key),
+                self.assertRaisesRegex(ValueError, "actual logits"),
+            ):
+                validate_calibration(changed, head, unscaled_bytes, cases, matrix)
+
+    def test_calibration_rejects_malformed_or_unbound_unscaled_head(self) -> None:
+        report, head, unscaled_bytes, cases, matrix = self.training_fixture()
+        with self.assertRaisesRegex(ValueError, "hash"):
+            validate_calibration(report, head, unscaled_bytes + b" ", cases, matrix)
+        for key, value in (
+            ("temperature", 1.0),
+            ("labels", list(reversed(LABELS))),
+            ("base", "wrong-base"),
+            ("coefficients", [[0.0]]),
+            ("intercepts", [float("nan")] * 5),
+        ):
+            unscaled = json.loads(unscaled_bytes)
+            unscaled[key] = value
+            changed_bytes = json.dumps(unscaled).encode()
+            digest = hashlib.sha256(changed_bytes).hexdigest()
+            with self.subTest(key=key), self.assertRaises(ValueError):
+                validate_calibration(
+                    {**report, "unscaled_head_sha256": digest},
+                    {**head, "unscaled_head_sha256": digest},
+                    changed_bytes,
+                    cases,
+                    matrix,
+                )
+        with self.assertRaisesRegex(ValueError, "development-only"):
+            validate_calibration(
+                report,
+                head,
+                unscaled_bytes,
+                [{**case, "split": "test"} for case in cases],
+                matrix,
+            )
+
+    def test_unscaled_head_read_rejects_symlinks_and_oversize_files(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "unscaled-head.json"
+            path.write_bytes(b"{}")
+            self.assertEqual(read_unscaled_head(path), b"{}")
+            link = Path(directory) / "linked.json"
+            link.symlink_to(path)
+            with self.assertRaises(OSError):
+                read_unscaled_head(link)
+            path.write_bytes(b"x" * (1024 * 1024 + 1))
+            with self.assertRaisesRegex(ValueError, "regular file"):
+                read_unscaled_head(path)
+            path.write_bytes(b"")
+            with self.assertRaises(ValueError):
+                read_unscaled_head(path)
+
+    def test_calibration_failure_prevents_held_out_feature_extraction(self) -> None:
+        report, head, unscaled_bytes, dev, matrix = self.training_fixture()
+        head["intercepts"][0] += 0.01
+        source = {
+            "provenance": "fully_synthetic_assistant_authored",
+            "review_status": "blind_reviewer_agreed_independence_self_attested",
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            training = root / "training-data.json"
+            training.write_text(json.dumps(source))
+            data = root / "test-data.json"
+            data.write_text(json.dumps(source))
+            report["data_sha256"] = hashlib.sha256(training.read_bytes()).hexdigest()
+            (root / "training.json").write_text(json.dumps(report))
+            (root / "unscaled-head.json").write_bytes(unscaled_bytes)
+            output = root / "release.json"
+            with (
+                patch(
+                    "sys.argv",
+                    [
+                        "release.py",
+                        "--model",
+                        str(root),
+                        "--training-data",
+                        str(training),
+                        "--data",
+                        str(data),
+                        "--plan",
+                        str(root / "plan.md"),
+                        "--output",
+                        str(output),
+                    ],
+                ),
+                patch(
+                    "release.load_dataset",
+                    side_effect=[
+                        (self.cases, "reply-triage-v2"),
+                        ([], "reply-triage-v2"),
+                    ],
+                ),
+                patch("release.training_split", return_value=([{}] * 100, dev)),
+                patch("release.check_separation", return_value={}),
+                patch("release.load_artifact", return_value=(head, "artifact-hash")),
+                patch("sentence_transformers.SentenceTransformer") as constructor,
+                patch("release.features", return_value=matrix) as extract,
+            ):
+                encoder = constructor.return_value
+                encoder.max_seq_length = CONTEXT_TOKENS_MAX
+                encoder.__getitem__.return_value.auto_model.config.max_position_embeddings = CONTEXT_TOKENS_MAX
+                with self.assertRaisesRegex(ValueError, "scaled exactly once"):
+                    main()
+                extract.assert_called_once_with(encoder, dev)
+                self.assertFalse(output.exists())
 
     def test_sources_require_synthetic_and_independent_review_metadata(self) -> None:
         source = {

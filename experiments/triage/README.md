@@ -7,8 +7,9 @@ The [joint-context candidate](JOINT.md) is the current training implementation.
 Bend is active in production; the CPU classifier remains a read-only observer
 until a candidate passes its frozen release gate. V2c failed with four accepted
 test errors; v2e failed with two, and v2f was rejected before test on weak
-development results. V2g tests a language-inference encoder with the same reviewed
-data. Earlier results remain archived and are not production approvals.
+development results. V2g also failed development readiness (19.1% safe coverage).
+V2h tests calibrated checkpoint selection and 200 additional reviewed direction
+examples. Earlier results remain archived and are not production approvals.
 
 [REVIEW.md](REVIEW.md) describes the blind training-label review workflow and
 [LABELING.md](LABELING.md) specifies the experimental labels and production-policy
@@ -110,7 +111,7 @@ Both runners emit identical counts and an expected-by-predicted confusion matrix
 
 Evaluation prints mistakes rather than asserting perfect model accuracy. Passing
 Go tests validates the harness, not model readiness. An all-abstaining classifier
-has zero false reminders but zero coverage; compare both. No automatic promotion
-threshold is configured. Before deployment, human-review more labels, collect a
-separate evaluation set grouped by thread/source to avoid leakage, and choose
-confidence thresholds on development data. Production classifications are unchanged.
+has zero false reminders but zero coverage; compare both. The current candidate's
+[release plan](v2h/RELEASE.md) defines development and held-out quality gates plus
+operational checks. Synthetic blind review is not a human audit or proof of real
+mail accuracy. Production classifier authority remains disabled pending approval.
