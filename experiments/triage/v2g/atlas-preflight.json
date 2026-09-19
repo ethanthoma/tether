@@ -1,0 +1,23 @@
+{
+  "purpose": "DUMMY operational preflight only; zero classifier head, no quality claim",
+  "runtime": "/nix/store/qjadmpxkszwr5ry3gcz1vgcav8agkhsf-tether-triage-runtime-v2",
+  "staging": "/var/lib/tether-nli-preflight-20260919/dummy-model",
+  "model_sha256": "0a08e1d287664146bbfe7ef54649c558ff481aee703272dc9cb06e301c0ef7d8",
+  "policy": "reply-triage-v2",
+  "cases": 20,
+  "combined_tokens_per_case": 512,
+  "body_bytes": [640, 1845],
+  "abstained": 20,
+  "input_rejected": 0,
+  "all_status_ok": true,
+  "exit_code": 0,
+  "wall_seconds": 18.626,
+  "cpu_seconds": 34.163,
+  "memory_peak_systemd_display": "1.4G",
+  "memory_limit": "2G",
+  "runtime_limit_seconds": 30,
+  "cpu_quota": "400%",
+  "isolation": ["PrivateNetwork", "PrivateTmp", "ProtectHome", "ProtectSystem=strict", "NoNewPrivileges", "InaccessiblePaths=/var/lib/tether"],
+  "production_changes": false,
+  "candidate_integration": "pending actual approved model"
+}
