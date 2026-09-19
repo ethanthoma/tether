@@ -14,7 +14,7 @@ from train import (
     REVISION,
     features,
     fit_classifier,
-    load_cases,
+    load_dataset,
     predictions,
     probabilities,
     score,
@@ -32,7 +32,8 @@ def main() -> None:
     torch.set_num_threads(4)
     torch.manual_seed(42)
     torch.use_deterministic_algorithms(True)
-    train, dev = training_split(load_cases(args.data))
+    cases, policy = load_dataset(args.data)
+    train, dev = training_split(cases)
     if len(train) > 2000 or len(dev) > 1000:
         raise ValueError(
             "CPU experiment limited to 2000 training and 1000 development cases"
@@ -110,6 +111,7 @@ def main() -> None:
             encoder.save_pretrained(args.output / "encoder", safe_serialization=True)
             saved_head = {
                 "version": 1,
+                "label_policy": policy,
                 "base": BASE,
                 "revision": REVISION,
                 "encoder_frozen": epoch == 0,
@@ -130,6 +132,7 @@ def main() -> None:
     saved_head["threshold"] = select_threshold(saved_head, dev, values)
     (args.output / "head.json").write_text(json.dumps(saved_head, indent=2) + "\n")
     report = {
+        "label_policy": policy,
         "base": BASE,
         "revision": REVISION,
         "encoder_frozen": best_epoch == 0,

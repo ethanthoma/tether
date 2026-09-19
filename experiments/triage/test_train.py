@@ -1,8 +1,21 @@
 import copy
+import json
+import tempfile
 import unittest
+from pathlib import Path
+from unittest.mock import patch
 
 import numpy as np
-from train import ROOT, features, load_cases, predictions, score, training_split
+from train import (
+    ROOT,
+    features,
+    load_cases,
+    load_dataset,
+    predictions,
+    score,
+    train_model,
+    training_split,
+)
 
 
 class EncoderStub:
@@ -18,6 +31,51 @@ class EncoderStub:
 
 
 class TrainingTests(unittest.TestCase):
+    def test_dataset_policy_rejects_unknown_and_mixed_contracts(self) -> None:
+        source = json.loads((ROOT / "seed.json").read_text())
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "data.json"
+            for policy in (None, "synthetic-obligations-v1", "reply-triage-v2"):
+                document = copy.deepcopy(source)
+                if policy is not None:
+                    document["label_policy"] = policy
+                path.write_text(json.dumps(document))
+                self.assertEqual(
+                    load_dataset(path)[1], policy or "synthetic-obligations-v1"
+                )
+            for policy in ("unknown", None, []):
+                document = {**source, "label_policy": policy}
+                path.write_text(json.dumps(document))
+                with self.assertRaisesRegex(ValueError, "label policy"):
+                    load_dataset(path)
+            document = copy.deepcopy(source)
+            document["cases"][0]["label_policy"] = "reply-triage-v2"
+            path.write_text(json.dumps(document))
+            with self.assertRaisesRegex(ValueError, "differs"):
+                load_dataset(path)
+
+    def test_training_records_dataset_policy_in_artifact_and_report(self) -> None:
+        source = json.loads((ROOT / "seed.json").read_text())
+        source["label_policy"] = "reply-triage-v2"
+        encoder = EncoderStub()
+        encoder.save_pretrained = lambda *args, **kwargs: None
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "data.json"
+            output = Path(directory) / "model"
+            path.write_text(json.dumps(source))
+            with (
+                patch(
+                    "sentence_transformers.SentenceTransformer", return_value=encoder
+                ),
+                patch("builtins.print"),
+            ):
+                train_model(path, output)
+            for name in ("head.json", "training.json"):
+                self.assertEqual(
+                    json.loads((output / name).read_text())["label_policy"],
+                    "reply-triage-v2",
+                )
+
     def test_direction_and_order_are_preserved_without_labels(self) -> None:
         inbound = {
             "id": "a",

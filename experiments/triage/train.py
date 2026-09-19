@@ -19,6 +19,7 @@ os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
 BASE = "sentence-transformers/all-MiniLM-L6-v2"
 REVISION = "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
 LABELS = ["abstain", "fyi", "needs_reply", "noise", "waiting_on_them"]
+LABEL_POLICIES = {"synthetic-obligations-v1", "reply-triage-v2"}
 ROOT = Path(__file__).resolve().parent
 
 
@@ -45,13 +46,28 @@ def main() -> None:
 
 
 def load_cases(path: Path) -> list[dict]:
+    return load_dataset(path)[0]
+
+
+def label_policy(document: dict) -> str:
+    policy = document.get("label_policy", "synthetic-obligations-v1")
+    if not isinstance(policy, str) or policy not in LABEL_POLICIES:
+        raise ValueError("unsupported label policy")
+    return policy
+
+
+def load_dataset(path: Path) -> tuple[list[dict], str]:
     if not path.is_file() or path.stat().st_size > 16 * 1024 * 1024:
         raise ValueError("dataset must be a regular file of at most 16 MiB")
-    cases = json.loads(path.read_text())["cases"]
+    document = json.loads(path.read_text())
+    policy = label_policy(document)
+    cases = document["cases"]
     if not 1 <= len(cases) <= 10000:
         raise ValueError("expected 1–10000 cases")
     identifiers = set()
     for case in cases:
+        if "label_policy" in case and label_policy(case) != policy:
+            raise ValueError("case label policy differs from dataset policy")
         identifier = case["id"]
         if (
             not isinstance(identifier, str)
@@ -74,7 +90,7 @@ def load_cases(path: Path) -> list[dict]:
                 or len(body.encode()) > 4000
             ):
                 raise ValueError("body must contain 1–4000 bytes of text")
-    return cases
+    return cases, policy
 
 
 def training_split(cases: list[dict]) -> tuple[list[dict], list[dict]]:
@@ -179,7 +195,8 @@ def score(cases: list[dict], predicted: list[str]) -> dict:
 def train_model(data: Path, output: Path) -> None:
     from sentence_transformers import SentenceTransformer
 
-    train, dev = training_split(load_cases(data))
+    cases, policy = load_dataset(data)
+    train, dev = training_split(cases)
     output.mkdir(parents=True, exist_ok=False)
     encoder = SentenceTransformer(
         BASE, revision=REVISION, device="cpu", trust_remote_code=False
@@ -188,6 +205,7 @@ def train_model(data: Path, output: Path) -> None:
     classifier = fit_classifier(train_vectors, [case["expected"] for case in train])
     head = {
         "version": 1,
+        "label_policy": policy,
         "base": BASE,
         "revision": REVISION,
         "encoder_frozen": True,
@@ -198,6 +216,7 @@ def train_model(data: Path, output: Path) -> None:
     values = probabilities(head, features(encoder, dev))
     head["threshold"] = select_threshold(head, dev, values)
     report = {
+        "label_policy": policy,
         "base": BASE,
         "revision": REVISION,
         "encoder_frozen": True,
@@ -249,8 +268,10 @@ def select_threshold(head: dict, cases: list[dict], values: np.ndarray) -> float
 def predict_model(model: Path, data: Path, output: Path) -> None:
     from sentence_transformers import SentenceTransformer
 
-    cases = load_cases(data)
+    cases, policy = load_dataset(data)
     head = json.loads((model / "head.json").read_text())
+    if label_policy(head) != policy:
+        raise ValueError("model and dataset label policies differ")
     if head["version"] != 1 or set(head["labels"]) != set(LABELS):
         raise ValueError("unsupported classifier artifact")
     encoder = SentenceTransformer(

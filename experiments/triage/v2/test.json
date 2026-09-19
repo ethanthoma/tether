@@ -1,0 +1,3008 @@
+{
+  "version": 1,
+  "label_policy": "reply-triage-v2",
+  "provenance": "fully_synthetic_assistant_authored",
+  "review_status": "blind_reviewer_agreed_independence_self_attested",
+  "cases": [
+    {
+      "id": "v2_test_stained_glass_2",
+      "group": "v2_test_stained_glass",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Carry the finished glass panel into the front room."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The inbound physical task cannot be safely represented as a prose reply.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Carry the finished glass panel into the front room."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_handmade_soap_4",
+      "group": "v2_test_handmade_soap",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you tell me which oil gives the bar its orange colour?"
+        },
+        {
+          "outbound": false,
+          "body": "I need to consult my batch sheet before I can answer that."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A visible request for information remains unanswered.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you tell me which oil gives the bar its orange colour?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I need to consult my batch sheet before I can answer that."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_archery_target_2",
+      "group": "v2_test_archery_target",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Pin a fresh paper target onto the straw boss."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "An incoming physical setup instruction is a user task.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Pin a fresh paper target onto the straw boss."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_street_numbering_3",
+      "group": "v2_test_street_numbering",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Is that naming arrangement still going ahead?"
+        },
+        {
+          "outbound": false,
+          "body": "I haven't heard from the panel, so I can't answer you yet."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The explicit user question establishes waiting despite missing historical details.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Is that naming arrangement still going ahead?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I haven't heard from the panel, so I can't answer you yet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_swim_lane_1",
+      "group": "v2_test_swim_lane",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Are you joining the fast lane or the steady lane tomorrow? Please let me know which to reserve."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The coach asks the user for a textual choice.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Are you joining the fast lane or the steady lane tomorrow? Please let me know which to reserve."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_ham_radio_3",
+      "group": "v2_test_ham_radio",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Would you test the antenna lead for continuity?"
+        },
+        {
+          "outbound": false,
+          "body": "I checked one end; the far connector still needs testing."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The requested test is only partly complete.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Would you test the antenna lead for continuity?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I checked one end; the far connector still needs testing."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_dance_video_2",
+      "group": "v2_test_dance_video",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Send me the practice video file when you get home."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A video-file transfer alone is a user task.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Send me the practice video file when you get home."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_museum_loan_4",
+      "group": "v2_test_museum_loan",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please explain the insurance excess. I'll crate the sculpture this afternoon."
+        },
+        {
+          "outbound": false,
+          "body": "I'm checking the excess with our insurer."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The user's crating promise and the other person's requested response are separate outstanding obligations.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please explain the insurance excess. I'll crate the sculpture this afternoon."
+          },
+          {
+            "message_index": 1,
+            "quote": "I'm checking the excess with our insurer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_stained_glass_3",
+      "group": "v2_test_stained_glass",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you check the panel's frame for sharp edges?"
+        },
+        {
+          "outbound": false,
+          "body": "The top and sides are smooth; I haven't inspected the bottom edge yet."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The requested inspection remains incomplete.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you check the panel's frame for sharp edges?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The top and sides are smooth; I haven't inspected the bottom edge yet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_animation_render_1",
+      "group": "v2_test_animation_render",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Should the character blink before or after the wave? I need your timing decision in a reply."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The animator requests a prose decision.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Should the character blink before or after the wave? I need your timing decision in a reply."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_grain_mill_1",
+      "group": "v2_test_grain_mill",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Did you mill the oats with the coarse plate or the fine plate? Please tell me which."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The baker asks the user for a prose answer.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Did you mill the oats with the coarse plate or the fine plate? Please tell me which."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_sandcastle_judging_3",
+      "group": "v2_test_sandcastle_judging",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The tower method, yes, that one. Apparently it's back on someone."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The fragment intentionally leaves both obligation and owner unclear.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The tower method, yes, that one. Apparently it's back on someone."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_espresso_grinder_2",
+      "group": "v2_test_espresso_grinder",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Empty the hopper and brush the loose grounds off the burrs."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The user is assigned physical maintenance tasks.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Empty the hopper and brush the loose grounds off the burrs."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_book_club_spoilers_3",
+      "group": "v2_test_book_club_spoilers",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Post the chapter summary document in the group drive."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The inbound upload task is not a prose response request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Post the chapter summary document in the group drive."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_book_club_spoilers_4",
+      "group": "v2_test_book_club_spoilers",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you explain the narrator's last line?"
+        },
+        {
+          "outbound": false,
+          "body": "Thanks for sending the passage. I'm still working out how to explain that line."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The acknowledgment does not satisfy the visible explanation request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you explain the narrator's last line?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Thanks for sending the passage. I'm still working out how to explain that line."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_espresso_grinder_1",
+      "group": "v2_test_espresso_grinder",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What grind setting were you using when it jammed? Please reply with the number."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The technician asks for a prose answer.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "What grind setting were you using when it jammed? Please reply with the number."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_drain_camera_1",
+      "group": "v2_test_drain_camera",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "When did the sink first start gurgling? A rough date in reply is enough."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The plumber requests a prose answer.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "When did the sink first start gurgling? A rough date in reply is enough."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_cello_bridge_4",
+      "group": "v2_test_cello_bridge",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The bridge angle is now corrected and the cello is back in its case. This is just the completion note."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The completed repair update carries no new obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The bridge angle is now corrected and the cello is back in its case. This is just the completion note."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_fermentation_crock_4",
+      "group": "v2_test_fermentation_crock",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The crock inspection is complete. There are no chips, and I've returned it to its shelf."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The completed inspection is informational with no new obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The crock inspection is complete. There are no chips, and I've returned it to its shelf."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_weather_balloon_4",
+      "group": "v2_test_weather_balloon",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The tracker has been recovered and logged in the equipment register. There is no recovery task left."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The completed recovery update supports an informational label.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The tracker has been recovered and logged in the equipment register. There is no recovery task left."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_blood_donor_1",
+      "group": "v2_test_blood_donor",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I'm matching donor appointment records. Was your last visit in May or June? Please tell me which month."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A human explicitly asks the user for a prose answer.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I'm matching donor appointment records. Was your last visit in May or June? Please tell me which month."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_fermentation_crock_3",
+      "group": "v2_test_fermentation_crock",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you inspect the crock rim for chips?"
+        },
+        {
+          "outbound": false,
+          "body": "I checked the lid only; the rim inspection still needs doing."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The requested inspection is unfulfilled despite checking something else.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you inspect the crock rim for chips?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I checked the lid only; the rim inspection still needs doing."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_wetland_boardwalk_2",
+      "group": "v2_test_wetland_boardwalk",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The boardwalk issue, again. Someone needs to deal with that."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "Neither the work nor its owner is sufficiently specified for safe routing.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The boardwalk issue, again. Someone needs to deal with that."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_water_utility_4",
+      "group": "v2_test_water_utility",
+      "split": "test",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automatic payment confirmation: your water bill was paid by direct debit. Balance due: zero."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The routine paid-bill receipt carries no personal action or deadline.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automatic payment confirmation: your water bill was paid by direct debit. Balance due: zero."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_espresso_grinder_4",
+      "group": "v2_test_espresso_grinder",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The test on setting four is complete: the grinder runs cleanly without jamming."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The sender reports the completed test without requesting anything.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The test on setting four is complete: the grinder runs cleanly without jamming."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_chess_tournament_3",
+      "group": "v2_test_chess_tournament",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you explain why I was paired with the same opponent twice?"
+        },
+        {
+          "outbound": false,
+          "body": "I'm reviewing the pairing log and don't have an explanation yet."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The organizer owes an explanation requested by the user.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you explain why I was paired with the same opponent twice?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I'm reviewing the pairing log and don't have an explanation yet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_swim_lane_3",
+      "group": "v2_test_swim_lane",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your training calendar now lists the outdoor pool for Friday. The session time is unchanged."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The calendar venue update is informational.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your training calendar now lists the outdoor pool for Friday. The session time is unchanged."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_cello_bridge_1",
+      "group": "v2_test_cello_bridge",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is the bridge leaning towards the fingerboard or the tailpiece? Please describe the direction."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The repairer requests a prose description.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Is the bridge leaning towards the fingerboard or the tailpiece? Please describe the direction."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_puppet_rehearsal_4",
+      "group": "v2_test_puppet_rehearsal",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Cancel the fox-tail repair; we are using the spare puppet."
+        },
+        {
+          "outbound": false,
+          "body": "Okay, I've removed that repair from my list."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The user cancels the only visible request and the sender acknowledges cancellation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Cancel the fox-tail repair; we are using the spare puppet."
+          },
+          {
+            "message_index": 1,
+            "quote": "Okay, I've removed that repair from my list."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_museum_loan_3",
+      "group": "v2_test_museum_loan",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you explain the loan's insurance excess?"
+        },
+        {
+          "outbound": false,
+          "body": "I'll ask our insurer and write back with the amount and how it applies."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The visible request for explanation remains outstanding.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you explain the loan's insurance excess?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I'll ask our insurer and write back with the amount and how it applies."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_drain_camera_3",
+      "group": "v2_test_drain_camera",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I'll run a camera through the drain for you next week."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The unsolicited incoming action promise has no visible user request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I'll run a camera through the drain for you next week."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_street_numbering_2",
+      "group": "v2_test_street_numbering",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "That old alley naming mess. back with us, apparently."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "No definite request or owner can be identified in the intentionally vague fragment.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "That old alley naming mess. back with us, apparently."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_sandcastle_judging_4",
+      "group": "v2_test_sandcastle_judging",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you tell me why the tower lost points?"
+        },
+        {
+          "outbound": false,
+          "body": "I have the judge's marks but haven't written up the explanation for you yet."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The visible user question remains unanswered.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you tell me why the tower lost points?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I have the judge's marks but haven't written up the explanation for you yet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_fire_escape_2",
+      "group": "v2_test_fire_escape",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Ignore my stairwell question; the marshal already identified everyone on the record."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The human question is explicitly resolved and withdrawn.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Ignore my stairwell question; the marshal already identified everyone on the record."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_animation_render_4",
+      "group": "v2_test_animation_render",
+      "split": "test",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Render farm status mail: today's scheduled health check passed on all workers. This notice is automatic."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A routine successful automated status report is noise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Render farm status mail: today's scheduled health check passed on all workers. This notice is automatic."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_puppet_rehearsal_3",
+      "group": "v2_test_puppet_rehearsal",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you repair the fox puppet's tail?"
+        },
+        {
+          "outbound": false,
+          "body": "I have the fabric cut; sewing it on is still to do."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The acknowledged explicit repair request remains incomplete.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you repair the fox puppet's tail?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I have the fabric cut; sewing it on is still to do."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_puppet_rehearsal_1",
+      "group": "v2_test_puppet_rehearsal",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Should the fox enter before the bell or after it? I need your cue choice in writing."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The director asks for a prose timing choice.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Should the fox enter before the bell or after it? I need your cue choice in writing."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_grain_mill_4",
+      "group": "v2_test_grain_mill",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Both mill plates are cleaned and dry. The cleaning job is finished."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A completed maintenance report has no outstanding request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Both mill plates are cleaned and dry. The cleaning job is finished."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_fire_escape_1",
+      "group": "v2_test_fire_escape",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "During the drill, did you use stairwell A or stairwell B? Please reply so I can finish the attendance record."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The coordinator explicitly requests a textual answer.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "During the drill, did you use stairwell A or stairwell B? Please reply so I can finish the attendance record."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_quilt_restoration_1",
+      "group": "v2_test_quilt_restoration",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is the faded quilt border supposed to be blue or purple? Please tell me what you remember."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The restorer requests a prose description.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Is the faded quilt border supposed to be blue or purple? Please tell me what you remember."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_weather_balloon_3",
+      "group": "v2_test_weather_balloon",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me where the tracker landed."
+        },
+        {
+          "outbound": false,
+          "body": "I have the final coordinates but haven't converted them into a readable location yet."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The sender has not provided the requested location answer.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please tell me where the tracker landed."
+          },
+          {
+            "message_index": 1,
+            "quote": "I have the final coordinates but haven't converted them into a readable location yet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_museum_loan_1",
+      "group": "v2_test_museum_loan",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Should the loan agreement name you personally or the collectors' association? Please reply with the legal name to use."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The registrar requests a prose selection.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Should the loan agreement name you personally or the collectors' association? Please reply with the legal name to use."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_miniature_golf_2",
+      "group": "v2_test_miniature_golf",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Never mind the hole-seven question; both scorekeepers agreed on four and the result is final."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The question is explicitly canceled after resolution.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Never mind the hole-seven question; both scorekeepers agreed on four and the result is final."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_dance_video_1",
+      "group": "v2_test_dance_video",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "In the practice video, do I start the turn on beat three or four? Please give me the beat number."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A collaborator explicitly requests a prose answer.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "In the practice video, do I start the turn on beat three or four? Please give me the beat number."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_embroidery_pattern_2",
+      "group": "v2_test_embroidery_pattern",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Disregard the stitch-direction question. I found the marked sample and matched it; the border is finished."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The question is explicitly resolved and withdrawn.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Disregard the stitch-direction question. I found the marked sample and matched it; the border is finished."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_wetland_boardwalk_3",
+      "group": "v2_test_wetland_boardwalk",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please inspect the broken plank beyond the viewing platform."
+        },
+        {
+          "outbound": false,
+          "body": "I inspected the platform, but haven't reached that plank yet."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The explicitly requested inspection remains unfinished.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please inspect the broken plank beyond the viewing platform."
+          },
+          {
+            "message_index": 1,
+            "quote": "I inspected the platform, but haven't reached that plank yet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_sandcastle_judging_2",
+      "group": "v2_test_sandcastle_judging",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The method question is withdrawn. We removed that criterion from judging, so you needn't answer."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The question is explicitly withdrawn with no remaining task.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The method question is withdrawn. We removed that criterion from judging, so you needn't answer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_sailing_race_1",
+      "group": "v2_test_sailing_race",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "For the race sheet, are you entering as skipper or crew? Please send me the role in words."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The race organizer requests a prose answer.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "For the race sheet, are you entering as skipper or crew? Please send me the role in words."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_ham_radio_1",
+      "group": "v2_test_ham_radio",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which call sign did you hear after mine? Could you write it out?"
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A human asks the user for a textual observation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which call sign did you hear after mine? Could you write it out?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_miniature_golf_4",
+      "group": "v2_test_miniature_golf",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I'll repaint the worn hole-seven marker for you this weekend."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "An unsolicited incoming physical promise does not establish a response to a visible user request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I'll repaint the worn hole-seven marker for you this weekend."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_water_utility_2",
+      "group": "v2_test_water_utility",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you explain the estimated charge on my water bill?"
+        },
+        {
+          "outbound": false,
+          "body": "I'm checking the previous readings before I respond to your billing question."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The human owes a response to the visible user request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you explain the estimated charge on my water bill?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I'm checking the previous readings before I respond to your billing question."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_chess_tournament_2",
+      "group": "v2_test_chess_tournament",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Pairings calendar update: your round two game has moved to Board 12. Your event entry is updated."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A calendar event update is informational.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Pairings calendar update: your round two game has moved to Board 12. Your event entry is updated."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_blood_donor_3",
+      "group": "v2_test_blood_donor",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Calendar notification: your donation appointment has been canceled by the centre. It has been removed from your calendar."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The calendar cancellation exception is informational.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Calendar notification: your donation appointment has been canceled by the centre. It has been removed from your calendar."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_miniature_golf_3",
+      "group": "v2_test_miniature_golf",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you explain the penalty added on hole seven?"
+        },
+        {
+          "outbound": false,
+          "body": "I need to ask the referee before I can explain the penalty."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The explicit user request for an explanation is outstanding.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you explain the penalty added on hole seven?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I need to ask the referee before I can explain the penalty."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_street_numbering_4",
+      "group": "v2_test_street_numbering",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The panel has closed the alley naming item without changes. This is the final outcome for your records."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A final outcome is reported without a request or promise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The panel has closed the alley naming item without changes. This is the final outcome for your records."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_cloud_domain_1",
+      "group": "v2_test_cloud_domain",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated domain registry notice: you must verify your own registrant email by September 28 to prevent suspension of this domain."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "An automated notice explicitly requires personal action by a stated deadline.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated domain registry notice: you must verify your own registrant email by September 28 to prevent suspension of this domain."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_chess_tournament_4",
+      "group": "v2_test_chess_tournament",
+      "split": "test",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Chess Circuit bulletin: annotated games, next season's events, and bookshop discounts."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A general interest bulletin is noise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Chess Circuit bulletin: annotated games, next season's events, and bookshop discounts."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_fire_escape_3",
+      "group": "v2_test_fire_escape",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Clear the boxes off the fire escape landing before the next drill."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A physical user task falls outside the prose reply boundary.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Clear the boxes off the fire escape landing before the next drill."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_sailing_race_4",
+      "group": "v2_test_sailing_race",
+      "split": "test",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Harbour Racing newsletter: weekend standings, sponsor offers, and a history of the cup."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A newsletter is routine informational promotion, not a personal obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Harbour Racing newsletter: weekend standings, sponsor offers, and a history of the cup."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_book_club_spoilers_1",
+      "group": "v2_test_book_club_spoilers",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Are spoilers for the final chapter okay in your discussion group? Please tell me your rule."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The sender asks the user for a prose rule.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Are spoilers for the final chapter okay in your discussion group? Please tell me your rule."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_handmade_soap_3",
+      "group": "v2_test_handmade_soap",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I'll cut the soap slab into twelve bars on Sunday."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The user promises physical work requiring commitment extraction.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I'll cut the soap slab into twelve bars on Sunday."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_chess_tournament_1",
+      "group": "v2_test_chess_tournament",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Tournament bot notice: you must confirm your own federation ID by 18:00 Wednesday or your entry will be removed."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The automated message imposes personal action by a deadline.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Tournament bot notice: you must confirm your own federation ID by 18:00 Wednesday or your entry will be removed."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_oral_history_consent_1",
+      "group": "v2_test_oral_history_consent",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "May I quote your sentence about the ferry in the transcript? Please reply yes or no."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The interviewer requests a prose permission decision.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "May I quote your sentence about the ferry in the transcript? Please reply yes or no."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_sailing_race_2",
+      "group": "v2_test_sailing_race",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Calendar update: your race briefing invitation now shows Pier 4 instead of Pier 2."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A calendar location change is informational.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Calendar update: your race briefing invitation now shows Pier 4 instead of Pier 2."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_sandcastle_judging_1",
+      "group": "v2_test_sandcastle_judging",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "For judging, did your team use a bucket mould or shape the tower by hand? Please explain your method."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The judge explicitly requests a prose explanation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "For judging, did your team use a bucket mould or shape the tower by hand? Please explain your method."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_grain_mill_3",
+      "group": "v2_test_grain_mill",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Would you clean the mill plates before the next batch?"
+        },
+        {
+          "outbound": false,
+          "body": "The coarse plate is clean; the fine plate still needs scrubbing."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The requested cleaning is only partly complete.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Would you clean the mill plates before the next batch?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The coarse plate is clean; the fine plate still needs scrubbing."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_oral_history_consent_3",
+      "group": "v2_test_oral_history_consent",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please upload your signed consent form as an image."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A form-image transfer alone is a user task.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please upload your signed consent form as an image."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_dance_video_4",
+      "group": "v2_test_dance_video",
+      "split": "test",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Auto-generated upload receipt: rehearsal.mp4 finished processing. No response required."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A routine processing receipt is noise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Auto-generated upload receipt: rehearsal.mp4 finished processing. No response required."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_blood_donor_2",
+      "group": "v2_test_blood_donor",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you tell me whether the donor centre has moved its entrance?"
+        },
+        {
+          "outbound": false,
+          "body": "I'll check with reception and answer you shortly."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The visible question remains unanswered.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you tell me whether the donor centre has moved its entrance?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I'll check with reception and answer you shortly."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_museum_loan_2",
+      "group": "v2_test_museum_loan",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Send me a scan of the signed loan agreement."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A document transfer alone does not constitute a prose response.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Send me a scan of the signed loan agreement."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_train_sleeper_2",
+      "group": "v2_test_train_sleeper",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you explain whether the compartment door locks from inside?"
+        },
+        {
+          "outbound": false,
+          "body": "I need to ask the carriage steward before I can answer."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The human owes the requested explanation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you explain whether the compartment door locks from inside?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I need to ask the carriage steward before I can answer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_oral_history_consent_4",
+      "group": "v2_test_oral_history_consent",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you explain how interview excerpts will be attributed?"
+        },
+        {
+          "outbound": false,
+          "body": "I'll check the attribution policy and give you an answer."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The explicitly requested explanation remains unanswered.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you explain how interview excerpts will be attributed?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I'll check the attribution policy and give you an answer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_train_sleeper_3",
+      "group": "v2_test_train_sleeper",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your sleeper reservation was moved into the quiet carriage as requested. No further confirmation is needed."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The reservation update reports completed work with no new request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your sleeper reservation was moved into the quiet carriage as requested. No further confirmation is needed."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_swim_lane_2",
+      "group": "v2_test_swim_lane",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Move the lane rope to the far hooks before the group arrives."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The user receives a physical setup task.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Move the lane rope to the far hooks before the group arrives."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_embroidery_pattern_3",
+      "group": "v2_test_embroidery_pattern",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please send the pattern PDF over here."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A file transfer alone falls outside prose reply routing.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please send the pattern PDF over here."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_miniature_golf_1",
+      "group": "v2_test_miniature_golf",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Was the disputed shot on hole seven a three or a four? Please give me your count."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The scorer requests a prose answer.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Was the disputed shot on hole seven a three or a four? Please give me your count."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_ham_radio_2",
+      "group": "v2_test_ham_radio",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I'll solder the loose antenna connector this evening."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The user promises physical work needing commitment routing.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I'll solder the loose antenna connector this evening."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_dance_video_3",
+      "group": "v2_test_dance_video",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "You can disregard the video request. The instructor shared the same take with me and I have everything I need."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The transfer request is explicitly canceled as fulfilled elsewhere.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "You can disregard the video request. The instructor shared the same take with me and I have everything I need."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_quilt_restoration_2",
+      "group": "v2_test_quilt_restoration",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Send a close-up photo of the quilt's faded border."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A photo transfer alone is a user task, not a prose reply.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Send a close-up photo of the quilt's faded border."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_water_utility_1",
+      "group": "v2_test_water_utility",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated water account notice: you personally must submit this property's meter reading by October 8. Your account requires a manual reading this month."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The automated notice assigns personal action by a specific deadline.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated water account notice: you personally must submit this property's meter reading by October 8. Your account requires a manual reading this month."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_fermentation_crock_2",
+      "group": "v2_test_fermentation_crock",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Wash the crock and put the stone weights back in the cupboard."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The incoming cleaning task is not a prose reply request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Wash the crock and put the stone weights back in the cupboard."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_grain_mill_2",
+      "group": "v2_test_grain_mill",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Lift the flour sack onto the mill's loading shelf."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The user is assigned a physical handling task.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Lift the flour sack onto the mill's loading shelf."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_stained_glass_1",
+      "group": "v2_test_stained_glass",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Should the central pane be amber or clear? Please reply with the colour choice."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The maker requests a prose design choice.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Should the central pane be amber or clear? Please reply with the colour choice."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_cloud_domain_2",
+      "group": "v2_test_cloud_domain",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Copy the zone file into our shared folder, please."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A file-copy request is a task without a prose response requirement.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Copy the zone file into our shared folder, please."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_ham_radio_4",
+      "group": "v2_test_ham_radio",
+      "split": "test",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Airwaves Digest: propagation charts and a special offer on handheld radios. Offer expires for all readers on Friday."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A generic promotional deadline does not create a personal deadline.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Airwaves Digest: propagation charts and a special offer on handheld radios. Offer expires for all readers on Friday."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_cello_bridge_2",
+      "group": "v2_test_cello_bridge",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I'll loosen the cello strings before I bring it over."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The user commits to a physical task.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I'll loosen the cello strings before I bring it over."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_espresso_grinder_3",
+      "group": "v2_test_espresso_grinder",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you test whether the grinder still jams on setting four?"
+        },
+        {
+          "outbound": false,
+          "body": "Setting six worked. I haven't tried setting four yet."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A different test does not fulfill the user's specific request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you test whether the grinder still jams on setting four?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Setting six worked. I haven't tried setting four yet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_drain_camera_2",
+      "group": "v2_test_drain_camera",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "No need to answer the gurgling-date question. The inspection found the cause and the blockage is cleared."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The sender explicitly resolves and withdraws the question.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "No need to answer the gurgling-date question. The inspection found the cause and the blockage is cleared."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_drain_camera_4",
+      "group": "v2_test_drain_camera",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please run the drain camera past the first junction."
+        },
+        {
+          "outbound": false,
+          "body": "I reached the junction but haven't inspected beyond it yet."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The explicitly requested inspection has not reached its requested extent.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please run the drain camera past the first junction."
+          },
+          {
+            "message_index": 1,
+            "quote": "I reached the junction but haven't inspected beyond it yet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_fermentation_crock_1",
+      "group": "v2_test_fermentation_crock",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "How much salt went into your cabbage batch? Please tell me the grams, not a photo of the recipe."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A human explicitly asks for a prose quantity.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "How much salt went into your cabbage batch? Please tell me the grams, not a photo of the recipe."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_wetland_boardwalk_1",
+      "group": "v2_test_wetland_boardwalk",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Was the slippery section before or after the viewing platform? Please describe its location."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The ranger asks the user for a prose location description.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Was the slippery section before or after the viewing platform? Please describe its location."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_archery_target_1",
+      "group": "v2_test_archery_target",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Were your arrows grouping high or low? Please describe the pattern in a message."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The coach requests a prose description.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Were your arrows grouping high or low? Please describe the pattern in a message."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_train_sleeper_4",
+      "group": "v2_test_train_sleeper",
+      "split": "test",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated rail receipt: booking S84 paid in full. This email is your payment record."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A routine payment receipt has no personal deadline.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated rail receipt: booking S84 paid in full. This email is your payment record."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_blood_donor_4",
+      "group": "v2_test_blood_donor",
+      "split": "test",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Donation portal auto-receipt: your contact address was saved successfully. This is a routine account notification."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "An automated successful settings receipt has no personal deadline.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Donation portal auto-receipt: your contact address was saved successfully. This is a routine account notification."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_book_club_spoilers_2",
+      "group": "v2_test_book_club_spoilers",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Forwarded question: 'Are final-chapter spoilers okay?' That was last month's thread and is already settled. Sharing the archive only."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The quoted question is historical and closed.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Forwarded question: 'Are final-chapter spoilers okay?' That was last month's thread and is already settled. Sharing the archive only."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_handmade_soap_2",
+      "group": "v2_test_handmade_soap",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The old note reads 'cedar or pine?' We settled on cedar in the maker's notes, so there's no open question now."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The quoted question is explicitly settled.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The old note reads 'cedar or pine?' We settled on cedar in the maker's notes, so there's no open question now."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_sailing_race_3",
+      "group": "v2_test_sailing_race",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Carry the spare sail down to the boat before the briefing."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The incoming physical task requires abstention.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Carry the spare sail down to the boat before the briefing."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_embroidery_pattern_1",
+      "group": "v2_test_embroidery_pattern",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Should this stitch lean left or right? Please tell me which direction matches your design."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The embroiderer requests a textual design decision.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Should this stitch lean left or right? Please tell me which direction matches your design."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_archery_target_3",
+      "group": "v2_test_archery_target",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Would you replace the torn paper target before my session?"
+        },
+        {
+          "outbound": false,
+          "body": "I removed the old sheet; I still need to pin up the new one."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The user's explicitly requested action remains partly unfinished.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Would you replace the torn paper target before my session?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I removed the old sheet; I still need to pin up the new one."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_puppet_rehearsal_2",
+      "group": "v2_test_puppet_rehearsal",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I'll sew a new tail onto the fox puppet tomorrow."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "An unsolicited incoming sewing promise does not establish waiting.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I'll sew a new tail onto the fox puppet tomorrow."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_weather_balloon_1",
+      "group": "v2_test_weather_balloon",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Did the balloon burst before or after it crossed the cloud layer? Please describe what you saw."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The researcher explicitly asks for a prose observation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Did the balloon burst before or after it crossed the cloud layer? Please describe what you saw."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_quilt_restoration_3",
+      "group": "v2_test_quilt_restoration",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you describe the stitching needed to secure the loose border?"
+        },
+        {
+          "outbound": false,
+          "body": "I've examined it; I still need to write out the stitching instructions for you."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The requested explanation remains outstanding after examination.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you describe the stitching needed to secure the loose border?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I've examined it; I still need to write out the stitching instructions for you."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_cloud_domain_3",
+      "group": "v2_test_cloud_domain",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you explain why the domain redirects to the old host?"
+        },
+        {
+          "outbound": false,
+          "body": "I found an old rule, but I haven't traced the entire redirect chain for you yet."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The requested explanation remains unfinished.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you explain why the domain redirects to the old host?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I found an old rule, but I haven't traced the entire redirect chain for you yet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_stained_glass_4",
+      "group": "v2_test_stained_glass",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please check the panel frame for sharp edges. I'll install the hanging hooks tonight."
+        },
+        {
+          "outbound": false,
+          "body": "I can check the frame tomorrow."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The user's installation promise and the requested inspection by the other person are both outstanding.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please check the panel frame for sharp edges. I'll install the hanging hooks tonight."
+          },
+          {
+            "message_index": 1,
+            "quote": "I can check the frame tomorrow."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_cello_bridge_3",
+      "group": "v2_test_cello_bridge",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you check the cello bridge angle?"
+        },
+        {
+          "outbound": false,
+          "body": "I can check it, but first could you tell me whether the instrument fell recently?"
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The other person's requested check and their new prose question to the user both remain open.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you check the cello bridge angle?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I can check it, but first could you tell me whether the instrument fell recently?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_handmade_soap_1",
+      "group": "v2_test_handmade_soap",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Would you describe that soap's scent as cedar or pine? Please tell me what you notice."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The maker asks the user for a prose description.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Would you describe that soap's scent as cedar or pine? Please tell me what you notice."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_cloud_domain_4",
+      "group": "v2_test_cloud_domain",
+      "split": "test",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated DNS backup report: scheduled backup succeeded. Twelve records saved. No errors."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A routine successful system report has no deadline or required personal action.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated DNS backup report: scheduled backup succeeded. Twelve records saved. No errors."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_animation_render_3",
+      "group": "v2_test_animation_render",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I'll render a higher resolution version for you tonight."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "An unsolicited incoming promise lacks a visible user request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I'll render a higher resolution version for you tonight."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_weather_balloon_2",
+      "group": "v2_test_weather_balloon",
+      "split": "test",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I'll retrieve the tracker from the field at first light."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The user's retrieval promise needs task routing.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I'll retrieve the tracker from the field at first light."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_archery_target_4",
+      "group": "v2_test_archery_target",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your session was canceled, so please disregard my instruction to pin up a new target."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The sender explicitly cancels the physical task.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your session was canceled, so please disregard my instruction to pin up a new target."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_quilt_restoration_4",
+      "group": "v2_test_quilt_restoration",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The quilt border has now been secured with the original thread colour. This is the final restoration update."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The completed restoration update has no remaining obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The quilt border has now been secured with the original thread colour. This is the final restoration update."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_embroidery_pattern_4",
+      "group": "v2_test_embroidery_pattern",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you explain the knot symbol on row nine?"
+        },
+        {
+          "outbound": false,
+          "body": "I've identified the symbol, but still need to write out the steps for you."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The explicitly requested explanation is still owed.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you explain the knot symbol on row nine?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I've identified the symbol, but still need to write out the steps for you."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_swim_lane_4",
+      "group": "v2_test_swim_lane",
+      "split": "test",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "PoolPass automated receipt: one entry deducted from your pass. Seven entries remain."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A routine usage receipt has no deadline.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "PoolPass automated receipt: one entry deducted from your pass. Seven entries remain."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_animation_render_2",
+      "group": "v2_test_animation_render",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please render the wave scene with the blue background."
+        },
+        {
+          "outbound": false,
+          "body": "The preview is ready, but the full render you requested is still queued."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The requested render action remains outstanding.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please render the wave scene with the blue background."
+          },
+          {
+            "message_index": 1,
+            "quote": "The preview is ready, but the full render you requested is still queued."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_fire_escape_4",
+      "group": "v2_test_fire_escape",
+      "split": "test",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please inspect the sticking fire escape latch."
+        },
+        {
+          "outbound": false,
+          "body": "I have booked time to inspect it; I haven't tested it yet."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The user has explicitly requested an action still owed by the other person.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please inspect the sticking fire escape latch."
+          },
+          {
+            "message_index": 1,
+            "quote": "I have booked time to inspect it; I haven't tested it yet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_water_utility_3",
+      "group": "v2_test_water_utility",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I reviewed your water bill and removed the duplicate charge. Your balance is corrected; nothing else is needed from you."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A human reports a completed correction without an outstanding obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I reviewed your water bill and removed the duplicate charge. Your balance is corrected; nothing else is needed from you."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_wetland_boardwalk_4",
+      "group": "v2_test_wetland_boardwalk",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The broken plank has been replaced and the boardwalk reopened. This is the closure notice from the ranger."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A human reports resolved maintenance without a new obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The broken plank has been replaced and the boardwalk reopened. This is the closure notice from the ranger."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_train_sleeper_1",
+      "group": "v2_test_train_sleeper",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I'm allocating sleeper berths. Would you prefer an upper berth or a lower one? Please reply with your preference."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "A human asks for a textual berth preference.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I'm allocating sleeper berths. Would you prefer an upper berth or a lower one? Please reply with your preference."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_oral_history_consent_2",
+      "group": "v2_test_oral_history_consent",
+      "split": "test",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The quoted line 'may I use the ferry story?' is from an old email. Permission was granted then, and this copy needs no response."
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The quoted request is explicitly historical and fulfilled.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The quoted line 'may I use the ferry story?' is from an old email. Permission was granted then, and this copy needs no response."
+          }
+        ]
+      }
+    },
+    {
+      "id": "v2_test_street_numbering_1",
+      "group": "v2_test_street_numbering",
+      "split": "test",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "For the local history entry, was this alley once called Flint Lane? Could you confirm the name?"
+        }
+      ],
+      "author_flags": [],
+      "annotation": {
+        "author": "v2-evaluation-author",
+        "rationale": "The historian directly requests a prose answer.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "For the local history entry, was this alley once called Flint Lane? Could you confirm the name?"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -20,7 +20,7 @@ os.environ["HF_HUB_DISABLE_TELEMETRY"] = "1"
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 import numpy as np
-from train import LABELS, features, predictions, probabilities
+from train import LABELS, features, label_policy, predictions, probabilities
 
 REQUEST_BYTES_MAX = 256 * 1024
 
@@ -139,6 +139,7 @@ def validate_head(head: dict) -> None:
         or head["version"] != 1
     ):
         raise ValueError("invalid head version")
+    label_policy(head)
     labels = head.get("labels")
     if not isinstance(labels, list) or len(labels) != 5 or set(labels) != set(LABELS):
         raise ValueError("invalid head labels")
@@ -202,7 +203,7 @@ def classify(cases: list[dict], head: dict, encoder: object, identity: str) -> d
             results[index].update(label=label, confidence=float(row.max()), status="ok")
     return {
         "version": 1,
-        "policy": "synthetic-obligations-v1",
+        "policy": label_policy(head),
         "model_sha256": identity,
         "results": results,
     }
