@@ -24,8 +24,10 @@ cutoffs against development data before making held-out predictions.
 - V2c's earlier layout accepted 46/120 held-out cases with four errors: rejected.
 - V2d's joint encoder improved raw development accuracy to 101/120 and two-message
   accuracy to 25/30. Its safe cutoffs disabled waiting_on_them: rejected before test.
-- [V2e](v2e/RELEASE.md) adds independently reviewed boundary examples using the same
-  joint encoder and recipe. Its fresh test remains reserved until fitting ends.
+- [V2e](v2e/RESULT.md) accepted 37/120 held-out cases with two false reminders:
+  rejected. Its test is consumed.
+- [V2f](v2f/RELEASE.md) adds independently worded conversations and fresh
+  development/test families; its quality gate and training recipe stay fixed.
 
 Run the CPU fine-tuner with a fresh output directory:
 
