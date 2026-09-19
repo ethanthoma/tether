@@ -4,32 +4,38 @@ This workflow prepares **training data only** for a separate human or model
 reviewer. It does not call an LLM, send messages, train a model, or change
 production. Existing model reports and held-out labels stay unchanged.
 
-[LABELING.md](LABELING.md) defines the current experimental labels, outstanding
-obligations, cancellations, promises, mixed ownership, and the boundary with
-production policy. Read it before authoring the next synthetic batch.
+[LABELING.md](LABELING.md) defines version 2 labels aligned with production's
+reply policy. [POLICY.md](POLICY.md) describes the required semantic relabeling and
+new review; old datasets and archived judgments remain version 1.
 
 ## Prepare a review
 
 Use the Python environment in [TRAINING.md](TRAINING.md). The input is an exported
-case dataset, not the scenario-authoring format. For the current expanded corpus:
+case dataset, not the scenario-authoring format. Preparation requires root metadata
+`"label_policy": "reply-triage-v2"`. Add that declaration only after reviewing and
+relabeling every complete candidate family under version 2; a metadata-only edit
+does not migrate labels. The current `scaling-v1/full.json` is not eligible.
+
+After creating a semantically relabeled candidate at the example path below:
 
 ```sh
 nix-shell experiments/triage/shell.nix
 experiments/triage/.venv/bin/python experiments/triage/review.py prepare \
-  --data experiments/triage/runs/scaling-v1/full.json \
+  --data experiments/triage/runs/policy-v2/candidate.json \
   --author synthetic-corpus-author \
-  --output experiments/triage/runs/review-v1
+  --output experiments/triage/runs/review-v2
 ```
 
-Only the 981 training cases from 148 families enter the packet. Development and
-test cases are excluded. A family crossing source splits is rejected. Source
+Only training cases enter the packet; development and test cases are excluded.
+A family crossing source splits is rejected. Source
 provenance must declare fully synthetic content; that declaration is not a
-semantic or provenance audit.
+semantic or provenance audit. Policy metadata is likewise an author declaration,
+not proof of correct labels; blind review checks the actual examples.
 
 The fresh output directory contains:
 
 - `reviewer/packet.json`: a snapshot of the specification and randomly shuffled
-  messages with opaque random IDs. Author labels, evidence, scenario names,
+  messages with opaque random IDs, plus the label policy identifier. Author labels, evidence, scenario names,
   capabilities, family IDs, split metadata, and predictions are omitted.
 - `reviewer/responses.json`: an unfilled response template tied to the packet hash.
 - `author/`: the original training cases, private ID mapping, author identity,
@@ -65,9 +71,9 @@ every deliberately ambiguous example merely because its correct label is abstain
 
 ```sh
 experiments/triage/.venv/bin/python experiments/triage/review.py reconcile \
-  --bundle experiments/triage/runs/review-v1 \
-  --responses experiments/triage/runs/review-v1/reviewer/responses.json \
-  --output experiments/triage/runs/review-v1-result
+  --bundle experiments/triage/runs/review-v2 \
+  --responses experiments/triage/runs/review-v2/reviewer/responses.json \
+  --output experiments/triage/runs/review-v2-result
 ```
 
 The command validates identity/attestation, IDs, hashes, labels, rationales, and
@@ -105,4 +111,6 @@ on 979 cases; 336 cases carry review flags. The family gate retains 109 cases fr
 28 families, but this subset lacks abstain examples and must not replace training
 data. The committed audit includes original judgments and reproducible inputs.
 Scratch run directories remain ignored. Resolve the policy and context flags before
-further training; fresh evaluation families remain separate.
+further training; fresh evaluation families remain separate. Version 2 preparation
+now rejects sources with missing or different policy metadata. Reconciliation of
+the immutable v1 archive remains reproducible without assigning it v2 semantics.

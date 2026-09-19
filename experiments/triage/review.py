@@ -9,6 +9,7 @@ from random import SystemRandom
 
 from train import LABELS, ROOT, load_cases
 
+LABEL_POLICY = "reply-triage-v2"
 FLAGS = {
     "policy_mismatch",
     "insufficient_context",
@@ -60,6 +61,10 @@ def prepare_review(data: Path, author: str, output: Path) -> None:
     source = read_json(data)
     if source.get("provenance") != "fully_synthetic_assistant_authored":
         raise ValueError("fully synthetic source required")
+    if source.get("label_policy") != LABEL_POLICY:
+        raise ValueError(
+            f"source label_policy must be {LABEL_POLICY}; relabel before review"
+        )
     all_cases = load_cases(data)
     partitions = {}
     for case in all_cases:
@@ -104,6 +109,7 @@ def prepare_review(data: Path, author: str, output: Path) -> None:
     (output / "author").mkdir(mode=0o700)
     packet = {
         "version": 1,
+        "label_policy": LABEL_POLICY,
         "specification": (ROOT / "LABELING.md").read_text(),
         "cases": blinded,
     }
@@ -134,6 +140,7 @@ def prepare_review(data: Path, author: str, output: Path) -> None:
         {
             "version": 1,
             "provenance": source["provenance"],
+            "label_policy": LABEL_POLICY,
             "cases": cases,
         },
     )
@@ -226,6 +233,9 @@ def reconcile_review(bundle: Path, responses: list[Path], output: Path) -> None:
     digest = hashlib.sha256(packet_path.read_bytes()).hexdigest()
     source_path = bundle / "author/source.json"
     source = read_json(source_path)
+    if source.get("label_policy") != packet.get("label_policy"):
+        raise ValueError("source and packet label policies differ")
+    policy_metadata = {key: source[key] for key in ("label_policy",) if key in source}
     if (
         manifest.get("version") != 1
         or packet.get("version") != 1
@@ -297,6 +307,7 @@ def reconcile_review(bundle: Path, responses: list[Path], output: Path) -> None:
     accepted = [case for case in cases if case["group"] not in blocked]
     report = {
         "version": 1,
+        **policy_metadata,
         "packet_sha256": digest,
         "submissions": submissions,
         "author": manifest["author"],
@@ -316,6 +327,7 @@ def reconcile_review(bundle: Path, responses: list[Path], output: Path) -> None:
             {
                 "version": 1,
                 "provenance": source["provenance"],
+                **policy_metadata,
                 "review_status": "blind_reviewer_agreed_independence_self_attested",
                 "review_report_sha256": hashlib.sha256(
                     (output / "report.json").read_bytes()

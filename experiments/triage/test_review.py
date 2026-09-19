@@ -7,7 +7,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from review import prepare_review, reconcile_review, validate_reviews
+from review import LABEL_POLICY, prepare_review, reconcile_review, validate_reviews
 
 
 class ReviewTests(unittest.TestCase):
@@ -50,6 +50,7 @@ class ReviewTests(unittest.TestCase):
                 {
                     "version": 1,
                     "provenance": "fully_synthetic_assistant_authored",
+                    "label_policy": LABEL_POLICY,
                     "cases": cases,
                 }
             )
@@ -89,7 +90,12 @@ class ReviewTests(unittest.TestCase):
         return json.loads((output / "report.json").read_text()), output
 
     def test_packet_hides_labels_metadata_and_evaluation_cases(self) -> None:
-        self.assertEqual(set(self.packet), {"version", "specification", "cases"})
+        self.assertEqual(
+            set(self.packet), {"version", "label_policy", "specification", "cases"}
+        )
+        self.assertEqual(self.packet["label_policy"], LABEL_POLICY)
+        source = json.loads((self.bundle / "author/source.json").read_text())
+        self.assertEqual(source["label_policy"], LABEL_POLICY)
         self.assertEqual(len(self.packet["cases"]), 4)
         for case in self.packet["cases"]:
             self.assertEqual(set(case), {"id", "messages"})
@@ -107,6 +113,8 @@ class ReviewTests(unittest.TestCase):
         self.assertEqual(report["accepted_cases"], 4)
         self.assertEqual(report["accepted_families"], 2)
         reviewed = json.loads((output / "reviewed.json").read_text())
+        self.assertEqual(reviewed["label_policy"], LABEL_POLICY)
+        self.assertEqual(report["label_policy"], LABEL_POLICY)
         self.assertTrue(all(case["split"] == "train" for case in reviewed["cases"]))
         self.assertEqual(
             reviewed["review_report_sha256"],
@@ -224,6 +232,33 @@ class ReviewTests(unittest.TestCase):
         self.data.write_text(json.dumps(source))
         with self.assertRaisesRegex(ValueError, "family crosses"):
             prepare_review(self.data, "author", self.root / "rejected")
+
+    def test_new_reviews_require_explicit_current_label_policy(self) -> None:
+        source = json.loads(self.data.read_text())
+        for policy in (None, "obligation-v1", "reply-triage-v3"):
+            with self.subTest(policy=policy):
+                source.pop("label_policy", None)
+                if policy is not None:
+                    source["label_policy"] = policy
+                self.data.write_text(json.dumps(source))
+                output = self.root / "rejected-policy"
+                with self.assertRaisesRegex(ValueError, "label_policy"):
+                    prepare_review(self.data, "author", output)
+                self.assertFalse(output.exists())
+
+    def test_archived_v1_review_reproduces_without_new_policy_metadata(self) -> None:
+        archive = Path(__file__).parent / "reviews/v1"
+        output = self.root / "archived"
+        with contextlib.redirect_stdout(io.StringIO()):
+            reconcile_review(
+                archive / "bundle",
+                [archive / "responses" / f"{index}.json" for index in range(1, 4)],
+                output,
+            )
+        for name in ("report.json", "reviewed.json"):
+            self.assertEqual(
+                (output / name).read_bytes(), (archive / "result" / name).read_bytes()
+            )
 
 
 if __name__ == "__main__":
