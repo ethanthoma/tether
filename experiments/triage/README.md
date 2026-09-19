@@ -1,5 +1,9 @@
 # Triage classifier evaluation
 
+[SHADOW.md](SHADOW.md) describes the read-only CPU inference command.
+[POLICY.md](POLICY.md) records the production-aligned v2 labeling contract;
+existing models and datasets remain v1 until a new relabel/review/training pass.
+
 [REVIEW.md](REVIEW.md) describes the blind training-label review workflow and
 [LABELING.md](LABELING.md) specifies the experimental labels and production-policy
 boundary. [SCALING.md](SCALING.md) records the expansion to 981 training cases.

@@ -96,6 +96,13 @@ and merges into the tunnel that also serves llama-server.
 `make build`, `make test`. Local runs: `TETHER_STATE_DIR=/tmp/tether-dev ./tether sync`.
 On this machine, prefix with `nix-shell -p go --run '...'`.
 
+## Local triage shadow
+
+For the separate read-only CPU email classifier, see
+[triage shadow inference](experiments/triage/SHADOW.md). `tether triage-shadow`
+uses `TETHER_TRIAGE_SHADOW` and does not change thread state or send reminders.
+Its current model still uses the experimental v1 label policy.
+
 ## Bend shadow trial
 
 `tether shadow` compares Go's thread reminder eligibility with the verified Bend

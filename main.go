@@ -28,6 +28,7 @@ type Config struct {
 	BendShadow         string
 	BendDispatch       string
 	BendDelivery       string
+	TriageShadow       string
 }
 
 func loadConfig() *Config {
@@ -54,6 +55,7 @@ func loadConfig() *Config {
 		BendShadow:         os.Getenv("TETHER_BEND_SHADOW"),
 		BendDispatch:       os.Getenv("TETHER_BEND_DISPATCH"),
 		BendDelivery:       os.Getenv("TETHER_BEND_DELIVERY"),
+		TriageShadow:       os.Getenv("TETHER_TRIAGE_SHADOW"),
 	}
 	cfg.MyEmail = env("TETHER_MY_EMAIL", cfg.IMAPUser)
 	return cfg
@@ -83,6 +85,7 @@ func (cfg *Config) needDiscord() error {
 const usage = `usage: tether <command>
   sync                       fetch new mail (IMAP) and calendar (ICS)
   triage                     LLM-classify new threads, extract commitments
+  triage-shadow              read-only local classifier predictions
   nudge                      evaluate nudge rules, post to Discord
   shadow                     compare Go/Bend eligibility without sending
   shadow-dispatch            compare Go/Bend batch sizes without sending
@@ -170,6 +173,8 @@ func Execute(store *Store, cfg *Config, now time.Time, command string, args []st
 		return "nudges evaluated", nil
 	case "shadow-dispatch":
 		return RunBendDispatchShadow(store, cfg.BendDispatch, now)
+	case "triage-shadow":
+		return RunTriageShadow(store, cfg.TriageShadow, now)
 	case "shadow":
 		return RunBendShadow(store, cfg.BendShadow, now)
 	case "digest":

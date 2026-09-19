@@ -1,0 +1,50 @@
+{
+  "scope": "synthetic scratch-store smoke, not accuracy evaluation or production rollout",
+  "model": "runs/scaling-v1/full-model",
+  "store_json_unchanged": true,
+  "fixtures": 5,
+  "report": {
+    "mode": "read_only",
+    "observed_at": "2026-09-19T05:01:20.55681481Z",
+    "model_policy": "synthetic-obligations-v1",
+    "policy_aligned": false,
+    "model_sha256": "feebb2ffbeb2ed8b28c04d57e89727c7044a78cbe397c3d01636dbd4e940987a",
+    "checked": 4,
+    "skipped": 1,
+    "abstained": 2,
+    "input_rejected": 1,
+    "comparisons": 1,
+    "disagreements": 0,
+    "duration_ms": 4067,
+    "predictions": [
+      {
+        "thread_hash": "54a77654d0a2cc4de461a1bd83e2adfd8f6db3d519a85a61d18f2b172db1dbe2",
+        "stored_state": "new",
+        "label": "abstain",
+        "confidence": 0,
+        "status": "input_rejected"
+      },
+      {
+        "thread_hash": "9010fbb4ef41dcd609b2b11ef23e17f79c5281f360659e2f9b5a8cb122c402db",
+        "stored_state": "fyi",
+        "label": "abstain",
+        "confidence": 0.5471495526798094,
+        "status": "ok"
+      },
+      {
+        "thread_hash": "e60ed67b9c78885ac52bfcf8b983371e260e3d8a1eb39f63e7fc6c6a077b0bc1",
+        "stored_state": "waiting_on_them",
+        "label": "waiting_on_them",
+        "confidence": 0.996345334777337,
+        "status": "ok"
+      },
+      {
+        "thread_hash": "20cac1de61372f907f3b85657062017f969d5ae615693b6ad247bf2d0c03a3c6",
+        "stored_state": "new",
+        "label": "needs_reply",
+        "confidence": 0.9998588470728824,
+        "status": "ok"
+      }
+    ]
+  }
+}

@@ -12,6 +12,10 @@ import (
 
 func TestMain(tests *testing.M) {
 	mode := filepath.Base(os.Args[0])
+	if strings.HasPrefix(mode, "triage-shadow-helper-") {
+		triageShadowTestHelper(strings.TrimPrefix(mode, "triage-shadow-helper-"))
+		os.Exit(0)
+	}
 	if strings.HasPrefix(mode, "shadow-helper-") {
 		protocol := eligibilityProtocol
 		if strings.HasPrefix(mode, "shadow-helper-dispatch-") {
