@@ -1,0 +1,29 @@
+{
+  "source_commit": "e51b5f27cc35eaa627e2a280d06b42f28dadcac9",
+  "runtime": "/nix/store/yic2j3a431vavclskbwi1ay7c0mbdvwc-tether-triage-runtime-v2",
+  "build_command": "nix-build ./triage-runtime.nix --argstr runtimeSource /home/ethanthoma/projects/tether/experiments/triage/.venv --argstr pythonExecutable /nix/store/d64q19q1xjdwfhqx6czvrjgrhq0n3lcc-python3-3.14.7/bin/python3 --out-link experiments/triage/runs/runtime-v2h",
+  "script_sha256": {
+    "train.py": "6a7462d867ba8ce0c436b8818adf0ee8681db0a85ba4b5158ccd682053226f0e",
+    "shadow.py": "f21405222fd1ed7f634cd22b91421e00ec8c764106f969144baf724a0d00a05d"
+  },
+  "packaged_source_hashes_match": true,
+  "atlas_closure_valid": true,
+  "atlas_gc_root": "/nix/var/nix/gcroots/tether-triage-runtime-v2h-yic2j3",
+  "dummy_preflight": {
+    "purpose": "operational resource-fit check only, no classifier quality claim",
+    "model_sha256": "0a08e1d287664146bbfe7ef54649c558ff481aee703272dc9cb06e301c0ef7d8",
+    "cases": 20,
+    "tokens_per_case": 512,
+    "abstained": 20,
+    "input_rejected": 0,
+    "exit_code": 0,
+    "wall_seconds": 18.771,
+    "cpu_seconds": 34.135,
+    "memory_peak_systemd_display": "1.6G",
+    "runtime_limit_seconds": 30,
+    "memory_limit": "2G",
+    "cpu_quota": "400%",
+    "isolation": ["PrivateNetwork", "PrivateTmp", "ProtectHome", "ProtectSystem=strict", "NoNewPrivileges", "InaccessiblePaths=/var/lib/tether"]
+  },
+  "deployment": "staged closure only; production runtime, model, timers, and authority unchanged"
+}

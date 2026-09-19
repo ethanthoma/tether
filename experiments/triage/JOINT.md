@@ -73,3 +73,8 @@ held-out inference. It additionally requires zero accepted held-out errors, at l
 and both actionable classes. Synthetic evidence does not establish real-mail
 accuracy. Production authority remains off until the gate, native CLI check,
 and operational shadow verification pass; Bend's three switches are independent.
+
+`release.py` exclusively reserves its report path after development readiness and
+before held-out inference. Existing reports cannot be reused. An empty or partial
+report means evaluation was interrupted after reservation; preserve it and treat
+the test as potentially consumed rather than rerunning against that holdout.

@@ -82,39 +82,39 @@ def main() -> None:
     readiness = validate_development(
         dev, predictions(head, development, head["thresholds"])
     )
-    values = probabilities(head, features(encoder, cases))
-    raw = predictions(head, values)
-    selected = predictions(head, values, head["thresholds"])
-    report = {
-        "version": 1,
-        "label_policy": policy,
-        "model_sha256": identity,
-        "test_sha256": hashlib.sha256(args.data.read_bytes()).hexdigest(),
-        "plan_sha256": hashlib.sha256(args.plan.read_bytes()).hexdigest(),
-        "training_report_sha256": hashlib.sha256(training_bytes).hexdigest(),
-        "training_data_sha256": training_hash,
-        "train_count": len(train),
-        "dev_count": len(dev),
-        "feature_layout": FEATURE_LAYOUT,
-        "max_seq_length": CONTEXT_TOKENS_MAX,
-        "separation": separation,
-        "thresholds": head["thresholds"],
-        "development_readiness": readiness,
-        "temperature": head["temperature"],
-        "unscaled_head_sha256": head["unscaled_head_sha256"],
-        **release_metrics(cases, selected, raw),
-        "limitations": "Synthetic, correlated families; not an estimate of real-mail accuracy.",
-        "predictions": [
-            {
-                "id": case["id"],
-                "expected": case["expected"],
-                "raw": raw_label,
-                "selected": label,
-            }
-            for case, raw_label, label in zip(cases, raw, selected, strict=True)
-        ],
-    }
     with args.output.open("x") as output:
+        values = probabilities(head, features(encoder, cases))
+        raw = predictions(head, values)
+        selected = predictions(head, values, head["thresholds"])
+        report = {
+            "version": 1,
+            "label_policy": policy,
+            "model_sha256": identity,
+            "test_sha256": hashlib.sha256(args.data.read_bytes()).hexdigest(),
+            "plan_sha256": hashlib.sha256(args.plan.read_bytes()).hexdigest(),
+            "training_report_sha256": hashlib.sha256(training_bytes).hexdigest(),
+            "training_data_sha256": training_hash,
+            "train_count": len(train),
+            "dev_count": len(dev),
+            "feature_layout": FEATURE_LAYOUT,
+            "max_seq_length": CONTEXT_TOKENS_MAX,
+            "separation": separation,
+            "thresholds": head["thresholds"],
+            "development_readiness": readiness,
+            "temperature": head["temperature"],
+            "unscaled_head_sha256": head["unscaled_head_sha256"],
+            **release_metrics(cases, selected, raw),
+            "limitations": "Synthetic, correlated families; not an estimate of real-mail accuracy.",
+            "predictions": [
+                {
+                    "id": case["id"],
+                    "expected": case["expected"],
+                    "raw": raw_label,
+                    "selected": label,
+                }
+                for case, raw_label, label in zip(cases, raw, selected, strict=True)
+            ],
+        }
         output.write(json.dumps(report, indent=2) + "\n")
     print(
         json.dumps(

@@ -29,6 +29,8 @@ from train import (
     TEMPERATURE_BOUNDS,
     TEMPERATURE_SELECTION,
     THRESHOLD_SELECTION,
+    probabilities,
+    select_thresholds,
 )
 
 
@@ -418,6 +420,74 @@ class ReleaseTests(unittest.TestCase):
                     main()
                 extract.assert_called_once_with(encoder, dev)
                 self.assertFalse(output.exists())
+
+    def test_existing_report_prevents_held_out_feature_extraction(self) -> None:
+        report, head, unscaled_bytes, dev, matrix = self.training_fixture()
+        head["thresholds"] = select_thresholds(head, dev, probabilities(head, matrix))
+        report["thresholds"] = head["thresholds"]
+        source = {
+            "provenance": "fully_synthetic_assistant_authored",
+            "review_status": "blind_reviewer_agreed_independence_self_attested",
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            training = root / "training-data.json"
+            training.write_text(json.dumps(source))
+            data = root / "test-data.json"
+            data.write_text(json.dumps(source))
+            report["data_sha256"] = hashlib.sha256(training.read_bytes()).hexdigest()
+            (root / "training.json").write_text(json.dumps(report))
+            (root / "unscaled-head.json").write_bytes(unscaled_bytes)
+            output = root / "release.json"
+            output.write_text("previous report")
+            with (
+                patch(
+                    "sys.argv",
+                    [
+                        "release.py",
+                        "--model",
+                        str(root),
+                        "--training-data",
+                        str(training),
+                        "--data",
+                        str(data),
+                        "--plan",
+                        str(root / "plan.md"),
+                        "--output",
+                        str(output),
+                    ],
+                ),
+                patch(
+                    "release.load_dataset",
+                    side_effect=[
+                        (self.cases, "reply-triage-v2"),
+                        ([], "reply-triage-v2"),
+                    ],
+                ) as datasets,
+                patch("release.training_split", return_value=([{}] * 100, dev)),
+                patch("release.check_separation", return_value={}),
+                patch("release.load_artifact", return_value=(head, "artifact-hash")),
+                patch("sentence_transformers.SentenceTransformer") as constructor,
+                patch("release.features", return_value=matrix) as extract,
+            ):
+                encoder = constructor.return_value
+                encoder.max_seq_length = CONTEXT_TOKENS_MAX
+                encoder.__getitem__.return_value.auto_model.config.max_position_embeddings = CONTEXT_TOKENS_MAX
+                with self.assertRaises(FileExistsError):
+                    main()
+                extract.assert_called_once_with(encoder, dev)
+                self.assertEqual(output.read_text(), "previous report")
+                output.unlink()
+                datasets.side_effect = [
+                    (self.cases, "reply-triage-v2"),
+                    ([], "reply-triage-v2"),
+                ]
+                extract.reset_mock()
+                extract.side_effect = [matrix, RuntimeError("inference failed")]
+                with self.assertRaisesRegex(RuntimeError, "inference failed"):
+                    main()
+                self.assertEqual(extract.call_count, 2)
+                self.assertEqual(output.read_bytes(), b"")
 
     def test_sources_require_synthetic_and_independent_review_metadata(self) -> None:
         source = {
