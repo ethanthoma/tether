@@ -39,8 +39,10 @@ cutoffs against development data before making held-out predictions.
   before test. Its 154-case test remains unused.
 - [V2g](v2g/RESULT.md) accepted 29/152 development cases (19.1%): rejected
   before test despite passing the synthetic Atlas resource check.
-- [V2h](v2h/RELEASE.md) adds 200 reviewed direction examples and calibrated
-  checkpoint selection. Its unchanged held-out gate remains mandatory.
+- [V2h](v2h/RESULT.md) reached 40.1% safe development coverage, but its held-out
+  evaluation accepted 73/154 with four false reminders: rejected.
+- [V2i](v2i/RELEASE.md) freezes v2h weights and temperature and tests stricter
+  cutoffs using a larger fresh calibration partition and a new holdout.
 
 Run the CPU fine-tuner with a fresh output directory:
 
@@ -78,3 +80,27 @@ and operational shadow verification pass; Bend's three switches are independent.
 before held-out inference. Existing reports cannot be reused. An empty or partial
 report means evaluation was interrupted after reservation; preserve it and treat
 the test as potentially consumed rather than rerunning against that holdout.
+
+## Frozen-model cutoff trial
+
+`recalibrate.py fit` validates the pinned source, computes only the preregistered
+cutoff changes, and saves a separate artifact. `evaluate` independently reproduces
+the changes and checks both development partitions before a fresh held-out test.
+It requires the original source model to verify unchanged weights and encoder.
+
+```sh
+HF_HUB_OFFLINE=1 experiments/triage/.venv/bin/python experiments/triage/recalibrate.py fit \
+  --source-model experiments/triage/runs/v2h-production/model \
+  --training-data experiments/triage/v2h/training.json \
+  --calibration-data experiments/triage/v2i/calibration.json \
+  --plan experiments/triage/v2i/RELEASE.md \
+  --output experiments/triage/runs/v2i-production/model
+```
+
+Run inside the experiment Nix shell. Only after fitting and both development
+readiness checks pass, use `evaluate` with the same source/data/plan arguments,
+`--model experiments/triage/runs/v2i-production/model`,
+`--data experiments/triage/v2i/test.json`, and a fresh report `--output` path.
+Cutoffs cannot be lowered from the source; actionable cutoffs receive an extra
+grid step and a 0.90 floor. A fit report's approval means development readiness
+only; production additionally requires a passing test report and operational gates.
