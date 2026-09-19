@@ -96,7 +96,11 @@ func TestBendProductionSnapshot(t *testing.T) {
 			store.Threads = append(fixtures, store.Threads...)
 			marker := filepath.Join(store.dir, "bend-eligibility.enabled")
 			dispatchMarker := filepath.Join(store.dir, "bend-dispatch.enabled")
+			deliveryMarker := filepath.Join(store.dir, "bend-delivery.enabled")
 			if mode != "go" {
+				if err := os.WriteFile(deliveryMarker, nil, 0600); err != nil {
+					t.Fatal(err)
+				}
 				if err := os.WriteFile(dispatchMarker, nil, 0600); err != nil {
 					t.Fatal(err)
 				}
@@ -105,6 +109,12 @@ func TestBendProductionSnapshot(t *testing.T) {
 				}
 			}
 			if mode == "rollback" {
+				if !openDeliveryPolicy(cfg.BendDelivery, store.dir).active {
+					t.Fatal("Bend delivery must work before rollback")
+				}
+				if err := os.Remove(deliveryMarker); err != nil {
+					t.Fatal(err)
+				}
 				if err := os.Remove(dispatchMarker); err != nil {
 					t.Fatal(err)
 				}
@@ -119,6 +129,10 @@ func TestBendProductionSnapshot(t *testing.T) {
 			if mode == "fallback" {
 				candidate.BendShadow = filepath.Join(store.dir, "missing-evaluator")
 				candidate.BendDispatch = candidate.BendShadow
+				candidate.BendDelivery = candidate.BendShadow
+			}
+			if openDeliveryPolicy(candidate.BendDelivery, store.dir).active != (mode == "bend") {
+				t.Fatal("unexpected delivery backend")
 			}
 			decisions := productionBendEligibility(store, &candidate, log, now)
 			if (decisions != nil) != (mode == "bend") {
@@ -190,7 +204,7 @@ func TestBendProductionSnapshot(t *testing.T) {
 			t.Logf("production_threads=%d controlled_threads=%d fake_deliveries=%d %s", productionCount, len(fixtures), transport.sent, report)
 		})
 	}
-	if strings.Contains(deliveryReports.String(), `"status":"mismatch"`) || strings.Contains(deliveryReports.String(), "delivery shadow: unavailable") {
+	if strings.Contains(deliveryReports.String(), `"status":"mismatch"`) {
 		t.Fatal("snapshot delivery observer failed or disagreed")
 	}
 	if !strings.Contains(deliveryReports.String(), `"policy":"bend-2.0.5/delivery-v1"`) {

@@ -72,6 +72,9 @@ func TestDeliveryShadowStopsAtLogFailure(t *testing.T) {
 	store := testStore(t)
 	now := time.Date(2026, 9, 18, 12, 0, 0, 0, time.Local)
 	store.Reminders = []*Reminder{{ID: "first", State: ReminderOpen, Due: now}, {ID: "second", State: ReminderOpen, Due: now}}
+	if err := os.WriteFile(filepath.Join(store.dir, "bend-delivery.enabled"), nil, 0600); err != nil {
+		t.Fatal(err)
+	}
 	transport := &deliveryLogFailureTransport{path: filepath.Join(store.dir, "nudges.jsonl")}
 	http.DefaultTransport = transport
 	cfg := &Config{DiscordChannel: "test", BendDelivery: shadowHelper(t, "delivery-model")}
@@ -106,5 +109,61 @@ func TestDeliveryShadowSkipsIdleBatch(t *testing.T) {
 	}
 	if transport.attempts != 0 || output.Len() != 0 {
 		t.Fatal("idle or quiet batch invoked observer or sender")
+	}
+}
+
+func TestBendDeliveryActivationFallbackAndRollback(t *testing.T) {
+	for _, mode := range []string{"model", "good", "state", "error", "version", "decision", "overflow", "timeout"} {
+		t.Run(mode, func(t *testing.T) {
+			store := testStore(t)
+			path := shadowHelper(t, "delivery-"+mode)
+			marker := filepath.Join(store.dir, "bend-delivery.enabled")
+			if err := os.WriteFile(marker, nil, 0600); err != nil {
+				t.Fatal(err)
+			}
+			policy := openDeliveryPolicy(path, store.dir)
+			if policy.active != (mode == "model") {
+				t.Fatalf("unexpected activation for %s", mode)
+			}
+			for _, succeeded := range []bool{true, false, true} {
+				policy.observe(succeeded)
+			}
+			if policy.state != (deliveryState{confirmed: 1, failed: true}) {
+				t.Fatalf("unsafe failure transition: %+v", policy.state)
+			}
+			if err := os.Remove(marker); err != nil {
+				t.Fatal(err)
+			}
+			if openDeliveryPolicy(path, store.dir).active {
+				t.Fatal("rollback retained authority")
+			}
+		})
+	}
+}
+
+func TestBendDeliveryRejectsInvalidSwitch(t *testing.T) {
+	store := testStore(t)
+	marker := filepath.Join(store.dir, "bend-delivery.enabled")
+	for _, kind := range []string{"nonempty", "directory", "symlink"} {
+		switch kind {
+		case "nonempty":
+			if err := os.WriteFile(marker, []byte("yes"), 0600); err != nil {
+				t.Fatal(err)
+			}
+		case "directory":
+			if err := os.Mkdir(marker, 0700); err != nil {
+				t.Fatal(err)
+			}
+		case "symlink":
+			if err := os.Symlink(filepath.Join(store.dir, "missing"), marker); err != nil {
+				t.Fatal(err)
+			}
+		}
+		if openDeliveryPolicy(shadowHelper(t, "delivery-model"), store.dir).active {
+			t.Fatalf("accepted %s switch", kind)
+		}
+		if err := os.Remove(marker); err != nil {
+			t.Fatal(err)
+		}
 	}
 }

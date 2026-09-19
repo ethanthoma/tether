@@ -132,12 +132,16 @@ func RunNudges(store *Store, cfg *Config, now time.Time) error {
 	}
 	nudges := collectNudges(store, nl, now, productionBendEligibility(store, cfg, nl, now))
 	planned := productionBendBatchCount(store, cfg, false, nl.firedToday("", now), len(nudges))
-	var observer *deliveryShadow
+	var observer *deliveryPolicy
 	if planned > 0 {
-		observer = openDeliveryShadow(cfg.BendDelivery)
+		observer = openDeliveryPolicy(cfg.BendDelivery, store.dir)
 	}
 	defer observer.report()
-	for _, nudge := range nudges[:planned] {
+	for attempted := 0; attempted < planned; attempted++ {
+		if observer.state.failed || observer.state.confirmed >= planned {
+			break
+		}
+		nudge := nudges[observer.state.confirmed]
 		err := PostDiscordButtons(cfg, "**"+nudge.Title+"**\n"+nudge.Body, nudge.buttons())
 		if err == nil {
 			nudge.FiredAt = now

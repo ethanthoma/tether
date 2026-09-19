@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
+	"path/filepath"
 )
 
 var deliveryProtocol = bendProtocol{"tether-bend-delivery-v1:", 96, "0123456"}
@@ -12,11 +14,12 @@ type deliveryState struct {
 	failed    bool
 }
 
-type deliveryShadow struct {
+type deliveryPolicy struct {
 	table      []byte
 	state      deliveryState
 	checked    int
 	mismatches int
+	active     bool
 }
 
 func readDeliveryTable(path string) ([]byte, error) {
@@ -50,40 +53,74 @@ func bendDeliveryStep(table []byte, allowed bool, state deliveryState, succeeded
 	return deliveryState{confirmed: int(table[index+1] - '0'), failed: table[index] == '1'}, nil
 }
 
-func openDeliveryShadow(path string) *deliveryShadow {
+func openDeliveryPolicy(path, directory string) *deliveryPolicy {
 	if path == "" {
-		return nil
+		return &deliveryPolicy{}
 	}
 	table, err := readDeliveryTable(path)
 	if err != nil {
 		log.Printf("delivery shadow: unavailable for batch: %v", err)
-		return nil
+		return &deliveryPolicy{}
 	}
-	return &deliveryShadow{table: table}
+	observer := &deliveryPolicy{table: table}
+	info, err := os.Lstat(filepath.Join(directory, "bend-delivery.enabled"))
+	if os.IsNotExist(err) {
+		return observer
+	}
+	if err != nil || !info.Mode().IsRegular() || info.Size() != 0 {
+		log.Printf("nudge: invalid Bend delivery switch, using Go transitions")
+		return observer
+	}
+	for confirmed := 0; confirmed <= maxPushesPerDay; confirmed++ {
+		for flags := 0; flags < 8; flags++ {
+			state := deliveryState{confirmed: confirmed, failed: flags&2 != 0}
+			expected := state
+			if flags&1 != 0 {
+				expected = goDeliveryStep(state, flags&4 != 0)
+			}
+			actual, err := bendDeliveryStep(table, flags&1 != 0, state, flags&4 != 0)
+			if err != nil || actual != expected {
+				log.Printf("nudge: invalid Bend delivery semantics, using Go transitions")
+				return observer
+			}
+		}
+	}
+	observer.active = true
+	log.Printf("nudge: Bend delivery active")
+	return observer
 }
 
-func (observer *deliveryShadow) observe(succeeded bool) {
-	if observer == nil {
-		return
-	}
-	expected := observer.state
-	if !expected.failed {
+func goDeliveryStep(state deliveryState, succeeded bool) deliveryState {
+	if !state.failed {
 		if succeeded {
-			expected.confirmed++
+			state.confirmed++
 		} else {
-			expected.failed = true
+			state.failed = true
 		}
+	}
+	return state
+}
+
+func (observer *deliveryPolicy) observe(succeeded bool) {
+	expected := goDeliveryStep(observer.state, succeeded)
+	if observer.table == nil {
+		observer.state = expected
+		return
 	}
 	actual, err := bendDeliveryStep(observer.table, true, observer.state, succeeded)
 	observer.checked++
 	if err != nil || actual != expected {
 		observer.mismatches++
+		observer.active = false
 	}
 	observer.state = expected
+	if observer.active {
+		observer.state = actual
+	}
 }
 
-func (observer *deliveryShadow) report() {
-	if observer == nil {
+func (observer *deliveryPolicy) report() {
+	if observer == nil || observer.table == nil {
 		return
 	}
 	status := "ok"

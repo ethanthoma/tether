@@ -147,6 +147,9 @@ def main() -> IO(Unit):
 							if err := os.WriteFile(filepath.Join(store.dir, "bend-dispatch.enabled"), nil, 0600); err != nil {
 								t.Fatal(err)
 							}
+							if err := os.WriteFile(filepath.Join(store.dir, "bend-delivery.enabled"), nil, 0600); err != nil {
+								t.Fatal(err)
+							}
 							if os.Getenv("TETHER_BEND_DISPATCH") == "" {
 								t.Fatal("native dispatch evaluator required")
 							}

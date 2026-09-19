@@ -223,7 +223,7 @@ confirmed sends enter the nudge log. Successful batches log `Bend dispatch activ
 The snapshot test now requires both evaluator environment variables and checks
 both dispatch and eligibility through activation, failure fallback, and rollback.
 
-### Bend delivery transition observer
+### Bend delivery transitions
 
 `TETHER_BEND_DELIVERY` selects `tether-bend-delivery`, supplied by the Nix wrapper.
 For nonempty daytime batches, the sender loads its finite transition table once
@@ -232,7 +232,12 @@ have policy `bend-2.0.5/delivery-v1`, source `batch`, transitions checked,
 disagreements, persisted confirmations, and failure status. They appear in the
 service that sends the batch, usually `tether-pulse.service`.
 
-This component is **shadow-only**: Go always controls continuation and stopping.
+Delivery defaults to shadow mode. An empty regular `bend-delivery.enabled` file
+in the state directory enables Bend transition authority. Every one of the 48
+transitions must match Go before activation; invalid switches, evaluator failures,
+or semantic disagreement retain Go authority. Remove this file to roll back
+independently of eligibility and dispatch. Go still bounds attempts, checks quiet
+hours and daily limits, and returns immediately on send or persistence errors.
 A rejected request or failed log write stops the batch. An accepted HTTP request
 with a failed log write is unconfirmed in this model; it cannot undo the external
 send. Evaluator failures or mismatches only produce diagnostics. No observer runs
@@ -242,5 +247,6 @@ observation; a long-running bot needs restarting after changing its environment.
 The isolated snapshot test requires `TETHER_BEND_DELIVERY` alongside both other
 native evaluator paths. Native transition tests cover all 48 inputs, and delivery
 recovery tests exercise the observer through real sender code with fake HTTP.
-Dispatch activation still waits for daytime shadow evidence; delivery has no
-authority switch yet.
+Enable with `sudo -u ethoma touch /var/lib/tether/bend-delivery.enabled`; roll
+back with `sudo -u ethoma rm /var/lib/tether/bend-delivery.enabled`. Activation
+logs `Bend delivery active`. Changes apply at the next nonempty batch.

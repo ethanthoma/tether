@@ -127,7 +127,59 @@ for policy `bend-2.0.5/delivery-v1` in the sender's journal, usually
 `tether-pulse.service`. Require zero mismatches; observer-unavailable messages are
 missing evidence, not agreement.
 
-There is no delivery authority switch. Set `TETHER_BEND_DELIVERY` to an empty value
+At that deployment there was no delivery authority switch. Set `TETHER_BEND_DELIVERY` to an empty value
 in the service environment and restart the bot to disable its observation; future
 oneshot services reload the environment automatically. The previous source and
 system path are retained under `/var/lib/tether-delivery-staging-20260918/`.
+
+## Delivery authority implementation
+
+Read-only journal inspection since 2026-09-18 found a daytime dispatch shadow
+record with one candidate and matching Go/Bend batch sizes of one. The pulse/bot
+journals contain three successful delivery observations, each checking one
+transition with zero mismatches and one persisted confirmation. No unavailable
+observer records appeared in that sender query. These observations satisfy the
+previously pending daytime evidence; they do not establish failure-path behavior.
+
+The sender now supports independent opt-in delivery authority through an empty,
+regular `/var/lib/tether/bend-delivery.enabled` file. Before activation it checks
+all 48 native transitions against Go, including skipped, failed, and successful
+outcomes. A bad switch, evaluator failure, or semantic disagreement retains Go
+transitions. Only successful sends followed by successful log writes advance
+the confirmed index. Go still bounds attempts and returns immediately on errors.
+
+The Go suite and native Bend gate passed, including 48 transition inputs, delivery
+and retry comparisons with delivery authority enabled, and 11 rejected mutations.
+Tests cover activation, rollback, invalid switches, malformed or unavailable
+evaluators, semantic disagreement, and a successful send followed by log failure.
+The snapshot gate exercises all three switches and independently verifies delivery
+backend selection through activation, unavailable-evaluator fallback, and rollback.
+
+After deployment and its isolated snapshot gate, enable with
+`sudo -u ethoma touch /var/lib/tether/bend-delivery.enabled`; remove only that file
+to restore Go delivery transitions for the next batch. Dispatch has its own
+`bend-dispatch.enabled` switch. Neither command sends a notification. These source
+changes and journal observations alone do not claim deployment or activation.
+
+### Exact packaged snapshot gate — 2026-09-18 23:45 UTC
+
+The new Go sender/test binary passed against atlas's installed policy package:
+`/nix/store/bx810xk8zq7qi6b9sd7708n0wg8f794d-tether-bend-shadow-2.0.5`.
+Native eligibility, dispatch, and all 48 delivery transition checks passed.
+
+A private snapshot copied under `/var/lib/tether/lock` contained 534 production
+threads. The test added eight synthetic fixtures inside its own temporary stores.
+All four lanes (Go, three Bend switches enabled, missing-evaluator fallback, and
+switch-removal rollback) selected two identical fake deliveries and persisted two
+confirmations. All 542 eligibility comparisons agreed without skips. Dispatch
+selected two of two candidates with three prior confirmations, preserving the
+daily limit of five. Delivery reported two checked transitions, zero mismatches,
+and two confirmations in each available-evaluator lane; the unavailable-evaluator
+lane retained Go and returned the same result.
+
+The transient test unit ran as `ethoma` with `PrivateNetwork`, `PrivateTmp`,
+`ProtectSystem=strict`, `ProtectHome`, `NoNewPrivileges`, and the live state path
+inaccessible. It received only evaluator/snapshot paths, no credential environment.
+HTTP used fake transports. Runtime was 179 ms; peak memory 14.1 MB. The private
+snapshot and test executable were removed after the gate. No switches or live
+state were changed. Deployment remains the separate next step.
