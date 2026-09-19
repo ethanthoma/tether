@@ -287,10 +287,19 @@ def reconcile_review(bundle: Path, responses: list[Path], output: Path) -> None:
     for identifier, source_id in mapping.items():
         case = originals[source_id]
         review = reviews.get(identifier)
+        author_flags = case.get("author_flags", [])
+        if (
+            not isinstance(author_flags, list)
+            or len(author_flags) > len(FLAGS)
+            or any(
+                not isinstance(flag, str) or flag not in FLAGS for flag in author_flags
+            )
+        ):
+            raise ValueError("unknown author flags")
         status = "agreed"
         if review is None:
             status = "pending"
-        elif review["label"] != case["expected"] or review["flags"]:
+        elif review["label"] != case["expected"] or review["flags"] or author_flags:
             status = "disputed"
         if status != "agreed":
             blocked.add(case["group"])
@@ -300,6 +309,7 @@ def reconcile_review(bundle: Path, responses: list[Path], output: Path) -> None:
                 "review_id": identifier,
                 "group": case["group"],
                 "author_label": case["expected"],
+                **({"author_flags": author_flags} if "author_flags" in case else {}),
                 "status": status,
                 "review": review,
             }

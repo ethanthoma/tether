@@ -186,6 +186,21 @@ class ReviewTests(unittest.TestCase):
         self.assertEqual(report["accepted_cases"], 0)
         self.assertFalse((output / "reviewed.json").exists())
 
+    def test_author_flags_cannot_be_cleared_by_reviewer_agreement(self) -> None:
+        source_path = self.bundle / "author/source.json"
+        source = json.loads(source_path.read_text())
+        source["cases"][0]["author_flags"] = ["label_ambiguity"]
+        source_path.write_text(json.dumps(source))
+        manifest_path = self.bundle / "author/manifest.json"
+        manifest = json.loads(manifest_path.read_text())
+        manifest["source_sha256"] = hashlib.sha256(source_path.read_bytes()).hexdigest()
+        manifest_path.write_text(json.dumps(manifest))
+        report, _ = self.reconcile(self.response)
+        self.assertEqual(report["accepted_cases"], 2)
+        self.assertEqual(report["blocked_families"], [source["cases"][0]["group"]])
+        disputed = [row for row in report["decisions"] if row["status"] == "disputed"]
+        self.assertEqual(disputed[0]["author_flags"], ["label_ambiguity"])
+
     def test_invalid_attestations_ids_evidence_and_labels_are_rejected(self) -> None:
         mutations = [
             lambda value: value.update(reviewer=" AUTHOR "),

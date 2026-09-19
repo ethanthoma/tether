@@ -1,0 +1,1539 @@
+{
+  "version": 1,
+  "label_policy": "reply-triage-v2",
+  "source_sha256": "87516331df824c9dc98790d057d8a67a3bb7e98d5d8764776b06271015db440f",
+  "cases": 981,
+  "families": 148,
+  "changed_labels": 250,
+  "unchanged_messages": true,
+  "labels": {
+    "abstain": 447,
+    "fyi": 254,
+    "needs_reply": 100,
+    "noise": 51,
+    "waiting_on_them": 129
+  },
+  "author_flags": {},
+  "submissions": [
+    {
+      "author": "v2-author-1",
+      "cases": 332,
+      "packet_sha256": "a0ee359334fcd9acf8f266824faeaecd3d46c5b652000ec75d11a6efef86fa46",
+      "labels_sha256": "2fe4309dcac57f5c9097d4f47a85c1eeb9fa06640f6136ffe8c206ee9a19642c"
+    },
+    {
+      "author": "v2-author-2",
+      "cases": 327,
+      "packet_sha256": "ab930491306bc897f6e6579963dc5c4e9c704543c9f601774bdb5eae8ec39844",
+      "labels_sha256": "350723ea7b3d3ceb20a7527d85256e9978de22b8083ada7a84e2af028394a819"
+    },
+    {
+      "author": "v2-author-3",
+      "cases": 322,
+      "packet_sha256": "aa88316b526f03b933f6edc5baf3b5638c3f4188d150e33c1b8b340f9f074d19",
+      "labels_sha256": "4f5343a452055ae5fde3fba5faf8d60d37b7664e528a4230aad1de9303d666d5"
+    }
+  ],
+  "changes": [
+    {
+      "id": "scale_parcel_dropoff_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender volunteers delivery follow-up without a visible user request."
+    },
+    {
+      "id": "scale_exhibition_hours_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming closing-time promise lacks a visible user request."
+    },
+    {
+      "id": "scale_window_key_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Replacement key arrangement is a user task, not prose."
+    },
+    {
+      "id": "scale_window_key_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited promise to obtain replacement key."
+    },
+    {
+      "id": "cryptic_reference_0_reversed",
+      "before": "abstain",
+      "after": "waiting_on_them",
+      "reason": "User explicitly asks for an update despite vague history."
+    },
+    {
+      "id": "scale_remote_unlock_0",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User must operate gate; no prose requested."
+    },
+    {
+      "id": "workshop_prep_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user retains a concrete room-booking commitment."
+    },
+    {
+      "id": "optional_survey_0",
+      "before": "fyi",
+      "after": "noise",
+      "reason": "The optional resident survey imposes no obligation or service consequence."
+    },
+    {
+      "id": "scale_map_fold_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Folding and packing maps is a physical user task rather than prose."
+    },
+    {
+      "id": "scale_artwork_credit_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited promise to obtain credit line."
+    },
+    {
+      "id": "scale_audition_slot_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises train check and later answer without a visible request."
+    },
+    {
+      "id": "scale_map_fold_0",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The unsolicited map-packing promise lacks a visible user request."
+    },
+    {
+      "id": "scale_charity_receipts_0_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises outstanding reconciliation and statement."
+    },
+    {
+      "id": "research_reference_0_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises citation research and delivery."
+    },
+    {
+      "id": "scale_camera_hire_0_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises to locate a lens and finish booking."
+    },
+    {
+      "id": "scale_speaker_cable_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Bringing a cable is a physical task for the user."
+    },
+    {
+      "id": "account_permissions_0",
+      "before": "fyi",
+      "after": "noise",
+      "reason": "Optional routine app permission notice requires no action."
+    },
+    {
+      "id": "recipe_promise_0",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited promise to send recipe."
+    },
+    {
+      "id": "scale_market_stall_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises organiser follow-up."
+    },
+    {
+      "id": "scale_webinar_recording_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Changing and sending the recording format is a task, not a prose answer."
+    },
+    {
+      "id": "historian_contact_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user commits to an email introduction."
+    },
+    {
+      "id": "festival_jobs_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Sender's equipment hire promise lacks visible user request."
+    },
+    {
+      "id": "scale_dance_floor_0_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User still promises taping floor edge."
+    },
+    {
+      "id": "quoted_thanks_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises later drawing choice without visible request."
+    },
+    {
+      "id": "travel_plan_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Pickup is a physical user task."
+    },
+    {
+      "id": "scale_course_transfer_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises form processing and timetable delivery."
+    },
+    {
+      "id": "scale_webinar_recording_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The unsolicited recording-conversion promise lacks a visible request."
+    },
+    {
+      "id": "historian_contact_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The unsolicited introduction commitment lacks a visible user request."
+    },
+    {
+      "id": "scale_bike_route_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user commits to checking route closures and reporting."
+    },
+    {
+      "id": "unassigned_delivery_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User commitment to receive delivery requires task routing."
+    },
+    {
+      "id": "shared_tools_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The remaining saw return is a physical user task."
+    },
+    {
+      "id": "scale_voucher_redemption_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender volunteers voucher adjustment work without a visible request."
+    },
+    {
+      "id": "scale_expense_category_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender volunteers expense follow-up without a visible user request."
+    },
+    {
+      "id": "scale_work_uniform_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises remaining shoe check and order completion."
+    },
+    {
+      "id": "scale_survey_grid_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises boundary check and corrected coordinates."
+    },
+    {
+      "id": "scale_survey_grid_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming correction promise lacks visible user request; quoted question has unclear authorship."
+    },
+    {
+      "id": "festival_jobs_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises remaining sound desk hire."
+    },
+    {
+      "id": "scale_audio_balance_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises listening and report without visible request."
+    },
+    {
+      "id": "scale_dance_floor_0",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming floor-taping promise has no visible user request."
+    },
+    {
+      "id": "scale_conference_poster_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises remaining chart work."
+    },
+    {
+      "id": "scale_allotment_key_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming key handover promise lacks visible user request."
+    },
+    {
+      "id": "scale_thesis_format_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender volunteers further thesis repairs without a visible user request."
+    },
+    {
+      "id": "scale_aquarium_feed_0",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Fish-feeding promise remains although food question is withdrawn."
+    },
+    {
+      "id": "scale_tool_training_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises form review and authorisation issuance."
+    },
+    {
+      "id": "scale_lease_meter_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises meter photo lookup and reading."
+    },
+    {
+      "id": "scale_shift_cover_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user commits to checking an appointment before answering the shift request."
+    },
+    {
+      "id": "scale_costume_return_0",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The outstanding costume return is a physical task for the user."
+    },
+    {
+      "id": "scale_course_transfer_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming processing promise lacks visible user request."
+    },
+    {
+      "id": "lab_sample_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited promise to identify vial and send number."
+    },
+    {
+      "id": "scale_archive_permission_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises rights check and permission decision."
+    },
+    {
+      "id": "scale_dental_receipt_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender volunteers receipt retrieval without a visible user request."
+    },
+    {
+      "id": "scale_audio_balance_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited listening and reporting promise."
+    },
+    {
+      "id": "scale_community_oven_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Taking oven cleaning shift is a user task."
+    },
+    {
+      "id": "scale_lecture_notes_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Uploading existing missing pages is a user task rather than a prose response."
+    },
+    {
+      "id": "scale_remote_unlock_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises remote gate operation."
+    },
+    {
+      "id": "scale_freight_dimensions_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming measurement promise lacks visible user request."
+    },
+    {
+      "id": "scale_key_cutting_0",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming key-copy promise lacks visible user request."
+    },
+    {
+      "id": "scale_driveway_measure_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming driveway measurement promise lacks visible user request."
+    },
+    {
+      "id": "scale_boat_cover_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender promises seam repair without a visible user request."
+    },
+    {
+      "id": "scale_snow_shovel_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises shovel return."
+    },
+    {
+      "id": "scale_garden_shed_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User still promises shed painting."
+    },
+    {
+      "id": "scale_meeting_minutes_0_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises to finish the action-owner section."
+    },
+    {
+      "id": "historian_contact_0",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "An introduction requires arranging contact rather than merely answering in prose."
+    },
+    {
+      "id": "scale_electronics_offers_3",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Taking or sending a model-number photo is a user task."
+    },
+    {
+      "id": "scale_cinema_referral_0",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Requested introduction is a user action beyond answering familiarity question."
+    },
+    {
+      "id": "scale_visitor_parking_0",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender volunteers car registration without a visible user request."
+    },
+    {
+      "id": "do_not_order_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Sender takes over tile ordering but unresolved promise lacks user request."
+    },
+    {
+      "id": "scale_lab_storage_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Physical sample transfer requested of user."
+    },
+    {
+      "id": "scale_club_banner_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User is asked to order a banner, a task rather than prose."
+    },
+    {
+      "id": "scale_snow_shovel_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming shovel promise lacks visible user request."
+    },
+    {
+      "id": "scale_remote_unlock_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming gate-operation promise lacks visible user request."
+    },
+    {
+      "id": "do_not_order_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises to place tile order after relieving recipient."
+    },
+    {
+      "id": "scale_spare_battery_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming battery testing promise lacks visible user request."
+    },
+    {
+      "id": "scale_lab_reagent_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming buffer preparation promise lacks visible user request."
+    },
+    {
+      "id": "scale_village_sign_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender volunteers spelling research and painter follow-up without a user request."
+    },
+    {
+      "id": "scale_database_export_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user has an outstanding export and file-delivery commitment."
+    },
+    {
+      "id": "scale_paint_tin_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming paint code lookup promise lacks visible user request."
+    },
+    {
+      "id": "scale_reading_group_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited edition comparison and page range promise."
+    },
+    {
+      "id": "scale_zine_layout_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises remaining page-number work."
+    },
+    {
+      "id": "scale_software_bulletin_2",
+      "before": "fyi",
+      "after": "noise",
+      "reason": "The routine automated renewal receipt requires no action."
+    },
+    {
+      "id": "scale_exam_room_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises later delivery of the room number after external follow-up."
+    },
+    {
+      "id": "scale_museum_caption_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited archive lookup and date promise."
+    },
+    {
+      "id": "quoted_security_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Account revocation is an outstanding user task rather than a prose answer."
+    },
+    {
+      "id": "scale_stocktake_query_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming count promise lacks visible user request."
+    },
+    {
+      "id": "scale_courier_label_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender volunteers label correction work without a visible user request."
+    },
+    {
+      "id": "scale_charity_receipts_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Sending existing receipt is a document task rather than prose response."
+    },
+    {
+      "id": "scale_work_uniform_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming promise to finish order lacks visible user request."
+    },
+    {
+      "id": "scale_expense_category_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises finance follow-up and an expense update."
+    },
+    {
+      "id": "scale_garden_shed_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming shed-painting promise lacks visible user request."
+    },
+    {
+      "id": "scale_campsite_water_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises to contact the warden and relay the answer."
+    },
+    {
+      "id": "scale_aquarium_feed_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Fish feeding is a physical user task."
+    },
+    {
+      "id": "scale_lab_reagent_2",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Ordering reagent is a user task."
+    },
+    {
+      "id": "scale_boat_cover_2",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The remaining strap replacement is a physical user task."
+    },
+    {
+      "id": "scale_writing_feedback_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises introduction review and comments."
+    },
+    {
+      "id": "scale_snow_plough_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Booking a plough operator is a user task rather than prose."
+    },
+    {
+      "id": "terse_lab_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises unsigned form completion."
+    },
+    {
+      "id": "formal_enquiry_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises archive lookup and module list."
+    },
+    {
+      "id": "scale_rental_extension_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Rental extension is a task requested of user."
+    },
+    {
+      "id": "scale_visitor_parking_0_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises car-park registration."
+    },
+    {
+      "id": "scale_book_binding_0_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises unfinished book stitching."
+    },
+    {
+      "id": "scale_cinema_referral_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises introduction after contact check."
+    },
+    {
+      "id": "roof_report_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises repair scheduling and appointment delivery."
+    },
+    {
+      "id": "scale_sample_return_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user commits to physically returning swatches after lunch."
+    },
+    {
+      "id": "scale_lecture_notes_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user still owes the requested scans and upload."
+    },
+    {
+      "id": "scale_snow_plough_0",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender volunteers plough arrangements without a visible user request."
+    },
+    {
+      "id": "bullet_jobs_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Changelog review remains a user task without an explicit prose-response request."
+    },
+    {
+      "id": "scale_conference_poster_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming chart promise has no visible user request."
+    },
+    {
+      "id": "scale_school_trip_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises payment investigation and findings."
+    },
+    {
+      "id": "scale_house_number_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming sign-options promise lacks visible user request."
+    },
+    {
+      "id": "scale_book_donation_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited organiser consultation and response promise."
+    },
+    {
+      "id": "locker_location_2_reversed",
+      "before": "abstain",
+      "after": "waiting_on_them",
+      "reason": "Explicit status question establishes waiting despite missing history."
+    },
+    {
+      "id": "conditional_offer_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises easel delivery."
+    },
+    {
+      "id": "scale_reading_group_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises edition comparison and matching pages."
+    },
+    {
+      "id": "scale_pet_sitting_0",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender volunteers rabbit care and collection without a visible user request."
+    },
+    {
+      "id": "workshop_prep_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender's room-booking promise lacks a visible user request."
+    },
+    {
+      "id": "scale_clay_delivery_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Clay collection is a user task."
+    },
+    {
+      "id": "course_portal_1",
+      "before": "fyi",
+      "after": "noise",
+      "reason": "The automated receipt confirms completion and requires no action."
+    },
+    {
+      "id": "scale_logo_colour_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises colour lookup and reference."
+    },
+    {
+      "id": "scale_museum_caption_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises register lookup and date."
+    },
+    {
+      "id": "roof_report_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender volunteers repair scheduling without a visible user request."
+    },
+    {
+      "id": "scale_rental_extension_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming rental-extension promise lacks visible user request."
+    },
+    {
+      "id": "missing_appendix_0",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Providing missing appendix is a document task rather than prose answer."
+    },
+    {
+      "id": "door_access_0",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Arranging latch adjustment is a concrete user task."
+    },
+    {
+      "id": "scale_clay_delivery_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises clay collection."
+    },
+    {
+      "id": "terse_lab_0",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Signing an unsigned form is a user task."
+    },
+    {
+      "id": "conditional_offer_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming delivery promise lacks explicit visible user request."
+    },
+    {
+      "id": "bike_service_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises a future caliper photo."
+    },
+    {
+      "id": "scale_aquarium_feed_0_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User fish-feeding promise remains after food question canceled."
+    },
+    {
+      "id": "scale_pet_sitting_0_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user commits to rabbit care and cage collection."
+    },
+    {
+      "id": "unassigned_delivery_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming delivery reception commitment lacks visible user request."
+    },
+    {
+      "id": "scale_parcel_insurance_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited coverage investigation and decision promise."
+    },
+    {
+      "id": "scale_tool_training_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender volunteers authorisation work without a visible user request."
+    },
+    {
+      "id": "spreadsheet_audit_2",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Spreadsheet checking is a user task without explicit requested prose."
+    },
+    {
+      "id": "scale_clay_delivery_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming clay promise lacks visible user request."
+    },
+    {
+      "id": "scale_boiler_visit_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises engineer booking task."
+    },
+    {
+      "id": "scale_community_oven_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises oven cleaning task."
+    },
+    {
+      "id": "scale_festival_power_0_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises remaining power-board check."
+    },
+    {
+      "id": "scale_garden_shed_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Latch fitting is a physical user task."
+    },
+    {
+      "id": "scale_rental_extension_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises rental extension request and date."
+    },
+    {
+      "id": "scale_campsite_water_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender volunteers contacting the warden without a visible user request."
+    },
+    {
+      "id": "scale_archive_permission_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming permission-decision promise lacks visible user request."
+    },
+    {
+      "id": "scale_village_sign_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises spelling research and painter follow-up."
+    },
+    {
+      "id": "scale_freight_dimensions_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises crate measurement and height report."
+    },
+    {
+      "id": "deposit_return_2",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Requested answer remains but user also promises separate statement reconciliation."
+    },
+    {
+      "id": "scale_audition_slot_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming audition-choice promise lacks visible user request."
+    },
+    {
+      "id": "quoted_delivery_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user commits to completing requested rescheduling through a depot call."
+    },
+    {
+      "id": "scale_puzzle_exchange_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Physical puzzle return is user task."
+    },
+    {
+      "id": "ceramics_booking_2_reversed",
+      "before": "abstain",
+      "after": "waiting_on_them",
+      "reason": "Visible arrangement question requires recipient response."
+    },
+    {
+      "id": "scale_grant_attachment_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender volunteers retrieving amendments without a visible user request."
+    },
+    {
+      "id": "tooling_news_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming investigation promise lacks visible explicit user request; ticket context alone insufficient."
+    },
+    {
+      "id": "scale_festival_power_0",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming board-check promise lacks visible user request."
+    },
+    {
+      "id": "scale_dental_receipt_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Resending a corrected receipt is a document-handling task rather than prose."
+    },
+    {
+      "id": "scale_survey_grid_0",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Editing boundary coordinates is concrete user task."
+    },
+    {
+      "id": "scale_driveway_measure_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises driveway measurement and report."
+    },
+    {
+      "id": "scale_lab_storage_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises sample transfer and log update."
+    },
+    {
+      "id": "scale_club_banner_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises banner order and delivery estimate."
+    },
+    {
+      "id": "scale_voucher_redemption_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Entering a voucher code is a user task rather than a requested reply."
+    },
+    {
+      "id": "scale_potluck_diet_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises ingredient checking and an allergen list."
+    },
+    {
+      "id": "scale_pet_sitting_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Rabbit care is a physical user task, not merely a prose response."
+    },
+    {
+      "id": "bike_service_0",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Sending a caliper photo is a user task rather than a prose answer."
+    },
+    {
+      "id": "lab_sample_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises vial identification and response without visible request."
+    },
+    {
+      "id": "scale_courier_label_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises number retrieval and label printing."
+    },
+    {
+      "id": "scale_market_stall_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender volunteers organiser follow-up without a visible user request."
+    },
+    {
+      "id": "scale_speaker_cable_0",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The unsolicited cable-delivery promise lacks a visible user request."
+    },
+    {
+      "id": "scale_choir_music_0",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited scanning and upload promise."
+    },
+    {
+      "id": "forwarded_job_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Correcting expense entry is concrete user task."
+    },
+    {
+      "id": "spreadsheet_audit_0",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming spreadsheet-check promise lacks visible user request."
+    },
+    {
+      "id": "scale_boat_cover_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user retains a seam-repair commitment."
+    },
+    {
+      "id": "scale_choir_music_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Scanning music is concrete user task."
+    },
+    {
+      "id": "scale_campsite_water_0",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Contacting the warden is a user task rather than a direct prose answer."
+    },
+    {
+      "id": "scale_map_attribution_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming license-check promise lacks an explicit visible user request; quoted request has unclear speaker."
+    },
+    {
+      "id": "do_not_order_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Placing tile order is concrete user task."
+    },
+    {
+      "id": "missing_minutes_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Resending the minutes is a document-handling task rather than a prose response."
+    },
+    {
+      "id": "scale_map_attribution_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises license check and credit response."
+    },
+    {
+      "id": "scale_club_banner_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming banner-order promise lacks visible user request."
+    },
+    {
+      "id": "scale_family_album_0",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited promise to finish scanning and send archive."
+    },
+    {
+      "id": "scale_parcel_insurance_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises insurance review and decision without visible request."
+    },
+    {
+      "id": "terse_lab_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited form signing promise."
+    },
+    {
+      "id": "scale_band_setlist_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming encore-edit promise lacks visible user request."
+    },
+    {
+      "id": "scale_webinar_recording_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises recording conversion and file delivery."
+    },
+    {
+      "id": "scale_key_cutting_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Key copying is a physical user task."
+    },
+    {
+      "id": "scale_cinema_referral_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited introduction and contact check promise."
+    },
+    {
+      "id": "scale_voucher_redemption_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user commits to organiser follow-up on the voucher."
+    },
+    {
+      "id": "lamp_collection_0_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises lamp collection and confirmation."
+    },
+    {
+      "id": "scale_speaker_cable_0_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user commits to bringing the cable."
+    },
+    {
+      "id": "scale_meeting_minutes_0",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender promises further minutes work without a visible user request."
+    },
+    {
+      "id": "publication_edit_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises remaining proofreading task."
+    },
+    {
+      "id": "bike_service_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The unsolicited photo promise lacks a visible user request."
+    },
+    {
+      "id": "scale_allotment_key_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises physical key handover."
+    },
+    {
+      "id": "scale_fitness_campaign_3",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Signing a cancellation form is a user task rather than a prose response."
+    },
+    {
+      "id": "scale_programme_bio_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender volunteers biography revision without a visible user request."
+    },
+    {
+      "id": "scale_key_cutting_0_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises key copies."
+    },
+    {
+      "id": "lamp_collection_0",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming lamp-collection promise lacks visible user request."
+    },
+    {
+      "id": "formal_enquiry_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited archive lookup and module list promise."
+    },
+    {
+      "id": "scale_band_setlist_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises encore editing."
+    },
+    {
+      "id": "cryptic_reference_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Kettle replacement is a physical user task."
+    },
+    {
+      "id": "research_reference_0",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming citation promise lacks visible user request."
+    },
+    {
+      "id": "scale_event_waiver_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises waiver processing and confirmation."
+    },
+    {
+      "id": "scale_paint_tin_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises paint lookup and code without visible request."
+    },
+    {
+      "id": "scale_book_binding_0",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming unfinished stitching promise lacks visible user request."
+    },
+    {
+      "id": "spreadsheet_audit_0_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises spreadsheet check."
+    },
+    {
+      "id": "scale_lease_meter_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited meter photo lookup and reading promise."
+    },
+    {
+      "id": "cryptic_reference_0",
+      "before": "abstain",
+      "after": "needs_reply",
+      "reason": "Explicit update question needs answer despite vague history."
+    },
+    {
+      "id": "scale_parcel_dropoff_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises parcel follow-up and delivery-note retrieval."
+    },
+    {
+      "id": "scale_visitor_parking_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Car registration is a user task rather than a prose response."
+    },
+    {
+      "id": "quoted_thanks_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming drawing-choice promise lacks visible user request."
+    },
+    {
+      "id": "scale_tool_training_0",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Completing the refresher form is a user task; automation is not established."
+    },
+    {
+      "id": "ceramics_booking_2",
+      "before": "abstain",
+      "after": "needs_reply",
+      "reason": "Explicit arrangement question requires answer despite missing history."
+    },
+    {
+      "id": "scale_exhibition_hours_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises closing-time investigation and answer."
+    },
+    {
+      "id": "scale_spare_battery_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises battery test without visible request."
+    },
+    {
+      "id": "scale_book_donation_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises organiser consultation and decision."
+    },
+    {
+      "id": "scale_family_album_0_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises remaining scanning and archive delivery."
+    },
+    {
+      "id": "scale_community_oven_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited oven cleaning promise."
+    },
+    {
+      "id": "scale_programme_bio_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises a shortened biography."
+    },
+    {
+      "id": "scale_logo_colour_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited logo reference lookup promise."
+    },
+    {
+      "id": "scale_shoe_repair_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises sole-fit check and call."
+    },
+    {
+      "id": "scale_event_waiver_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming waiver-processing promise lacks visible user request."
+    },
+    {
+      "id": "scale_thesis_format_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user still promises bibliography repairs and file delivery."
+    },
+    {
+      "id": "audio_permission_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited license check and response promise."
+    },
+    {
+      "id": "locker_location_2",
+      "before": "abstain",
+      "after": "needs_reply",
+      "reason": "Explicit locker-status question requires answer despite missing history."
+    },
+    {
+      "id": "ceramic_promo_2",
+      "before": "fyi",
+      "after": "noise",
+      "reason": "The routine dispatch receipt requires no action or calendar response."
+    },
+    {
+      "id": "scale_sample_return_0",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The outstanding swatch return is a physical user task."
+    },
+    {
+      "id": "scale_camera_hire_0",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender promises booking work without a visible user request."
+    },
+    {
+      "id": "scale_map_attribution_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Attribution correction is a user editing task without requested prose."
+    },
+    {
+      "id": "publication_edit_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited remaining proofreading promise."
+    },
+    {
+      "id": "scale_dance_floor_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Tape delivery is a physical user task."
+    },
+    {
+      "id": "festival_jobs_1",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "Lighting arrangement is remaining concrete user task."
+    },
+    {
+      "id": "scale_charity_receipts_0",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited remaining reconciliation and statement promise."
+    },
+    {
+      "id": "recipe_promise_0_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises recipe without visible request."
+    },
+    {
+      "id": "scale_map_fold_0_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises map folding and packing."
+    },
+    {
+      "id": "audio_permission_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises license check and response without visible request."
+    },
+    {
+      "id": "scale_costume_return_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises a future costume return."
+    },
+    {
+      "id": "scale_zine_layout_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming pagination promise lacks visible user request."
+    },
+    {
+      "id": "scale_dental_receipt_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises receipt retrieval and delivery."
+    },
+    {
+      "id": "scale_snow_plough_0_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises plough arrangements and arrival information."
+    },
+    {
+      "id": "scale_school_trip_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming payment-investigation promise lacks visible user request."
+    },
+    {
+      "id": "scale_artwork_credit_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises artist credit confirmation."
+    },
+    {
+      "id": "scale_window_key_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises replacement key arrangement."
+    },
+    {
+      "id": "scale_potluck_diet_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender volunteers ingredient checking without a visible user request."
+    },
+    {
+      "id": "scale_shoe_repair_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming sole-fit promise lacks visible user request."
+    },
+    {
+      "id": "scale_lab_storage_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited sample transfer and log update promise."
+    },
+    {
+      "id": "scale_puzzle_exchange_2",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Unsolicited puzzle return promise remains despite received parcel."
+    },
+    {
+      "id": "scale_puzzle_exchange_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises puzzle return task."
+    },
+    {
+      "id": "scale_writing_feedback_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "Incoming review promise lacks visible user request."
+    },
+    {
+      "id": "scale_stocktake_query_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises adapter count and message."
+    },
+    {
+      "id": "scale_lab_reagent_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises remaining buffer preparation."
+    },
+    {
+      "id": "scale_bike_route_1",
+      "before": "waiting_on_them",
+      "after": "abstain",
+      "reason": "The sender volunteers route checking without a visible user request."
+    },
+    {
+      "id": "scale_choir_music_0_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises scanning and uploading music."
+    },
+    {
+      "id": "scale_grant_attachment_2_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "The user promises amendment retrieval and forwarding."
+    },
+    {
+      "id": "scale_house_number_1_reversed",
+      "before": "needs_reply",
+      "after": "abstain",
+      "reason": "User promises sign-options research and reply."
+    }
+  ]
+}
