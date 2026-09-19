@@ -1,4 +1,4 @@
-"""Train a local, direction-aware head on frozen MiniLM embeddings."""
+"""Train a local, direction-aware head on frozen NLI encoder embeddings."""
 
 import argparse
 import hashlib
@@ -16,8 +16,8 @@ if TYPE_CHECKING:
 os.environ.setdefault("HF_HUB_DISABLE_TELEMETRY", "1")
 os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
 
-BASE = "sentence-transformers/all-MiniLM-L6-v2"
-REVISION = "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+BASE = "cross-encoder/nli-deberta-v3-xsmall"
+REVISION = "a150876415327c80daeff35ca6f68f5ed8cf5c24"
 LABELS = ["abstain", "fyi", "needs_reply", "noise", "waiting_on_them"]
 LABEL_POLICIES = {"synthetic-obligations-v1", "reply-triage-v2"}
 HEAD_VERSION = 3
@@ -241,19 +241,59 @@ def score(cases: list[dict], predicted: list[str]) -> dict:
     return result
 
 
-def train_model(data: Path, output: Path) -> None:
+def load_base_encoder() -> "SentenceTransformer":
+    from huggingface_hub import snapshot_download
     from sentence_transformers import SentenceTransformer
+    from sentence_transformers.base.modules.transformer import Transformer
+    from sentence_transformers.sentence_transformer.modules.pooling import Pooling
+
+    snapshot = snapshot_download(
+        BASE,
+        revision=REVISION,
+        local_files_only=True,
+        allow_patterns=[
+            "config.json",
+            "model.safetensors",
+            "tokenizer_config.json",
+            "tokenizer.json",
+            "special_tokens_map.json",
+            "added_tokens.json",
+        ],
+    )
+    transformer = Transformer(
+        snapshot,
+        model_kwargs={
+            "use_safetensors": True,
+            "trust_remote_code": False,
+            "local_files_only": True,
+        },
+        processor_kwargs={"trust_remote_code": False, "local_files_only": True},
+        max_seq_length=CONTEXT_TOKENS_MAX,
+    )
+    config = transformer.auto_model.config
+    if (
+        config.hidden_size != 384
+        or config.max_position_embeddings != CONTEXT_TOKENS_MAX
+    ):
+        raise ValueError("unexpected base encoder dimensions or positional capacity")
+    encoder = SentenceTransformer(
+        modules=[transformer, Pooling(384, pooling_mode="mean")], device="cpu"
+    )
+    if (
+        encoder.max_seq_length != CONTEXT_TOKENS_MAX
+        or encoder.get_embedding_dimension() != 384
+    ):
+        raise ValueError("unexpected pooled encoder dimensions or token limit")
+    return encoder
+
+
+def train_model(data: Path, output: Path) -> None:
 
     cases, policy = load_dataset(data)
     train, dev = training_split(cases)
     output.mkdir(parents=True, exist_ok=False)
-    encoder = SentenceTransformer(
-        BASE, revision=REVISION, device="cpu", trust_remote_code=False
-    )
+    encoder = load_base_encoder()
     position_capacity = encoder[0].auto_model.config.max_position_embeddings
-    if position_capacity != CONTEXT_TOKENS_MAX:
-        raise ValueError("unexpected base positional capacity")
-    encoder.max_seq_length = CONTEXT_TOKENS_MAX
     train_vectors = features(encoder, train)
     classifier = fit_classifier(train_vectors, [case["expected"] for case in train])
     head = {

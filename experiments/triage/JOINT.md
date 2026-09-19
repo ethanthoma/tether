@@ -3,10 +3,13 @@
 Current training and inference encode the complete latest one- or two-message
 exchange together. Each message has an explicit speaker marker; `\n\n---\n\n`
 separates messages. Attention can therefore compare a request with its response.
-The normalized 384-dimensional MiniLM embedding is followed by four binary
+The normalized 384-dimensional encoder embedding is followed by four binary
 position/direction indicators, producing 388 features for a five-class linear head.
 
-The pinned 22.7M-parameter base supports 512 positions. Training sets and saves a
+The current [v2g base](v2g/RELEASE.md) is a pinned DeBERTa language-inference
+encoder with explicit mean pooling; its original NLI output head is discarded.
+It has approximately 70.7M encoder parameters and supports 512 positions.
+Training sets and saves a
 512-token combined-context limit, including markers and tokenizer special tokens.
 Inference checks that setting, rejects oversized exchanges without truncation,
 and preserves the Go adapter's 4,000-byte-per-body and 20-case request bounds.
@@ -26,21 +29,39 @@ cutoffs against development data before making held-out predictions.
   accuracy to 25/30. Its safe cutoffs disabled waiting_on_them: rejected before test.
 - [V2e](v2e/RESULT.md) accepted 37/120 held-out cases with two false reminders:
   rejected. Its test is consumed.
-- [V2f](v2f/RELEASE.md) adds independently worded conversations and fresh
-  development/test families; its quality gate and training recipe stay fixed.
+- [V2f](v2f/RESULT.md) accepted only 26/152 development cases and was rejected
+  before test. Its 154-case test remains unused.
+- [V2g](v2g/RELEASE.md) changes the pretrained encoder while preserving v2f's
+  reviewed data, optimizer recipe, and held-out acceptance gate.
 
 Run the CPU fine-tuner with a fresh output directory:
 
 ```sh
 nix-shell experiments/triage/shell.nix
 HF_HUB_OFFLINE=1 experiments/triage/.venv/bin/python experiments/triage/finetune.py \
-  --data experiments/triage/v2e/training.json \
-  --output experiments/triage/runs/v2e-production/model
+  --data experiments/triage/v2f/training.json \
+  --output experiments/triage/runs/v2g-production/model
 ```
 
+For the first run, cache the pinned base inside the same Nix shell:
+
+```sh
+PYTHONPATH=experiments/triage experiments/triage/.venv/bin/python - <<'PY'
+from huggingface_hub import snapshot_download
+from train import BASE, REVISION
+
+snapshot_download(BASE, revision=REVISION, allow_patterns=[
+    "config.json", "model.safetensors", "tokenizer_config.json", "tokenizer.json",
+    "special_tokens_map.json", "added_tokens.json",
+])
+PY
+```
+
+`load_base_encoder` loads only that cached revision with remote code disabled.
 The data path is created only after blind review and partition checks. Training
 records the exact data hash, recipe, checkpoint history, and cutoffs. The release
-gate additionally requires zero accepted held-out errors, at least 25% coverage,
+gate first requires 25% development coverage and both actionable classes before
+held-out inference. It additionally requires zero accepted held-out errors, at least 25% coverage,
 and both actionable classes. Synthetic evidence does not establish real-mail
 accuracy. Production authority remains off until the gate, native CLI check,
 and operational shadow verification pass; Bend's three switches are independent.

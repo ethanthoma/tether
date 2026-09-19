@@ -70,6 +70,9 @@ def main() -> None:
     development = probabilities(head, features(encoder, dev))
     if select_thresholds(head, dev, development) != head["thresholds"]:
         raise ValueError("artifact cutoffs do not match development-only selection")
+    readiness = validate_development(
+        dev, predictions(head, development, head["thresholds"])
+    )
     values = probabilities(head, features(encoder, cases))
     raw = predictions(head, values)
     selected = predictions(head, values, head["thresholds"])
@@ -87,6 +90,7 @@ def main() -> None:
         "max_seq_length": CONTEXT_TOKENS_MAX,
         "separation": separation,
         "thresholds": head["thresholds"],
+        "development_readiness": readiness,
         **release_metrics(cases, selected, raw),
         "limitations": "Synthetic, correlated families; not an estimate of real-mail accuracy.",
         "predictions": [
@@ -118,6 +122,34 @@ def validate_reviewed_source(source: dict) -> None:
         != "blind_reviewer_agreed_independence_self_attested"
     ):
         raise ValueError("independently reviewed fully synthetic export required")
+
+
+def validate_development(cases: list[dict], selected: list[str]) -> dict:
+    if not 1 <= len(cases) <= 1000 or any(case.get("split") != "dev" for case in cases):
+        raise ValueError("development-only cases required")
+    if any(label not in LABELS for label in selected):
+        raise ValueError("unknown development prediction")
+    metrics = score(cases, selected)
+    errors = metrics["accepted"] - metrics["correct_accepted"]
+    coverage = metrics["accepted"] / len(cases)
+    actionable = {
+        label: sum(
+            case["expected"] == prediction == label
+            for case, prediction in zip(cases, selected, strict=True)
+        )
+        for label in ("needs_reply", "waiting_on_them")
+    }
+    if errors or coverage < 0.25 or not all(actionable.values()):
+        raise ValueError(
+            "development readiness failed; held-out inference is prohibited"
+        )
+    return {
+        "cases": len(cases),
+        "accepted": metrics["accepted"],
+        "accepted_errors": errors,
+        "coverage": coverage,
+        "actionable_correct": actionable,
+    }
 
 
 def validate_training(

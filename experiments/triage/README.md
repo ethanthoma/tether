@@ -6,8 +6,9 @@ the [v2 training corpus](v2/README.md) supplies the reviewed base data.
 The [joint-context candidate](JOINT.md) is the current training implementation.
 Bend is active in production; the CPU classifier remains a read-only observer
 until a candidate passes its frozen release gate. V2c failed with four accepted
-test errors; v2d failed development coverage of the waiting class. Their results
-remain archived and are not production approvals.
+test errors; v2e failed with two, and v2f was rejected before test on weak
+development results. V2g tests a language-inference encoder with the same reviewed
+data. Earlier results remain archived and are not production approvals.
 
 [REVIEW.md](REVIEW.md) describes the blind training-label review workflow and
 [LABELING.md](LABELING.md) specifies the experimental labels and production-policy

@@ -3,6 +3,7 @@ import unittest
 
 from release import (
     release_metrics,
+    validate_development,
     validate_reviewed_source,
     validate_test,
     validate_training,
@@ -61,6 +62,40 @@ class ReleaseTests(unittest.TestCase):
                 release_metrics(self.cases, selected, self.correct)["approved"],
                 approved,
             )
+
+    def test_development_readiness_preserves_holdout_on_unusable_candidate(
+        self,
+    ) -> None:
+        cases = [{**case, "split": "dev"} for case in self.cases]
+        report = validate_development(cases, self.correct)
+        self.assertEqual(report["accepted_errors"], 0)
+        self.assertEqual(report["actionable_correct"]["needs_reply"], 20)
+        for selected in (
+            ["abstain"] * 100,
+            [
+                label if label in {"fyi", "noise"} else "abstain"
+                for label in self.correct
+            ],
+            ["needs_reply", *self.correct[1:]],
+            self.correct[:-1],
+        ):
+            with self.subTest(selected=selected[:3]), self.assertRaises(ValueError):
+                validate_development(cases, selected)
+        with self.assertRaises(ValueError):
+            validate_development(self.cases, self.correct)
+
+    def test_development_readiness_coverage_boundary(self) -> None:
+        cases = [{**case, "split": "dev"} for case in self.cases]
+        available = [
+            index for index, label in enumerate(self.correct) if label != "abstain"
+        ]
+        selected = ["abstain"] * 100
+        for index in available[:24]:
+            selected[index] = self.correct[index]
+        with self.assertRaises(ValueError):
+            validate_development(cases, selected)
+        selected[available[24]] = self.correct[available[24]]
+        self.assertEqual(validate_development(cases, selected)["coverage"], 0.25)
 
     def test_test_contract_and_prediction_count_fail_closed(self) -> None:
         for cases in (

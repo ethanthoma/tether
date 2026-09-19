@@ -1,6 +1,6 @@
 # Read-only CPU triage shadow
 
-`tether triage-shadow` runs the local MiniLM classifier on cached messages without
+`tether triage-shadow` runs the local CPU classifier on cached messages without
 changing threads, extracting commitments, sending reminders, or calling the LLM.
 It is a separate command, also configured on a production timer every 30 minutes.
 

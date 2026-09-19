@@ -8,12 +8,15 @@ from unittest.mock import patch
 
 import numpy as np
 from train import (
+    BASE,
     CONTEXT_TOKENS_MAX,
     FEATURE_LAYOUT,
     HEAD_VERSION,
     LABELS,
+    REVISION,
     ROOT,
     features,
+    load_base_encoder,
     load_cases,
     load_dataset,
     predictions,
@@ -51,49 +54,75 @@ class EncoderStub:
 
 
 class TrainingTests(unittest.TestCase):
-    def test_base_context_is_extended_only_after_capacity_check(self) -> None:
-        cases = [
-            {
-                "id": f"{split}-{label}",
-                "group": f"{split}-{label}",
-                "split": split,
-                "expected": label,
-                "messages": [{"outbound": False, "body": f"{split} {label}"}],
-            }
-            for split in ("train", "dev")
-            for label in LABELS
-        ]
-        with tempfile.TemporaryDirectory() as directory:
-            path = Path(directory) / "data.json"
-            path.write_text(
-                json.dumps({"label_policy": "reply-triage-v2", "cases": cases})
+    def test_base_encoder_is_pinned_offline_and_checks_dimensions(self) -> None:
+        for hidden, capacity, output_width, output_limit in (
+            (384, 512, 384, 512),
+            (768, 512, 384, 512),
+            (384, 256, 384, 512),
+            (384, 512, 768, 512),
+            (384, 512, 384, 256),
+        ):
+            transformer = SimpleNamespace(
+                auto_model=SimpleNamespace(
+                    config=SimpleNamespace(
+                        hidden_size=hidden, max_position_embeddings=capacity
+                    )
+                )
             )
-            for capacity in (256, 512):
-                encoder = EncoderStub()
-                encoder.max_seq_length = 256
-                encoder.position_capacity = capacity
-                encoder.save_pretrained = lambda *args, **kwargs: None
-                with (
-                    patch(
-                        "sentence_transformers.SentenceTransformer",
-                        return_value=encoder,
-                    ),
-                    patch("builtins.print"),
+            encoder = SimpleNamespace(
+                max_seq_length=output_limit,
+                get_embedding_dimension=lambda width=output_width: width,
+            )
+            with (
+                self.subTest(
+                    hidden=hidden,
+                    capacity=capacity,
+                    output_width=output_width,
+                    output_limit=output_limit,
+                ),
+                patch(
+                    "huggingface_hub.snapshot_download", return_value="/cached/snapshot"
+                ) as download,
+                patch(
+                    "sentence_transformers.base.modules.transformer.Transformer",
+                    return_value=transformer,
+                ) as factory,
+                patch(
+                    "sentence_transformers.sentence_transformer.modules.pooling.Pooling"
+                ) as pooling,
+                patch(
+                    "sentence_transformers.SentenceTransformer", return_value=encoder
+                ) as sentence,
+            ):
+                if (hidden, capacity, output_width, output_limit) == (
+                    384,
+                    512,
+                    384,
+                    512,
                 ):
-                    output = Path(directory) / str(capacity)
-                    if capacity == 256:
-                        with self.assertRaisesRegex(ValueError, "positional capacity"):
-                            train_model(path, output)
-                        self.assertEqual(encoder.max_seq_length, 256)
-                        self.assertEqual(encoder.texts, [])
-                    else:
-                        train_model(path, output)
-                        self.assertEqual(encoder.max_seq_length, 512)
-                        artifact = json.loads((output / "head.json").read_text())
-                        self.assertEqual(artifact["feature_layout"], FEATURE_LAYOUT)
-                        self.assertEqual(
-                            np.asarray(artifact["coefficients"]).shape, (5, 388)
-                        )
+                    self.assertIs(load_base_encoder(), encoder)
+                    pooling.assert_called_once_with(384, pooling_mode="mean")
+                    self.assertEqual(sentence.call_args.kwargs["device"], "cpu")
+                else:
+                    with self.assertRaisesRegex(ValueError, "unexpected"):
+                        load_base_encoder()
+                self.assertEqual(download.call_args.args, (BASE,))
+                self.assertEqual(download.call_args.kwargs["revision"], REVISION)
+                self.assertTrue(download.call_args.kwargs["local_files_only"])
+                allowed = download.call_args.kwargs["allow_patterns"]
+                self.assertIn("model.safetensors", allowed)
+                self.assertFalse(
+                    any(".bin" in name or "onnx" in name for name in allowed)
+                )
+                self.assertEqual(factory.call_args.kwargs["max_seq_length"], 512)
+                self.assertEqual(
+                    factory.call_args.kwargs["model_kwargs"],
+                    {
+                        "use_safetensors": True,
+                        "trust_remote_code": False,
+                        "local_files_only": True,
+                    },
+                )
 
     def test_dataset_policy_rejects_unknown_and_mixed_contracts(self) -> None:
         source = json.loads((ROOT / "seed.json").read_text())
@@ -128,9 +157,7 @@ class TrainingTests(unittest.TestCase):
             output = Path(directory) / "model"
             path.write_text(json.dumps(source))
             with (
-                patch(
-                    "sentence_transformers.SentenceTransformer", return_value=encoder
-                ),
+                patch("train.load_base_encoder", return_value=encoder),
                 patch("builtins.print"),
             ):
                 train_model(path, output)

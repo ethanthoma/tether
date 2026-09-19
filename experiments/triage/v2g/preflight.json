@@ -1,0 +1,64 @@
+{
+  "source": {
+    "base": "cross-encoder/nli-deberta-v3-xsmall",
+    "revision": "a150876415327c80daeff35ca6f68f5ed8cf5c24",
+    "encoder_parameters": 70682112,
+    "source_sha256": {
+      "config.json": "8d9f07bf7ba54a6fc3b1962483056f94c39dcf188db4cf61843e1c88f94b2342",
+      "model.safetensors": "4e4fc4977f8d29d2a164255c8f69b9d6c158deeb309bb5e70445b94666ccd9e9",
+      "tokenizer_config.json": "f3eecd07c370ef0bf7dd3780d3cd68cf9c8b00c267e21a208ddcd8f82bfec1a6",
+      "tokenizer.json": "5124ef2ead1a10a717703bc436de7f353da76d6340e4587719b42b1693707964",
+      "special_tokens_map.json": "ed7c099c988dbb414b18a6980d20cb57b91b7cd119f6f6941eb364b0e892e712",
+      "added_tokens.json": "a4b6bfe668f2b3cf6f0cd535e98a0663d2d0d4a4a15f13075ad3597d33985a23"
+    },
+    "saved_encoder_bytes": 291098190,
+    "saved_files": [
+      "model.safetensors",
+      "README.md",
+      "config.json",
+      "config_sentence_transformers.json",
+      "tokenizer.json",
+      "modules.json",
+      "tokenizer_config.json",
+      "sentence_bert_config.json",
+      "1_Pooling/config.json"
+    ]
+  },
+  "short": {
+    "mode": "short",
+    "cases": 20,
+    "combined_tokens": 35,
+    "load_import_hash_seconds": 3.8899249199894257,
+    "features_seconds": 0.2035964209935628,
+    "process_load_and_features_seconds": 4.0935213409829885,
+    "wall_seconds_with_synthetic_setup": 4.096095486020204,
+    "feature_shape": [
+      20,
+      388
+    ],
+    "finite": true,
+    "oversized_rejected": true,
+    "encoder_sha256": "c03a54ece6c2e0608aba3bf328dc33668109ebabab31d54f1e2a4efce1e5a8a3",
+    "threads": 4,
+    "benchmark_notes": "CPU, fresh interpreter; filesystem page cache may be warm; no task predictions or corpora"
+  },
+  "limit": {
+    "mode": "limit",
+    "cases": 20,
+    "combined_tokens": 512,
+    "load_import_hash_seconds": 3.8921925429604016,
+    "features_seconds": 5.243973360978998,
+    "process_load_and_features_seconds": 9.1361659039394,
+    "wall_seconds_with_synthetic_setup": 9.245034615974873,
+    "feature_shape": [
+      20,
+      388
+    ],
+    "finite": true,
+    "oversized_rejected": true,
+    "encoder_sha256": "c03a54ece6c2e0608aba3bf328dc33668109ebabab31d54f1e2a4efce1e5a8a3",
+    "threads": 4,
+    "benchmark_notes": "CPU, fresh interpreter; filesystem page cache may be warm; no task predictions or corpora"
+  },
+  "scope": "Local CPU preflight using synthetic token-limit fixtures only; not task accuracy or Atlas production latency."
+}

@@ -1,4 +1,4 @@
-"""Fine-tune MiniLM over joint synthetic threads and their direction bits."""
+"""Fine-tune the NLI encoder over joint synthetic threads and direction bits."""
 
 import argparse
 import hashlib
@@ -18,6 +18,7 @@ from train import (
     THRESHOLD_SELECTION,
     features,
     fit_classifier,
+    load_base_encoder,
     load_dataset,
     predictions,
     probabilities,
@@ -41,17 +42,8 @@ def main() -> None:
     train, dev = training_split(cases)
     if policy != "reply-triage-v2" or len(train) > 2000 or len(dev) > 1000:
         raise ValueError("expected bounded v2 training/development data")
-    encoder = SentenceTransformer(
-        BASE,
-        revision=REVISION,
-        device="cpu",
-        trust_remote_code=False,
-        local_files_only=True,
-    )
+    encoder = load_base_encoder()
     position_capacity = encoder[0].auto_model.config.max_position_embeddings
-    if position_capacity != CONTEXT_TOKENS_MAX:
-        raise ValueError("unexpected base positional capacity")
-    encoder.max_seq_length = CONTEXT_TOKENS_MAX
     train_vectors = features(encoder, train)
     features(encoder, dev)
     with torch.no_grad():
