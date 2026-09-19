@@ -1,0 +1,281 @@
+{
+  "label_policy": "reply-triage-v2",
+  "base": "cross-encoder/nli-deberta-v3-xsmall",
+  "revision": "a150876415327c80daeff35ca6f68f5ed8cf5c24",
+  "feature_layout": "joint-thread-v1",
+  "encoder_frozen": false,
+  "data_sha256": "092276e37bfed1fcdcac6fc0013fb1176759fb6522135b1df7a75c6eb78c0cd4",
+  "train_count": 2189,
+  "dev_count": 152,
+  "seed": 42,
+  "epochs": 12,
+  "batch_size": 16,
+  "encoder_learning_rate": 2e-05,
+  "head_learning_rate": 0.001,
+  "weight_decay": 0.01,
+  "gradient_norm_max": 1.0,
+  "loss": "inverse-frequency-weighted cross entropy",
+  "head_initialization": "frozen-encoder logistic regression",
+  "checkpoint_selection": "lowest temperature-calibrated development cross entropy, including epoch zero; ties keep earliest epoch",
+  "selected_epoch": 12,
+  "temperature": 3.7492674358413796,
+  "temperature_bounds": [
+    0.25,
+    8.0
+  ],
+  "temperature_selection": "minimum development negative log likelihood; bounded log-temperature optimization, max 100 iterations, xatol 1e-6; retain one unless improved",
+  "unscaled_head_sha256": "3bb741ccce2d57fbcb1c3e0eb6bd0f90113c5ca8bf2e3a31f6c85d219f2956a2",
+  "max_seq_length": 512,
+  "base_position_capacity": 512,
+  "thresholds": {
+    "abstain": 1.0,
+    "fyi": 0.975,
+    "needs_reply": 0.8,
+    "noise": 0.75,
+    "waiting_on_them": 0.8
+  },
+  "threshold_selection": "maximum development coverage per predicted class with zero accepted errors on the fixed classwise grid; unsupported classes abstain",
+  "dev_raw": {
+    "cases": 152,
+    "accepted": 126,
+    "correct_accepted": 105,
+    "correct_abstentions": 25,
+    "false_reminders": 6,
+    "false_silencing": 8,
+    "actionable_abstained": 0,
+    "ambiguous_accepted": 5
+  },
+  "dev_selective": {
+    "cases": 152,
+    "accepted": 61,
+    "correct_accepted": 61,
+    "correct_abstentions": 30,
+    "false_reminders": 0,
+    "false_silencing": 0,
+    "actionable_abstained": 26,
+    "ambiguous_accepted": 0
+  },
+  "history": [
+    {
+      "epoch": 0,
+      "train_loss": null,
+      "dev_loss": 1.03182850975536,
+      "calibrated_dev_loss": 1.0275339122568863,
+      "temperature": 1.1261110947299482,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 140,
+        "correct_accepted": 84,
+        "correct_abstentions": 6,
+        "false_reminders": 34,
+        "false_silencing": 9,
+        "actionable_abstained": 4,
+        "ambiguous_accepted": 24
+      }
+    },
+    {
+      "epoch": 1,
+      "train_loss": 0.5082050545567407,
+      "dev_loss": 0.9332124863572986,
+      "calibrated_dev_loss": 0.8555541384728652,
+      "temperature": 1.5820041804310123,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 110,
+        "correct_accepted": 79,
+        "correct_abstentions": 21,
+        "false_reminders": 9,
+        "false_silencing": 11,
+        "actionable_abstained": 17,
+        "ambiguous_accepted": 9
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.253875943543215,
+      "dev_loss": 1.0997185667250173,
+      "calibrated_dev_loss": 0.8530056549366126,
+      "temperature": 2.1862005419421235,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 114,
+        "correct_accepted": 78,
+        "correct_abstentions": 22,
+        "false_reminders": 13,
+        "false_silencing": 12,
+        "actionable_abstained": 13,
+        "ambiguous_accepted": 8
+      }
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.14393988652635567,
+      "dev_loss": 1.0767305374706673,
+      "calibrated_dev_loss": 0.7402893128798556,
+      "temperature": 2.4288034546690738,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 133,
+        "correct_accepted": 95,
+        "correct_abstentions": 17,
+        "false_reminders": 18,
+        "false_silencing": 9,
+        "actionable_abstained": 1,
+        "ambiguous_accepted": 13
+      }
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.0934567678517242,
+      "dev_loss": 1.0015157678129851,
+      "calibrated_dev_loss": 0.6512311887441344,
+      "temperature": 2.55074962675759,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 127,
+        "correct_accepted": 98,
+        "correct_abstentions": 22,
+        "false_reminders": 13,
+        "false_silencing": 8,
+        "actionable_abstained": 2,
+        "ambiguous_accepted": 8
+      }
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.05363285698953041,
+      "dev_loss": 1.177613513154841,
+      "calibrated_dev_loss": 0.6575433580648532,
+      "temperature": 3.0499827187085873,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 123,
+        "correct_accepted": 94,
+        "correct_abstentions": 23,
+        "false_reminders": 19,
+        "false_silencing": 4,
+        "actionable_abstained": 5,
+        "ambiguous_accepted": 7
+      }
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.032926115374152735,
+      "dev_loss": 1.1727969256643533,
+      "calibrated_dev_loss": 0.607280674182657,
+      "temperature": 3.2680482294339717,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 127,
+        "correct_accepted": 100,
+        "correct_abstentions": 22,
+        "false_reminders": 9,
+        "false_silencing": 10,
+        "actionable_abstained": 1,
+        "ambiguous_accepted": 8
+      }
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.0219909345817746,
+      "dev_loss": 1.2368216459616526,
+      "calibrated_dev_loss": 0.5983164207715778,
+      "temperature": 3.4277764626058693,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 128,
+        "correct_accepted": 100,
+        "correct_abstentions": 21,
+        "false_reminders": 10,
+        "false_silencing": 8,
+        "actionable_abstained": 1,
+        "ambiguous_accepted": 9
+      }
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.008704162347603265,
+      "dev_loss": 1.184686288948848,
+      "calibrated_dev_loss": 0.5782868750377254,
+      "temperature": 3.4197802706187987,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 122,
+        "correct_accepted": 100,
+        "correct_abstentions": 23,
+        "false_reminders": 7,
+        "false_silencing": 8,
+        "actionable_abstained": 5,
+        "ambiguous_accepted": 7
+      }
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.011699051245017257,
+      "dev_loss": 1.1935021755558872,
+      "calibrated_dev_loss": 0.5714363724464953,
+      "temperature": 3.4816843187556707,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 125,
+        "correct_accepted": 100,
+        "correct_abstentions": 23,
+        "false_reminders": 10,
+        "false_silencing": 7,
+        "actionable_abstained": 2,
+        "ambiguous_accepted": 7
+      }
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.012390952474831825,
+      "dev_loss": 1.3116691563544152,
+      "calibrated_dev_loss": 0.5750035026413858,
+      "temperature": 3.8294367506434455,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 129,
+        "correct_accepted": 102,
+        "correct_abstentions": 22,
+        "false_reminders": 7,
+        "false_silencing": 10,
+        "actionable_abstained": 0,
+        "ambiguous_accepted": 8
+      }
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.006096893877968369,
+      "dev_loss": 1.1586113001693192,
+      "calibrated_dev_loss": 0.5199921480750792,
+      "temperature": 3.6684639712146727,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 124,
+        "correct_accepted": 102,
+        "correct_abstentions": 24,
+        "false_reminders": 8,
+        "false_silencing": 7,
+        "actionable_abstained": 3,
+        "ambiguous_accepted": 6
+      }
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.005879228106983869,
+      "dev_loss": 1.205608899684845,
+      "calibrated_dev_loss": 0.5189229518991739,
+      "temperature": 3.7492674358413796,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 126,
+        "correct_accepted": 105,
+        "correct_abstentions": 25,
+        "false_reminders": 6,
+        "false_silencing": 8,
+        "actionable_abstained": 0,
+        "ambiguous_accepted": 5
+      }
+    }
+  ]
+}
