@@ -1,0 +1,85 @@
+{
+  "rule": "Exclude entire supplemental families for exact normalized message or >=0.65 trigram overlap with current or historical evaluation; labels/predictions not used.",
+  "references": [
+    {
+      "path": "cases.json",
+      "sha256": "8bf1c9da731c953124b69d75c0eca002c21269ee48b5ffb9317d3abf0923f5d6",
+      "cases": 22
+    },
+    {
+      "path": "seed.json",
+      "sha256": "9a1c40ea94c8b178b0b6940860cd22aa4781229c96590e2ca8dd1faa890876b3",
+      "cases": 38
+    },
+    {
+      "path": "synthetic_scenarios.json",
+      "sha256": "bdf2f55e4c6a130a54c2663fdccbb6d2099c791eac40904c9e118537c10c414e",
+      "cases": 126
+    },
+    {
+      "path": "scale_scenarios.json",
+      "sha256": "d9ae88a74188e2660f57f41e77d1b8f439fefdbcc42909d694fa1d45e6399d6c",
+      "cases": 288
+    },
+    {
+      "path": "calibration-temperature.json",
+      "sha256": "ecb900967c3fd34c1f4352b270c00c8f32ce2888352abf75a7228e59e30992ab",
+      "cases": 25
+    },
+    {
+      "path": "calibration-selection.json",
+      "sha256": "fece070a820ff93d593587dc56220368547b35ef349aed240df16a60ec9b5df0",
+      "cases": 25
+    },
+    {
+      "path": "calibration-audit.json",
+      "sha256": "67e4cd5a9cbbc9b0b16cb6e4e225facd973c3b43eb635770d2f6d6e254495acc",
+      "cases": 25
+    },
+    {
+      "path": "v2/training.json",
+      "sha256": "457c482d6a987e3312151179a51b8d4a4b89214d12f666f2fd2012a4d9bb2bf3",
+      "cases": 120
+    },
+    {
+      "path": "v2/test.json",
+      "sha256": "70dfcfc658a218ce36fcb0cf57667e77a9ac86834ca8ef37a57c60a8db774245",
+      "cases": 120
+    },
+    {
+      "path": "v2b/test.json",
+      "sha256": "5e2d1cfd9dae4f8214bdd422b72d3a18e04f11ffb6135c507ae7bc6cf0063978",
+      "cases": 120
+    },
+    {
+      "path": "reviews/v2d-test/reconciled/reviewed.json",
+      "sha256": "104e48aa5764d75730ce346b993d72703429a1cd0536075cd62c115e4a822a5d",
+      "cases": 120
+    },
+    {
+      "path": "v2f/training.json",
+      "sha256": "7d061d562614b23b0c05af0186a2aa016a962fc0e969cfd0620ce714761542e8"
+    },
+    {
+      "path": "v2f/test.json",
+      "sha256": "03725a6aea790dcb38effd866cc1cf605eb04a92a93645505483566af58cf4fb"
+    }
+  ],
+  "excluded_families": [],
+  "collisions": [],
+  "retained": 200,
+  "labels": {
+    "abstain": 40,
+    "noise": 40,
+    "needs_reply": 40,
+    "fyi": 40,
+    "waiting_on_them": 40
+  },
+  "separation": {
+    "partition_counts": [
+      200,
+      1335
+    ],
+    "cross_partition_trigram_jaccard_max": 0.16666666666666666
+  }
+}

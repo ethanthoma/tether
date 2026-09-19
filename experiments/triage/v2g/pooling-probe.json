@@ -1,0 +1,94 @@
+{
+  "base": "cross-encoder/nli-deberta-v3-xsmall",
+  "revision": "a150876415327c80daeff35ca6f68f5ed8cf5c24",
+  "data_sha256": "7d061d562614b23b0c05af0186a2aa016a962fc0e969cfd0620ce714761542e8",
+  "source_weights_sha256": "4e4fc4977f8d29d2a164255c8f69b9d6c158deeb309bb5e70445b94666ccd9e9",
+  "threads": 2,
+  "train_count": 1989,
+  "dev_count": 152,
+  "pooler": {
+    "input": "last hidden layer CLS token",
+    "dense_weight_shape": [
+      384,
+      384
+    ],
+    "activation": "gelu",
+    "dropout": 0
+  },
+  "models": [
+    {
+      "representation": "cls",
+      "raw": {
+        "cases": 152,
+        "accepted": 138,
+        "correct_accepted": 63,
+        "correct_abstentions": 5,
+        "false_reminders": 55,
+        "false_silencing": 10,
+        "actionable_abstained": 5,
+        "ambiguous_accepted": 25
+      },
+      "selective": {
+        "cases": 152,
+        "accepted": 1,
+        "correct_accepted": 1,
+        "correct_abstentions": 30,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 60,
+        "ambiguous_accepted": 0
+      },
+      "thresholds": {
+        "abstain": 1.0,
+        "fyi": 1.0,
+        "needs_reply": 1.0,
+        "noise": 0.75,
+        "waiting_on_them": 1.0
+      },
+      "accepted_per_class": {
+        "fyi": 0,
+        "needs_reply": 0,
+        "noise": 1,
+        "waiting_on_them": 0
+      },
+      "dev_nll": 1.490877724588238
+    },
+    {
+      "representation": "nli_pooler",
+      "raw": {
+        "cases": 152,
+        "accepted": 148,
+        "correct_accepted": 56,
+        "correct_abstentions": 2,
+        "false_reminders": 70,
+        "false_silencing": 14,
+        "actionable_abstained": 1,
+        "ambiguous_accepted": 28
+      },
+      "selective": {
+        "cases": 152,
+        "accepted": 0,
+        "correct_accepted": 0,
+        "correct_abstentions": 30,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 60,
+        "ambiguous_accepted": 0
+      },
+      "thresholds": {
+        "abstain": 1.0,
+        "fyi": 1.0,
+        "needs_reply": 1.0,
+        "noise": 1.0,
+        "waiting_on_them": 1.0
+      },
+      "accepted_per_class": {
+        "fyi": 0,
+        "needs_reply": 0,
+        "noise": 0,
+        "waiting_on_them": 0
+      },
+      "dev_nll": 1.4967646181639016
+    }
+  ]
+}

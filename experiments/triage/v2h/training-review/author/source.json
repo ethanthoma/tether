@@ -1,0 +1,6207 @@
+{
+  "version": 1,
+  "provenance": "fully_synthetic_assistant_authored",
+  "label_policy": "reply-triage-v2",
+  "cases": [
+    {
+      "id": "role_train_010_2",
+      "group": "role_train_family_010",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Do you prefer the short or long interview slot?"
+        },
+        {
+          "outbound": true,
+          "body": "Book the short one; I will still type up the earlier interview."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A resolved answer contains a separate user promise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Do you prefer the short or long interview slot?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Book the short one; I will still type up the earlier interview."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_090_2",
+      "group": "role_train_family_090",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Build notification: branch documentation-check passed."
+        },
+        {
+          "outbound": false,
+          "body": "The automated link checker found no broken links."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Routine successful automated checks need no personal action.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Build notification: branch documentation-check passed."
+          },
+          {
+            "message_index": 1,
+            "quote": "The automated link checker found no broken links."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_043_1",
+      "group": "role_train_family_043",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me your room choice and whether you need breakfast."
+        },
+        {
+          "outbound": false,
+          "body": "Room choice is settled elsewhere; do you need breakfast?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A partially resolved request retains an unanswered component.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please tell me your room choice and whether you need breakfast."
+          },
+          {
+            "message_index": 1,
+            "quote": "Room choice is settled elsewhere; do you need breakfast?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_055_1",
+      "group": "role_train_family_055",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What size shirt and which colour do you want?"
+        },
+        {
+          "outbound": true,
+          "body": "Medium is my size."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user supplies a size but leaves the colour unanswered.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "What size shirt and which colour do you want?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Medium is my size."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_060_1",
+      "group": "role_train_family_060",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Are you available to judge the contest on Saturday?"
+        },
+        {
+          "outbound": true,
+          "body": "The contest theme sounds fun."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Interest and background do not answer availability.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Are you available to judge the contest on Saturday?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The contest theme sounds fun."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_080_2",
+      "group": "role_train_family_080",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will proofread the captions and upload the final booklet."
+        },
+        {
+          "outbound": true,
+          "body": "The captions are proofread and the finished booklet is now uploaded."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "All components of the user commitment are explicitly fulfilled.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will proofread the captions and upload the final booklet."
+          },
+          {
+            "message_index": 1,
+            "quote": "The captions are proofread and the finished booklet is now uploaded."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_082_2",
+      "group": "role_train_family_082",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your daily coding digest: five articles selected for readers."
+        },
+        {
+          "outbound": false,
+          "body": "In this edition: terminal tricks, testing patterns, and community links."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A routine content digest is newsletter traffic.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your daily coding digest: five articles selected for readers."
+          },
+          {
+            "message_index": 1,
+            "quote": "In this edition: terminal tricks, testing patterns, and community links."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_087_1",
+      "group": "role_train_family_087",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated backup report: scheduled snapshot completed."
+        },
+        {
+          "outbound": false,
+          "body": "The nightly snapshot succeeded; no intervention is needed."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Routine successful system reports are automated noise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated backup report: scheduled snapshot completed."
+          },
+          {
+            "message_index": 1,
+            "quote": "The nightly snapshot succeeded; no intervention is needed."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_014_2",
+      "group": "role_train_family_014",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will return the borrowed ladder on Saturday."
+        },
+        {
+          "outbound": true,
+          "body": "I found a strap to secure it for the trip."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The follow-up does not fulfill the user delivery promise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will return the borrowed ladder on Saturday."
+          },
+          {
+            "message_index": 1,
+            "quote": "I found a strap to secure it for the trip."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_038_2",
+      "group": "role_train_family_038",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Would you confirm whether the permit has been issued?"
+        },
+        {
+          "outbound": true,
+          "body": "It was filed under the community garden account."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Context does not resolve the requested status response.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Would you confirm whether the permit has been issued?"
+          },
+          {
+            "message_index": 1,
+            "quote": "It was filed under the community garden account."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_067_2",
+      "group": "role_train_family_067",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "A water main repair is scheduled for your street."
+        },
+        {
+          "outbound": false,
+          "body": "The repair is complete and the street is open again."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A relevant service update has no required response.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "A water main repair is scheduled for your street."
+          },
+          {
+            "message_index": 1,
+            "quote": "The repair is complete and the street is open again."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_085_1",
+      "group": "role_train_family_085",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Forum digest: twelve new posts in the photography community."
+        },
+        {
+          "outbound": false,
+          "body": "Popular this week: tripods, night shots, and printing discussions."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Automated forum summaries do not create a personal obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Forum digest: twelve new posts in the photography community."
+          },
+          {
+            "message_index": 1,
+            "quote": "Popular this week: tripods, night shots, and printing discussions."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_054_2",
+      "group": "role_train_family_054",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you tell me your preferred appointment date?"
+        },
+        {
+          "outbound": true,
+          "body": "I have been to that clinic before."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An unrelated answer does not resolve the date request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you tell me your preferred appointment date?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I have been to that clinic before."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_013_2",
+      "group": "role_train_family_013",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which week works for the workshop?"
+        },
+        {
+          "outbound": true,
+          "body": "May 1\u20135 suits me; please book the space, and I will produce the handouts."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A user task and a requested action from the recipient both remain.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which week works for the workshop?"
+          },
+          {
+            "message_index": 1,
+            "quote": "May 1\u20135 suits me; please book the space, and I will produce the handouts."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_037_1",
+      "group": "role_train_family_037",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you translate the dedication into French?"
+        },
+        {
+          "outbound": true,
+          "body": "The dedication is only the first two lines."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The recipient translation request remains pending.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you translate the dedication into French?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The dedication is only the first two lines."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_084_1",
+      "group": "role_train_family_084",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "New season preview from Summit Apparel."
+        },
+        {
+          "outbound": false,
+          "body": "Explore our autumn jackets in the latest collection."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An apparel campaign is promotional mail.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "New season preview from Summit Apparel."
+          },
+          {
+            "message_index": 1,
+            "quote": "Explore our autumn jackets in the latest collection."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_073_2",
+      "group": "role_train_family_073",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Do you approve the blue binding for the report?"
+        },
+        {
+          "outbound": true,
+          "body": "I approve using the blue binding."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The outgoing answer resolves the approval request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Do you approve the blue binding for the report?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I approve using the blue binding."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_015_2",
+      "group": "role_train_family_015",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please send your chapter comments by Thursday."
+        },
+        {
+          "outbound": true,
+          "body": "I will write the outstanding appendix before the meeting."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A request to the recipient and a separate user commitment coexist.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please send your chapter comments by Thursday."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will write the outstanding appendix before the meeting."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_079_1",
+      "group": "role_train_family_079",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you fetch the borrowed projector tomorrow?"
+        },
+        {
+          "outbound": true,
+          "body": "Forget the pickup; the owner collected it today."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Completion elsewhere removes the requested recipient action.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you fetch the borrowed projector tomorrow?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Forget the pickup; the owner collected it today."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_079_2",
+      "group": "role_train_family_079",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you fetch the borrowed projector tomorrow?"
+        },
+        {
+          "outbound": true,
+          "body": "Please disregard that errand, since the projector has already gone back."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Completion elsewhere removes the requested recipient action.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you fetch the borrowed projector tomorrow?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Please disregard that errand, since the projector has already gone back."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_003_2",
+      "group": "role_train_family_003",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The committee discussed the proposal yesterday."
+        },
+        {
+          "outbound": false,
+          "body": "The proposal issue is back, apparently."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The visible text does not identify a request or its owner.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The committee discussed the proposal yesterday."
+          },
+          {
+            "message_index": 1,
+            "quote": "The proposal issue is back, apparently."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_097_1",
+      "group": "role_train_family_097",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Flash offer from Pixel Prints: discounted photo albums."
+        },
+        {
+          "outbound": false,
+          "body": "Everyone can use code ALBUM15 until Friday."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A public sales deadline is promotional rather than personally required.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Flash offer from Pixel Prints: discounted photo albums."
+          },
+          {
+            "message_index": 1,
+            "quote": "Everyone can use code ALBUM15 until Friday."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_017_1",
+      "group": "role_train_family_017",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will pack the display samples tonight."
+        },
+        {
+          "outbound": true,
+          "body": "The labels are printed, but packing is still to do."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Partial preparation does not complete the promised task.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will pack the display samples tonight."
+          },
+          {
+            "message_index": 1,
+            "quote": "The labels are printed, but packing is still to do."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_033_1",
+      "group": "role_train_family_033",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send the recording of the lecture?"
+        },
+        {
+          "outbound": true,
+          "body": "An audio-only file is fine."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The follow-up specifies an acceptable response without canceling the request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you send the recording of the lecture?"
+          },
+          {
+            "message_index": 1,
+            "quote": "An audio-only file is fine."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_084_2",
+      "group": "role_train_family_084",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "New season preview from Summit Apparel."
+        },
+        {
+          "outbound": false,
+          "body": "Discover lightweight layers in this month\u2019s style edit."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An apparel campaign is promotional mail.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "New season preview from Summit Apparel."
+          },
+          {
+            "message_index": 1,
+            "quote": "Discover lightweight layers in this month\u2019s style edit."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_008_1",
+      "group": "role_train_family_008",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The rehearsal room is available on Tuesday."
+        },
+        {
+          "outbound": true,
+          "body": "I will collect the key on Monday."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An outgoing user-only commitment needs extraction.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The rehearsal room is available on Tuesday."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will collect the key on Monday."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_005_1",
+      "group": "role_train_family_005",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I have your ceramic bowl here."
+        },
+        {
+          "outbound": false,
+          "body": "I will bring it around on Sunday."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An incoming unsolicited delivery promise requires commitment routing.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I have your ceramic bowl here."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will bring it around on Sunday."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_059_1",
+      "group": "role_train_family_059",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which address and recipient name belong on the invitation?"
+        },
+        {
+          "outbound": true,
+          "body": "The address is 18 Birch Lane."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A recipient name remains requested after a partial response.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which address and recipient name belong on the invitation?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The address is 18 Birch Lane."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_089_2",
+      "group": "role_train_family_089",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Try our new audiobook bundle with a free trial."
+        },
+        {
+          "outbound": false,
+          "body": "Explore the listening bundle in our spring promotion."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An unsolicited subscription promotion is noise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Try our new audiobook bundle with a free trial."
+          },
+          {
+            "message_index": 1,
+            "quote": "Explore the listening bundle in our spring promotion."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_023_2",
+      "group": "role_train_family_023",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The proof copy is on my desk."
+        },
+        {
+          "outbound": true,
+          "body": "Could you put the proof in the post for me?"
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user explicitly requests an action from the sender.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The proof copy is on my desk."
+          },
+          {
+            "message_index": 1,
+            "quote": "Could you put the proof in the post for me?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_083_1",
+      "group": "role_train_family_083",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated receipt: your streaming subscription renewed."
+        },
+        {
+          "outbound": false,
+          "body": "Payment processed successfully; this receipt is for your records."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Routine automated billing confirmation requires no response.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated receipt: your streaming subscription renewed."
+          },
+          {
+            "message_index": 1,
+            "quote": "Payment processed successfully; this receipt is for your records."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_100_1",
+      "group": "role_train_family_100",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your game launcher news roundup has arrived."
+        },
+        {
+          "outbound": false,
+          "body": "Read the latest patch highlights and optional cosmetic offers."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Automated entertainment news and promotions create no reply obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your game launcher news roundup has arrived."
+          },
+          {
+            "message_index": 1,
+            "quote": "Read the latest patch highlights and optional cosmetic offers."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_097_2",
+      "group": "role_train_family_097",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Flash offer from Pixel Prints: discounted photo albums."
+        },
+        {
+          "outbound": false,
+          "body": "Our storewide album discount expires at the end of the week."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A public sales deadline is promotional rather than personally required.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Flash offer from Pixel Prints: discounted photo albums."
+          },
+          {
+            "message_index": 1,
+            "quote": "Our storewide album discount expires at the end of the week."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_035_1",
+      "group": "role_train_family_035",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "What is the cost of framing the large poster?"
+        },
+        {
+          "outbound": true,
+          "body": "I mean the one measuring 60 by 90 centimetres."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The outgoing price question remains unanswered.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "What is the cost of framing the large poster?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I mean the one measuring 60 by 90 centimetres."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_098_1",
+      "group": "role_train_family_098",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated report: scheduled cache cleanup completed."
+        },
+        {
+          "outbound": false,
+          "body": "Temporary cache files were removed successfully."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Routine completed maintenance notifications have no required action.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated report: scheduled cache cleanup completed."
+          },
+          {
+            "message_index": 1,
+            "quote": "Temporary cache files were removed successfully."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_016_1",
+      "group": "role_train_family_016",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will call the electrician about the faulty socket."
+        },
+        {
+          "outbound": true,
+          "body": "The socket is beside the kitchen door."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Additional details leave the user task commitment outstanding.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will call the electrician about the faulty socket."
+          },
+          {
+            "message_index": 1,
+            "quote": "The socket is beside the kitchen door."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_021_2",
+      "group": "role_train_family_021",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What time should I arrive at the dock?"
+        },
+        {
+          "outbound": true,
+          "body": "Seven in the morning; could you bring an extra oar?"
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user answers the question and leaves only an explicit recipient task.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "What time should I arrive at the dock?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Seven in the morning; could you bring an extra oar?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_010_1",
+      "group": "role_train_family_010",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Do you prefer the short or long interview slot?"
+        },
+        {
+          "outbound": true,
+          "body": "The short slot. I will transcribe our previous conversation tomorrow."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A resolved answer contains a separate user promise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Do you prefer the short or long interview slot?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The short slot. I will transcribe our previous conversation tomorrow."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_094_2",
+      "group": "role_train_family_094",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated delivery report: your digital magazine issue is available."
+        },
+        {
+          "outbound": false,
+          "body": "You can now read this month\u2019s edition in the app."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Routine publication availability notices are automated subscription traffic.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated delivery report: your digital magazine issue is available."
+          },
+          {
+            "message_index": 1,
+            "quote": "You can now read this month\u2019s edition in the app."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_022_2",
+      "group": "role_train_family_022",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Would you like the vegetarian lunch?"
+        },
+        {
+          "outbound": true,
+          "body": "Vegetarian for me; can you check whether it contains dairy?"
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The initial question is answered and a new recipient response is requested.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Would you like the vegetarian lunch?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Vegetarian for me; can you check whether it contains dairy?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_047_2",
+      "group": "role_train_family_047",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The bakery can make the cake without nuts."
+        },
+        {
+          "outbound": false,
+          "body": "What message would you like on the icing?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user owes a requested textual choice.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The bakery can make the cake without nuts."
+          },
+          {
+            "message_index": 1,
+            "quote": "What message would you like on the icing?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_058_1",
+      "group": "role_train_family_058",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Will you be attending the morning session or the evening one?"
+        },
+        {
+          "outbound": true,
+          "body": "That is a useful schedule."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Neither outgoing comment answers the session choice.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Will you be attending the morning session or the evening one?"
+          },
+          {
+            "message_index": 1,
+            "quote": "That is a useful schedule."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_048_1",
+      "group": "role_train_family_048",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I sent you the revised agenda this morning."
+        },
+        {
+          "outbound": false,
+          "body": "Does the revised order work for you?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The sender explicitly asks for confirmation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I sent you the revised agenda this morning."
+          },
+          {
+            "message_index": 1,
+            "quote": "Does the revised order work for you?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_047_1",
+      "group": "role_train_family_047",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The bakery can make the cake without nuts."
+        },
+        {
+          "outbound": false,
+          "body": "Should the icing say Happy Birthday or Congratulations?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user owes a requested textual choice.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The bakery can make the cake without nuts."
+          },
+          {
+            "message_index": 1,
+            "quote": "Should the icing say Happy Birthday or Congratulations?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_091_1",
+      "group": "role_train_family_091",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Welcome to the public astronomy bulletin."
+        },
+        {
+          "outbound": false,
+          "body": "This month\u2019s bulletin covers telescope reviews and skywatching articles."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A general-interest bulletin is newsletter content.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Welcome to the public astronomy bulletin."
+          },
+          {
+            "message_index": 1,
+            "quote": "This month\u2019s bulletin covers telescope reviews and skywatching articles."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_066_2",
+      "group": "role_train_family_066",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please move the chairs into the rehearsal room."
+        },
+        {
+          "outbound": false,
+          "body": "We canceled rehearsal, so leave the chairs where they are."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The earlier user task is explicitly fulfilled or canceled.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please move the chairs into the rehearsal room."
+          },
+          {
+            "message_index": 1,
+            "quote": "We canceled rehearsal, so leave the chairs where they are."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_003_1",
+      "group": "role_train_family_003",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The committee discussed the proposal yesterday."
+        },
+        {
+          "outbound": false,
+          "body": "Same situation with that proposal again\u2026"
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The visible text does not identify a request or its owner.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The committee discussed the proposal yesterday."
+          },
+          {
+            "message_index": 1,
+            "quote": "Same situation with that proposal again\u2026"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_049_1",
+      "group": "role_train_family_049",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated tenant portal notice: your lease renewal document is available."
+        },
+        {
+          "outbound": false,
+          "body": "Your signature is required by 14 October to renew your own lease."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A personal automated deadline requires the user to act.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated tenant portal notice: your lease renewal document is available."
+          },
+          {
+            "message_index": 1,
+            "quote": "Your signature is required by 14 October to renew your own lease."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_063_1",
+      "group": "role_train_family_063",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Invitation: river cleanup orientation, Sunday at 10."
+        },
+        {
+          "outbound": false,
+          "body": "Attendance update: Mira has accepted the orientation invitation."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Calendar invitations and attendance updates are informational.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Invitation: river cleanup orientation, Sunday at 10."
+          },
+          {
+            "message_index": 1,
+            "quote": "Attendance update: Mira has accepted the orientation invitation."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_081_1",
+      "group": "role_train_family_081",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Weekly deals: save on garden tools at Sprig Mart."
+        },
+        {
+          "outbound": false,
+          "body": "Our subscriber sale ends this weekend\u2014browse the bargains."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Generic retail promotions have no personal action requirement.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Weekly deals: save on garden tools at Sprig Mart."
+          },
+          {
+            "message_index": 1,
+            "quote": "Our subscriber sale ends this weekend\u2014browse the bargains."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_094_1",
+      "group": "role_train_family_094",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated delivery report: your digital magazine issue is available."
+        },
+        {
+          "outbound": false,
+          "body": "The latest issue has been added to your subscriber library."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Routine publication availability notices are automated subscription traffic.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated delivery report: your digital magazine issue is available."
+          },
+          {
+            "message_index": 1,
+            "quote": "The latest issue has been added to your subscriber library."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_014_1",
+      "group": "role_train_family_014",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will return the borrowed ladder on Saturday."
+        },
+        {
+          "outbound": true,
+          "body": "The ladder fits in my car."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The follow-up does not fulfill the user delivery promise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will return the borrowed ladder on Saturday."
+          },
+          {
+            "message_index": 1,
+            "quote": "The ladder fits in my car."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_029_2",
+      "group": "role_train_family_029",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can we use your photograph in the brochure?"
+        },
+        {
+          "outbound": true,
+          "body": "I approve its use; could you email me the final brochure?"
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Permission is supplied and only the requested recipient delivery remains.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can we use your photograph in the brochure?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I approve its use; could you email me the final brochure?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_028_2",
+      "group": "role_train_family_028",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The parcel was returned to our counter."
+        },
+        {
+          "outbound": true,
+          "body": "Could you dispatch the returned parcel again?"
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user requests a concrete recipient action.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The parcel was returned to our counter."
+          },
+          {
+            "message_index": 1,
+            "quote": "Could you dispatch the returned parcel again?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_092_2",
+      "group": "role_train_family_092",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your loyalty points statement is ready."
+        },
+        {
+          "outbound": false,
+          "body": "Your rewards balance was updated automatically after checkout."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Routine automated loyalty updates are not reply obligations.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your loyalty points statement is ready."
+          },
+          {
+            "message_index": 1,
+            "quote": "Your rewards balance was updated automatically after checkout."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_036_1",
+      "group": "role_train_family_036",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please send both the attendance sheet and the incident log."
+        },
+        {
+          "outbound": true,
+          "body": "I found the attendance sheet locally; I still need your incident log."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Canceling one requested item does not cancel the other.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please send both the attendance sheet and the incident log."
+          },
+          {
+            "message_index": 1,
+            "quote": "I found the attendance sheet locally; I still need your incident log."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_054_1",
+      "group": "role_train_family_054",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you tell me your preferred appointment date?"
+        },
+        {
+          "outbound": true,
+          "body": "The clinic is close to my office."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An unrelated answer does not resolve the date request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you tell me your preferred appointment date?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The clinic is close to my office."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_024_1",
+      "group": "role_train_family_024",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which logo file do you want?"
+        },
+        {
+          "outbound": true,
+          "body": "The monochrome SVG. Can you send it over?"
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user specifies the file and requests delivery.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which logo file do you want?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The monochrome SVG. Can you send it over?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_053_1",
+      "group": "role_train_family_053",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which entrance should the guests use?"
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for coordinating the guests."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The outgoing acknowledgment does not answer the entrance question.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which entrance should the guests use?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Thanks for coordinating the guests."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_086_1",
+      "group": "role_train_family_086",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Unlock premium puzzles with a subscription upgrade."
+        },
+        {
+          "outbound": false,
+          "body": "Upgrade by midnight for our public launch discount."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A marketing expiry is not a required personal deadline.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Unlock premium puzzles with a subscription upgrade."
+          },
+          {
+            "message_index": 1,
+            "quote": "Upgrade by midnight for our public launch discount."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_007_1",
+      "group": "role_train_family_007",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you tell me the final headcount?"
+        },
+        {
+          "outbound": true,
+          "body": "I will count the registrations tomorrow. Could you send the dietary list?"
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user commits to work while asking the other person for information.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you tell me the final headcount?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I will count the registrations tomorrow. Could you send the dietary list?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_031_2",
+      "group": "role_train_family_031",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Should I list your name as Alex or Alexander?"
+        },
+        {
+          "outbound": true,
+          "body": "Use Alex; may I have the corrected list?"
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The naming question is resolved and a recipient request remains.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Should I list your name as Alex or Alexander?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Use Alex; may I have the corrected list?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_042_1",
+      "group": "role_train_family_042",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you confirm the delivery postcode?"
+        },
+        {
+          "outbound": false,
+          "body": "A reminder: I still need that postcode."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The incoming information request remains explicit and outstanding.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you confirm the delivery postcode?"
+          },
+          {
+            "message_index": 1,
+            "quote": "A reminder: I still need that postcode."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_041_1",
+      "group": "role_train_family_041",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The zine layout is almost ready."
+        },
+        {
+          "outbound": false,
+          "body": "What name should appear under your essay?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An incoming human question requests a prose answer.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The zine layout is almost ready."
+          },
+          {
+            "message_index": 1,
+            "quote": "What name should appear under your essay?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_088_2",
+      "group": "role_train_family_088",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The Roaming Spoon newsletter: food stories from around the world."
+        },
+        {
+          "outbound": false,
+          "body": "Read our latest feature on traditional breakfast dishes."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Editorial newsletter content has no personal request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The Roaming Spoon newsletter: food stories from around the world."
+          },
+          {
+            "message_index": 1,
+            "quote": "Read our latest feature on traditional breakfast dishes."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_067_1",
+      "group": "role_train_family_067",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "A water main repair is scheduled for your street."
+        },
+        {
+          "outbound": false,
+          "body": "Water service has now been restored to all homes on the street."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A relevant service update has no required response.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "A water main repair is scheduled for your street."
+          },
+          {
+            "message_index": 1,
+            "quote": "Water service has now been restored to all homes on the street."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_018_2",
+      "group": "role_train_family_018",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you check the route map for me?"
+        },
+        {
+          "outbound": true,
+          "body": "No need to check it now; I will make a replacement map."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The recipient request is canceled but a user task remains.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you check the route map for me?"
+          },
+          {
+            "message_index": 1,
+            "quote": "No need to check it now; I will make a replacement map."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_025_2",
+      "group": "role_train_family_025",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Are you coming to the pottery session?"
+        },
+        {
+          "outbound": true,
+          "body": "I am attending; is an apron provided?"
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Attendance is answered and only a recipient question remains.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Are you coming to the pottery session?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I am attending; is an apron provided?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_006_1",
+      "group": "role_train_family_006",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which illustration should go on the cover?"
+        },
+        {
+          "outbound": true,
+          "body": "Use the heron. I will also redraw the spine tonight."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The question is answered but a separate user commitment remains.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which illustration should go on the cover?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Use the heron. I will also redraw the spine tonight."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_038_1",
+      "group": "role_train_family_038",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Would you confirm whether the permit has been issued?"
+        },
+        {
+          "outbound": true,
+          "body": "The application number is P-481."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Context does not resolve the requested status response.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Would you confirm whether the permit has been issued?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The application number is P-481."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_065_2",
+      "group": "role_train_family_065",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The manuscript has been accepted for the archive."
+        },
+        {
+          "outbound": false,
+          "body": "The catalogue entry will appear under your submitted title."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The exchange supplies substantive archive status without requests.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The manuscript has been accepted for the archive."
+          },
+          {
+            "message_index": 1,
+            "quote": "The catalogue entry will appear under your submitted title."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_027_1",
+      "group": "role_train_family_027",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Do you want the original painting or a print?"
+        },
+        {
+          "outbound": true,
+          "body": "A print, please. What are the available sizes?"
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user answers the choice and requests additional information.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Do you want the original painting or a print?"
+          },
+          {
+            "message_index": 1,
+            "quote": "A print, please. What are the available sizes?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_056_2",
+      "group": "role_train_family_056",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is the draft approved for publication?"
+        },
+        {
+          "outbound": true,
+          "body": "The document opens correctly on my laptop."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Access acknowledgment does not supply publication approval.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Is the draft approved for publication?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The document opens correctly on my laptop."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_091_2",
+      "group": "role_train_family_091",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Welcome to the public astronomy bulletin."
+        },
+        {
+          "outbound": false,
+          "body": "Our next edition features reader photos of the moon."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A general-interest bulletin is newsletter content.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Welcome to the public astronomy bulletin."
+          },
+          {
+            "message_index": 1,
+            "quote": "Our next edition features reader photos of the moon."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_029_1",
+      "group": "role_train_family_029",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can we use your photograph in the brochure?"
+        },
+        {
+          "outbound": true,
+          "body": "Yes, you have permission. Send me a copy of the finished brochure."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Permission is supplied and only the requested recipient delivery remains.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can we use your photograph in the brochure?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Yes, you have permission. Send me a copy of the finished brochure."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_099_2",
+      "group": "role_train_family_099",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Bookshop mailing list: staff favourites for September."
+        },
+        {
+          "outbound": false,
+          "body": "See the books our staff have been recommending lately."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A mailing-list recommendation roundup is newsletter noise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Bookshop mailing list: staff favourites for September."
+          },
+          {
+            "message_index": 1,
+            "quote": "See the books our staff have been recommending lately."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_026_1",
+      "group": "role_train_family_026",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "We have a spare seat in the van."
+        },
+        {
+          "outbound": true,
+          "body": "Could you save that seat for me?"
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An explicit recipient reservation task is outstanding.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "We have a spare seat in the van."
+          },
+          {
+            "message_index": 1,
+            "quote": "Could you save that seat for me?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_045_1",
+      "group": "role_train_family_045",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which of these two titles do you prefer?"
+        },
+        {
+          "outbound": false,
+          "body": "Ignore the title choice; what subtitle should we use?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The original question is replaced by another direct question.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which of these two titles do you prefer?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Ignore the title choice; what subtitle should we use?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_023_1",
+      "group": "role_train_family_023",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The proof copy is on my desk."
+        },
+        {
+          "outbound": true,
+          "body": "Please mail that copy to my office."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user explicitly requests an action from the sender.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The proof copy is on my desk."
+          },
+          {
+            "message_index": 1,
+            "quote": "Please mail that copy to my office."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_055_2",
+      "group": "role_train_family_055",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What size shirt and which colour do you want?"
+        },
+        {
+          "outbound": true,
+          "body": "For sizing, put me down as a medium."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user supplies a size but leaves the colour unanswered.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "What size shirt and which colour do you want?"
+          },
+          {
+            "message_index": 1,
+            "quote": "For sizing, put me down as a medium."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_035_2",
+      "group": "role_train_family_035",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "What is the cost of framing the large poster?"
+        },
+        {
+          "outbound": true,
+          "body": "For the quote, assume a plain oak frame."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The outgoing price question remains unanswered.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "What is the cost of framing the large poster?"
+          },
+          {
+            "message_index": 1,
+            "quote": "For the quote, assume a plain oak frame."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_089_1",
+      "group": "role_train_family_089",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Try our new audiobook bundle with a free trial."
+        },
+        {
+          "outbound": false,
+          "body": "Members can browse the featured narrators this week."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An unsolicited subscription promotion is noise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Try our new audiobook bundle with a free trial."
+          },
+          {
+            "message_index": 1,
+            "quote": "Members can browse the featured narrators this week."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_078_1",
+      "group": "role_train_family_078",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will submit the venue deposit this afternoon."
+        },
+        {
+          "outbound": true,
+          "body": "I paid the deposit and received the receipt."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user explicitly completes the visible promise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will submit the venue deposit this afternoon."
+          },
+          {
+            "message_index": 1,
+            "quote": "I paid the deposit and received the receipt."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_068_2",
+      "group": "role_train_family_068",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Do you know the registration number of the trailer?"
+        },
+        {
+          "outbound": false,
+          "body": "The rental office gave me the number, so I no longer need a reply."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The sender confirms the information request is resolved.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Do you know the registration number of the trailer?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The rental office gave me the number, so I no longer need a reply."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_095_1",
+      "group": "role_train_family_095",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Public webinar series: practical tips for home cooks."
+        },
+        {
+          "outbound": false,
+          "body": "Register today if you would like to attend our promotional session."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A generic optional marketing invitation imposes no personal obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Public webinar series: practical tips for home cooks."
+          },
+          {
+            "message_index": 1,
+            "quote": "Register today if you would like to attend our promotional session."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_005_2",
+      "group": "role_train_family_005",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I have your ceramic bowl here."
+        },
+        {
+          "outbound": false,
+          "body": "I will drop the bowl off after my shift."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An incoming unsolicited delivery promise requires commitment routing.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I have your ceramic bowl here."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will drop the bowl off after my shift."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_080_1",
+      "group": "role_train_family_080",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will proofread the captions and upload the final booklet."
+        },
+        {
+          "outbound": true,
+          "body": "Both tasks are complete: captions checked, final booklet uploaded."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "All components of the user commitment are explicitly fulfilled.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will proofread the captions and upload the final booklet."
+          },
+          {
+            "message_index": 1,
+            "quote": "Both tasks are complete: captions checked, final booklet uploaded."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_069_1",
+      "group": "role_train_family_069",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your cousin arrived safely in Bergen."
+        },
+        {
+          "outbound": false,
+          "body": "She has checked into the hotel near the harbour."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Personal travel information contains no outstanding request or promise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your cousin arrived safely in Bergen."
+          },
+          {
+            "message_index": 1,
+            "quote": "She has checked into the hotel near the harbour."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_012_1",
+      "group": "role_train_family_012",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The spare batteries are in the reception drawer."
+        },
+        {
+          "outbound": true,
+          "body": "I will change the smoke detector batteries this evening."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user has made a concrete task commitment.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The spare batteries are in the reception drawer."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will change the smoke detector batteries this evening."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_028_1",
+      "group": "role_train_family_028",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The parcel was returned to our counter."
+        },
+        {
+          "outbound": true,
+          "body": "Please resend it to the address on my order."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user requests a concrete recipient action.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The parcel was returned to our counter."
+          },
+          {
+            "message_index": 1,
+            "quote": "Please resend it to the address on my order."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_002_2",
+      "group": "role_train_family_002",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your bike is still in our workshop."
+        },
+        {
+          "outbound": false,
+          "body": "I will fit the new cable before closing."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An unsolicited incoming commitment has no visible user request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your bike is still in our workshop."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will fit the new cable before closing."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_064_1",
+      "group": "role_train_family_064",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Could you tell me where the lost property desk is?"
+        },
+        {
+          "outbound": false,
+          "body": "The security guard showed me, so please disregard my question."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A canceled location question leaves no remaining obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you tell me where the lost property desk is?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The security guard showed me, so please disregard my question."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_031_1",
+      "group": "role_train_family_031",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Should I list your name as Alex or Alexander?"
+        },
+        {
+          "outbound": true,
+          "body": "Alex is correct. Please send the revised attendee list."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The naming question is resolved and a recipient request remains.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Should I list your name as Alex or Alexander?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Alex is correct. Please send the revised attendee list."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_072_2",
+      "group": "role_train_family_072",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please send the attendance totals for June."
+        },
+        {
+          "outbound": true,
+          "body": "Here are June\u2019s totals: adults 142, children 38."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The requested figures are supplied without further obligations.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please send the attendance totals for June."
+          },
+          {
+            "message_index": 1,
+            "quote": "Here are June\u2019s totals: adults 142, children 38."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_063_2",
+      "group": "role_train_family_063",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Invitation: river cleanup orientation, Sunday at 10."
+        },
+        {
+          "outbound": false,
+          "body": "Calendar update: the orientation now starts at 10:30."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Calendar invitations and attendance updates are informational.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Invitation: river cleanup orientation, Sunday at 10."
+          },
+          {
+            "message_index": 1,
+            "quote": "Calendar update: the orientation now starts at 10:30."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_019_2",
+      "group": "role_train_family_019",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will deliver the donation boxes and email the receipts."
+        },
+        {
+          "outbound": true,
+          "body": "I sent the receipt copies, but I still need to take over the boxes."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "One fulfilled component leaves another user commitment unfinished.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will deliver the donation boxes and email the receipts."
+          },
+          {
+            "message_index": 1,
+            "quote": "I sent the receipt copies, but I still need to take over the boxes."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_095_2",
+      "group": "role_train_family_095",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Public webinar series: practical tips for home cooks."
+        },
+        {
+          "outbound": false,
+          "body": "Browse the optional sessions in our cooking showcase."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A generic optional marketing invitation imposes no personal obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Public webinar series: practical tips for home cooks."
+          },
+          {
+            "message_index": 1,
+            "quote": "Browse the optional sessions in our cooking showcase."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_071_2",
+      "group": "role_train_family_071",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which edition of the dictionary are you using?"
+        },
+        {
+          "outbound": true,
+          "body": "Mine is the third edition, published in 2018."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user fully answers the only visible question.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which edition of the dictionary are you using?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Mine is the third edition, published in 2018."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_075_1",
+      "group": "role_train_family_075",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The museum changed its opening time to eleven."
+        },
+        {
+          "outbound": true,
+          "body": "That opening time works for my visit."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An acknowledgment of information creates no new obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The museum changed its opening time to eleven."
+          },
+          {
+            "message_index": 1,
+            "quote": "That opening time works for my visit."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_052_1",
+      "group": "role_train_family_052",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The travel desk has received your reimbursement form."
+        },
+        {
+          "outbound": false,
+          "body": "Which bank account suffix should we use, 1142 or 8093?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A human requests a specific response to complete processing.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The travel desk has received your reimbursement form."
+          },
+          {
+            "message_index": 1,
+            "quote": "Which bank account suffix should we use, 1142 or 8093?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_001_2",
+      "group": "role_train_family_001",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The folding tables have arrived."
+        },
+        {
+          "outbound": false,
+          "body": "Could you carry those tables to the courtyard?"
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An incoming physical task needs task routing rather than a prose reply.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The folding tables have arrived."
+          },
+          {
+            "message_index": 1,
+            "quote": "Could you carry those tables to the courtyard?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_043_2",
+      "group": "role_train_family_043",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me your room choice and whether you need breakfast."
+        },
+        {
+          "outbound": false,
+          "body": "I have the room selection now, but still need your breakfast preference."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A partially resolved request retains an unanswered component.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please tell me your room choice and whether you need breakfast."
+          },
+          {
+            "message_index": 1,
+            "quote": "I have the room selection now, but still need your breakfast preference."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_032_1",
+      "group": "role_train_family_032",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "There are two replacement hinges in stock."
+        },
+        {
+          "outbound": true,
+          "body": "Can you hold both until Friday?"
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The outgoing reservation request establishes recipient ownership.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "There are two replacement hinges in stock."
+          },
+          {
+            "message_index": 1,
+            "quote": "Can you hold both until Friday?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_083_2",
+      "group": "role_train_family_083",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated receipt: your streaming subscription renewed."
+        },
+        {
+          "outbound": false,
+          "body": "Your monthly plan renewal is complete, with no action required."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Routine automated billing confirmation requires no response.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated receipt: your streaming subscription renewed."
+          },
+          {
+            "message_index": 1,
+            "quote": "Your monthly plan renewal is complete, with no action required."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_074_1",
+      "group": "role_train_family_074",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Could you put the library returns in the drop box?"
+        },
+        {
+          "outbound": true,
+          "body": "The books are now in the library drop box."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user explicitly reports completing the requested task.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you put the library returns in the drop box?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The books are now in the library drop box."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_009_1",
+      "group": "role_train_family_009",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please repair the loose handrail at the studio."
+        },
+        {
+          "outbound": true,
+          "body": "I have read your note."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user physical task remains and cannot safely be represented as only a reply state.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please repair the loose handrail at the studio."
+          },
+          {
+            "message_index": 1,
+            "quote": "I have read your note."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_057_1",
+      "group": "role_train_family_057",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please reply with the spelling of your surname."
+        },
+        {
+          "outbound": true,
+          "body": "Appreciate you checking the badge details."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The requested surname spelling remains missing.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please reply with the spelling of your surname."
+          },
+          {
+            "message_index": 1,
+            "quote": "Appreciate you checking the badge details."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_077_2",
+      "group": "role_train_family_077",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The spare tent is stored under the stairs."
+        },
+        {
+          "outbound": true,
+          "body": "The poles are bundled in the same bag as the tent."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Outgoing location details are informational only.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The spare tent is stored under the stairs."
+          },
+          {
+            "message_index": 1,
+            "quote": "The poles are bundled in the same bag as the tent."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_085_2",
+      "group": "role_train_family_085",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Forum digest: twelve new posts in the photography community."
+        },
+        {
+          "outbound": false,
+          "body": "Your community roundup includes new landscape photo threads."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Automated forum summaries do not create a personal obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Forum digest: twelve new posts in the photography community."
+          },
+          {
+            "message_index": 1,
+            "quote": "Your community roundup includes new landscape photo threads."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_050_1",
+      "group": "role_train_family_050",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "We are choosing a trail for the walk."
+        },
+        {
+          "outbound": false,
+          "body": "How far are you comfortable walking?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The human sender requests a personal preference.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "We are choosing a trail for the walk."
+          },
+          {
+            "message_index": 1,
+            "quote": "How far are you comfortable walking?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_072_1",
+      "group": "role_train_family_072",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please send the attendance totals for June."
+        },
+        {
+          "outbound": true,
+          "body": "June attendance was 142 adults and 38 children."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The requested figures are supplied without further obligations.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please send the attendance totals for June."
+          },
+          {
+            "message_index": 1,
+            "quote": "June attendance was 142 adults and 38 children."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_002_1",
+      "group": "role_train_family_002",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your bike is still in our workshop."
+        },
+        {
+          "outbound": false,
+          "body": "I will replace the brake cable this afternoon."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An unsolicited incoming commitment has no visible user request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your bike is still in our workshop."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will replace the brake cable this afternoon."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_088_1",
+      "group": "role_train_family_088",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The Roaming Spoon newsletter: food stories from around the world."
+        },
+        {
+          "outbound": false,
+          "body": "This issue visits three regional bakeries."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Editorial newsletter content has no personal request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The Roaming Spoon newsletter: food stories from around the world."
+          },
+          {
+            "message_index": 1,
+            "quote": "This issue visits three regional bakeries."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_024_2",
+      "group": "role_train_family_024",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which logo file do you want?"
+        },
+        {
+          "outbound": true,
+          "body": "Please send the black-and-white SVG version."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user specifies the file and requests delivery.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which logo file do you want?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Please send the black-and-white SVG version."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_060_2",
+      "group": "role_train_family_060",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Are you available to judge the contest on Saturday?"
+        },
+        {
+          "outbound": true,
+          "body": "I enjoyed seeing the entries last year."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Interest and background do not answer availability.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Are you available to judge the contest on Saturday?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I enjoyed seeing the entries last year."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_071_1",
+      "group": "role_train_family_071",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which edition of the dictionary are you using?"
+        },
+        {
+          "outbound": true,
+          "body": "I use the third edition."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user fully answers the only visible question.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which edition of the dictionary are you using?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I use the third edition."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_087_2",
+      "group": "role_train_family_087",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated backup report: scheduled snapshot completed."
+        },
+        {
+          "outbound": false,
+          "body": "Backup verification passed with no errors reported."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Routine successful system reports are automated noise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated backup report: scheduled snapshot completed."
+          },
+          {
+            "message_index": 1,
+            "quote": "Backup verification passed with no errors reported."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_040_1",
+      "group": "role_train_family_040",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which train are you taking to the conference?"
+        },
+        {
+          "outbound": true,
+          "body": "I am asking about your Friday journey."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An unanswered outgoing question establishes waiting.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which train are you taking to the conference?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I am asking about your Friday journey."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_026_2",
+      "group": "role_train_family_026",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "We have a spare seat in the van."
+        },
+        {
+          "outbound": true,
+          "body": "Please reserve the empty van seat in my name."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An explicit recipient reservation task is outstanding.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "We have a spare seat in the van."
+          },
+          {
+            "message_index": 1,
+            "quote": "Please reserve the empty van seat in my name."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_034_1",
+      "group": "role_train_family_034",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please inspect the greenhouse heater before Monday."
+        },
+        {
+          "outbound": true,
+          "body": "The access code is 3197."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Providing access details leaves the recipient inspection task open.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please inspect the greenhouse heater before Monday."
+          },
+          {
+            "message_index": 1,
+            "quote": "The access code is 3197."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_045_2",
+      "group": "role_train_family_045",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which of these two titles do you prefer?"
+        },
+        {
+          "outbound": false,
+          "body": "The editor chose the title. Could you suggest the subtitle?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The original question is replaced by another direct question.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which of these two titles do you prefer?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The editor chose the title. Could you suggest the subtitle?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_096_1",
+      "group": "role_train_family_096",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your weekly social activity summary is here."
+        },
+        {
+          "outbound": false,
+          "body": "Four public pages you follow posted new updates."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Automated social engagement digests are noise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your weekly social activity summary is here."
+          },
+          {
+            "message_index": 1,
+            "quote": "Four public pages you follow posted new updates."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_078_2",
+      "group": "role_train_family_078",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will submit the venue deposit this afternoon."
+        },
+        {
+          "outbound": true,
+          "body": "The venue deposit is now paid in full."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user explicitly completes the visible promise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will submit the venue deposit this afternoon."
+          },
+          {
+            "message_index": 1,
+            "quote": "The venue deposit is now paid in full."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_069_2",
+      "group": "role_train_family_069",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your cousin arrived safely in Bergen."
+        },
+        {
+          "outbound": false,
+          "body": "She is settled at the hotel and says the journey went smoothly."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Personal travel information contains no outstanding request or promise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your cousin arrived safely in Bergen."
+          },
+          {
+            "message_index": 1,
+            "quote": "She is settled at the hotel and says the journey went smoothly."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_061_2",
+      "group": "role_train_family_061",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you confirm which cabinet holds the manuals?"
+        },
+        {
+          "outbound": false,
+          "body": "I located the manuals myself, so no answer needed."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The incoming question is explicitly resolved by the sender.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you confirm which cabinet holds the manuals?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I located the manuals myself, so no answer needed."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_039_1",
+      "group": "role_train_family_039",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please return my camping stove when you can."
+        },
+        {
+          "outbound": true,
+          "body": "You may leave it with the concierge."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The recipient return task remains despite flexible delivery instructions.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please return my camping stove when you can."
+          },
+          {
+            "message_index": 1,
+            "quote": "You may leave it with the concierge."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_046_2",
+      "group": "role_train_family_046",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated storage alert: your account has passed its quota."
+        },
+        {
+          "outbound": false,
+          "body": "Action required from you: choose a retention plan by 30 November or access will stop."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An automated notice states a personal required action and deadline.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated storage alert: your account has passed its quota."
+          },
+          {
+            "message_index": 1,
+            "quote": "Action required from you: choose a retention plan by 30 November or access will stop."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_049_2",
+      "group": "role_train_family_049",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated tenant portal notice: your lease renewal document is available."
+        },
+        {
+          "outbound": false,
+          "body": "You must sign your renewal by 14 October if you wish to retain the tenancy."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A personal automated deadline requires the user to act.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated tenant portal notice: your lease renewal document is available."
+          },
+          {
+            "message_index": 1,
+            "quote": "You must sign your renewal by 14 October if you wish to retain the tenancy."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_062_1",
+      "group": "role_train_family_062",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The knitting circle meets in room B this week."
+        },
+        {
+          "outbound": false,
+          "body": "Room B is on the ground floor next to reception."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Useful location information creates no obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The knitting circle meets in room B this week."
+          },
+          {
+            "message_index": 1,
+            "quote": "Room B is on the ground floor next to reception."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_044_1",
+      "group": "role_train_family_044",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I have reserved the practice court."
+        },
+        {
+          "outbound": false,
+          "body": "Are you bringing a doubles partner?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The follow-up asks the user for information.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I have reserved the practice court."
+          },
+          {
+            "message_index": 1,
+            "quote": "Are you bringing a doubles partner?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_086_2",
+      "group": "role_train_family_086",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Unlock premium puzzles with a subscription upgrade."
+        },
+        {
+          "outbound": false,
+          "body": "Our introductory puzzle offer closes tonight for all subscribers."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A marketing expiry is not a required personal deadline.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Unlock premium puzzles with a subscription upgrade."
+          },
+          {
+            "message_index": 1,
+            "quote": "Our introductory puzzle offer closes tonight for all subscribers."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_096_2",
+      "group": "role_train_family_096",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your weekly social activity summary is here."
+        },
+        {
+          "outbound": false,
+          "body": "This roundup includes highlights from followed creators."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Automated social engagement digests are noise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your weekly social activity summary is here."
+          },
+          {
+            "message_index": 1,
+            "quote": "This roundup includes highlights from followed creators."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_020_1",
+      "group": "role_train_family_020",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The usual thing with the downstairs room."
+        },
+        {
+          "outbound": true,
+          "body": "That whole situation, again."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "No visible request or owner can be determined.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The usual thing with the downstairs room."
+          },
+          {
+            "message_index": 1,
+            "quote": "That whole situation, again."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_022_1",
+      "group": "role_train_family_022",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Would you like the vegetarian lunch?"
+        },
+        {
+          "outbound": true,
+          "body": "Yes, vegetarian. Please confirm that it is dairy-free."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The initial question is answered and a new recipient response is requested.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Would you like the vegetarian lunch?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Yes, vegetarian. Please confirm that it is dairy-free."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_082_1",
+      "group": "role_train_family_082",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your daily coding digest: five articles selected for readers."
+        },
+        {
+          "outbound": false,
+          "body": "Today\u2019s digest features database tips and editor shortcuts."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A routine content digest is newsletter traffic.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your daily coding digest: five articles selected for readers."
+          },
+          {
+            "message_index": 1,
+            "quote": "Today\u2019s digest features database tips and editor shortcuts."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_019_1",
+      "group": "role_train_family_019",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will deliver the donation boxes and email the receipts."
+        },
+        {
+          "outbound": true,
+          "body": "The receipts have been emailed; the boxes are still here."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "One fulfilled component leaves another user commitment unfinished.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will deliver the donation boxes and email the receipts."
+          },
+          {
+            "message_index": 1,
+            "quote": "The receipts have been emailed; the boxes are still here."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_001_1",
+      "group": "role_train_family_001",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The folding tables have arrived."
+        },
+        {
+          "outbound": false,
+          "body": "Please wheel them into the side hall."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An incoming physical task needs task routing rather than a prose reply.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The folding tables have arrived."
+          },
+          {
+            "message_index": 1,
+            "quote": "Please wheel them into the side hall."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_098_2",
+      "group": "role_train_family_098",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated report: scheduled cache cleanup completed."
+        },
+        {
+          "outbound": false,
+          "body": "The maintenance job finished without requiring operator action."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Routine completed maintenance notifications have no required action.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated report: scheduled cache cleanup completed."
+          },
+          {
+            "message_index": 1,
+            "quote": "The maintenance job finished without requiring operator action."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_004_1",
+      "group": "role_train_family_004",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The office plants look dry."
+        },
+        {
+          "outbound": false,
+          "body": "Please water them before you leave."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A user physical task is not a requested prose response.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The office plants look dry."
+          },
+          {
+            "message_index": 1,
+            "quote": "Please water them before you leave."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_016_2",
+      "group": "role_train_family_016",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will call the electrician about the faulty socket."
+        },
+        {
+          "outbound": true,
+          "body": "It is the lower outlet that sparks."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Additional details leave the user task commitment outstanding.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will call the electrician about the faulty socket."
+          },
+          {
+            "message_index": 1,
+            "quote": "It is the lower outlet that sparks."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_018_1",
+      "group": "role_train_family_018",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you check the route map for me?"
+        },
+        {
+          "outbound": true,
+          "body": "Forget the route check. I will redraw the map myself."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The recipient request is canceled but a user task remains.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you check the route map for me?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Forget the route check. I will redraw the map myself."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_100_2",
+      "group": "role_train_family_100",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your game launcher news roundup has arrived."
+        },
+        {
+          "outbound": false,
+          "body": "The community digest includes developer interviews and store highlights."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Automated entertainment news and promotions create no reply obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your game launcher news roundup has arrived."
+          },
+          {
+            "message_index": 1,
+            "quote": "The community digest includes developer interviews and store highlights."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_066_1",
+      "group": "role_train_family_066",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please move the chairs into the rehearsal room."
+        },
+        {
+          "outbound": false,
+          "body": "The caretaker already moved them; no need for you to do it."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The earlier user task is explicitly fulfilled or canceled.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please move the chairs into the rehearsal room."
+          },
+          {
+            "message_index": 1,
+            "quote": "The caretaker already moved them; no need for you to do it."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_017_2",
+      "group": "role_train_family_017",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will pack the display samples tonight."
+        },
+        {
+          "outbound": true,
+          "body": "I finished the inventory; I have not packed anything yet."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Partial preparation does not complete the promised task.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will pack the display samples tonight."
+          },
+          {
+            "message_index": 1,
+            "quote": "I finished the inventory; I have not packed anything yet."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_068_1",
+      "group": "role_train_family_068",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Do you know the registration number of the trailer?"
+        },
+        {
+          "outbound": false,
+          "body": "I checked our records and found it; that question is sorted."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The sender confirms the information request is resolved.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Do you know the registration number of the trailer?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I checked our records and found it; that question is sorted."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_030_2",
+      "group": "role_train_family_030",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I found the missing chess piece."
+        },
+        {
+          "outbound": true,
+          "body": "Could you tell me where it turned up?"
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user asks a direct unanswered question.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I found the missing chess piece."
+          },
+          {
+            "message_index": 1,
+            "quote": "Could you tell me where it turned up?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_039_2",
+      "group": "role_train_family_039",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please return my camping stove when you can."
+        },
+        {
+          "outbound": true,
+          "body": "The front desk can accept it for me."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The recipient return task remains despite flexible delivery instructions.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please return my camping stove when you can."
+          },
+          {
+            "message_index": 1,
+            "quote": "The front desk can accept it for me."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_044_2",
+      "group": "role_train_family_044",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I have reserved the practice court."
+        },
+        {
+          "outbound": false,
+          "body": "Will someone be playing doubles with you?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The follow-up asks the user for information.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I have reserved the practice court."
+          },
+          {
+            "message_index": 1,
+            "quote": "Will someone be playing doubles with you?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_076_1",
+      "group": "role_train_family_076",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please review the new membership wording."
+        },
+        {
+          "outbound": true,
+          "body": "Withdraw that request; the membership wording has been scrapped."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user cancels the sole outgoing request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please review the new membership wording."
+          },
+          {
+            "message_index": 1,
+            "quote": "Withdraw that request; the membership wording has been scrapped."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_070_2",
+      "group": "role_train_family_070",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The concert ticket has been transferred to your account."
+        },
+        {
+          "outbound": false,
+          "body": "Your ticket now appears under the Saturday performance."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A completed transfer and seat information need no reply.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The concert ticket has been transferred to your account."
+          },
+          {
+            "message_index": 1,
+            "quote": "Your ticket now appears under the Saturday performance."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_092_1",
+      "group": "role_train_family_092",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your loyalty points statement is ready."
+        },
+        {
+          "outbound": false,
+          "body": "You earned 28 points on your recent purchases."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Routine automated loyalty updates are not reply obligations.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your loyalty points statement is ready."
+          },
+          {
+            "message_index": 1,
+            "quote": "You earned 28 points on your recent purchases."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_032_2",
+      "group": "role_train_family_032",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "There are two replacement hinges in stock."
+        },
+        {
+          "outbound": true,
+          "body": "Please put those two hinges aside for me."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The outgoing reservation request establishes recipient ownership.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "There are two replacement hinges in stock."
+          },
+          {
+            "message_index": 1,
+            "quote": "Please put those two hinges aside for me."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_036_2",
+      "group": "role_train_family_036",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please send both the attendance sheet and the incident log."
+        },
+        {
+          "outbound": true,
+          "body": "Cancel the sheet request, but please send the incident log."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Canceling one requested item does not cancel the other.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please send both the attendance sheet and the incident log."
+          },
+          {
+            "message_index": 1,
+            "quote": "Cancel the sheet request, but please send the incident log."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_042_2",
+      "group": "role_train_family_042",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you confirm the delivery postcode?"
+        },
+        {
+          "outbound": false,
+          "body": "We cannot address the parcel until you reply with the postcode."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The incoming information request remains explicit and outstanding.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you confirm the delivery postcode?"
+          },
+          {
+            "message_index": 1,
+            "quote": "We cannot address the parcel until you reply with the postcode."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_090_1",
+      "group": "role_train_family_090",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Build notification: branch documentation-check passed."
+        },
+        {
+          "outbound": false,
+          "body": "Scheduled documentation checks completed successfully."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Routine successful automated checks need no personal action.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Build notification: branch documentation-check passed."
+          },
+          {
+            "message_index": 1,
+            "quote": "Scheduled documentation checks completed successfully."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_048_2",
+      "group": "role_train_family_048",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I sent you the revised agenda this morning."
+        },
+        {
+          "outbound": false,
+          "body": "Could you confirm that the session order suits you?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The sender explicitly asks for confirmation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I sent you the revised agenda this morning."
+          },
+          {
+            "message_index": 1,
+            "quote": "Could you confirm that the session order suits you?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_093_1",
+      "group": "role_train_family_093",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Meet the newest collection from Clay & Kiln."
+        },
+        {
+          "outbound": false,
+          "body": "Browse hand-glazed mugs in our shop update."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Product announcements are promotional noise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Meet the newest collection from Clay & Kiln."
+          },
+          {
+            "message_index": 1,
+            "quote": "Browse hand-glazed mugs in our shop update."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_007_2",
+      "group": "role_train_family_007",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you tell me the final headcount?"
+        },
+        {
+          "outbound": true,
+          "body": "Please forward the dietary list; I will calculate the total later."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user commits to work while asking the other person for information.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you tell me the final headcount?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Please forward the dietary list; I will calculate the total later."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_006_2",
+      "group": "role_train_family_006",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which illustration should go on the cover?"
+        },
+        {
+          "outbound": true,
+          "body": "The heron is my choice; I will prepare a separate spine design."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The question is answered but a separate user commitment remains.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which illustration should go on the cover?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The heron is my choice; I will prepare a separate spine design."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_081_2",
+      "group": "role_train_family_081",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Weekly deals: save on garden tools at Sprig Mart."
+        },
+        {
+          "outbound": false,
+          "body": "Subscriber offer: discounted trowels while stocks last."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Generic retail promotions have no personal action requirement.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Weekly deals: save on garden tools at Sprig Mart."
+          },
+          {
+            "message_index": 1,
+            "quote": "Subscriber offer: discounted trowels while stocks last."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_046_1",
+      "group": "role_train_family_046",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated storage alert: your account has passed its quota."
+        },
+        {
+          "outbound": false,
+          "body": "You personally must select a retention option by 30 November to keep access."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An automated notice states a personal required action and deadline.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated storage alert: your account has passed its quota."
+          },
+          {
+            "message_index": 1,
+            "quote": "You personally must select a retention option by 30 November to keep access."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_056_1",
+      "group": "role_train_family_056",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is the draft approved for publication?"
+        },
+        {
+          "outbound": true,
+          "body": "I downloaded the draft."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Access acknowledgment does not supply publication approval.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Is the draft approved for publication?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I downloaded the draft."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_011_1",
+      "group": "role_train_family_011",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I will send you my slides on Friday."
+        },
+        {
+          "outbound": true,
+          "body": "I will draft the speaker introductions meanwhile."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Both parties have explicit commitments requiring routing.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will send you my slides on Friday."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will draft the speaker introductions meanwhile."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_013_1",
+      "group": "role_train_family_013",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which week works for the workshop?"
+        },
+        {
+          "outbound": true,
+          "body": "The first week of May. Can you reserve the room? I will print the handouts."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A user task and a requested action from the recipient both remain.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which week works for the workshop?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The first week of May. Can you reserve the room? I will print the handouts."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_050_2",
+      "group": "role_train_family_050",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "We are choosing a trail for the walk."
+        },
+        {
+          "outbound": false,
+          "body": "What distance would suit you for the hike?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The human sender requests a personal preference.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "We are choosing a trail for the walk."
+          },
+          {
+            "message_index": 1,
+            "quote": "What distance would suit you for the hike?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_004_2",
+      "group": "role_train_family_004",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The office plants look dry."
+        },
+        {
+          "outbound": false,
+          "body": "Would you water the fern by the printer?"
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A user physical task is not a requested prose response.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The office plants look dry."
+          },
+          {
+            "message_index": 1,
+            "quote": "Would you water the fern by the printer?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_033_2",
+      "group": "role_train_family_033",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send the recording of the lecture?"
+        },
+        {
+          "outbound": true,
+          "body": "A download link would work for me."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The follow-up specifies an acceptable response without canceling the request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you send the recording of the lecture?"
+          },
+          {
+            "message_index": 1,
+            "quote": "A download link would work for me."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_062_2",
+      "group": "role_train_family_062",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The knitting circle meets in room B this week."
+        },
+        {
+          "outbound": false,
+          "body": "The reception desk can point you toward room B."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Useful location information creates no obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The knitting circle meets in room B this week."
+          },
+          {
+            "message_index": 1,
+            "quote": "The reception desk can point you toward room B."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_021_1",
+      "group": "role_train_family_021",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What time should I arrive at the dock?"
+        },
+        {
+          "outbound": true,
+          "body": "Arrive at seven. Please bring the spare oar."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user answers the question and leaves only an explicit recipient task.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "What time should I arrive at the dock?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Arrive at seven. Please bring the spare oar."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_052_2",
+      "group": "role_train_family_052",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The travel desk has received your reimbursement form."
+        },
+        {
+          "outbound": false,
+          "body": "Please reply with the last four digits of the account for payment."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A human requests a specific response to complete processing.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The travel desk has received your reimbursement form."
+          },
+          {
+            "message_index": 1,
+            "quote": "Please reply with the last four digits of the account for payment."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_025_1",
+      "group": "role_train_family_025",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Are you coming to the pottery session?"
+        },
+        {
+          "outbound": true,
+          "body": "Yes. What should I bring?"
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Attendance is answered and only a recipient question remains.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Are you coming to the pottery session?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Yes. What should I bring?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_075_2",
+      "group": "role_train_family_075",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The museum changed its opening time to eleven."
+        },
+        {
+          "outbound": true,
+          "body": "I have noted the later opening."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An acknowledgment of information creates no new obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The museum changed its opening time to eleven."
+          },
+          {
+            "message_index": 1,
+            "quote": "I have noted the later opening."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_064_2",
+      "group": "role_train_family_064",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Could you tell me where the lost property desk is?"
+        },
+        {
+          "outbound": false,
+          "body": "I have found the desk; you can ignore my earlier message."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A canceled location question leaves no remaining obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you tell me where the lost property desk is?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I have found the desk; you can ignore my earlier message."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_037_2",
+      "group": "role_train_family_037",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you translate the dedication into French?"
+        },
+        {
+          "outbound": true,
+          "body": "Please leave the names exactly as they are."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The recipient translation request remains pending.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you translate the dedication into French?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Please leave the names exactly as they are."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_077_1",
+      "group": "role_train_family_077",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The spare tent is stored under the stairs."
+        },
+        {
+          "outbound": true,
+          "body": "It is inside the green canvas bag."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Outgoing location details are informational only.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The spare tent is stored under the stairs."
+          },
+          {
+            "message_index": 1,
+            "quote": "It is inside the green canvas bag."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_058_2",
+      "group": "role_train_family_058",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Will you be attending the morning session or the evening one?"
+        },
+        {
+          "outbound": true,
+          "body": "The venue looks easy to reach by bus."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Neither outgoing comment answers the session choice.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Will you be attending the morning session or the evening one?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The venue looks easy to reach by bus."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_008_2",
+      "group": "role_train_family_008",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The rehearsal room is available on Tuesday."
+        },
+        {
+          "outbound": true,
+          "body": "I will go and pick up our key before rehearsal."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An outgoing user-only commitment needs extraction.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The rehearsal room is available on Tuesday."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will go and pick up our key before rehearsal."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_041_2",
+      "group": "role_train_family_041",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The zine layout is almost ready."
+        },
+        {
+          "outbound": false,
+          "body": "How would you like your author credit written?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An incoming human question requests a prose answer.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The zine layout is almost ready."
+          },
+          {
+            "message_index": 1,
+            "quote": "How would you like your author credit written?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_076_2",
+      "group": "role_train_family_076",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please review the new membership wording."
+        },
+        {
+          "outbound": true,
+          "body": "No review needed anymore, because we abandoned that wording."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user cancels the sole outgoing request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please review the new membership wording."
+          },
+          {
+            "message_index": 1,
+            "quote": "No review needed anymore, because we abandoned that wording."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_009_2",
+      "group": "role_train_family_009",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please repair the loose handrail at the studio."
+        },
+        {
+          "outbound": true,
+          "body": "That is the upstairs rail, right?"
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user physical task remains and cannot safely be represented as only a reply state.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please repair the loose handrail at the studio."
+          },
+          {
+            "message_index": 1,
+            "quote": "That is the upstairs rail, right?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_070_1",
+      "group": "role_train_family_070",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The concert ticket has been transferred to your account."
+        },
+        {
+          "outbound": false,
+          "body": "The transfer is complete; the seat is balcony C12."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A completed transfer and seat information need no reply.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The concert ticket has been transferred to your account."
+          },
+          {
+            "message_index": 1,
+            "quote": "The transfer is complete; the seat is balcony C12."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_051_1",
+      "group": "role_train_family_051",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Do you have the serial number for your projector?"
+        },
+        {
+          "outbound": false,
+          "body": "We found the serial number; which firmware version is installed?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Replacing the first request leaves the new question unanswered.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Do you have the serial number for your projector?"
+          },
+          {
+            "message_index": 1,
+            "quote": "We found the serial number; which firmware version is installed?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_027_2",
+      "group": "role_train_family_027",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Do you want the original painting or a print?"
+        },
+        {
+          "outbound": true,
+          "body": "The print suits me; could you list the dimensions?"
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user answers the choice and requests additional information.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Do you want the original painting or a print?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The print suits me; could you list the dimensions?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_012_2",
+      "group": "role_train_family_012",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The spare batteries are in the reception drawer."
+        },
+        {
+          "outbound": true,
+          "body": "I will install those batteries after dinner."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user has made a concrete task commitment.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The spare batteries are in the reception drawer."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will install those batteries after dinner."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_057_2",
+      "group": "role_train_family_057",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please reply with the spelling of your surname."
+        },
+        {
+          "outbound": true,
+          "body": "I noticed the badge desk on the venue map."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The requested surname spelling remains missing.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please reply with the spelling of your surname."
+          },
+          {
+            "message_index": 1,
+            "quote": "I noticed the badge desk on the venue map."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_059_2",
+      "group": "role_train_family_059",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which address and recipient name belong on the invitation?"
+        },
+        {
+          "outbound": true,
+          "body": "Please use 18 Birch Lane as the mailing address."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A recipient name remains requested after a partial response.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which address and recipient name belong on the invitation?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Please use 18 Birch Lane as the mailing address."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_030_1",
+      "group": "role_train_family_030",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I found the missing chess piece."
+        },
+        {
+          "outbound": true,
+          "body": "Where did you find it?"
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user asks a direct unanswered question.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I found the missing chess piece."
+          },
+          {
+            "message_index": 1,
+            "quote": "Where did you find it?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_074_2",
+      "group": "role_train_family_074",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Could you put the library returns in the drop box?"
+        },
+        {
+          "outbound": true,
+          "body": "I deposited all the returns at the library just now."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The user explicitly reports completing the requested task.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you put the library returns in the drop box?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I deposited all the returns at the library just now."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_034_2",
+      "group": "role_train_family_034",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please inspect the greenhouse heater before Monday."
+        },
+        {
+          "outbound": true,
+          "body": "You can enter through the unlocked garden gate."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Providing access details leaves the recipient inspection task open.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please inspect the greenhouse heater before Monday."
+          },
+          {
+            "message_index": 1,
+            "quote": "You can enter through the unlocked garden gate."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_053_2",
+      "group": "role_train_family_053",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which entrance should the guests use?"
+        },
+        {
+          "outbound": true,
+          "body": "I have seen the guest arrangements."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The outgoing acknowledgment does not answer the entrance question.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which entrance should the guests use?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I have seen the guest arrangements."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_011_2",
+      "group": "role_train_family_011",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I will send you my slides on Friday."
+        },
+        {
+          "outbound": true,
+          "body": "I will prepare the introduction for your session."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Both parties have explicit commitments requiring routing.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will send you my slides on Friday."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will prepare the introduction for your session."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_040_2",
+      "group": "role_train_family_040",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which train are you taking to the conference?"
+        },
+        {
+          "outbound": true,
+          "body": "Just the departure time would help."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "An unanswered outgoing question establishes waiting.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which train are you taking to the conference?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Just the departure time would help."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_051_2",
+      "group": "role_train_family_051",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Do you have the serial number for your projector?"
+        },
+        {
+          "outbound": false,
+          "body": "The serial number is no longer needed. Can you tell us the firmware version?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Replacing the first request leaves the new question unanswered.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Do you have the serial number for your projector?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The serial number is no longer needed. Can you tell us the firmware version?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_099_1",
+      "group": "role_train_family_099",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Bookshop mailing list: staff favourites for September."
+        },
+        {
+          "outbound": false,
+          "body": "This week\u2019s reading picks include essays and short fiction."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A mailing-list recommendation roundup is newsletter noise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Bookshop mailing list: staff favourites for September."
+          },
+          {
+            "message_index": 1,
+            "quote": "This week\u2019s reading picks include essays and short fiction."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_093_2",
+      "group": "role_train_family_093",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Meet the newest collection from Clay & Kiln."
+        },
+        {
+          "outbound": false,
+          "body": "Our featured ceramics are available in three seasonal colours."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "Product announcements are promotional noise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Meet the newest collection from Clay & Kiln."
+          },
+          {
+            "message_index": 1,
+            "quote": "Our featured ceramics are available in three seasonal colours."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_020_2",
+      "group": "role_train_family_020",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The usual thing with the downstairs room."
+        },
+        {
+          "outbound": true,
+          "body": "Still that downstairs matter."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "No visible request or owner can be determined.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The usual thing with the downstairs room."
+          },
+          {
+            "message_index": 1,
+            "quote": "Still that downstairs matter."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_073_1",
+      "group": "role_train_family_073",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Do you approve the blue binding for the report?"
+        },
+        {
+          "outbound": true,
+          "body": "Yes, the blue binding is approved."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The outgoing answer resolves the approval request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Do you approve the blue binding for the report?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Yes, the blue binding is approved."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_065_1",
+      "group": "role_train_family_065",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The manuscript has been accepted for the archive."
+        },
+        {
+          "outbound": false,
+          "body": "Its permanent catalogue number is ARC-284."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The exchange supplies substantive archive status without requests.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The manuscript has been accepted for the archive."
+          },
+          {
+            "message_index": 1,
+            "quote": "Its permanent catalogue number is ARC-284."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_015_1",
+      "group": "role_train_family_015",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please send your chapter comments by Thursday."
+        },
+        {
+          "outbound": true,
+          "body": "I will also finish the missing appendix tomorrow."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "A request to the recipient and a separate user commitment coexist.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please send your chapter comments by Thursday."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will also finish the missing appendix tomorrow."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "role_train_061_1",
+      "group": "role_train_family_061",
+      "split": "train",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you confirm which cabinet holds the manuals?"
+        },
+        {
+          "outbound": false,
+          "body": "Never mind; I found them in the tall cabinet."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "role-training-author",
+        "rationale": "The incoming question is explicitly resolved by the sender.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you confirm which cabinet holds the manuals?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Never mind; I found them in the tall cabinet."
+          }
+        ]
+      },
+      "author_flags": []
+    }
+  ]
+}
