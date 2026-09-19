@@ -1,0 +1,1909 @@
+{
+  "version": 1,
+  "provenance": "fully_synthetic_assistant_authored",
+  "review_status": "blind_reviewer_agreed_independence_self_attested",
+  "review_report_sha256": "a114ac922584415aab7267496fce9af3c734fecf6d97f12420a110ac56935367",
+  "cases": [
+    {
+      "id": "scale_theatre_mailout_3",
+      "group": "scale_theatre_mailout",
+      "split": "train",
+      "domain": "creative",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "Your requested seat isn't available. Please choose between the two alternatives listed in the seating plan.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your requested seat isn't available. Please choose between the two alternatives listed in the seating plan."
+        }
+      ]
+    },
+    {
+      "id": "scale_garden_catalogue_1",
+      "group": "scale_garden_catalogue",
+      "split": "train",
+      "domain": "household",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Growing newsletter: greenhouse ideas, sponsored products, and a roundup of reader gardens.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Growing newsletter: greenhouse ideas, sponsored products, and a roundup of reader gardens."
+        }
+      ]
+    },
+    {
+      "id": "scale_craft_fair_news_0",
+      "group": "scale_craft_fair_news",
+      "split": "train",
+      "domain": "community",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Craft-fair newsletter: maker interviews, advertised products, and general stallholder offers.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Craft-fair newsletter: maker interviews, advertised products, and general stallholder offers."
+        }
+      ]
+    },
+    {
+      "id": "scale_office_supplies_2",
+      "group": "scale_office_supplies",
+      "split": "train",
+      "domain": "work",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "The office paper order has been delivered in full and the invoice is settled.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The office paper order has been delivered in full and the invoice is settled."
+        }
+      ]
+    },
+    {
+      "id": "venue_capacity_2_reversed",
+      "group": "venue_capacity",
+      "split": "train",
+      "domain": "community",
+      "capability": "followup",
+      "variant": "direction_reversed",
+      "expected": "waiting_on_them",
+      "obligation_state": "recipient",
+      "evidence": "need that headcount",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "How many people are coming to your event?"
+        },
+        {
+          "outbound": true,
+          "body": "Still need that headcount from you so I can size the room."
+        }
+      ]
+    },
+    {
+      "id": "ceramic_promo_0",
+      "group": "ceramic_promo",
+      "split": "train",
+      "domain": "creative",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "discount for subscribers",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Fresh glaze colours are in stock, with a discount for subscribers! Shop the whole range or leave this mailing list."
+        }
+      ]
+    },
+    {
+      "id": "scanner_loan_1_reversed",
+      "group": "scanner_loan",
+      "split": "train",
+      "domain": "work",
+      "capability": "followup",
+      "variant": "direction_reversed",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "won't need to borrow",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "May I borrow the scanner for an hour on Thursday?"
+        },
+        {
+          "outbound": true,
+          "body": "Found another scanner, so I won't need to borrow yours."
+        }
+      ]
+    },
+    {
+      "id": "scale_building_notices_3",
+      "group": "scale_building_notices",
+      "split": "train",
+      "domain": "household",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "The inspector couldn't access your storage unit. Please propose a time when you can provide access.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The inspector couldn't access your storage unit. Please propose a time when you can provide access."
+        }
+      ]
+    },
+    {
+      "id": "calendar_update_1",
+      "group": "calendar_update",
+      "split": "train",
+      "domain": "work",
+      "capability": "automated_notice",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "personally confirm",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The calendar moved our client demo to 15:00. Can you personally confirm you'll lead it? We can't proceed without a presenter."
+        }
+      ]
+    },
+    {
+      "id": "conference_digest_1",
+      "group": "conference_digest",
+      "split": "train",
+      "domain": "work",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "approve your speaker bio",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Conference desk to speaker: please approve your speaker bio today so we can print the programme."
+        }
+      ]
+    },
+    {
+      "id": "scale_building_notices_2",
+      "group": "scale_building_notices",
+      "split": "train",
+      "domain": "household",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "The annual building inspection has finished. The report is available for residents' information.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The annual building inspection has finished. The report is available for residents' information."
+        }
+      ]
+    },
+    {
+      "id": "optional_survey_0",
+      "group": "optional_survey",
+      "split": "train",
+      "domain": "community",
+      "capability": "negation",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "purely optional",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your building's resident survey is purely optional. Ignoring it will not affect your tenancy or any service."
+        }
+      ]
+    },
+    {
+      "id": "scale_office_supplies_0",
+      "group": "scale_office_supplies",
+      "split": "train",
+      "domain": "work",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Refresh the office with our advertised stationery bundles, available to mailing-list members this week.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Refresh the office with our advertised stationery bundles, available to mailing-list members this week."
+        }
+      ]
+    },
+    {
+      "id": "scale_furniture_digest_3",
+      "group": "scale_furniture_digest",
+      "split": "train",
+      "domain": "household",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "The assembly team needs access instructions for your building. Please send them before the booked visit.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The assembly team needs access instructions for your building. Please send them before the booked visit."
+        }
+      ]
+    },
+    {
+      "id": "scale_library_bulletin_0",
+      "group": "scale_library_bulletin",
+      "split": "train",
+      "domain": "community",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Library friends newsletter: book recommendations, sponsor messages, and a general appeal to buy merchandise.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Library friends newsletter: book recommendations, sponsor messages, and a general appeal to buy merchandise."
+        }
+      ]
+    },
+    {
+      "id": "scale_furniture_digest_1",
+      "group": "scale_furniture_digest",
+      "split": "train",
+      "domain": "household",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Save on our new shelving range in this general campaign for catalogue subscribers.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Save on our new shelving range in this general campaign for catalogue subscribers."
+        }
+      ]
+    },
+    {
+      "id": "outdoor_catalog_0",
+      "group": "outdoor_catalog",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "seasonal catalogue",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Our seasonal catalogue is here: browse tents, packs, and boots. You received this because you joined our offers list."
+        }
+      ]
+    },
+    {
+      "id": "venue_capacity_1",
+      "group": "venue_capacity",
+      "split": "train",
+      "domain": "community",
+      "capability": "followup",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "capacity is eighty",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "How many people fit in the hall?"
+        },
+        {
+          "outbound": false,
+          "body": "The certified capacity is eighty people. That's the final answer."
+        }
+      ]
+    },
+    {
+      "id": "scale_food_subscription_2",
+      "group": "scale_food_subscription",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "Your meal-box pause is confirmed. No deliveries or charges are scheduled during the pause.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your meal-box pause is confirmed. No deliveries or charges are scheduled during the pause."
+        }
+      ]
+    },
+    {
+      "id": "scale_office_supplies_1",
+      "group": "scale_office_supplies",
+      "split": "train",
+      "domain": "work",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Office supplies newsletter: new products, supplier adverts, and subscriber coupons.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Office supplies newsletter: new products, supplier adverts, and subscriber coupons."
+        }
+      ]
+    },
+    {
+      "id": "scale_language_app_3",
+      "group": "scale_language_app",
+      "split": "train",
+      "domain": "education",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "Your placement test is missing the speaking section. Complete it by Monday to receive a class assignment.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your placement test is missing the speaking section. Complete it by Monday to receive a class assignment."
+        }
+      ]
+    },
+    {
+      "id": "scale_photography_course_2",
+      "group": "scale_photography_course",
+      "split": "train",
+      "domain": "education",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "Your workshop transfer is complete and the new date is confirmed in your account.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your workshop transfer is complete and the new date is confirmed in your account."
+        }
+      ]
+    },
+    {
+      "id": "scanner_loan_1",
+      "group": "scanner_loan",
+      "split": "train",
+      "domain": "work",
+      "capability": "followup",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "won't need to borrow",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "May I borrow the scanner for an hour on Thursday?"
+        },
+        {
+          "outbound": false,
+          "body": "Found another scanner, so I won't need to borrow yours."
+        }
+      ]
+    },
+    {
+      "id": "scale_audio_store_3",
+      "group": "scale_audio_store",
+      "split": "train",
+      "domain": "creative",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "Your return request lacks the microphone serial number. Please send it so we can issue a return label.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your return request lacks the microphone serial number. Please send it so we can issue a return label."
+        }
+      ]
+    },
+    {
+      "id": "scale_travel_weekly_2",
+      "group": "scale_travel_weekly",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "Your booked rail holiday is confirmed. The tickets you purchased are available in your account.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your booked rail holiday is confirmed. The tickets you purchased are available in your account."
+        }
+      ]
+    },
+    {
+      "id": "scale_electronics_offers_0",
+      "group": "scale_electronics_offers",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Tech deals for the weekend: headphones, chargers, and smart-home gadgets at promotional prices.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Tech deals for the weekend: headphones, chargers, and smart-home gadgets at promotional prices."
+        }
+      ]
+    },
+    {
+      "id": "membership_notice_0",
+      "group": "membership_notice",
+      "split": "train",
+      "domain": "community",
+      "capability": "automated_notice",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "must renew",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated library notice: your volunteer membership expires tomorrow. You must renew it today to keep your scheduled shift."
+        }
+      ]
+    },
+    {
+      "id": "scale_plant_shop_1",
+      "group": "scale_plant_shop",
+      "split": "train",
+      "domain": "household",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Plant-club newsletter: propagation ideas, new pots, and this month's sponsor discounts.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Plant-club newsletter: propagation ideas, new pots, and this month's sponsor discounts."
+        }
+      ]
+    },
+    {
+      "id": "scale_food_subscription_1",
+      "group": "scale_food_subscription",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "This week's food newsletter: recipes, sponsor ingredients, and reader kitchen stories.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "This week's food newsletter: recipes, sponsor ingredients, and reader kitchen stories."
+        }
+      ]
+    },
+    {
+      "id": "scale_plant_shop_0",
+      "group": "scale_plant_shop",
+      "split": "train",
+      "domain": "household",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Bring spring indoors with our houseplant collection. This promotional mailout includes offers for all subscribers.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Bring spring indoors with our houseplant collection. This promotional mailout includes offers for all subscribers."
+        }
+      ]
+    },
+    {
+      "id": "scale_fabric_sale_1",
+      "group": "scale_fabric_sale",
+      "split": "train",
+      "domain": "creative",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "This month's sewing newsletter brings pattern ideas, sponsor coupons, and reader projects.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "This month's sewing newsletter brings pattern ideas, sponsor coupons, and reader projects."
+        }
+      ]
+    },
+    {
+      "id": "scale_journal_digest_3",
+      "group": "scale_journal_digest",
+      "split": "train",
+      "domain": "education",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "The proof of your article is ready. Please approve the corrected author affiliation by Wednesday.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The proof of your article is ready. Please approve the corrected author affiliation by Wednesday."
+        }
+      ]
+    },
+    {
+      "id": "scale_electronics_offers_3",
+      "group": "scale_electronics_offers",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "For your warranty claim, please send a photo of the charger's model number.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "For your warranty claim, please send a photo of the charger's model number."
+        }
+      ]
+    },
+    {
+      "id": "scale_library_bulletin_2",
+      "group": "scale_library_bulletin",
+      "split": "train",
+      "domain": "community",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "The borrowed book has been checked back in and your account has no outstanding loan.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The borrowed book has been checked back in and your account has no outstanding loan."
+        }
+      ]
+    },
+    {
+      "id": "scale_furniture_digest_0",
+      "group": "scale_furniture_digest",
+      "split": "train",
+      "domain": "household",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Interiors digest: room ideas, sponsored furniture, and promotional bundles for our readers.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Interiors digest: room ideas, sponsored furniture, and promotional bundles for our readers."
+        }
+      ]
+    },
+    {
+      "id": "optional_survey_1",
+      "group": "optional_survey",
+      "split": "train",
+      "domain": "community",
+      "capability": "negation",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "need your answer",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I'm arranging the building's water shutdown and need your answer: will anyone in your unit need access at noon?"
+        }
+      ]
+    },
+    {
+      "id": "tooling_news_1",
+      "group": "tooling_news",
+      "split": "train",
+      "domain": "work",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "send the failed job number",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Regarding your support ticket, please send the failed job number so we can trace the build error."
+        }
+      ]
+    },
+    {
+      "id": "scale_software_bulletin_2",
+      "group": "scale_software_bulletin",
+      "split": "train",
+      "domain": "work",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "Your existing software subscription renewed successfully at the agreed price. This is the receipt.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your existing software subscription renewed successfully at the agreed price. This is the receipt."
+        }
+      ]
+    },
+    {
+      "id": "scale_travel_weekly_3",
+      "group": "scale_travel_weekly",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "Your rail booking lacks a passenger name. Please send the name exactly as it appears on the ticket holder's ID.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your rail booking lacks a passenger name. Please send the name exactly as it appears on the ticket holder's ID."
+        }
+      ]
+    },
+    {
+      "id": "scale_photography_course_3",
+      "group": "scale_photography_course",
+      "split": "train",
+      "domain": "education",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "Your workshop transfer request doesn't name the new session. Which date would you like?",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your workshop transfer request doesn't name the new session. Which date would you like?"
+        }
+      ]
+    },
+    {
+      "id": "scale_furniture_digest_2",
+      "group": "scale_furniture_digest",
+      "split": "train",
+      "domain": "household",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "Your shelf order was delivered and the assembly service has been completed.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your shelf order was delivered and the assembly service has been completed."
+        }
+      ]
+    },
+    {
+      "id": "scale_software_bulletin_3",
+      "group": "scale_software_bulletin",
+      "split": "train",
+      "domain": "work",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "Your renewal payment failed. Update the payment details before Friday to retain your team access.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your renewal payment failed. Update the payment details before Friday to retain your team access."
+        }
+      ]
+    },
+    {
+      "id": "scale_fabric_sale_2",
+      "group": "scale_fabric_sale",
+      "split": "train",
+      "domain": "creative",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "The fabric you ordered is cut and dispatched in the length and colour you selected.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The fabric you ordered is cut and dispatched in the length and colour you selected."
+        }
+      ]
+    },
+    {
+      "id": "scale_travel_weekly_1",
+      "group": "scale_travel_weekly",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Subscriber special: save on selected rail holidays in our autumn campaign. Browse the offers in your account.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Subscriber special: save on selected rail holidays in our autumn campaign. Browse the offers in your account."
+        }
+      ]
+    },
+    {
+      "id": "scale_journal_digest_1",
+      "group": "scale_journal_digest",
+      "split": "train",
+      "domain": "education",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Our journal's anniversary promotion offers discounted archive access to everyone on this mailing list.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Our journal's anniversary promotion offers discounted archive access to everyone on this mailing list."
+        }
+      ]
+    },
+    {
+      "id": "scale_plant_shop_2",
+      "group": "scale_plant_shop",
+      "split": "train",
+      "domain": "household",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "The replacement plant you requested has been delivered to the porch, as agreed.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The replacement plant you requested has been delivered to the porch, as agreed."
+        }
+      ]
+    },
+    {
+      "id": "scale_fabric_sale_3",
+      "group": "scale_fabric_sale",
+      "split": "train",
+      "domain": "creative",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "Your fabric order is missing a length. How many metres should we cut?",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your fabric order is missing a length. How many metres should we cut?"
+        }
+      ]
+    },
+    {
+      "id": "scale_garden_catalogue_3",
+      "group": "scale_garden_catalogue",
+      "split": "train",
+      "domain": "household",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "One seed variety is unavailable. Would you prefer a substitute or a refund for that item?",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "One seed variety is unavailable. Would you prefer a substitute or a refund for that item?"
+        }
+      ]
+    },
+    {
+      "id": "scale_office_supplies_3",
+      "group": "scale_office_supplies",
+      "split": "train",
+      "domain": "work",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "Your paper order lists two delivery addresses. Which one should the driver use?",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your paper order lists two delivery addresses. Which one should the driver use?"
+        }
+      ]
+    },
+    {
+      "id": "calendar_update_2",
+      "group": "calendar_update",
+      "split": "train",
+      "domain": "work",
+      "capability": "automated_notice",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "demo is cancelled",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Calendar notice: the client demo is cancelled. There is no replacement session to arrange."
+        }
+      ]
+    },
+    {
+      "id": "scale_cycling_catalogue_3",
+      "group": "scale_cycling_catalogue",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "We found two compatible tyres for your repair. Which model should we fit?",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "We found two compatible tyres for your repair. Which model should we fit?"
+        }
+      ]
+    },
+    {
+      "id": "scale_photography_course_0",
+      "group": "scale_photography_course",
+      "split": "train",
+      "domain": "education",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Our photography-course brochure includes advertised workshops and seasonal subscription offers.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Our photography-course brochure includes advertised workshops and seasonal subscription offers."
+        }
+      ]
+    },
+    {
+      "id": "scale_software_bulletin_0",
+      "group": "scale_software_bulletin",
+      "split": "train",
+      "domain": "work",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Developer newsletter: release highlights, partner tools, and featured webinars for subscribers.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Developer newsletter: release highlights, partner tools, and featured webinars for subscribers."
+        }
+      ]
+    },
+    {
+      "id": "scale_outdoor_magazine_3",
+      "group": "scale_outdoor_magazine",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "Your jacket exchange request doesn't specify a size. Which size should replace the original?",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your jacket exchange request doesn't specify a size. Which size should replace the original?"
+        }
+      ]
+    },
+    {
+      "id": "scale_photography_course_1",
+      "group": "scale_photography_course",
+      "split": "train",
+      "domain": "education",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Photo-learning digest: technique articles, sponsor discounts, and general course announcements.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Photo-learning digest: technique articles, sponsor discounts, and general course announcements."
+        }
+      ]
+    },
+    {
+      "id": "scale_cycling_catalogue_2",
+      "group": "scale_cycling_catalogue",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "Your bicycle service is complete and the invoice you already paid is marked settled.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your bicycle service is complete and the invoice you already paid is marked settled."
+        }
+      ]
+    },
+    {
+      "id": "scale_library_bulletin_1",
+      "group": "scale_library_bulletin",
+      "split": "train",
+      "domain": "community",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Discover our reading subscription boxes. This advertisement went to everyone on our book-interest list.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Discover our reading subscription boxes. This advertisement went to everyone on our book-interest list."
+        }
+      ]
+    },
+    {
+      "id": "scale_building_notices_1",
+      "group": "scale_building_notices",
+      "split": "train",
+      "domain": "household",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Monthly home-services newsletter: sponsored tradespeople, decorating ideas, and promotional offers.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Monthly home-services newsletter: sponsored tradespeople, decorating ideas, and promotional offers."
+        }
+      ]
+    },
+    {
+      "id": "scale_theatre_mailout_0",
+      "group": "scale_theatre_mailout",
+      "split": "train",
+      "domain": "creative",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Theatre lovers' bulletin: upcoming productions, general ticket offers, and partner promotions.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Theatre lovers' bulletin: upcoming productions, general ticket offers, and partner promotions."
+        }
+      ]
+    },
+    {
+      "id": "scale_electronics_offers_1",
+      "group": "scale_electronics_offers",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "The gadget roundup includes launch news and paid product placements. Adjust your mailing preferences below.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The gadget roundup includes launch news and paid product placements. Adjust your mailing preferences below."
+        }
+      ]
+    },
+    {
+      "id": "scale_theatre_mailout_1",
+      "group": "scale_theatre_mailout",
+      "split": "train",
+      "domain": "creative",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "A subscriber promotion for our season-pass packages is open this week. Explore the advertised options.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "A subscriber promotion for our season-pass packages is open this week. Explore the advertised options."
+        }
+      ]
+    },
+    {
+      "id": "scale_audio_store_1",
+      "group": "scale_audio_store",
+      "split": "train",
+      "domain": "creative",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "The sound-production digest covers new releases, tutorials, and paid partner recommendations.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The sound-production digest covers new releases, tutorials, and paid partner recommendations."
+        }
+      ]
+    },
+    {
+      "id": "scale_language_app_0",
+      "group": "scale_language_app",
+      "split": "train",
+      "domain": "education",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Explore our language-app upgrade promotion. Discounted annual plans are advertised to all subscribers.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Explore our language-app upgrade promotion. Discounted annual plans are advertised to all subscribers."
+        }
+      ]
+    },
+    {
+      "id": "scanner_loan_2",
+      "group": "scanner_loan",
+      "split": "train",
+      "domain": "work",
+      "capability": "followup",
+      "variant": "authored",
+      "expected": "waiting_on_them",
+      "obligation_state": "sender",
+      "evidence": "will check",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can I borrow your scanner on Thursday?"
+        },
+        {
+          "outbound": false,
+          "body": "Thanks for waiting. I will check my booking sheet after the meeting."
+        }
+      ]
+    },
+    {
+      "id": "scanner_loan_0",
+      "group": "scanner_loan",
+      "split": "train",
+      "domain": "work",
+      "capability": "followup",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "haven't had an answer",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "May I borrow the scanner for an hour on Thursday?"
+        },
+        {
+          "outbound": false,
+          "body": "I haven't had an answer about Thursday's scanner loan. Does that work?"
+        }
+      ]
+    },
+    {
+      "id": "venue_capacity_0",
+      "group": "venue_capacity",
+      "split": "train",
+      "domain": "community",
+      "capability": "followup",
+      "variant": "authored",
+      "expected": "waiting_on_them",
+      "obligation_state": "sender",
+      "evidence": "still counting",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "How many people fit in the hall?"
+        },
+        {
+          "outbound": false,
+          "body": "We're still counting usable seats. I haven't got a number for you yet."
+        }
+      ]
+    },
+    {
+      "id": "scale_building_notices_0",
+      "group": "scale_building_notices",
+      "split": "train",
+      "domain": "household",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Discover our premium home-management app in this general marketing campaign for residents.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Discover our premium home-management app in this general marketing campaign for residents."
+        }
+      ]
+    },
+    {
+      "id": "scale_theatre_mailout_2",
+      "group": "scale_theatre_mailout",
+      "split": "train",
+      "domain": "creative",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "Your seat change is complete. Your booking now shows the aisle seat you requested.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your seat change is complete. Your booking now shows the aisle seat you requested."
+        }
+      ]
+    },
+    {
+      "id": "scale_travel_weekly_0",
+      "group": "scale_travel_weekly",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "This week's travel bulletin: city guides, luggage offers, and sponsored hotel picks for our subscribers.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "This week's travel bulletin: city guides, luggage offers, and sponsored hotel picks for our subscribers."
+        }
+      ]
+    },
+    {
+      "id": "scale_cycling_catalogue_0",
+      "group": "scale_cycling_catalogue",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Our cycle-shop catalogue is here: new helmets, lights, and advertised clearance offers.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Our cycle-shop catalogue is here: new helmets, lights, and advertised clearance offers."
+        }
+      ]
+    },
+    {
+      "id": "scale_fabric_sale_0",
+      "group": "scale_fabric_sale",
+      "split": "train",
+      "domain": "creative",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Fabric warehouse offers: new linens and clearance prints, selected for our retail subscriber campaign.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Fabric warehouse offers: new linens and clearance prints, selected for our retail subscriber campaign."
+        }
+      ]
+    },
+    {
+      "id": "outdoor_catalog_2",
+      "group": "outdoor_catalog",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "reserved pack is ready",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your reserved pack is ready for the pickup you already arranged. This message confirms the reservation; no reply is required."
+        }
+      ]
+    },
+    {
+      "id": "tooling_news_2",
+      "group": "tooling_news",
+      "split": "train",
+      "domain": "work",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "waiting_on_them",
+      "obligation_state": "sender",
+      "evidence": "will inspect the failed job",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Regarding your support ticket, we will inspect the failed job and send our findings tomorrow. We have all the details."
+        }
+      ]
+    },
+    {
+      "id": "conference_digest_0",
+      "group": "conference_digest",
+      "split": "train",
+      "domain": "work",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "conference digest",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "This month's conference digest: keynote highlights and partner advertisements for our subscribers."
+        }
+      ]
+    },
+    {
+      "id": "scale_craft_fair_news_3",
+      "group": "scale_craft_fair_news",
+      "split": "train",
+      "domain": "community",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "Your stall application needs your public display name. What name should appear in the fair guide?",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your stall application needs your public display name. What name should appear in the fair guide?"
+        }
+      ]
+    },
+    {
+      "id": "scale_outdoor_magazine_1",
+      "group": "scale_outdoor_magazine",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Get set for winter with our subscriber-only outerwear promotion. Browse this week's discount range.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Get set for winter with our subscriber-only outerwear promotion. Browse this week's discount range."
+        }
+      ]
+    },
+    {
+      "id": "ceramic_promo_1",
+      "group": "ceramic_promo",
+      "split": "train",
+      "domain": "creative",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "choose a glaze",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your commissioned bowl is shaped. Please choose a glaze colour before I put it in the kiln."
+        }
+      ]
+    },
+    {
+      "id": "scale_craft_fair_news_1",
+      "group": "scale_craft_fair_news",
+      "split": "train",
+      "domain": "community",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Our gift-guide campaign showcases sponsor products and promotional prices for newsletter readers.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Our gift-guide campaign showcases sponsor products and promotional prices for newsletter readers."
+        }
+      ]
+    },
+    {
+      "id": "scale_language_app_2",
+      "group": "scale_language_app",
+      "split": "train",
+      "domain": "education",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "Your language-course withdrawal has been completed and your refund has been issued.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your language-course withdrawal has been completed and your refund has been issued."
+        }
+      ]
+    },
+    {
+      "id": "scale_software_bulletin_1",
+      "group": "scale_software_bulletin",
+      "split": "train",
+      "domain": "work",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Upgrade your team to our premium suite during this promotional week and unlock the advertised bundle.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Upgrade your team to our premium suite during this promotional week and unlock the advertised bundle."
+        }
+      ]
+    },
+    {
+      "id": "scale_library_bulletin_3",
+      "group": "scale_library_bulletin",
+      "split": "train",
+      "domain": "community",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "Your reserved book is awaiting a decision: please tell us if you still want it held until Saturday.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your reserved book is awaiting a decision: please tell us if you still want it held until Saturday."
+        }
+      ]
+    },
+    {
+      "id": "conference_digest_2",
+      "group": "conference_digest",
+      "split": "train",
+      "domain": "work",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "speaker bio is approved",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Conference desk: your speaker bio is approved and printed exactly as you supplied it. The programme is complete."
+        }
+      ]
+    },
+    {
+      "id": "scale_outdoor_magazine_2",
+      "group": "scale_outdoor_magazine",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "Your jacket exchange has been processed. The replacement size you requested is on its way.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your jacket exchange has been processed. The replacement size you requested is on its way."
+        }
+      ]
+    },
+    {
+      "id": "venue_capacity_2",
+      "group": "venue_capacity",
+      "split": "train",
+      "domain": "community",
+      "capability": "followup",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "need that headcount",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "How many people are coming to your event?"
+        },
+        {
+          "outbound": false,
+          "body": "Still need that headcount from you so I can size the room."
+        }
+      ]
+    },
+    {
+      "id": "scale_audio_store_2",
+      "group": "scale_audio_store",
+      "split": "train",
+      "domain": "creative",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "Your replacement microphone has arrived at the studio and the engineer signed for it.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your replacement microphone has arrived at the studio and the engineer signed for it."
+        }
+      ]
+    },
+    {
+      "id": "membership_notice_1",
+      "group": "membership_notice",
+      "split": "train",
+      "domain": "community",
+      "capability": "automated_notice",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "renewed automatically",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated library notice: your volunteer membership renewed automatically. Your scheduled shift remains confirmed."
+        }
+      ]
+    },
+    {
+      "id": "scale_food_subscription_3",
+      "group": "scale_food_subscription",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "Your replacement meal needs a dietary choice. Please tell us which of the available options to send.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your replacement meal needs a dietary choice. Please tell us which of the available options to send."
+        }
+      ]
+    },
+    {
+      "id": "scale_craft_fair_news_2",
+      "group": "scale_craft_fair_news",
+      "split": "train",
+      "domain": "community",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "Your craft-fair stall payment is recorded and the assigned stall number is confirmed.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your craft-fair stall payment is recorded and the assigned stall number is confirmed."
+        }
+      ]
+    },
+    {
+      "id": "scale_garden_catalogue_2",
+      "group": "scale_garden_catalogue",
+      "split": "train",
+      "domain": "household",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "Your seed order is dispatched with all varieties and quantities as requested.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your seed order is dispatched with all varieties and quantities as requested."
+        }
+      ]
+    },
+    {
+      "id": "scale_journal_digest_2",
+      "group": "scale_journal_digest",
+      "split": "train",
+      "domain": "education",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "Your accepted article has appeared in the latest issue. The publication record is attached for your files.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your accepted article has appeared in the latest issue. The publication record is attached for your files."
+        }
+      ]
+    },
+    {
+      "id": "optional_survey_2",
+      "group": "optional_survey",
+      "split": "train",
+      "domain": "community",
+      "capability": "negation",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "win a discount voucher",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Tell us about your dream home and win a discount voucher! A promotional survey for subscribers."
+        }
+      ]
+    },
+    {
+      "id": "scale_language_app_1",
+      "group": "scale_language_app",
+      "split": "train",
+      "domain": "education",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Language-learning newsletter: study tips, sponsored courses, and featured app releases.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Language-learning newsletter: study tips, sponsored courses, and featured app releases."
+        }
+      ]
+    },
+    {
+      "id": "scale_garden_catalogue_0",
+      "group": "scale_garden_catalogue",
+      "split": "train",
+      "domain": "household",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Our new garden catalogue features seeds, tools, and seasonal subscriber discounts. Shop the collection.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Our new garden catalogue features seeds, tools, and seasonal subscriber discounts. Shop the collection."
+        }
+      ]
+    },
+    {
+      "id": "calendar_update_0",
+      "group": "calendar_update",
+      "split": "train",
+      "domain": "work",
+      "capability": "automated_notice",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "Attendance is optional",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Calendar notice: the drop-in demo moved to 15:00. Attendance is optional; use the calendar controls if you want to RSVP."
+        }
+      ]
+    },
+    {
+      "id": "scale_food_subscription_0",
+      "group": "scale_food_subscription",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Try our meal-box promotion and explore the advertised introductory discounts for new subscribers.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Try our meal-box promotion and explore the advertised introductory discounts for new subscribers."
+        }
+      ]
+    },
+    {
+      "id": "membership_notice_2",
+      "group": "membership_notice",
+      "split": "train",
+      "domain": "community",
+      "capability": "automated_notice",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "premium book club",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Explore our premium book club! Members of this marketing list can browse this month's offers. Unsubscribe in preferences."
+        }
+      ]
+    },
+    {
+      "id": "scale_journal_digest_0",
+      "group": "scale_journal_digest",
+      "split": "train",
+      "domain": "education",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Research roundup for subscribers: featured papers, publisher announcements, and conference advertisements.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Research roundup for subscribers: featured papers, publisher announcements, and conference advertisements."
+        }
+      ]
+    },
+    {
+      "id": "scanner_loan_0_reversed",
+      "group": "scanner_loan",
+      "split": "train",
+      "domain": "work",
+      "capability": "followup",
+      "variant": "direction_reversed",
+      "expected": "waiting_on_them",
+      "obligation_state": "recipient",
+      "evidence": "haven't had an answer",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "May I borrow the scanner for an hour on Thursday?"
+        },
+        {
+          "outbound": true,
+          "body": "I haven't had an answer about Thursday's scanner loan. Does that work?"
+        }
+      ]
+    },
+    {
+      "id": "scale_audio_store_0",
+      "group": "scale_audio_store",
+      "split": "train",
+      "domain": "creative",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Studio equipment offers: selected microphones and monitors discounted in our subscriber campaign.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Studio equipment offers: selected microphones and monitors discounted in our subscriber campaign."
+        }
+      ]
+    },
+    {
+      "id": "venue_capacity_1_reversed",
+      "group": "venue_capacity",
+      "split": "train",
+      "domain": "community",
+      "capability": "followup",
+      "variant": "direction_reversed",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "capacity is eighty",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "How many people fit in the hall?"
+        },
+        {
+          "outbound": true,
+          "body": "The certified capacity is eighty people. That's the final answer."
+        }
+      ]
+    },
+    {
+      "id": "tooling_news_0",
+      "group": "tooling_news",
+      "split": "train",
+      "domain": "work",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Monthly product bulletin",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Monthly product bulletin: platform launches, sponsor messages, and our favourite tips. Manage your subscription below."
+        }
+      ]
+    },
+    {
+      "id": "scale_outdoor_magazine_0",
+      "group": "scale_outdoor_magazine",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Outdoor magazine mailout: new trails, camping gear adverts, and our editor's favourite walking stories.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Outdoor magazine mailout: new trails, camping gear adverts, and our editor's favourite walking stories."
+        }
+      ]
+    },
+    {
+      "id": "ceramic_promo_2",
+      "group": "ceramic_promo",
+      "split": "train",
+      "domain": "creative",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "fired and dispatched",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your commissioned bowl has been fired and dispatched in the blue glaze you chose. This is the dispatch receipt."
+        }
+      ]
+    },
+    {
+      "id": "scale_electronics_offers_2",
+      "group": "scale_electronics_offers",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "fyi",
+      "obligation_state": "none",
+      "evidence": "Your warranty replacement charger has shipped. The return of the faulty unit is already recorded.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your warranty replacement charger has shipped. The return of the faulty unit is already recorded."
+        }
+      ]
+    },
+    {
+      "id": "venue_capacity_0_reversed",
+      "group": "venue_capacity",
+      "split": "train",
+      "domain": "community",
+      "capability": "followup",
+      "variant": "direction_reversed",
+      "expected": "needs_reply",
+      "obligation_state": "sender",
+      "evidence": "still counting",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "How many people fit in the hall?"
+        },
+        {
+          "outbound": true,
+          "body": "We're still counting usable seats. I haven't got a number for you yet."
+        }
+      ]
+    },
+    {
+      "id": "scale_cycling_catalogue_1",
+      "group": "scale_cycling_catalogue",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "noise",
+      "obligation_state": "bulk",
+      "evidence": "Subscriber cycling update: race reports, sponsor deals, and this month's featured bikes.",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Subscriber cycling update: race reports, sponsor deals, and this month's featured bikes."
+        }
+      ]
+    },
+    {
+      "id": "scale_plant_shop_3",
+      "group": "scale_plant_shop",
+      "split": "train",
+      "domain": "household",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "Your replacement plant can be a fern or a palm. Which would you like us to send?",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your replacement plant can be a fern or a palm. Which would you like us to send?"
+        }
+      ]
+    },
+    {
+      "id": "outdoor_catalog_1",
+      "group": "outdoor_catalog",
+      "split": "train",
+      "domain": "personal",
+      "capability": "bulk_vs_personal",
+      "variant": "authored",
+      "expected": "needs_reply",
+      "obligation_state": "recipient",
+      "evidence": "Which pack did you want",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Thanks for visiting our shop. Which pack did you want me to reserve for you? I can't hold one without your answer."
+        }
+      ]
+    },
+    {
+      "id": "scanner_loan_2_reversed",
+      "group": "scanner_loan",
+      "split": "train",
+      "domain": "work",
+      "capability": "followup",
+      "variant": "direction_reversed",
+      "expected": "needs_reply",
+      "obligation_state": "sender",
+      "evidence": "will check",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can I borrow your scanner on Thursday?"
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for waiting. I will check my booking sheet after the meeting."
+        }
+      ]
+    }
+  ]
+}
