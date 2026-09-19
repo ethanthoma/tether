@@ -1,0 +1,356 @@
+{
+  "version": 1,
+  "provenance": "fully_synthetic_assistant_authored",
+  "review_status": "single_author_self_reviewed_not_independently_validated",
+  "cases": [
+    {
+      "id": "audit_accessibility_detail",
+      "group": "audit_accessibility_detail",
+      "split": "audit",
+      "expected": "needs_reply",
+      "evidence": "Please tell me",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "To arrange accessible seating, I need to know whether you require space for a wheelchair. Please tell me before I submit the plan."
+        }
+      ]
+    },
+    {
+      "id": "audit_promised_repair_quote",
+      "group": "audit_promised_repair_quote",
+      "split": "audit",
+      "expected": "needs_reply",
+      "evidence": "I'll obtain a repair quote",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I'll obtain a repair quote for the kiln this week and forward it to you once the engineer replies."
+        }
+      ]
+    },
+    {
+      "id": "audit_credential_expiry",
+      "group": "audit_credential_expiry",
+      "split": "audit",
+      "expected": "needs_reply",
+      "evidence": "submit your completed safety assessment",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Certification reminder: submit your completed safety assessment by Saturday or your workshop access will expire."
+        }
+      ]
+    },
+    {
+      "id": "audit_question_persists",
+      "group": "audit_question_persists",
+      "split": "audit",
+      "expected": "needs_reply",
+      "evidence": "still needs your entrance instructions",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which entrance should the delivery driver use?"
+        },
+        {
+          "outbound": false,
+          "body": "The driver still needs your entrance instructions to complete the delivery."
+        }
+      ]
+    },
+    {
+      "id": "audit_thanks_question",
+      "group": "audit_thanks_question",
+      "split": "audit",
+      "expected": "needs_reply",
+      "evidence": "Could you clarify",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Much appreciated for sending the minutes. Could you clarify who is chairing the next meeting?"
+        }
+      ]
+    },
+    {
+      "id": "audit_stair_measurement",
+      "group": "audit_stair_measurement",
+      "split": "audit",
+      "expected": "waiting_on_them",
+      "evidence": "Would you measure",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Would you measure the staircase width and send me the result? I need it to choose a delivery route."
+        }
+      ]
+    },
+    {
+      "id": "audit_cataloguing_promise",
+      "group": "audit_cataloguing_promise",
+      "split": "audit",
+      "expected": "waiting_on_them",
+      "evidence": "I'll catalogue",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I'll catalogue the donated records and share the completed list next week."
+        }
+      ]
+    },
+    {
+      "id": "audit_pending_verification",
+      "group": "audit_pending_verification",
+      "split": "audit",
+      "expected": "waiting_on_them",
+      "evidence": "I'll check it",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you verify the serial number on the pump?"
+        },
+        {
+          "outbound": false,
+          "body": "I can't reach the label until the housing is off. I'll check it when the technician opens it."
+        }
+      ]
+    },
+    {
+      "id": "audit_awaited_approval",
+      "group": "audit_awaited_approval",
+      "split": "audit",
+      "expected": "waiting_on_them",
+      "evidence": "don't have your decision",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you authorise the badge reprint?"
+        },
+        {
+          "outbound": true,
+          "body": "I'm chasing the badge reprint approval; I still don't have your decision."
+        }
+      ]
+    },
+    {
+      "id": "audit_gentle_enquiry",
+      "group": "audit_gentle_enquiry",
+      "split": "audit",
+      "expected": "waiting_on_them",
+      "evidence": "Could you send your version",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Having the final route description would let me brief the walkers. Could you send your version?"
+        }
+      ]
+    },
+    {
+      "id": "audit_closed_refund",
+      "group": "audit_closed_refund",
+      "split": "audit",
+      "expected": "fyi",
+      "evidence": "balance is settled",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The overpayment has been returned to your card. The balance is settled and there is no further action."
+        }
+      ]
+    },
+    {
+      "id": "audit_cancelled_pickup",
+      "group": "audit_cancelled_pickup",
+      "split": "audit",
+      "expected": "fyi",
+      "evidence": "forget the parcel pickup",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "You can forget the parcel pickup I requested. The sender arranged collection directly this morning."
+        }
+      ]
+    },
+    {
+      "id": "audit_answered_capacity",
+      "group": "audit_answered_capacity",
+      "split": "audit",
+      "expected": "fyi",
+      "evidence": "eight bicycles",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "How many bicycles fit in the rack?"
+        },
+        {
+          "outbound": false,
+          "body": "The rack holds eight bicycles when all spaces are used."
+        }
+      ]
+    },
+    {
+      "id": "audit_thankful_closure",
+      "group": "audit_thankful_closure",
+      "split": "audit",
+      "expected": "fyi",
+      "evidence": "it plays correctly",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The recording you wanted is in the shared drive."
+        },
+        {
+          "outbound": true,
+          "body": "Got it, downloaded it, and it plays correctly. Thanks for tracking it down."
+        }
+      ]
+    },
+    {
+      "id": "audit_optional_badge",
+      "group": "audit_optional_badge",
+      "split": "audit",
+      "expected": "fyi",
+      "evidence": "optional feature",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "You may add a decorative badge to your profile. Ignoring this optional feature changes no permissions or service."
+        }
+      ]
+    },
+    {
+      "id": "audit_music_sale",
+      "group": "audit_music_sale",
+      "split": "audit",
+      "expected": "noise",
+      "evidence": "advertised to our subscriber list",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Browse this weekend's vinyl sale, exclusively advertised to our subscriber list. Lots of classic albums at new prices!"
+        }
+      ]
+    },
+    {
+      "id": "audit_cycling_digest",
+      "group": "audit_cycling_digest",
+      "split": "audit",
+      "expected": "noise",
+      "evidence": "fortnightly cycling digest",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your fortnightly cycling digest: race commentary, new product launches, and sponsor discounts. Manage this subscription below."
+        }
+      ]
+    },
+    {
+      "id": "audit_insurance_ad",
+      "group": "audit_insurance_ad",
+      "split": "audit",
+      "expected": "noise",
+      "evidence": "promotional offer",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Discover our new home-cover package. Get a quote today! This promotional offer was sent to our marketing audience."
+        }
+      ]
+    },
+    {
+      "id": "audit_stationery_campaign",
+      "group": "audit_stationery_campaign",
+      "split": "audit",
+      "expected": "noise",
+      "evidence": "special promotion",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Refresh your desk with our seasonal stationery collection. A special promotion for all newsletter readers."
+        }
+      ]
+    },
+    {
+      "id": "audit_arts_roundup",
+      "group": "audit_arts_roundup",
+      "split": "audit",
+      "expected": "noise",
+      "evidence": "arts newsletter",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The arts newsletter: gallery openings, editor recommendations, and paid partner announcements for this month."
+        }
+      ]
+    },
+    {
+      "id": "audit_unclear_handover",
+      "group": "audit_unclear_handover",
+      "split": "audit",
+      "expected": "abstain",
+      "evidence": "doesn't say from whom or to whom",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The task changed hands during a phone call, but this thread doesn't say from whom or to whom."
+        }
+      ]
+    },
+    {
+      "id": "audit_missing_plan",
+      "group": "audit_missing_plan",
+      "split": "audit",
+      "expected": "abstain",
+      "evidence": "owners aren't visible",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Follow the assignments in the project plan. That plan isn't included, so the remaining work and its owners aren't visible."
+        }
+      ]
+    },
+    {
+      "id": "audit_reciprocal_work",
+      "group": "audit_reciprocal_work",
+      "split": "audit",
+      "expected": "abstain",
+      "evidence": "Both jobs remain undone",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I'll prepare the transport labels; can you arrange the crates? Both jobs remain undone."
+        }
+      ]
+    },
+    {
+      "id": "audit_unclear_reference",
+      "group": "audit_unclear_reference",
+      "split": "audit",
+      "expected": "abstain",
+      "evidence": "the bit that changed",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Are we going ahead with what she suggested? You know the bit that changed."
+        }
+      ]
+    },
+    {
+      "id": "audit_two_people_waiting",
+      "group": "audit_two_people_waiting",
+      "split": "audit",
+      "expected": "abstain",
+      "evidence": "We both still have those tasks",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I'll give you the account totals tomorrow."
+        },
+        {
+          "outbound": false,
+          "body": "Thanks. I'll send the receipts tomorrow too. We both still have those tasks to finish."
+        }
+      ]
+    }
+  ]
+}

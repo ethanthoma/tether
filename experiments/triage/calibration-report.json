@@ -1,0 +1,397 @@
+{
+  "policy": {
+    "version": 1,
+    "temperature": 1.6545382444491354,
+    "threshold": 0.8,
+    "unscaled_selection_threshold": 0.95,
+    "temperature_bounds": [
+      0.25,
+      8.0
+    ],
+    "temperature_selection": "minimum fit-set negative log likelihood; bounded scalar optimization, max 100 iterations",
+    "cutoff_selection": "original grid; maximum selection-set coverage with zero accepted errors",
+    "head_sha256": "063312556498e29881d698b088841a0496cb4ef30013d1725f965c6abde53b26",
+    "encoder_sha256": "032fe78ec9d5500364c1af40f9cf0c514518d6881675f5ab50504e4eebf9a065",
+    "fit_sha256": "ecb900967c3fd34c1f4352b270c00c8f32ce2888352abf75a7228e59e30992ab",
+    "selection_sha256": "fece070a820ff93d593587dc56220368547b35ef349aed240df16a60ec9b5df0",
+    "labels": [
+      "abstain",
+      "fyi",
+      "needs_reply",
+      "noise",
+      "waiting_on_them"
+    ],
+    "fit": {
+      "before": {
+        "nll": 0.5915338317308318,
+        "brier_multiclass": 0.23447994901531266,
+        "ece_five_bins": 0.08926897335441557,
+        "reliability_bins": [
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "count": 3,
+            "accuracy": 0.6666666666666666,
+            "confidence": 0.5550151569549182
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "count": 1,
+            "accuracy": 1.0,
+            "confidence": 0.7951631195949587
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "count": 21,
+            "accuracy": 0.9047619047619048,
+            "confidence": 0.9853301392533382
+          }
+        ]
+      },
+      "after": {
+        "nll": 0.49410404091983806,
+        "brier_multiclass": 0.23778502656444087,
+        "ece_five_bins": 0.06586116314199295,
+        "reliability_bins": [
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "count": 3,
+            "accuracy": 0.6666666666666666,
+            "confidence": 0.44595247793653847
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "count": 2,
+            "accuracy": 1.0,
+            "confidence": 0.7118916216069148
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "count": 20,
+            "accuracy": 0.9,
+            "confidence": 0.9204084877786635
+          }
+        ]
+      }
+    },
+    "selection": {
+      "before": {
+        "nll": 0.3544682428144139,
+        "brier_multiclass": 0.1492785875919578,
+        "ece_five_bins": 0.02152618493880454,
+        "reliability_bins": [
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "count": 4,
+            "accuracy": 0.75,
+            "confidence": 0.7224078578836237
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "count": 21,
+            "accuracy": 0.9523809523809523,
+            "confidence": 0.9727517169049813
+          }
+        ]
+      },
+      "after": {
+        "nll": 0.36181249057898496,
+        "brier_multiclass": 0.15984337461079737,
+        "ece_five_bins": 0.08077566935649022,
+        "reliability_bins": [
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "count": 3,
+            "accuracy": 0.6666666666666666,
+            "confidence": 0.5498874133813176
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "count": 4,
+            "accuracy": 0.75,
+            "confidence": 0.667855895207058
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "count": 18,
+            "accuracy": 1.0,
+            "confidence": 0.9255290247286422
+          }
+        ]
+      }
+    },
+    "selection_decisions": {
+      "cases": 25,
+      "accepted": 16,
+      "correct_accepted": 16,
+      "correct_abstentions": 5,
+      "false_reminders": 0,
+      "false_silencing": 0,
+      "actionable_abstained": 2,
+      "ambiguous_accepted": 0
+    }
+  },
+  "separation": {
+    "partition_counts": [
+      519,
+      25,
+      25,
+      25
+    ],
+    "cross_partition_trigram_jaccard_max": 0.09090909090909091
+  },
+  "audit_sha256": "67e4cd5a9cbbc9b0b16cb6e4e225facd973c3b43eb635770d2f6d6e254495acc",
+  "audit_calibration": {
+    "before": {
+      "nll": 0.6926002641333484,
+      "brier_multiclass": 0.2551646076834925,
+      "ece_five_bins": 0.13392268516868328,
+      "reliability_bins": [
+        {
+          "lower": 0.4,
+          "upper": 0.6,
+          "count": 2,
+          "accuracy": 1.0,
+          "confidence": 0.5551265931956983
+        },
+        {
+          "lower": 0.8,
+          "upper": 1.0,
+          "count": 23,
+          "accuracy": 0.8695652173913043,
+          "confidence": 0.9764487093742816
+        }
+      ]
+    },
+    "after": {
+      "nll": 0.5302754318199683,
+      "brier_multiclass": 0.2495370936308917,
+      "ece_five_bins": 0.07103967461091096,
+      "reliability_bins": [
+        {
+          "lower": 0.4,
+          "upper": 0.6,
+          "count": 2,
+          "accuracy": 1.0,
+          "confidence": 0.4944608277149345
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.8,
+          "count": 2,
+          "accuracy": 0.5,
+          "confidence": 0.7058396848822488
+        },
+        {
+          "lower": 0.8,
+          "upper": 1.0,
+          "count": 21,
+          "accuracy": 0.9047619047619048,
+          "confidence": 0.9215825786161022
+        }
+      ]
+    }
+  },
+  "audit_raw": {
+    "cases": 25,
+    "accepted": 22,
+    "correct_accepted": 19,
+    "correct_abstentions": 3,
+    "false_reminders": 1,
+    "false_silencing": 1,
+    "actionable_abstained": 0,
+    "ambiguous_accepted": 2
+  },
+  "audit_original_policy": {
+    "cases": 25,
+    "accepted": 0,
+    "correct_accepted": 0,
+    "correct_abstentions": 5,
+    "false_reminders": 0,
+    "false_silencing": 0,
+    "actionable_abstained": 10,
+    "ambiguous_accepted": 0
+  },
+  "audit_unscaled_reselected_policy": {
+    "cases": 25,
+    "accepted": 17,
+    "correct_accepted": 15,
+    "correct_abstentions": 3,
+    "false_reminders": 1,
+    "false_silencing": 0,
+    "actionable_abstained": 3,
+    "ambiguous_accepted": 2
+  },
+  "audit_calibrated_policy": {
+    "cases": 25,
+    "accepted": 18,
+    "correct_accepted": 16,
+    "correct_abstentions": 3,
+    "false_reminders": 1,
+    "false_silencing": 0,
+    "actionable_abstained": 3,
+    "ambiguous_accepted": 2
+  },
+  "predictions": {
+    "audit_accessibility_detail": {
+      "raw": "needs_reply",
+      "confidence_before": 0.9983676658974997,
+      "confidence_after": 0.9698863539185826,
+      "selected": "needs_reply"
+    },
+    "audit_promised_repair_quote": {
+      "raw": "needs_reply",
+      "confidence_before": 0.9983703910753056,
+      "confidence_after": 0.9705344882099843,
+      "selected": "needs_reply"
+    },
+    "audit_credential_expiry": {
+      "raw": "needs_reply",
+      "confidence_before": 0.996247271898751,
+      "confidence_after": 0.9501158459274854,
+      "selected": "needs_reply"
+    },
+    "audit_question_persists": {
+      "raw": "fyi",
+      "confidence_before": 0.8737930723212312,
+      "confidence_after": 0.7009872039797791,
+      "selected": "abstain"
+    },
+    "audit_thanks_question": {
+      "raw": "needs_reply",
+      "confidence_before": 0.8346919464385425,
+      "confidence_after": 0.7106921657847186,
+      "selected": "abstain"
+    },
+    "audit_stair_measurement": {
+      "raw": "waiting_on_them",
+      "confidence_before": 0.9960227208150769,
+      "confidence_after": 0.9533883994335765,
+      "selected": "waiting_on_them"
+    },
+    "audit_cataloguing_promise": {
+      "raw": "waiting_on_them",
+      "confidence_before": 0.998193652851758,
+      "confidence_after": 0.9676975834405861,
+      "selected": "waiting_on_them"
+    },
+    "audit_pending_verification": {
+      "raw": "waiting_on_them",
+      "confidence_before": 0.9982466791431166,
+      "confidence_after": 0.9673812823332415,
+      "selected": "waiting_on_them"
+    },
+    "audit_awaited_approval": {
+      "raw": "waiting_on_them",
+      "confidence_before": 0.5625748555036106,
+      "confidence_after": 0.5180961237429873,
+      "selected": "abstain"
+    },
+    "audit_gentle_enquiry": {
+      "raw": "waiting_on_them",
+      "confidence_before": 0.9868027468514943,
+      "confidence_after": 0.9134028681495041,
+      "selected": "waiting_on_them"
+    },
+    "audit_closed_refund": {
+      "raw": "fyi",
+      "confidence_before": 0.9980092650290655,
+      "confidence_after": 0.9629156432800973,
+      "selected": "fyi"
+    },
+    "audit_cancelled_pickup": {
+      "raw": "fyi",
+      "confidence_before": 0.547678330887786,
+      "confidence_after": 0.47082553168688174,
+      "selected": "abstain"
+    },
+    "audit_answered_capacity": {
+      "raw": "fyi",
+      "confidence_before": 0.9832824511758079,
+      "confidence_after": 0.8883231451048023,
+      "selected": "fyi"
+    },
+    "audit_thankful_closure": {
+      "raw": "fyi",
+      "confidence_before": 0.9469513403726316,
+      "confidence_after": 0.8268162738928083,
+      "selected": "fyi"
+    },
+    "audit_optional_badge": {
+      "raw": "fyi",
+      "confidence_before": 0.9951782431903862,
+      "confidence_after": 0.942043470701717,
+      "selected": "fyi"
+    },
+    "audit_music_sale": {
+      "raw": "noise",
+      "confidence_before": 0.970480610971746,
+      "confidence_after": 0.853934378528126,
+      "selected": "noise"
+    },
+    "audit_cycling_digest": {
+      "raw": "noise",
+      "confidence_before": 0.9742235804562114,
+      "confidence_after": 0.8676911200377418,
+      "selected": "noise"
+    },
+    "audit_insurance_ad": {
+      "raw": "noise",
+      "confidence_before": 0.9803771925632868,
+      "confidence_after": 0.8812614203569269,
+      "selected": "noise"
+    },
+    "audit_stationery_campaign": {
+      "raw": "noise",
+      "confidence_before": 0.9837600176057866,
+      "confidence_after": 0.8821015394489836,
+      "selected": "noise"
+    },
+    "audit_arts_roundup": {
+      "raw": "noise",
+      "confidence_before": 0.991285840072307,
+      "confidence_after": 0.9121254398205977,
+      "selected": "noise"
+    },
+    "audit_unclear_handover": {
+      "raw": "abstain",
+      "confidence_before": 0.9938436564166857,
+      "confidence_after": 0.9352750483402437,
+      "selected": "abstain"
+    },
+    "audit_missing_plan": {
+      "raw": "fyi",
+      "confidence_before": 0.9968144469739688,
+      "confidence_after": 0.9570298853065898,
+      "selected": "fyi"
+    },
+    "audit_reciprocal_work": {
+      "raw": "abstain",
+      "confidence_before": 0.9834097971296684,
+      "confidence_after": 0.892754513342743,
+      "selected": "abstain"
+    },
+    "audit_unclear_reference": {
+      "raw": "abstain",
+      "confidence_before": 0.9809472132014906,
+      "confidence_after": 0.8795958573287874,
+      "selected": "abstain"
+    },
+    "audit_two_people_waiting": {
+      "raw": "waiting_on_them",
+      "confidence_before": 0.9990205131566634,
+      "confidence_after": 0.9789595940350209,
+      "selected": "waiting_on_them"
+    }
+  }
+}

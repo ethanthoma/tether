@@ -1,5 +1,8 @@
 # Supervised MiniLM fine-tuning
 
+The subsequent separate-set confidence experiment is in
+[CALIBRATION.md](CALIBRATION.md). It leaves this model and its original policy unchanged.
+
 This experiment trains the encoder as well as the classifier head. It uses only
 the existing 261 synthetic training examples and 63 development examples. No new
 data, model dependencies, inference service, or production changes are introduced.
@@ -86,5 +89,5 @@ prefix; this experiment does not claim that measurement.
 Next, independently review the synthetic labels and create new synthetic
 calibration/evaluation families. Study confidence reliability without weakening
 the acceptance rule against this regression set. A finer cutoff search alone is
-not evidence of safety, and temperature scaling cannot fix confidently wrong
-decision ordering. Preserve this run as the encoder-training baseline.
+not evidence of safety, and temperature scaling cannot change the predicted
+class. Preserve this run as the encoder-training baseline.

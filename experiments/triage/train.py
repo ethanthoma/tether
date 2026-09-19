@@ -131,6 +131,10 @@ def probabilities(head: dict, matrix: np.ndarray) -> np.ndarray:
 
 
 def predictions(head: dict, values: np.ndarray, threshold: float) -> list[str]:
+    if not 0 <= threshold <= 1:
+        raise ValueError("threshold must be between zero and one")
+    if threshold == 1:
+        return ["abstain"] * len(values)
     return [
         head["labels"][int(row.argmax())]
         if float(row.max()) >= threshold

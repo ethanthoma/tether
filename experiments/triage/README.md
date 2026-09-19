@@ -1,5 +1,9 @@
 # Triage classifier evaluation
 
+[CALIBRATION.md](CALIBRATION.md) records the separate synthetic temperature-fitting,
+cutoff-selection, and audit experiment. Confidence metrics improve on the audit,
+but ambiguous-case errors remain; the policy stays offline.
+
 The completed encoder-training experiment is in [FINETUNING.md](FINETUNING.md).
 It improves raw regression results, but its selected confidence cutoff abstains
 on every case; it remains offline.

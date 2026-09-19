@@ -1,0 +1,348 @@
+{
+  "version": 1,
+  "provenance": "fully_synthetic_assistant_authored",
+  "review_status": "single_author_self_reviewed_not_independently_validated",
+  "cases": [
+    {
+      "id": "temperature_speaker_badge",
+      "group": "temperature_speaker_badge",
+      "split": "temperature",
+      "expected": "needs_reply",
+      "evidence": "What name",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The name on your speaker badge is blank. What name should I print before the badge desk closes?"
+        }
+      ]
+    },
+    {
+      "id": "temperature_promised_transcription",
+      "group": "temperature_promised_transcription",
+      "split": "temperature",
+      "expected": "needs_reply",
+      "evidence": "I'll transcribe",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I can take the interview transcript. I'll transcribe the remaining ten minutes tonight and send the text to you."
+        }
+      ]
+    },
+    {
+      "id": "temperature_gravel_weight",
+      "group": "temperature_gravel_weight",
+      "split": "temperature",
+      "expected": "needs_reply",
+      "evidence": "How many tonnes",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I can quote for the gravel once you tell me the required weight. How many tonnes should I price?"
+        }
+      ]
+    },
+    {
+      "id": "temperature_signature_link",
+      "group": "temperature_signature_link",
+      "split": "temperature",
+      "expected": "needs_reply",
+      "evidence": "Sign the extension",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your lease extension is ready. Sign the extension by Thursday to keep the revised end date."
+        }
+      ]
+    },
+    {
+      "id": "temperature_unanswered_seat",
+      "group": "temperature_unanswered_seat",
+      "split": "temperature",
+      "expected": "needs_reply",
+      "evidence": "your seat choice is still missing",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Are you taking the aisle seat on the coach?"
+        },
+        {
+          "outbound": false,
+          "body": "I need to finalise the coach plan and your seat choice is still missing."
+        }
+      ]
+    },
+    {
+      "id": "temperature_spare_part",
+      "group": "temperature_spare_part",
+      "split": "temperature",
+      "expected": "waiting_on_them",
+      "evidence": "Can you measure",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you measure the diameter of the replacement knob? I need the measurement before ordering it."
+        }
+      ]
+    },
+    {
+      "id": "temperature_translation_promise",
+      "group": "temperature_translation_promise",
+      "split": "temperature",
+      "expected": "waiting_on_them",
+      "evidence": "I'll translate",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I'll translate your museum caption into Spanish over the weekend. You have already supplied everything I need."
+        }
+      ]
+    },
+    {
+      "id": "temperature_outgoing_chase",
+      "group": "temperature_outgoing_chase",
+      "split": "temperature",
+      "expected": "waiting_on_them",
+      "evidence": "they haven't reached me",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please send the survey coordinates."
+        },
+        {
+          "outbound": true,
+          "body": "Checking whether the coordinates are ready; they haven't reached me yet."
+        }
+      ]
+    },
+    {
+      "id": "temperature_pending_digitization",
+      "group": "temperature_pending_digitization",
+      "split": "temperature",
+      "expected": "waiting_on_them",
+      "evidence": "will follow tomorrow",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Would you digitize the old photograph?"
+        },
+        {
+          "outbound": false,
+          "body": "I've scanned half of it. The other half and the final file will follow tomorrow."
+        }
+      ]
+    },
+    {
+      "id": "temperature_equipment_decision",
+      "group": "temperature_equipment_decision",
+      "split": "temperature",
+      "expected": "waiting_on_them",
+      "evidence": "Which one",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "We have two spare microphones. Which one would you like me to hold for you?"
+        }
+      ]
+    },
+    {
+      "id": "temperature_taxi_confirmation",
+      "group": "temperature_taxi_confirmation",
+      "split": "temperature",
+      "expected": "fyi",
+      "evidence": "is confirmed",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your taxi booking for 06:40 is confirmed at the address you supplied. This message is your booking record."
+        }
+      ]
+    },
+    {
+      "id": "temperature_found_glasses",
+      "group": "temperature_found_glasses",
+      "split": "temperature",
+      "expected": "fyi",
+      "evidence": "my glasses were in the coat pocket",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Ignore my earlier search request — my glasses were in the coat pocket. Thanks for looking."
+        }
+      ]
+    },
+    {
+      "id": "temperature_answered_dimensions",
+      "group": "temperature_answered_dimensions",
+      "split": "temperature",
+      "expected": "fyi",
+      "evidence": "90 centimetres wide",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "How wide is the display case?"
+        },
+        {
+          "outbound": false,
+          "body": "The display case is 90 centimetres wide, measured across the outside edges."
+        }
+      ]
+    },
+    {
+      "id": "temperature_finished_rehearsal",
+      "group": "temperature_finished_rehearsal",
+      "split": "temperature",
+      "expected": "fyi",
+      "evidence": "has been uploaded",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The rehearsal recording has been uploaded to the shared folder, as agreed. Everyone has access now."
+        }
+      ]
+    },
+    {
+      "id": "temperature_optional_interview",
+      "group": "temperature_optional_interview",
+      "split": "temperature",
+      "expected": "fyi",
+      "evidence": "optional alumni interview",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "We're offering an optional alumni interview. Feel free to decline by doing nothing; your membership is unaffected."
+        }
+      ]
+    },
+    {
+      "id": "temperature_sailing_ad",
+      "group": "temperature_sailing_ad",
+      "split": "temperature",
+      "expected": "noise",
+      "evidence": "subscriber mailout",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Set sail for savings! Browse our yacht-holiday offers, chosen for this month's subscriber mailout."
+        }
+      ]
+    },
+    {
+      "id": "temperature_camera_digest",
+      "group": "temperature_camera_digest",
+      "split": "temperature",
+      "expected": "noise",
+      "evidence": "weekly digest",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "In the camera enthusiasts' weekly digest: lens reviews, photo competitions, and sponsor deals. Subscription settings below."
+        }
+      ]
+    },
+    {
+      "id": "temperature_furniture_clearance",
+      "group": "temperature_furniture_clearance",
+      "split": "temperature",
+      "expected": "noise",
+      "evidence": "all mailing-list members",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Warehouse clearance for all mailing-list members: dining tables and chairs up to half price this weekend."
+        }
+      ]
+    },
+    {
+      "id": "temperature_gadget_launch",
+      "group": "temperature_gadget_launch",
+      "split": "temperature",
+      "expected": "noise",
+      "evidence": "promotional emails",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Meet our newest pocket gadget. Order during launch week for a free case! Manage these promotional emails in your profile."
+        }
+      ]
+    },
+    {
+      "id": "temperature_running_roundup",
+      "group": "temperature_running_roundup",
+      "split": "temperature",
+      "expected": "noise",
+      "evidence": "running newsletter",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your running newsletter: training tips, race stories, and featured products from our advertisers."
+        }
+      ]
+    },
+    {
+      "id": "temperature_unassigned_lift",
+      "group": "temperature_unassigned_lift",
+      "split": "temperature",
+      "expected": "abstain",
+      "evidence": "doesn't identify that person",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Someone from our group is supposed to arrange the airport lift. The note doesn't identify that person."
+        }
+      ]
+    },
+    {
+      "id": "temperature_missing_checklist",
+      "group": "temperature_missing_checklist",
+      "split": "temperature",
+      "expected": "abstain",
+      "evidence": "isn't available",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The attachment has the checklist telling each of us what to do. The checklist isn't available in this thread."
+        }
+      ]
+    },
+    {
+      "id": "temperature_two_deliverables",
+      "group": "temperature_two_deliverables",
+      "split": "temperature",
+      "expected": "abstain",
+      "evidence": "we still need both",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I'll finish the captions tomorrow. Please send me the missing portrait today; we still need both items."
+        }
+      ]
+    },
+    {
+      "id": "temperature_unclear_that",
+      "group": "temperature_unclear_that",
+      "split": "temperature",
+      "expected": "abstain",
+      "evidence": "the other arrangement",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Does that still apply after what they said? I mean the other arrangement."
+        }
+      ]
+    },
+    {
+      "id": "temperature_conflicting_assignment",
+      "group": "temperature_conflicting_assignment",
+      "split": "temperature",
+      "expected": "abstain",
+      "evidence": "Neither instruction has been confirmed",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The first coordinator assigned the keys to you, but the replacement coordinator assigned them to me. Neither instruction has been confirmed."
+        }
+      ]
+    }
+  ]
+}

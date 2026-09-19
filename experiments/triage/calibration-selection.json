@@ -1,0 +1,348 @@
+{
+  "version": 1,
+  "provenance": "fully_synthetic_assistant_authored",
+  "review_status": "single_author_self_reviewed_not_independently_validated",
+  "cases": [
+    {
+      "id": "selection_catering_count",
+      "group": "selection_catering_count",
+      "split": "selection",
+      "expected": "needs_reply",
+      "evidence": "Can you give me",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The caterer needs a count of vegan meals for your team. Can you give me that number this afternoon?"
+        }
+      ]
+    },
+    {
+      "id": "selection_promised_inventory",
+      "group": "selection_promised_inventory",
+      "split": "selection",
+      "expected": "needs_reply",
+      "evidence": "haven't counted them yet",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I'll count the spare cables and email you the inventory after my shift. I haven't counted them yet."
+        }
+      ]
+    },
+    {
+      "id": "selection_passport_notice",
+      "group": "selection_passport_notice",
+      "split": "selection",
+      "expected": "needs_reply",
+      "evidence": "upload the missing passport expiry date",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Travel desk alert: upload the missing passport expiry date by noon tomorrow to complete your booking."
+        }
+      ]
+    },
+    {
+      "id": "selection_bracket_approval",
+      "group": "selection_bracket_approval",
+      "split": "selection",
+      "expected": "needs_reply",
+      "evidence": "awaiting your approval",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is this mounting bracket acceptable?"
+        },
+        {
+          "outbound": false,
+          "body": "The bracket is still awaiting your approval before we fit it."
+        }
+      ]
+    },
+    {
+      "id": "selection_document_request",
+      "group": "selection_document_request",
+      "split": "selection",
+      "expected": "needs_reply",
+      "evidence": "send the original editable document",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Thanks for sending the scan. Could you also send the original editable document so I can correct the diagram?"
+        }
+      ]
+    },
+    {
+      "id": "selection_rowing_partner",
+      "group": "selection_rowing_partner",
+      "split": "selection",
+      "expected": "waiting_on_them",
+      "evidence": "Would you ask",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I'd appreciate being put in touch with your rowing partner. Would you ask them to contact me?"
+        }
+      ]
+    },
+    {
+      "id": "selection_pending_statement",
+      "group": "selection_pending_statement",
+      "split": "selection",
+      "expected": "waiting_on_them",
+      "evidence": "I'll reconcile",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I'll reconcile the donation statement and send the corrected totals on Monday."
+        }
+      ]
+    },
+    {
+      "id": "selection_supplier_delay",
+      "group": "selection_supplier_delay",
+      "split": "selection",
+      "expected": "waiting_on_them",
+      "evidence": "I'll confirm a delivery date",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "When can you deliver the replacement hinge?"
+        },
+        {
+          "outbound": false,
+          "body": "I still need to check stock. I'll confirm a delivery date after that."
+        }
+      ]
+    },
+    {
+      "id": "selection_parking_query",
+      "group": "selection_parking_query",
+      "split": "selection",
+      "expected": "waiting_on_them",
+      "evidence": "Can you tell me",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you tell me whether the loading bay is reserved for our van on Friday?"
+        }
+      ]
+    },
+    {
+      "id": "selection_unanswered_reservation",
+      "group": "selection_unanswered_reservation",
+      "split": "selection",
+      "expected": "waiting_on_them",
+      "evidence": "don't have confirmation",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please reserve two lockers for the tournament."
+        },
+        {
+          "outbound": true,
+          "body": "Following up: I don't have confirmation of the locker reservation yet."
+        }
+      ]
+    },
+    {
+      "id": "selection_repaired_zip",
+      "group": "selection_repaired_zip",
+      "split": "selection",
+      "expected": "fyi",
+      "evidence": "zip has been repaired",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The zip has been repaired and the bag is back in your cupboard. Job done."
+        }
+      ]
+    },
+    {
+      "id": "selection_unneeded_introduction",
+      "group": "selection_unneeded_introduction",
+      "split": "selection",
+      "expected": "fyi",
+      "evidence": "no longer necessary",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I met the curator at the opening, so the introduction I asked for is no longer necessary."
+        }
+      ]
+    },
+    {
+      "id": "selection_question_answered",
+      "group": "selection_question_answered",
+      "split": "selection",
+      "expected": "fyi",
+      "evidence": "500 kilograms",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "What is the maximum lift weight?"
+        },
+        {
+          "outbound": false,
+          "body": "The lift is rated for 500 kilograms. That includes people and equipment combined."
+        }
+      ]
+    },
+    {
+      "id": "selection_garden_notice",
+      "group": "selection_garden_notice",
+      "split": "selection",
+      "expected": "fyi",
+      "evidence": "no response or task is requested",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The communal garden will be watered early tomorrow. This is a notice for residents; no response or task is requested."
+        }
+      ]
+    },
+    {
+      "id": "selection_optional_setting",
+      "group": "selection_optional_setting",
+      "split": "selection",
+      "expected": "fyi",
+      "evidence": "optional display theme",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "A new optional display theme is available. Leaving the setting alone preserves your current layout and functionality."
+        }
+      ]
+    },
+    {
+      "id": "selection_hotel_promo",
+      "group": "selection_hotel_promo",
+      "split": "selection",
+      "expected": "noise",
+      "evidence": "hotel deals",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Explore our summer hotel deals. Book a getaway with this month's exclusive subscriber rates. Advertising preferences below."
+        }
+      ]
+    },
+    {
+      "id": "selection_birding_magazine",
+      "group": "selection_birding_magazine",
+      "split": "selection",
+      "expected": "noise",
+      "evidence": "monthly birdwatching bulletin",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The monthly birdwatching bulletin is here: sightings, gear advertisements, and featured articles for our readers."
+        }
+      ]
+    },
+    {
+      "id": "selection_cookware_offer",
+      "group": "selection_cookware_offer",
+      "split": "selection",
+      "expected": "noise",
+      "evidence": "mailing-list discount",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "New cookware collection! Shop all pans and pots with our mailing-list discount code this week."
+        }
+      ]
+    },
+    {
+      "id": "selection_game_news",
+      "group": "selection_game_news",
+      "split": "selection",
+      "expected": "noise",
+      "evidence": "Gaming news for subscribers",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Gaming news for subscribers: patch highlights, studio interviews, and partner promotions. Unsubscribe in your account."
+        }
+      ]
+    },
+    {
+      "id": "selection_storage_ad",
+      "group": "selection_storage_ad",
+      "split": "selection",
+      "expected": "noise",
+      "evidence": "promotional campaign",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Need more cloud storage? Our premium plan is discounted for this promotional campaign. Upgrade now!"
+        }
+      ]
+    },
+    {
+      "id": "selection_responsibility_dispute",
+      "group": "selection_responsibility_dispute",
+      "split": "selection",
+      "expected": "abstain",
+      "evidence": "responsibility isn't established",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "We both remember the other person agreeing to book the photographer. The discussion wasn't recorded, so the responsibility isn't established."
+        }
+      ]
+    },
+    {
+      "id": "selection_missing_spreadsheet",
+      "group": "selection_missing_spreadsheet",
+      "split": "selection",
+      "expected": "abstain",
+      "evidence": "spreadsheet that didn't attach",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The only place showing who owes which payment is the spreadsheet that didn't attach."
+        }
+      ]
+    },
+    {
+      "id": "selection_mutual_exchange",
+      "group": "selection_mutual_exchange",
+      "split": "selection",
+      "expected": "abstain",
+      "evidence": "Neither has been sent",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I owe you the signed cover sheet, and you owe me the budget approval. Neither has been sent."
+        }
+      ]
+    },
+    {
+      "id": "selection_fragmented_thread",
+      "group": "selection_fragmented_thread",
+      "split": "selection",
+      "expected": "abstain",
+      "evidence": "earlier messages are missing",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "And the second option? What did we decide about the rest? The earlier messages are missing."
+        }
+      ]
+    },
+    {
+      "id": "selection_ambiguous_notice",
+      "group": "selection_ambiguous_notice",
+      "split": "selection",
+      "expected": "abstain",
+      "evidence": "details determining whether you or our office",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your request needs attention. The details determining whether you or our office should act are unavailable."
+        }
+      ]
+    }
+  ]
+}
