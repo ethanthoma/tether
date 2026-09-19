@@ -8,8 +8,9 @@ Bend is active in production; the CPU classifier remains a read-only observer
 until a candidate passes its frozen release gate. V2c failed with four accepted
 test errors; v2e failed with two, and v2f was rejected before test on weak
 development results. V2g also failed development readiness (19.1% safe coverage).
-V2h improved coverage but failed with four held-out false reminders. V2i freezes
-that model and tests stricter cutoffs with fresh calibration and evaluation data.
+V2h improved coverage but failed with four held-out false reminders. V2i's extra
+cutoff margin lost waiting_on_them support. V2j tests zero-error cutoff selection
+with an actionable 0.90 floor on the larger calibration set and unused holdout.
 Earlier results remain archived and are not production approvals.
 
 [REVIEW.md](REVIEW.md) describes the blind training-label review workflow and
@@ -113,6 +114,6 @@ Both runners emit identical counts and an expected-by-predicted confusion matrix
 Evaluation prints mistakes rather than asserting perfect model accuracy. Passing
 Go tests validates the harness, not model readiness. An all-abstaining classifier
 has zero false reminders but zero coverage; compare both. The current candidate's
-[release plan](v2i/RELEASE.md) defines development and held-out quality gates plus
+[release plan](v2j/RELEASE.md) defines development and held-out quality gates plus
 operational checks. Synthetic blind review is not a human audit or proof of real
 mail accuracy. Production classifier authority remains disabled pending approval.

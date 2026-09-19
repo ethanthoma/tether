@@ -40,7 +40,7 @@ TRAINING_DATA_SHA256 = (
 TRAINING_REPORT_SHA256 = (
     "970c690719d621d21c6b54f21fa4256c53f9e88b3e627ec5e4a62124b2115e95"
 )
-CUTOFF_RULE = "maximum source and fresh-calibration zero-error grid cutoff; actionable classes advance one grid step then floor at 0.90; abstain stays one"
+CUTOFF_RULE = "maximum source and fresh-calibration zero-error grid cutoff; actionable classes floor at 0.90; abstain stays one"
 
 
 def main() -> None:
@@ -84,10 +84,7 @@ def cutoff_thresholds(source: dict, cases: list[dict], values: np.ndarray) -> di
         if threshold not in THRESHOLD_GRID:
             raise ValueError("source cutoff is not on the frozen grid")
         if label in ("needs_reply", "waiting_on_them"):
-            index = THRESHOLD_GRID.index(threshold)
-            threshold = max(
-                0.90, THRESHOLD_GRID[min(index + 1, len(THRESHOLD_GRID) - 1)]
-            )
+            threshold = max(0.90, threshold)
         result[label] = threshold
     result["abstain"] = 1.0
     validate_thresholds(result)

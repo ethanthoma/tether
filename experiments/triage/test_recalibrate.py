@@ -110,7 +110,7 @@ class RecalibrationTests(unittest.TestCase):
                     evaluate(context, root, root / "test.json", output)
                 inference.assert_not_called()
 
-    def test_cutoffs_only_tighten_and_apply_one_actionable_grid_step(self) -> None:
+    def test_cutoffs_only_tighten_with_actionable_floor(self) -> None:
         head = {
             "labels": LABELS,
             "thresholds": {
@@ -140,9 +140,9 @@ class RecalibrationTests(unittest.TestCase):
             {
                 "abstain": 1.0,
                 "fyi": 0.9,
-                "needs_reply": 0.975,
+                "needs_reply": 0.95,
                 "noise": 0.8,
-                "waiting_on_them": 0.99,
+                "waiting_on_them": 0.975,
             },
         )
         self.assertEqual(head, before)

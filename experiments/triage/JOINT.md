@@ -41,8 +41,10 @@ cutoffs against development data before making held-out predictions.
   before test despite passing the synthetic Atlas resource check.
 - [V2h](v2h/RESULT.md) reached 40.1% safe development coverage, but its held-out
   evaluation accepted 73/154 with four false reminders: rejected.
-- [V2i](v2i/RELEASE.md) freezes v2h weights and temperature and tests stricter
-  cutoffs using a larger fresh calibration partition and a new holdout.
+- [V2i](v2i/RESULT.md) retained safe coverage but its extra cutoff margin removed
+  all waiting_on_them support: rejected before test.
+- [V2j](v2j/RELEASE.md) keeps the larger calibration set and actionable 0.90 floor,
+  omitting that extra grid step. The 198-case v2i test remains unused.
 
 Run the CPU fine-tuner with a fresh output directory:
 
@@ -93,14 +95,14 @@ HF_HUB_OFFLINE=1 experiments/triage/.venv/bin/python experiments/triage/recalibr
   --source-model experiments/triage/runs/v2h-production/model \
   --training-data experiments/triage/v2h/training.json \
   --calibration-data experiments/triage/v2i/calibration.json \
-  --plan experiments/triage/v2i/RELEASE.md \
-  --output experiments/triage/runs/v2i-production/model
+  --plan experiments/triage/v2j/RELEASE.md \
+  --output experiments/triage/runs/v2j-production/model
 ```
 
 Run inside the experiment Nix shell. Only after fitting and both development
 readiness checks pass, use `evaluate` with the same source/data/plan arguments,
-`--model experiments/triage/runs/v2i-production/model`,
+`--model experiments/triage/runs/v2j-production/model`,
 `--data experiments/triage/v2i/test.json`, and a fresh report `--output` path.
-Cutoffs cannot be lowered from the source; actionable cutoffs receive an extra
-grid step and a 0.90 floor. A fit report's approval means development readiness
+Cutoffs cannot be lowered from the source; actionable cutoffs have a 0.90 floor.
+A fit report's approval means development readiness
 only; production additionally requires a passing test report and operational gates.
