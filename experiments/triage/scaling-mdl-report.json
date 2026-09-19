@@ -1,0 +1,203 @@
+{
+  "base": "sentence-transformers/all-MiniLM-L6-v2",
+  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "interpretation": "conditional prequential label code; not Kolmogorov complexity or a quality certificate",
+  "side_information": "frozen encoder, messages/directions, family boundaries, order seeds, learner and coding protocol",
+  "data_sha256": "26f0a627b38c81f7d5769e010e1825e02fb59bfe63613b98a8b56990d58b47d8",
+  "train_cases": 981,
+  "train_families": 148,
+  "uniform_bits_per_case": 2.321928094887362,
+  "learner_bits_per_case_mean": 1.6305381386074225,
+  "prior_bits_per_case_mean": 2.1940512273512223,
+  "shuffled_bits_per_case_mean": 2.553834006722692,
+  "runs": [
+    {
+      "seed": 41,
+      "learner_bits": 1606.249790145689,
+      "prior_bits": 2153.1801439354667,
+      "blocks": [
+        {
+          "train_families": 0,
+          "encoded_families": 8,
+          "encoded_cases": 59,
+          "learner_bits": 136.9937575983544
+        },
+        {
+          "train_families": 8,
+          "encoded_families": 8,
+          "encoded_cases": 54,
+          "learner_bits": 132.18770915129713
+        },
+        {
+          "train_families": 16,
+          "encoded_families": 16,
+          "encoded_cases": 100,
+          "learner_bits": 168.94807387647802
+        },
+        {
+          "train_families": 32,
+          "encoded_families": 116,
+          "encoded_cases": 768,
+          "learner_bits": 1168.1202495195596
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "learner_bits": 1589.1771206706517,
+      "prior_bits": 2147.2703180244152,
+      "blocks": [
+        {
+          "train_families": 0,
+          "encoded_families": 8,
+          "encoded_cases": 48,
+          "learner_bits": 111.45254855459338
+        },
+        {
+          "train_families": 8,
+          "encoded_families": 8,
+          "encoded_cases": 47,
+          "learner_bits": 81.19095449661188
+        },
+        {
+          "train_families": 16,
+          "encoded_families": 16,
+          "encoded_cases": 105,
+          "learner_bits": 187.96633194188757
+        },
+        {
+          "train_families": 32,
+          "encoded_families": 116,
+          "encoded_cases": 781,
+          "learner_bits": 1208.5672856775589
+        }
+      ]
+    },
+    {
+      "seed": 43,
+      "learner_bits": 1603.2468311053035,
+      "prior_bits": 2156.6423001347657,
+      "blocks": [
+        {
+          "train_families": 0,
+          "encoded_families": 8,
+          "encoded_cases": 51,
+          "learner_bits": 118.41833283925548
+        },
+        {
+          "train_families": 8,
+          "encoded_families": 8,
+          "encoded_cases": 54,
+          "learner_bits": 86.83834029682613
+        },
+        {
+          "train_families": 16,
+          "encoded_families": 16,
+          "encoded_cases": 112,
+          "learner_bits": 188.9501073221133
+        },
+        {
+          "train_families": 32,
+          "encoded_families": 116,
+          "encoded_cases": 764,
+          "learner_bits": 1209.0400506471087
+        }
+      ]
+    }
+  ],
+  "shuffled_label_runs": [
+    {
+      "seed": 41,
+      "learner_bits": 2518.5005272510284,
+      "prior_bits": 2168.6659705103484,
+      "blocks": [
+        {
+          "train_families": 0,
+          "encoded_families": 8,
+          "encoded_cases": 59,
+          "learner_bits": 136.9937575983544
+        },
+        {
+          "train_families": 8,
+          "encoded_families": 8,
+          "encoded_cases": 54,
+          "learner_bits": 150.0860854059815
+        },
+        {
+          "train_families": 16,
+          "encoded_families": 16,
+          "encoded_cases": 100,
+          "learner_bits": 259.37612751903845
+        },
+        {
+          "train_families": 32,
+          "encoded_families": 116,
+          "encoded_cases": 768,
+          "learner_bits": 1972.044556727654
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "learner_bits": 2484.0669282676627,
+      "prior_bits": 2151.9702090288074,
+      "blocks": [
+        {
+          "train_families": 0,
+          "encoded_families": 8,
+          "encoded_cases": 48,
+          "learner_bits": 111.45254855459338
+        },
+        {
+          "train_families": 8,
+          "encoded_families": 8,
+          "encoded_cases": 47,
+          "learner_bits": 131.13008075058386
+        },
+        {
+          "train_families": 16,
+          "encoded_families": 16,
+          "encoded_cases": 105,
+          "learner_bits": 259.1036688327926
+        },
+        {
+          "train_families": 32,
+          "encoded_families": 116,
+          "encoded_cases": 781,
+          "learner_bits": 1982.3806301296927
+        }
+      ]
+    },
+    {
+      "seed": 43,
+      "learner_bits": 2513.3660262661915,
+      "prior_bits": 2161.465729189422,
+      "blocks": [
+        {
+          "train_families": 0,
+          "encoded_families": 8,
+          "encoded_cases": 51,
+          "learner_bits": 118.41833283925548
+        },
+        {
+          "train_families": 8,
+          "encoded_families": 8,
+          "encoded_cases": 54,
+          "learner_bits": 152.945688681774
+        },
+        {
+          "train_families": 16,
+          "encoded_families": 16,
+          "encoded_cases": 112,
+          "learner_bits": 282.5685514681479
+        },
+        {
+          "train_families": 32,
+          "encoded_families": 116,
+          "encoded_cases": 764,
+          "learner_bits": 1959.433453277014
+        }
+      ]
+    }
+  ]
+}

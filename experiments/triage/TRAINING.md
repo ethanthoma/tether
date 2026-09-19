@@ -1,7 +1,8 @@
 # Local triage classifier pilot
 
-The current fully synthetic dataset and MDL diagnostic are documented in
-[SYNTHETIC.md](SYNTHETIC.md). This page preserves the original pilot for comparison.
+The expanded fully synthetic dataset and measured learning curve are documented in
+[SCALING.md](SCALING.md). [SYNTHETIC.md](SYNTHETIC.md) describes the original corpus
+and MDL protocol. This page preserves the original pilot for comparison.
 
 This experiment trains a custom logistic-regression head over frozen
 [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)

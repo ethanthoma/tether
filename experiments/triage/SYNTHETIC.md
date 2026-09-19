@@ -2,6 +2,8 @@
 
 [FINETUNING.md](FINETUNING.md) records the subsequent supervised encoder experiment
 on these unchanged splits, including its confidence/coverage limitation.
+[SCALING.md](SCALING.md) records the later expansion to 981 training cases across
+148 families and the controlled training-size comparison.
 
 This dataset is fully synthetic: no mailbox exports, public email corpora, or copied
 benchmark messages. The task definition is informed by earlier development work.

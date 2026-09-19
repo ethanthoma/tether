@@ -33,6 +33,48 @@ before loading test cases. It reports all three learning-curve points without
 selecting or tuning on test results. Confidence cutoffs retain the existing rule:
 maximum development coverage with zero accepted errors on the fixed grid.
 
+## Results
+
+All results below use the same fresh 144-case, 20-family synthetic test set.
+Raw accuracy counts both correct classifications and correct abstentions.
+
+| Training cases / families | Selected epoch | Dev loss | Raw accuracy | Cutoff | Accepted / correct | False reminders |
+| --- | --- | --- | --- | --- | --- | --- |
+| 261 / 48 | 11 | 0.37455 | 125/144 (86.8%) | 1.00 | 0 / 0 | 0 |
+| 609 / 98 | 11 | 0.04212 | 140/144 (97.2%) | 0.75 | 109 / 109 | 0 |
+| 981 / 148 | 10 | 0.02270 | 141/144 (97.9%) | 0.65 | 110 / 108 | 2 |
+
+The last two columns apply the development-selected confidence cutoff. The full
+model was selected by development loss before test evaluation. Its two accepted
+errors are direction reversals of one canceled-request family: a message saying
+the campsite supplied a tent and to ignore the previous borrowing request. It
+also abstained on two actionable cases; no accepted prediction falsely silenced
+an actionable case. The medium model abstained on one actionable case.
+
+Additional families substantially improved raw classification, with smaller gains
+between 609 and 981 rows. Selective correctness did not improve monotonically.
+Do not switch candidates or retune cutoffs using this test: it is now a regression
+set. The zero observed accepted errors for the medium model are not a production
+error-rate guarantee, especially with only 20 correlated, same-author test families
+and a single training seed. Neither model is deployed.
+
+The expanded corpus's conditional prequential label code is **1.631 bits/case**,
+versus **2.194** for its class-frequency prior, **2.322** for uniform labels, and
+**2.554** with shuffled labels. These are three-order-seed means using the untouched
+base encoder. The earlier corpus scored 1.950 bits/case, but the corpora have
+different composition: the decrease demonstrates more compressible label structure
+under this diagnostic, not independently better labels or real-mail generalization.
+
+[scaling-report.json](scaling-report.json) records split manifests, training history,
+artifact hashes, the frozen selection, and every prediction.
+[scaling-mdl-report.json](scaling-mdl-report.json) records the coding diagnostic.
+All 18 Python tests and the Go suite passed; changed Python files passed Ruff.
+
+The next expansion should vary writing style and conversation structure more
+aggressively, especially implicit cancellations and context-dependent obligations.
+Independent synthetic label review and a fresh evaluation set matter more than
+inflating the count with additional direction flips. Keep the current test fixed.
+
 ## Reproduce
 
 Use the pinned environment from [TRAINING.md](TRAINING.md), with the base model

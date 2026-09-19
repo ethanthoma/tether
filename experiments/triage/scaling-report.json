@@ -1,0 +1,3136 @@
+{
+  "selection": {
+    "rule": "lowest selected development cross entropy; ties prefer smaller training set",
+    "candidate": "full",
+    "development_losses": {
+      "small": 0.37455248832702637,
+      "medium": 0.04211540147662163,
+      "full": 0.022696834057569504
+    }
+  },
+  "manifest": {
+    "seed": 42,
+    "audit": {
+      "status": "structural_checks_passed_semantic_labels_provisional",
+      "cases": 1332,
+      "families": 200,
+      "authored_variants": 740,
+      "unique_thread_texts": 740,
+      "cross_split_trigram_jaccard_max": 0.25,
+      "nearest_cross_split_pair": [
+        "scale_allotment_key_3",
+        "scale_test_spare_tent_3"
+      ],
+      "splits": {
+        "dev": {
+          "cases": 207,
+          "families": 32,
+          "labels": {
+            "abstain": 43,
+            "fyi": 55,
+            "needs_reply": 53,
+            "noise": 10,
+            "waiting_on_them": 46
+          },
+          "domains": {
+            "community": 36,
+            "creative": 34,
+            "education": 37,
+            "household": 26,
+            "personal": 35,
+            "work": 39
+          },
+          "capabilities": {
+            "automated_notice": 3,
+            "bulk_vs_personal": 19,
+            "cancellation": 8,
+            "deadline": 8,
+            "direct_request": 22,
+            "followup": 22,
+            "indirect_request": 14,
+            "informal_format": 14,
+            "missing_context": 6,
+            "mixed_ownership": 22,
+            "negation": 11,
+            "partial_completion": 16,
+            "promise": 14,
+            "quoted_history": 14,
+            "resolution": 14
+          }
+        },
+        "test": {
+          "cases": 144,
+          "families": 20,
+          "labels": {
+            "abstain": 32,
+            "fyi": 36,
+            "needs_reply": 36,
+            "noise": 8,
+            "waiting_on_them": 32
+          },
+          "domains": {
+            "community": 24,
+            "creative": 28,
+            "education": 28,
+            "household": 20,
+            "personal": 20,
+            "work": 24
+          },
+          "capabilities": {
+            "bulk_vs_personal": 16,
+            "cancellation": 8,
+            "deadline": 8,
+            "direct_request": 16,
+            "followup": 16,
+            "indirect_request": 8,
+            "informal_format": 8,
+            "mixed_ownership": 16,
+            "negation": 8,
+            "partial_completion": 16,
+            "promise": 8,
+            "quoted_history": 8,
+            "resolution": 8
+          }
+        },
+        "train": {
+          "cases": 981,
+          "families": 148,
+          "labels": {
+            "abstain": 214,
+            "fyi": 259,
+            "needs_reply": 245,
+            "noise": 46,
+            "waiting_on_them": 217
+          },
+          "domains": {
+            "community": 154,
+            "creative": 151,
+            "education": 157,
+            "household": 160,
+            "personal": 170,
+            "work": 189
+          },
+          "capabilities": {
+            "automated_notice": 12,
+            "bulk_vs_personal": 92,
+            "cancellation": 32,
+            "deadline": 24,
+            "direct_request": 128,
+            "followup": 72,
+            "indirect_request": 80,
+            "informal_format": 56,
+            "missing_context": 32,
+            "mixed_ownership": 80,
+            "negation": 77,
+            "partial_completion": 72,
+            "promise": 88,
+            "quoted_history": 64,
+            "resolution": 72
+          }
+        }
+      }
+    },
+    "historical_separation": {
+      "partition_counts": [
+        594,
+        1008
+      ],
+      "cross_partition_trigram_jaccard_max": 0.16666666666666666
+    },
+    "datasets": {
+      "small": {
+        "sha256": "22fd9bfaeffb963070907ca86d61ae118ea0c8ce97e0d4f91994f822a3c89523",
+        "splits": {
+          "dev": {
+            "cases": 207,
+            "families": [
+              "dev_fence",
+              "dev_film_edit",
+              "dev_floorplan",
+              "dev_license",
+              "dev_old_booking",
+              "dev_optional_training",
+              "dev_piano",
+              "dev_roast_catalog",
+              "dev_scan_missing",
+              "dev_short_note",
+              "dev_swim_roster",
+              "dev_transit_map",
+              "scale_dev_bridge_clearance",
+              "scale_dev_canoe_paddle",
+              "scale_dev_ceramics_ad",
+              "scale_dev_club_table",
+              "scale_dev_community_recipe",
+              "scale_dev_delivery_instructions",
+              "scale_dev_fuse_rating",
+              "scale_dev_home_audio",
+              "scale_dev_journal_index",
+              "scale_dev_knitting_pattern",
+              "scale_dev_notebook_return",
+              "scale_dev_pet_transport",
+              "scale_dev_poster_translation",
+              "scale_dev_recital_programme",
+              "scale_dev_repair_appointment",
+              "scale_dev_school_keys",
+              "scale_dev_school_supplies",
+              "scale_dev_street_party",
+              "scale_dev_training_roster",
+              "scale_dev_weekend_events"
+            ]
+          },
+          "train": {
+            "cases": 261,
+            "families": [
+              "account_permissions",
+              "audio_permission",
+              "bike_service",
+              "bullet_jobs",
+              "calendar_update",
+              "ceramic_promo",
+              "ceramics_booking",
+              "conditional_offer",
+              "conference_digest",
+              "costume_size",
+              "course_portal",
+              "cryptic_reference",
+              "deposit_return",
+              "do_not_order",
+              "door_access",
+              "festival_jobs",
+              "formal_enquiry",
+              "forwarded_job",
+              "garden_plot",
+              "historian_contact",
+              "lab_sample",
+              "lamp_collection",
+              "locker_location",
+              "membership_notice",
+              "missing_appendix",
+              "missing_minutes",
+              "mobile_reply",
+              "no_answer_yet",
+              "optional_survey",
+              "outdoor_catalog",
+              "print_proof",
+              "publication_edit",
+              "quoted_delivery",
+              "quoted_question",
+              "quoted_security",
+              "quoted_thanks",
+              "recipe_promise",
+              "research_reference",
+              "roof_report",
+              "scanner_loan",
+              "shared_tools",
+              "spreadsheet_audit",
+              "terse_lab",
+              "tooling_news",
+              "travel_plan",
+              "unassigned_delivery",
+              "venue_capacity",
+              "workshop_prep"
+            ]
+          }
+        }
+      },
+      "medium": {
+        "sha256": "f4fd06733e87375acd761ebee55ddbebdde0f98a7404b1449ae9fb46d667024f",
+        "splits": {
+          "dev": {
+            "cases": 207,
+            "families": [
+              "dev_fence",
+              "dev_film_edit",
+              "dev_floorplan",
+              "dev_license",
+              "dev_old_booking",
+              "dev_optional_training",
+              "dev_piano",
+              "dev_roast_catalog",
+              "dev_scan_missing",
+              "dev_short_note",
+              "dev_swim_roster",
+              "dev_transit_map",
+              "scale_dev_bridge_clearance",
+              "scale_dev_canoe_paddle",
+              "scale_dev_ceramics_ad",
+              "scale_dev_club_table",
+              "scale_dev_community_recipe",
+              "scale_dev_delivery_instructions",
+              "scale_dev_fuse_rating",
+              "scale_dev_home_audio",
+              "scale_dev_journal_index",
+              "scale_dev_knitting_pattern",
+              "scale_dev_notebook_return",
+              "scale_dev_pet_transport",
+              "scale_dev_poster_translation",
+              "scale_dev_recital_programme",
+              "scale_dev_repair_appointment",
+              "scale_dev_school_keys",
+              "scale_dev_school_supplies",
+              "scale_dev_street_party",
+              "scale_dev_training_roster",
+              "scale_dev_weekend_events"
+            ]
+          },
+          "train": {
+            "cases": 609,
+            "families": [
+              "account_permissions",
+              "audio_permission",
+              "bike_service",
+              "bullet_jobs",
+              "calendar_update",
+              "ceramic_promo",
+              "ceramics_booking",
+              "conditional_offer",
+              "conference_digest",
+              "costume_size",
+              "course_portal",
+              "cryptic_reference",
+              "deposit_return",
+              "do_not_order",
+              "door_access",
+              "festival_jobs",
+              "formal_enquiry",
+              "forwarded_job",
+              "garden_plot",
+              "historian_contact",
+              "lab_sample",
+              "lamp_collection",
+              "locker_location",
+              "membership_notice",
+              "missing_appendix",
+              "missing_minutes",
+              "mobile_reply",
+              "no_answer_yet",
+              "optional_survey",
+              "outdoor_catalog",
+              "print_proof",
+              "publication_edit",
+              "quoted_delivery",
+              "quoted_question",
+              "quoted_security",
+              "quoted_thanks",
+              "recipe_promise",
+              "research_reference",
+              "roof_report",
+              "scale_aquarium_feed",
+              "scale_band_setlist",
+              "scale_bike_route",
+              "scale_boat_cover",
+              "scale_boiler_visit",
+              "scale_book_donation",
+              "scale_campsite_water",
+              "scale_cinema_referral",
+              "scale_community_oven",
+              "scale_costume_return",
+              "scale_craft_fair_news",
+              "scale_dental_receipt",
+              "scale_electronics_offers",
+              "scale_event_waiver",
+              "scale_exam_room",
+              "scale_expense_category",
+              "scale_fabric_sale",
+              "scale_festival_power",
+              "scale_field_sensor",
+              "scale_fitness_campaign",
+              "scale_food_subscription",
+              "scale_furniture_digest",
+              "scale_garden_catalogue",
+              "scale_grant_attachment",
+              "scale_house_number",
+              "scale_journal_digest",
+              "scale_key_cutting",
+              "scale_lab_storage",
+              "scale_lecture_notes",
+              "scale_library_bulletin",
+              "scale_map_fold",
+              "scale_market_stall",
+              "scale_meeting_minutes",
+              "scale_office_supplies",
+              "scale_paint_tin",
+              "scale_parcel_dropoff",
+              "scale_plant_shop",
+              "scale_programme_bio",
+              "scale_puzzle_exchange",
+              "scale_reading_group",
+              "scale_rental_extension",
+              "scale_school_trip",
+              "scale_shoe_repair",
+              "scale_software_bulletin",
+              "scale_speaker_cable",
+              "scale_survey_grid",
+              "scale_travel_weekly",
+              "scale_village_sign",
+              "scale_window_key",
+              "scale_writing_feedback",
+              "scanner_loan",
+              "shared_tools",
+              "spreadsheet_audit",
+              "terse_lab",
+              "tooling_news",
+              "travel_plan",
+              "unassigned_delivery",
+              "venue_capacity",
+              "workshop_prep"
+            ]
+          }
+        }
+      },
+      "full": {
+        "sha256": "26f0a627b38c81f7d5769e010e1825e02fb59bfe63613b98a8b56990d58b47d8",
+        "splits": {
+          "dev": {
+            "cases": 207,
+            "families": [
+              "dev_fence",
+              "dev_film_edit",
+              "dev_floorplan",
+              "dev_license",
+              "dev_old_booking",
+              "dev_optional_training",
+              "dev_piano",
+              "dev_roast_catalog",
+              "dev_scan_missing",
+              "dev_short_note",
+              "dev_swim_roster",
+              "dev_transit_map",
+              "scale_dev_bridge_clearance",
+              "scale_dev_canoe_paddle",
+              "scale_dev_ceramics_ad",
+              "scale_dev_club_table",
+              "scale_dev_community_recipe",
+              "scale_dev_delivery_instructions",
+              "scale_dev_fuse_rating",
+              "scale_dev_home_audio",
+              "scale_dev_journal_index",
+              "scale_dev_knitting_pattern",
+              "scale_dev_notebook_return",
+              "scale_dev_pet_transport",
+              "scale_dev_poster_translation",
+              "scale_dev_recital_programme",
+              "scale_dev_repair_appointment",
+              "scale_dev_school_keys",
+              "scale_dev_school_supplies",
+              "scale_dev_street_party",
+              "scale_dev_training_roster",
+              "scale_dev_weekend_events"
+            ]
+          },
+          "train": {
+            "cases": 981,
+            "families": [
+              "account_permissions",
+              "audio_permission",
+              "bike_service",
+              "bullet_jobs",
+              "calendar_update",
+              "ceramic_promo",
+              "ceramics_booking",
+              "conditional_offer",
+              "conference_digest",
+              "costume_size",
+              "course_portal",
+              "cryptic_reference",
+              "deposit_return",
+              "do_not_order",
+              "door_access",
+              "festival_jobs",
+              "formal_enquiry",
+              "forwarded_job",
+              "garden_plot",
+              "historian_contact",
+              "lab_sample",
+              "lamp_collection",
+              "locker_location",
+              "membership_notice",
+              "missing_appendix",
+              "missing_minutes",
+              "mobile_reply",
+              "no_answer_yet",
+              "optional_survey",
+              "outdoor_catalog",
+              "print_proof",
+              "publication_edit",
+              "quoted_delivery",
+              "quoted_question",
+              "quoted_security",
+              "quoted_thanks",
+              "recipe_promise",
+              "research_reference",
+              "roof_report",
+              "scale_allotment_key",
+              "scale_aquarium_feed",
+              "scale_archive_permission",
+              "scale_artwork_credit",
+              "scale_audio_balance",
+              "scale_audio_store",
+              "scale_audition_slot",
+              "scale_band_setlist",
+              "scale_bike_route",
+              "scale_boat_cover",
+              "scale_boiler_visit",
+              "scale_book_binding",
+              "scale_book_donation",
+              "scale_building_notices",
+              "scale_camera_hire",
+              "scale_campsite_water",
+              "scale_charity_receipts",
+              "scale_choir_music",
+              "scale_cinema_referral",
+              "scale_clay_delivery",
+              "scale_club_banner",
+              "scale_community_oven",
+              "scale_conference_poster",
+              "scale_costume_return",
+              "scale_courier_label",
+              "scale_course_transfer",
+              "scale_craft_fair_news",
+              "scale_cycling_catalogue",
+              "scale_dance_floor",
+              "scale_database_export",
+              "scale_dental_receipt",
+              "scale_driveway_measure",
+              "scale_electronics_offers",
+              "scale_event_waiver",
+              "scale_exam_room",
+              "scale_exhibition_hours",
+              "scale_expense_category",
+              "scale_fabric_sale",
+              "scale_family_album",
+              "scale_festival_power",
+              "scale_field_sensor",
+              "scale_fitness_campaign",
+              "scale_food_subscription",
+              "scale_freight_dimensions",
+              "scale_furniture_digest",
+              "scale_garden_catalogue",
+              "scale_garden_shed",
+              "scale_grant_attachment",
+              "scale_house_number",
+              "scale_journal_digest",
+              "scale_key_cutting",
+              "scale_lab_reagent",
+              "scale_lab_storage",
+              "scale_language_app",
+              "scale_lease_meter",
+              "scale_lecture_notes",
+              "scale_library_bulletin",
+              "scale_logo_colour",
+              "scale_map_attribution",
+              "scale_map_fold",
+              "scale_market_stall",
+              "scale_meeting_minutes",
+              "scale_museum_caption",
+              "scale_office_supplies",
+              "scale_outdoor_magazine",
+              "scale_paint_tin",
+              "scale_parcel_dropoff",
+              "scale_parcel_insurance",
+              "scale_pet_sitting",
+              "scale_photography_course",
+              "scale_plant_shop",
+              "scale_potluck_diet",
+              "scale_programme_bio",
+              "scale_puzzle_exchange",
+              "scale_reading_group",
+              "scale_remote_unlock",
+              "scale_rental_extension",
+              "scale_sample_return",
+              "scale_school_trip",
+              "scale_shift_cover",
+              "scale_shoe_repair",
+              "scale_snow_plough",
+              "scale_snow_shovel",
+              "scale_software_bulletin",
+              "scale_spare_battery",
+              "scale_speaker_cable",
+              "scale_stocktake_query",
+              "scale_survey_grid",
+              "scale_theatre_mailout",
+              "scale_thesis_format",
+              "scale_tool_training",
+              "scale_travel_weekly",
+              "scale_village_sign",
+              "scale_visitor_parking",
+              "scale_voucher_redemption",
+              "scale_webinar_recording",
+              "scale_window_key",
+              "scale_work_uniform",
+              "scale_writing_feedback",
+              "scale_zine_layout",
+              "scanner_loan",
+              "shared_tools",
+              "spreadsheet_audit",
+              "terse_lab",
+              "tooling_news",
+              "travel_plan",
+              "unassigned_delivery",
+              "venue_capacity",
+              "workshop_prep"
+            ]
+          }
+        }
+      },
+      "holdout": {
+        "sha256": "fd32b9dad29278948027e6dc9ee9f64225c7809d716114893257fd4bc40e2e48",
+        "splits": {
+          "test": {
+            "cases": 144,
+            "families": [
+              "scale_test_balcony_lock",
+              "scale_test_classroom_equipment",
+              "scale_test_concert_promotions",
+              "scale_test_cooker_part",
+              "scale_test_dissertation_title",
+              "scale_test_freight_collection",
+              "scale_test_fundraiser_photo",
+              "scale_test_hall_dividers",
+              "scale_test_hiking_transport",
+              "scale_test_kitchen_equipment",
+              "scale_test_orchestra_parts",
+              "scale_test_printmaking_offer",
+              "scale_test_scenery_paint",
+              "scale_test_science_resources",
+              "scale_test_site_induction",
+              "scale_test_spare_tent",
+              "scale_test_specimen_box",
+              "scale_test_subtitle_revision",
+              "scale_test_volunteer_van",
+              "scale_test_warehouse_drop"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "runs": {
+    "small": {
+      "training": {
+        "base": "sentence-transformers/all-MiniLM-L6-v2",
+        "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+        "encoder_frozen": false,
+        "data_sha256": "22fd9bfaeffb963070907ca86d61ae118ea0c8ce97e0d4f91994f822a3c89523",
+        "train_count": 261,
+        "dev_count": 207,
+        "seed": 42,
+        "epochs": 12,
+        "batch_size": 16,
+        "encoder_learning_rate": 2e-05,
+        "head_learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "gradient_norm_max": 1.0,
+        "loss": "inverse-frequency-weighted cross entropy",
+        "head_initialization": "frozen-encoder logistic regression",
+        "checkpoint_selection": "lowest unweighted development cross entropy, including epoch zero",
+        "selected_epoch": 11,
+        "threshold": 1.0,
+        "threshold_selection": "maximum development coverage with zero accepted errors on the original fixed grid",
+        "dev_raw": {
+          "cases": 207,
+          "accepted": 172,
+          "correct_accepted": 148,
+          "correct_abstentions": 30,
+          "false_reminders": 10,
+          "false_silencing": 6,
+          "actionable_abstained": 4,
+          "ambiguous_accepted": 13
+        },
+        "dev_selective": {
+          "cases": 207,
+          "accepted": 0,
+          "correct_accepted": 0,
+          "correct_abstentions": 43,
+          "false_reminders": 0,
+          "false_silencing": 0,
+          "actionable_abstained": 99,
+          "ambiguous_accepted": 0
+        },
+        "history": [
+          {
+            "epoch": 0,
+            "train_loss": null,
+            "dev_loss": 1.0781534910202026,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 167,
+              "correct_accepted": 95,
+              "correct_abstentions": 20,
+              "false_reminders": 44,
+              "false_silencing": 19,
+              "actionable_abstained": 16,
+              "ambiguous_accepted": 23
+            }
+          },
+          {
+            "epoch": 1,
+            "train_loss": 0.37609938278052085,
+            "dev_loss": 0.8448968529701233,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 176,
+              "correct_accepted": 118,
+              "correct_abstentions": 19,
+              "false_reminders": 39,
+              "false_silencing": 10,
+              "actionable_abstained": 10,
+              "ambiguous_accepted": 24
+            }
+          },
+          {
+            "epoch": 2,
+            "train_loss": 0.19782730560193115,
+            "dev_loss": 0.7075271010398865,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 171,
+              "correct_accepted": 126,
+              "correct_abstentions": 22,
+              "false_reminders": 23,
+              "false_silencing": 12,
+              "actionable_abstained": 12,
+              "ambiguous_accepted": 21
+            }
+          },
+          {
+            "epoch": 3,
+            "train_loss": 0.09041986483866456,
+            "dev_loss": 0.5991662740707397,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 169,
+              "correct_accepted": 135,
+              "correct_abstentions": 26,
+              "false_reminders": 21,
+              "false_silencing": 8,
+              "actionable_abstained": 9,
+              "ambiguous_accepted": 17
+            }
+          },
+          {
+            "epoch": 4,
+            "train_loss": 0.0396489772403263,
+            "dev_loss": 0.4961474537849426,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 175,
+              "correct_accepted": 145,
+              "correct_abstentions": 26,
+              "false_reminders": 12,
+              "false_silencing": 8,
+              "actionable_abstained": 6,
+              "ambiguous_accepted": 17
+            }
+          },
+          {
+            "epoch": 5,
+            "train_loss": 0.015955931164495563,
+            "dev_loss": 0.44423937797546387,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 170,
+              "correct_accepted": 143,
+              "correct_abstentions": 29,
+              "false_reminders": 16,
+              "false_silencing": 6,
+              "actionable_abstained": 5,
+              "ambiguous_accepted": 14
+            }
+          },
+          {
+            "epoch": 6,
+            "train_loss": 0.007947380241484763,
+            "dev_loss": 0.4172259271144867,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 175,
+              "correct_accepted": 148,
+              "correct_abstentions": 28,
+              "false_reminders": 11,
+              "false_silencing": 7,
+              "actionable_abstained": 4,
+              "ambiguous_accepted": 15
+            }
+          },
+          {
+            "epoch": 7,
+            "train_loss": 0.004811905138908218,
+            "dev_loss": 0.3950005769729614,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 172,
+              "correct_accepted": 145,
+              "correct_abstentions": 30,
+              "false_reminders": 13,
+              "false_silencing": 7,
+              "actionable_abstained": 4,
+              "ambiguous_accepted": 13
+            }
+          },
+          {
+            "epoch": 8,
+            "train_loss": 0.0031924055928499993,
+            "dev_loss": 0.39449018239974976,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 175,
+              "correct_accepted": 147,
+              "correct_abstentions": 28,
+              "false_reminders": 12,
+              "false_silencing": 7,
+              "actionable_abstained": 4,
+              "ambiguous_accepted": 15
+            }
+          },
+          {
+            "epoch": 9,
+            "train_loss": 0.0024605218313948404,
+            "dev_loss": 0.3965267539024353,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 174,
+              "correct_accepted": 145,
+              "correct_abstentions": 28,
+              "false_reminders": 13,
+              "false_silencing": 7,
+              "actionable_abstained": 4,
+              "ambiguous_accepted": 15
+            }
+          },
+          {
+            "epoch": 10,
+            "train_loss": 0.0021051822022367197,
+            "dev_loss": 0.3872416913509369,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 174,
+              "correct_accepted": 146,
+              "correct_abstentions": 28,
+              "false_reminders": 12,
+              "false_silencing": 7,
+              "actionable_abstained": 4,
+              "ambiguous_accepted": 15
+            }
+          },
+          {
+            "epoch": 11,
+            "train_loss": 0.0016295993094014938,
+            "dev_loss": 0.37455248832702637,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 172,
+              "correct_accepted": 148,
+              "correct_abstentions": 30,
+              "false_reminders": 10,
+              "false_silencing": 6,
+              "actionable_abstained": 4,
+              "ambiguous_accepted": 13
+            }
+          },
+          {
+            "epoch": 12,
+            "train_loss": 0.0014137695846772286,
+            "dev_loss": 0.38328707218170166,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 174,
+              "correct_accepted": 148,
+              "correct_abstentions": 28,
+              "false_reminders": 10,
+              "false_silencing": 7,
+              "actionable_abstained": 4,
+              "ambiguous_accepted": 15
+            }
+          }
+        ]
+      },
+      "train_families": 48,
+      "selected_dev_loss": 0.37455248832702637,
+      "head_sha256": "d24a4c6f3676dc69d91164da38689de867df8e8715313f36295451a5b004632a",
+      "encoder_sha256": "07b53f8bfc7b96f3887b3efc20726d52c0649c0d134421b16dde9d8faad071fd",
+      "test_raw": {
+        "cases": 144,
+        "accepted": 119,
+        "correct_accepted": 104,
+        "correct_abstentions": 21,
+        "false_reminders": 7,
+        "false_silencing": 0,
+        "actionable_abstained": 4,
+        "ambiguous_accepted": 11
+      },
+      "test_selective": {
+        "cases": 144,
+        "accepted": 0,
+        "correct_accepted": 0,
+        "correct_abstentions": 32,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 68,
+        "ambiguous_accepted": 0
+      },
+      "predictions": {
+        "scale_test_freight_collection_0": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_freight_collection_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_freight_collection_1": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_freight_collection_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_freight_collection_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_freight_collection_2_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_freight_collection_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_freight_collection_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_scenery_paint_0": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_scenery_paint_0_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_scenery_paint_1": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_scenery_paint_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_scenery_paint_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_scenery_paint_2_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_scenery_paint_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_scenery_paint_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_classroom_equipment_0": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_classroom_equipment_0_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_classroom_equipment_1": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_classroom_equipment_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_classroom_equipment_2": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_classroom_equipment_2_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_classroom_equipment_3": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_classroom_equipment_3_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_balcony_lock_0": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_balcony_lock_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_balcony_lock_1": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_balcony_lock_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_balcony_lock_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_balcony_lock_2_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_balcony_lock_3": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_balcony_lock_3_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_spare_tent_0": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_spare_tent_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_spare_tent_1": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_spare_tent_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_spare_tent_2": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_spare_tent_2_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_spare_tent_3": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_spare_tent_3_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_orchestra_parts_0": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_orchestra_parts_0_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_orchestra_parts_1": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_orchestra_parts_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_orchestra_parts_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_orchestra_parts_2_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_orchestra_parts_3": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_orchestra_parts_3_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_volunteer_van_0": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_volunteer_van_0_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_volunteer_van_1": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_volunteer_van_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_volunteer_van_2": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_volunteer_van_2_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_volunteer_van_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_volunteer_van_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_dissertation_title_0": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_dissertation_title_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_dissertation_title_1": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_dissertation_title_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_dissertation_title_2": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_dissertation_title_2_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_dissertation_title_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_dissertation_title_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_cooker_part_0": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_cooker_part_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_cooker_part_1": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_cooker_part_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_cooker_part_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_cooker_part_2_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_cooker_part_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_cooker_part_3_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_fundraiser_photo_0": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_fundraiser_photo_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_fundraiser_photo_1": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_fundraiser_photo_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_fundraiser_photo_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_fundraiser_photo_2_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_fundraiser_photo_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_fundraiser_photo_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_site_induction_0": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_site_induction_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_site_induction_1": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_site_induction_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_site_induction_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_site_induction_2_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_site_induction_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_site_induction_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_subtitle_revision_0": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_subtitle_revision_0_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_subtitle_revision_1": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_subtitle_revision_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_subtitle_revision_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_subtitle_revision_2_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_subtitle_revision_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_subtitle_revision_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_hall_dividers_0": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_hall_dividers_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_hall_dividers_1": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_hall_dividers_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_hall_dividers_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_hall_dividers_2_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_hall_dividers_3": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_hall_dividers_3_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_specimen_box_0": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_specimen_box_0_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_specimen_box_1": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_specimen_box_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_specimen_box_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_specimen_box_2_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_specimen_box_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_specimen_box_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_hiking_transport_0": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_hiking_transport_0_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_hiking_transport_1": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_hiking_transport_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_hiking_transport_2": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_hiking_transport_2_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_hiking_transport_3": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_hiking_transport_3_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_warehouse_drop_0": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_warehouse_drop_0_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_warehouse_drop_1": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_warehouse_drop_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_warehouse_drop_2": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_warehouse_drop_2_reversed": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_warehouse_drop_3": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_warehouse_drop_3_reversed": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_printmaking_offer_0": {
+          "raw": "noise",
+          "selective": "abstain"
+        },
+        "scale_test_printmaking_offer_1": {
+          "raw": "noise",
+          "selective": "abstain"
+        },
+        "scale_test_printmaking_offer_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_printmaking_offer_3": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_science_resources_0": {
+          "raw": "noise",
+          "selective": "abstain"
+        },
+        "scale_test_science_resources_1": {
+          "raw": "noise",
+          "selective": "abstain"
+        },
+        "scale_test_science_resources_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_science_resources_3": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_kitchen_equipment_0": {
+          "raw": "noise",
+          "selective": "abstain"
+        },
+        "scale_test_kitchen_equipment_1": {
+          "raw": "noise",
+          "selective": "abstain"
+        },
+        "scale_test_kitchen_equipment_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_kitchen_equipment_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_concert_promotions_0": {
+          "raw": "noise",
+          "selective": "abstain"
+        },
+        "scale_test_concert_promotions_1": {
+          "raw": "noise",
+          "selective": "abstain"
+        },
+        "scale_test_concert_promotions_2": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_concert_promotions_3": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        }
+      }
+    },
+    "medium": {
+      "training": {
+        "base": "sentence-transformers/all-MiniLM-L6-v2",
+        "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+        "encoder_frozen": false,
+        "data_sha256": "f4fd06733e87375acd761ebee55ddbebdde0f98a7404b1449ae9fb46d667024f",
+        "train_count": 609,
+        "dev_count": 207,
+        "seed": 42,
+        "epochs": 12,
+        "batch_size": 16,
+        "encoder_learning_rate": 2e-05,
+        "head_learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "gradient_norm_max": 1.0,
+        "loss": "inverse-frequency-weighted cross entropy",
+        "head_initialization": "frozen-encoder logistic regression",
+        "checkpoint_selection": "lowest unweighted development cross entropy, including epoch zero",
+        "selected_epoch": 11,
+        "threshold": 0.75,
+        "threshold_selection": "maximum development coverage with zero accepted errors on the original fixed grid",
+        "dev_raw": {
+          "cases": 207,
+          "accepted": 164,
+          "correct_accepted": 160,
+          "correct_abstentions": 42,
+          "false_reminders": 0,
+          "false_silencing": 3,
+          "actionable_abstained": 1,
+          "ambiguous_accepted": 1
+        },
+        "dev_selective": {
+          "cases": 207,
+          "accepted": 158,
+          "correct_accepted": 158,
+          "correct_abstentions": 43,
+          "false_reminders": 0,
+          "false_silencing": 0,
+          "actionable_abstained": 6,
+          "ambiguous_accepted": 0
+        },
+        "history": [
+          {
+            "epoch": 0,
+            "train_loss": null,
+            "dev_loss": 0.7701737284660339,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 157,
+              "correct_accepted": 116,
+              "correct_abstentions": 28,
+              "false_reminders": 26,
+              "false_silencing": 10,
+              "actionable_abstained": 15,
+              "ambiguous_accepted": 15
+            }
+          },
+          {
+            "epoch": 1,
+            "train_loss": 0.2816793836870388,
+            "dev_loss": 0.35110896825790405,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 153,
+              "correct_accepted": 143,
+              "correct_abstentions": 42,
+              "false_reminders": 5,
+              "false_silencing": 4,
+              "actionable_abstained": 8,
+              "ambiguous_accepted": 1
+            }
+          },
+          {
+            "epoch": 2,
+            "train_loss": 0.07352838693997152,
+            "dev_loss": 0.15965776145458221,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 158,
+              "correct_accepted": 151,
+              "correct_abstentions": 42,
+              "false_reminders": 3,
+              "false_silencing": 4,
+              "actionable_abstained": 5,
+              "ambiguous_accepted": 1
+            }
+          },
+          {
+            "epoch": 3,
+            "train_loss": 0.014835982334192947,
+            "dev_loss": 0.0998259037733078,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 161,
+              "correct_accepted": 157,
+              "correct_abstentions": 43,
+              "false_reminders": 0,
+              "false_silencing": 4,
+              "actionable_abstained": 2,
+              "ambiguous_accepted": 0
+            }
+          },
+          {
+            "epoch": 4,
+            "train_loss": 0.004044799364289676,
+            "dev_loss": 0.07217905670404434,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 163,
+              "correct_accepted": 158,
+              "correct_abstentions": 42,
+              "false_reminders": 0,
+              "false_silencing": 4,
+              "actionable_abstained": 2,
+              "ambiguous_accepted": 1
+            }
+          },
+          {
+            "epoch": 5,
+            "train_loss": 0.002085935787427486,
+            "dev_loss": 0.04830046370625496,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 163,
+              "correct_accepted": 161,
+              "correct_abstentions": 43,
+              "false_reminders": 0,
+              "false_silencing": 2,
+              "actionable_abstained": 1,
+              "ambiguous_accepted": 0
+            }
+          },
+          {
+            "epoch": 6,
+            "train_loss": 0.0010182680149236924,
+            "dev_loss": 0.058715492486953735,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 162,
+              "correct_accepted": 158,
+              "correct_abstentions": 43,
+              "false_reminders": 0,
+              "false_silencing": 4,
+              "actionable_abstained": 2,
+              "ambiguous_accepted": 0
+            }
+          },
+          {
+            "epoch": 7,
+            "train_loss": 0.0007891633734771292,
+            "dev_loss": 0.05388060584664345,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 163,
+              "correct_accepted": 158,
+              "correct_abstentions": 42,
+              "false_reminders": 0,
+              "false_silencing": 4,
+              "actionable_abstained": 2,
+              "ambiguous_accepted": 1
+            }
+          },
+          {
+            "epoch": 8,
+            "train_loss": 0.0012263534793468523,
+            "dev_loss": 0.045388780534267426,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 162,
+              "correct_accepted": 160,
+              "correct_abstentions": 43,
+              "false_reminders": 0,
+              "false_silencing": 2,
+              "actionable_abstained": 2,
+              "ambiguous_accepted": 0
+            }
+          },
+          {
+            "epoch": 9,
+            "train_loss": 0.0004564517568846574,
+            "dev_loss": 0.04991940036416054,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 164,
+              "correct_accepted": 160,
+              "correct_abstentions": 42,
+              "false_reminders": 0,
+              "false_silencing": 3,
+              "actionable_abstained": 1,
+              "ambiguous_accepted": 1
+            }
+          },
+          {
+            "epoch": 10,
+            "train_loss": 0.00035258218870086867,
+            "dev_loss": 0.04330350458621979,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 164,
+              "correct_accepted": 160,
+              "correct_abstentions": 42,
+              "false_reminders": 0,
+              "false_silencing": 3,
+              "actionable_abstained": 1,
+              "ambiguous_accepted": 1
+            }
+          },
+          {
+            "epoch": 11,
+            "train_loss": 0.00029315021919768626,
+            "dev_loss": 0.04211540147662163,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 164,
+              "correct_accepted": 160,
+              "correct_abstentions": 42,
+              "false_reminders": 0,
+              "false_silencing": 3,
+              "actionable_abstained": 1,
+              "ambiguous_accepted": 1
+            }
+          },
+          {
+            "epoch": 12,
+            "train_loss": 0.0002602026179673346,
+            "dev_loss": 0.04254074767231941,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 164,
+              "correct_accepted": 160,
+              "correct_abstentions": 42,
+              "false_reminders": 0,
+              "false_silencing": 3,
+              "actionable_abstained": 1,
+              "ambiguous_accepted": 1
+            }
+          }
+        ]
+      },
+      "train_families": 98,
+      "selected_dev_loss": 0.04211540147662163,
+      "head_sha256": "aec6b98336aa3a75132b5ef41d7017b73798a33738d4cd7fb13f998bae19eecf",
+      "encoder_sha256": "64358c3fdd33ee2bc2d91c37c1eaec71e796172909c227ea6d1c9a9ed181a9a7",
+      "test_raw": {
+        "cases": 144,
+        "accepted": 114,
+        "correct_accepted": 110,
+        "correct_abstentions": 30,
+        "false_reminders": 3,
+        "false_silencing": 0,
+        "actionable_abstained": 0,
+        "ambiguous_accepted": 2
+      },
+      "test_selective": {
+        "cases": 144,
+        "accepted": 109,
+        "correct_accepted": 109,
+        "correct_abstentions": 32,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 1,
+        "ambiguous_accepted": 0
+      },
+      "predictions": {
+        "scale_test_freight_collection_0": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_freight_collection_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_freight_collection_1": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_freight_collection_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_freight_collection_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_freight_collection_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_freight_collection_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_freight_collection_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_scenery_paint_0": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_scenery_paint_0_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_scenery_paint_1": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_scenery_paint_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_scenery_paint_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_scenery_paint_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_scenery_paint_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_scenery_paint_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_classroom_equipment_0": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_classroom_equipment_0_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_classroom_equipment_1": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_classroom_equipment_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_classroom_equipment_2": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_classroom_equipment_2_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_classroom_equipment_3": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_classroom_equipment_3_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_balcony_lock_0": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_balcony_lock_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_balcony_lock_1": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_balcony_lock_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_balcony_lock_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_balcony_lock_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_balcony_lock_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_balcony_lock_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_spare_tent_0": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_spare_tent_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_spare_tent_1": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_spare_tent_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_spare_tent_2": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_spare_tent_2_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_spare_tent_3": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_spare_tent_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_orchestra_parts_0": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_orchestra_parts_0_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_orchestra_parts_1": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_orchestra_parts_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_orchestra_parts_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_orchestra_parts_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_orchestra_parts_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_orchestra_parts_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_volunteer_van_0": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_volunteer_van_0_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_volunteer_van_1": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_volunteer_van_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_volunteer_van_2": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_volunteer_van_2_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_volunteer_van_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_volunteer_van_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_dissertation_title_0": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_dissertation_title_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_dissertation_title_1": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_dissertation_title_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_dissertation_title_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_dissertation_title_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_dissertation_title_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_dissertation_title_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_cooker_part_0": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_cooker_part_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_cooker_part_1": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_cooker_part_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_cooker_part_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_cooker_part_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_cooker_part_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_cooker_part_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_fundraiser_photo_0": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_fundraiser_photo_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_fundraiser_photo_1": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_fundraiser_photo_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_fundraiser_photo_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_fundraiser_photo_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_fundraiser_photo_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_fundraiser_photo_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_site_induction_0": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_site_induction_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_site_induction_1": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_site_induction_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_site_induction_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_site_induction_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_site_induction_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_site_induction_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_subtitle_revision_0": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_subtitle_revision_0_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_subtitle_revision_1": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_subtitle_revision_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_subtitle_revision_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_subtitle_revision_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_subtitle_revision_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_subtitle_revision_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_hall_dividers_0": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_hall_dividers_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_hall_dividers_1": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_hall_dividers_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_hall_dividers_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_hall_dividers_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_hall_dividers_3": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_hall_dividers_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_specimen_box_0": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_specimen_box_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_specimen_box_1": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_specimen_box_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_specimen_box_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_specimen_box_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_specimen_box_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_specimen_box_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_hiking_transport_0": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_hiking_transport_0_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_hiking_transport_1": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_hiking_transport_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_hiking_transport_2": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_hiking_transport_2_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_hiking_transport_3": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_hiking_transport_3_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_warehouse_drop_0": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_warehouse_drop_0_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_warehouse_drop_1": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_warehouse_drop_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_warehouse_drop_2": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_warehouse_drop_2_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_warehouse_drop_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_warehouse_drop_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_printmaking_offer_0": {
+          "raw": "noise",
+          "selective": "noise"
+        },
+        "scale_test_printmaking_offer_1": {
+          "raw": "noise",
+          "selective": "noise"
+        },
+        "scale_test_printmaking_offer_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_printmaking_offer_3": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_science_resources_0": {
+          "raw": "noise",
+          "selective": "noise"
+        },
+        "scale_test_science_resources_1": {
+          "raw": "noise",
+          "selective": "noise"
+        },
+        "scale_test_science_resources_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_science_resources_3": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_kitchen_equipment_0": {
+          "raw": "noise",
+          "selective": "noise"
+        },
+        "scale_test_kitchen_equipment_1": {
+          "raw": "noise",
+          "selective": "noise"
+        },
+        "scale_test_kitchen_equipment_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_kitchen_equipment_3": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_concert_promotions_0": {
+          "raw": "noise",
+          "selective": "noise"
+        },
+        "scale_test_concert_promotions_1": {
+          "raw": "noise",
+          "selective": "noise"
+        },
+        "scale_test_concert_promotions_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_concert_promotions_3": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        }
+      }
+    },
+    "full": {
+      "training": {
+        "base": "sentence-transformers/all-MiniLM-L6-v2",
+        "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+        "encoder_frozen": false,
+        "data_sha256": "26f0a627b38c81f7d5769e010e1825e02fb59bfe63613b98a8b56990d58b47d8",
+        "train_count": 981,
+        "dev_count": 207,
+        "seed": 42,
+        "epochs": 12,
+        "batch_size": 16,
+        "encoder_learning_rate": 2e-05,
+        "head_learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "gradient_norm_max": 1.0,
+        "loss": "inverse-frequency-weighted cross entropy",
+        "head_initialization": "frozen-encoder logistic regression",
+        "checkpoint_selection": "lowest unweighted development cross entropy, including epoch zero",
+        "selected_epoch": 10,
+        "threshold": 0.65,
+        "threshold_selection": "maximum development coverage with zero accepted errors on the original fixed grid",
+        "dev_raw": {
+          "cases": 207,
+          "accepted": 167,
+          "correct_accepted": 164,
+          "correct_abstentions": 40,
+          "false_reminders": 2,
+          "false_silencing": 0,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 3
+        },
+        "dev_selective": {
+          "cases": 207,
+          "accepted": 164,
+          "correct_accepted": 164,
+          "correct_abstentions": 43,
+          "false_reminders": 0,
+          "false_silencing": 0,
+          "actionable_abstained": 0,
+          "ambiguous_accepted": 0
+        },
+        "history": [
+          {
+            "epoch": 0,
+            "train_loss": null,
+            "dev_loss": 0.6260064840316772,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 168,
+              "correct_accepted": 127,
+              "correct_abstentions": 32,
+              "false_reminders": 22,
+              "false_silencing": 13,
+              "actionable_abstained": 4,
+              "ambiguous_accepted": 11
+            }
+          },
+          {
+            "epoch": 1,
+            "train_loss": 0.20348168122719795,
+            "dev_loss": 0.19858182966709137,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 153,
+              "correct_accepted": 150,
+              "correct_abstentions": 43,
+              "false_reminders": 2,
+              "false_silencing": 1,
+              "actionable_abstained": 6,
+              "ambiguous_accepted": 0
+            }
+          },
+          {
+            "epoch": 2,
+            "train_loss": 0.03341158202143954,
+            "dev_loss": 0.06383145600557327,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 160,
+              "correct_accepted": 160,
+              "correct_abstentions": 43,
+              "false_reminders": 0,
+              "false_silencing": 0,
+              "actionable_abstained": 2,
+              "ambiguous_accepted": 0
+            }
+          },
+          {
+            "epoch": 3,
+            "train_loss": 0.004524717770780794,
+            "dev_loss": 0.038462359458208084,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 161,
+              "correct_accepted": 161,
+              "correct_abstentions": 43,
+              "false_reminders": 0,
+              "false_silencing": 0,
+              "actionable_abstained": 0,
+              "ambiguous_accepted": 0
+            }
+          },
+          {
+            "epoch": 4,
+            "train_loss": 0.0013936824442023197,
+            "dev_loss": 0.027896855026483536,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 166,
+              "correct_accepted": 164,
+              "correct_abstentions": 41,
+              "false_reminders": 1,
+              "false_silencing": 0,
+              "actionable_abstained": 0,
+              "ambiguous_accepted": 2
+            }
+          },
+          {
+            "epoch": 5,
+            "train_loss": 0.0013337691786113241,
+            "dev_loss": 0.0267836544662714,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 166,
+              "correct_accepted": 164,
+              "correct_abstentions": 41,
+              "false_reminders": 1,
+              "false_silencing": 0,
+              "actionable_abstained": 0,
+              "ambiguous_accepted": 2
+            }
+          },
+          {
+            "epoch": 6,
+            "train_loss": 0.0005004055484824137,
+            "dev_loss": 0.028529128059744835,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 167,
+              "correct_accepted": 164,
+              "correct_abstentions": 40,
+              "false_reminders": 2,
+              "false_silencing": 0,
+              "actionable_abstained": 0,
+              "ambiguous_accepted": 3
+            }
+          },
+          {
+            "epoch": 7,
+            "train_loss": 0.0003673926677704845,
+            "dev_loss": 0.025038355961441994,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 167,
+              "correct_accepted": 164,
+              "correct_abstentions": 40,
+              "false_reminders": 2,
+              "false_silencing": 0,
+              "actionable_abstained": 0,
+              "ambiguous_accepted": 3
+            }
+          },
+          {
+            "epoch": 8,
+            "train_loss": 0.00022384709421728968,
+            "dev_loss": 0.023393355309963226,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 167,
+              "correct_accepted": 164,
+              "correct_abstentions": 40,
+              "false_reminders": 2,
+              "false_silencing": 0,
+              "actionable_abstained": 0,
+              "ambiguous_accepted": 3
+            }
+          },
+          {
+            "epoch": 9,
+            "train_loss": 0.0001647534780753145,
+            "dev_loss": 0.022913578897714615,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 167,
+              "correct_accepted": 164,
+              "correct_abstentions": 40,
+              "false_reminders": 2,
+              "false_silencing": 0,
+              "actionable_abstained": 0,
+              "ambiguous_accepted": 3
+            }
+          },
+          {
+            "epoch": 10,
+            "train_loss": 0.0001550769436138252,
+            "dev_loss": 0.022696834057569504,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 167,
+              "correct_accepted": 164,
+              "correct_abstentions": 40,
+              "false_reminders": 2,
+              "false_silencing": 0,
+              "actionable_abstained": 0,
+              "ambiguous_accepted": 3
+            }
+          },
+          {
+            "epoch": 11,
+            "train_loss": 0.00012257950896421915,
+            "dev_loss": 0.023536261171102524,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 167,
+              "correct_accepted": 164,
+              "correct_abstentions": 40,
+              "false_reminders": 2,
+              "false_silencing": 0,
+              "actionable_abstained": 0,
+              "ambiguous_accepted": 3
+            }
+          },
+          {
+            "epoch": 12,
+            "train_loss": 9.525613679436546e-05,
+            "dev_loss": 0.0247367974370718,
+            "dev_raw": {
+              "cases": 207,
+              "accepted": 167,
+              "correct_accepted": 164,
+              "correct_abstentions": 40,
+              "false_reminders": 2,
+              "false_silencing": 0,
+              "actionable_abstained": 0,
+              "ambiguous_accepted": 3
+            }
+          }
+        ]
+      },
+      "train_families": 148,
+      "selected_dev_loss": 0.022696834057569504,
+      "head_sha256": "80f8534e2623417ccd09ca7522a838a8fbf0831d44d8d8e168b06c3f353da9c3",
+      "encoder_sha256": "70671c80646513f4fb521090edeb2cbe110dc56a07f07a08185af746fb8bd131",
+      "test_raw": {
+        "cases": 144,
+        "accepted": 113,
+        "correct_accepted": 110,
+        "correct_abstentions": 31,
+        "false_reminders": 2,
+        "false_silencing": 0,
+        "actionable_abstained": 0,
+        "ambiguous_accepted": 1
+      },
+      "test_selective": {
+        "cases": 144,
+        "accepted": 110,
+        "correct_accepted": 108,
+        "correct_abstentions": 32,
+        "false_reminders": 2,
+        "false_silencing": 0,
+        "actionable_abstained": 2,
+        "ambiguous_accepted": 0
+      },
+      "predictions": {
+        "scale_test_freight_collection_0": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_freight_collection_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_freight_collection_1": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_freight_collection_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_freight_collection_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_freight_collection_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_freight_collection_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_freight_collection_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_scenery_paint_0": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_scenery_paint_0_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_scenery_paint_1": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_scenery_paint_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_scenery_paint_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_scenery_paint_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_scenery_paint_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_scenery_paint_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_classroom_equipment_0": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_classroom_equipment_0_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_classroom_equipment_1": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_classroom_equipment_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_classroom_equipment_2": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_classroom_equipment_2_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_classroom_equipment_3": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_classroom_equipment_3_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_balcony_lock_0": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_balcony_lock_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_balcony_lock_1": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_balcony_lock_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_balcony_lock_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_balcony_lock_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_balcony_lock_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_balcony_lock_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_spare_tent_0": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_spare_tent_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_spare_tent_1": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_spare_tent_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_spare_tent_2": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_spare_tent_2_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_spare_tent_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_spare_tent_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_orchestra_parts_0": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_orchestra_parts_0_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_orchestra_parts_1": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_orchestra_parts_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_orchestra_parts_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_orchestra_parts_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_orchestra_parts_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_orchestra_parts_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_volunteer_van_0": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_volunteer_van_0_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_volunteer_van_1": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_volunteer_van_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_volunteer_van_2": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_volunteer_van_2_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_volunteer_van_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_volunteer_van_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_dissertation_title_0": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_dissertation_title_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_dissertation_title_1": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_dissertation_title_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_dissertation_title_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_dissertation_title_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_dissertation_title_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_dissertation_title_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_cooker_part_0": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_cooker_part_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_cooker_part_1": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_cooker_part_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_cooker_part_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_cooker_part_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_cooker_part_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_cooker_part_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_fundraiser_photo_0": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_fundraiser_photo_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_fundraiser_photo_1": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_fundraiser_photo_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_fundraiser_photo_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_fundraiser_photo_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_fundraiser_photo_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_fundraiser_photo_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_site_induction_0": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_site_induction_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_site_induction_1": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_site_induction_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_site_induction_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_site_induction_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_site_induction_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_site_induction_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_subtitle_revision_0": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_subtitle_revision_0_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_subtitle_revision_1": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_subtitle_revision_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_subtitle_revision_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_subtitle_revision_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_subtitle_revision_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_subtitle_revision_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_hall_dividers_0": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_hall_dividers_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_hall_dividers_1": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_hall_dividers_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_hall_dividers_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_hall_dividers_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_hall_dividers_3": {
+          "raw": "fyi",
+          "selective": "abstain"
+        },
+        "scale_test_hall_dividers_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_specimen_box_0": {
+          "raw": "needs_reply",
+          "selective": "abstain"
+        },
+        "scale_test_specimen_box_0_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "abstain"
+        },
+        "scale_test_specimen_box_1": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_specimen_box_1_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_specimen_box_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_specimen_box_2_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_specimen_box_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_specimen_box_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_hiking_transport_0": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_hiking_transport_0_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_hiking_transport_1": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_hiking_transport_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_hiking_transport_2": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_hiking_transport_2_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_hiking_transport_3": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_hiking_transport_3_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_warehouse_drop_0": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_warehouse_drop_0_reversed": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_warehouse_drop_1": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_warehouse_drop_1_reversed": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_warehouse_drop_2": {
+          "raw": "waiting_on_them",
+          "selective": "waiting_on_them"
+        },
+        "scale_test_warehouse_drop_2_reversed": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_warehouse_drop_3": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_warehouse_drop_3_reversed": {
+          "raw": "abstain",
+          "selective": "abstain"
+        },
+        "scale_test_printmaking_offer_0": {
+          "raw": "noise",
+          "selective": "noise"
+        },
+        "scale_test_printmaking_offer_1": {
+          "raw": "noise",
+          "selective": "noise"
+        },
+        "scale_test_printmaking_offer_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_printmaking_offer_3": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_science_resources_0": {
+          "raw": "noise",
+          "selective": "noise"
+        },
+        "scale_test_science_resources_1": {
+          "raw": "noise",
+          "selective": "noise"
+        },
+        "scale_test_science_resources_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_science_resources_3": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_kitchen_equipment_0": {
+          "raw": "noise",
+          "selective": "noise"
+        },
+        "scale_test_kitchen_equipment_1": {
+          "raw": "noise",
+          "selective": "noise"
+        },
+        "scale_test_kitchen_equipment_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_kitchen_equipment_3": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        },
+        "scale_test_concert_promotions_0": {
+          "raw": "noise",
+          "selective": "noise"
+        },
+        "scale_test_concert_promotions_1": {
+          "raw": "noise",
+          "selective": "noise"
+        },
+        "scale_test_concert_promotions_2": {
+          "raw": "fyi",
+          "selective": "fyi"
+        },
+        "scale_test_concert_promotions_3": {
+          "raw": "needs_reply",
+          "selective": "needs_reply"
+        }
+      }
+    }
+  }
+}
