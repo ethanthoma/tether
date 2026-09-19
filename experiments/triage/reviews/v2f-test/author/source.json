@@ -1,0 +1,4967 @@
+{
+  "version": 1,
+  "provenance": "fully_synthetic_assistant_authored",
+  "label_policy": "reply-triage-v2",
+  "cases": [
+    {
+      "id": "v2f_test_023_1",
+      "group": "v2f_test_family_023",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Did the parcel reach your workshop?"
+        },
+        {
+          "outbound": false,
+          "body": "The courier has been unreliable around here."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The other person has not answered an explicit status question.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Did the parcel reach your workshop?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The courier has been unreliable around here."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_044_2",
+      "group": "v2f_test_family_044",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can we use the pitch following yesterday's storm?"
+        },
+        {
+          "outbound": true,
+          "body": "> Can we use the pitch following yesterday's storm?\nYes, the pitch passed inspection this morning."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A quoted historical question is resolved by the current prose.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can we use the pitch following yesterday's storm?"
+          },
+          {
+            "message_index": 1,
+            "quote": "> Can we use the pitch following yesterday's storm?\nYes, the pitch passed inspection this morning."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_074_1",
+      "group": "v2f_test_family_074",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The gallery folder is ready."
+        },
+        {
+          "outbound": false,
+          "body": "Upload the full-resolution photos into it."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A digital task requested from the user is not a requested prose reply.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The gallery folder is ready."
+          },
+          {
+            "message_index": 1,
+            "quote": "Upload the full-resolution photos into it."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_003_2",
+      "group": "v2f_test_family_003",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Let us use the door on the north side."
+        },
+        {
+          "outbound": false,
+          "body": "Is that the one beside the bicycle racks?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A new clarification question still calls for prose from the user.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Let us use the door on the north side."
+          },
+          {
+            "message_index": 1,
+            "quote": "Is that the one beside the bicycle racks?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_048_2",
+      "group": "v2f_test_family_048",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you take my listing off the volunteer page?"
+        },
+        {
+          "outbound": false,
+          "body": "The volunteer page now shows only the other three names."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The latest message confirms the requested change through its resulting state.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you take my listing off the volunteer page?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The volunteer page now shows only the other three names."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_050_2",
+      "group": "v2f_test_family_050",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Shipping robot: your order has entered the carrier network."
+        },
+        {
+          "outbound": false,
+          "body": "Shipping robot: the package passed through the regional sorting hub."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Routine automated tracking updates require no user action.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Shipping robot: your order has entered the carrier network."
+          },
+          {
+            "message_index": 1,
+            "quote": "Shipping robot: the package passed through the regional sorting hub."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_019_1",
+      "group": "v2f_test_family_019",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Send the attendance count and the list of dietary requirements."
+        },
+        {
+          "outbound": false,
+          "body": "We have 28 attending; I will send the food requirements later."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Only part of the user request has been completed.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Send the attendance count and the list of dietary requirements."
+          },
+          {
+            "message_index": 1,
+            "quote": "We have 28 attending; I will send the food requirements later."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_017_1",
+      "group": "v2f_test_family_017",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which tunnel is open to walkers this weekend?"
+        },
+        {
+          "outbound": false,
+          "body": "Thanks for reaching out to our walking group."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The user explicitly requested an answer and received only acknowledgment.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which tunnel is open to walkers this weekend?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Thanks for reaching out to our walking group."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_039_1",
+      "group": "v2f_test_family_039",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Calendar event: neighbourhood lunch at noon in the hall."
+        },
+        {
+          "outbound": false,
+          "body": "Event updated: the lunch will now be in the courtyard."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The calendar change does not request a prose response.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Calendar event: neighbourhood lunch at noon in the hall."
+          },
+          {
+            "message_index": 1,
+            "quote": "Event updated: the lunch will now be in the courtyard."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_063_2",
+      "group": "v2f_test_family_063",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Support system: your resolved case is now closed."
+        },
+        {
+          "outbound": false,
+          "body": "Case lifecycle notification: the record has moved to the archive."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Automated closed-ticket notifications do not request further work.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Support system: your resolved case is now closed."
+          },
+          {
+            "message_index": 1,
+            "quote": "Case lifecycle notification: the record has moved to the archive."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_034_2",
+      "group": "v2f_test_family_034",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which cushion fabric should we use?"
+        },
+        {
+          "outbound": true,
+          "body": "I prefer the solid blue one over the stripes."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The user provides the requested choice without creating another commitment.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which cushion fabric should we use?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I prefer the solid blue one over the stripes."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_004_1",
+      "group": "v2f_test_family_004",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you review the whole invitation and give me your thoughts?"
+        },
+        {
+          "outbound": false,
+          "body": "Actually, just tell me whether the spelling of your name is right."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The latest message narrows the response requested from the user.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you review the whole invitation and give me your thoughts?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Actually, just tell me whether the spelling of your name is right."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_009_2",
+      "group": "v2f_test_family_009",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "We need a route without stairs."
+        },
+        {
+          "outbound": false,
+          "body": "There is a level approach through the garden; does that suit you?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The sender supplied context but still asks the user a question.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "We need a route without stairs."
+          },
+          {
+            "message_index": 1,
+            "quote": "There is a level approach through the garden; does that suit you?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_011_1",
+      "group": "v2f_test_family_011",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Would Tuesday suit your interview?"
+        },
+        {
+          "outbound": false,
+          "body": "Tuesday has been filled. Is Thursday afternoon possible for you?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A withdrawn question is replaced with another outstanding question.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Would Tuesday suit your interview?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Tuesday has been filled. Is Thursday afternoon possible for you?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_013_1",
+      "group": "v2f_test_family_013",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Should the invoice be made out to you or to the club?"
+        },
+        {
+          "outbound": true,
+          "body": "The event is on the 24th."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "An answer to a different issue does not settle the visible question.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Should the invoice be made out to you or to the club?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The event is on the 24th."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_069_2",
+      "group": "v2f_test_family_069",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Bring in the jars waiting outside the front door, please."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for letting me know where they are."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A task-only obligation survives acknowledgment by the user.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Bring in the jars waiting outside the front door, please."
+          },
+          {
+            "message_index": 1,
+            "quote": "Thanks for letting me know where they are."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_006_2",
+      "group": "v2f_test_family_006",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you explain the split in the fired bowl?"
+        },
+        {
+          "outbound": true,
+          "body": "I was sorry to see the damage too."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A reaction does not supply the requested explanation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you explain the split in the fired bowl?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I was sorry to see the damage too."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_064_2",
+      "group": "v2f_test_family_064",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Kitchen newsletter: welcome to our Friday roundup."
+        },
+        {
+          "outbound": false,
+          "body": "Inside: leftover lunches, cupboard organisation, and this week's featured soup."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "General tips and articles are recurring newsletter material.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Kitchen newsletter: welcome to our Friday roundup."
+          },
+          {
+            "message_index": 1,
+            "quote": "Inside: leftover lunches, cupboard organisation, and this week's featured soup."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_005_2",
+      "group": "v2f_test_family_005",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Your reference to our earlier plan reached me."
+        },
+        {
+          "outbound": false,
+          "body": "Are we going ahead with what we discussed?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "An explicit question remains valid without its earlier historical context.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your reference to our earlier plan reached me."
+          },
+          {
+            "message_index": 1,
+            "quote": "Are we going ahead with what we discussed?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_041_1",
+      "group": "v2f_test_family_041",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I passed the display cabinet on my way out."
+        },
+        {
+          "outbound": false,
+          "body": "The repaired vase looks lovely in there."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A notification of a completed event contains no further obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I passed the display cabinet on my way out."
+          },
+          {
+            "message_index": 1,
+            "quote": "The repaired vase looks lovely in there."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_072_1",
+      "group": "v2f_test_family_072",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which logo colour should I use?"
+        },
+        {
+          "outbound": true,
+          "body": "Use green. I will redraw the emblem tonight."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The user answers the question but separately commits to future work.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which logo colour should I use?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Use green. I will redraw the emblem tonight."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_052_2",
+      "group": "v2f_test_family_052",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Billing robot: monthly club dues paid successfully."
+        },
+        {
+          "outbound": false,
+          "body": "Your account receipt is ready. Nothing is outstanding."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Automatic payment receipts contain no remaining deadline or action.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Billing robot: monthly club dues paid successfully."
+          },
+          {
+            "message_index": 1,
+            "quote": "Your account receipt is ready. Nothing is outstanding."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_047_1",
+      "group": "v2f_test_family_047",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is the replacement cable long enough?"
+        },
+        {
+          "outbound": true,
+          "body": "It reaches the socket with about half a metre to spare."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A request is fulfilled by an unambiguous direct answer.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Is the replacement cable long enough?"
+          },
+          {
+            "message_index": 1,
+            "quote": "It reaches the socket with about half a metre to spare."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_072_2",
+      "group": "v2f_test_family_072",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Should the emblem be green or black?"
+        },
+        {
+          "outbound": true,
+          "body": "Green is my choice, and I will prepare a new drawing tomorrow."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The user answers the question but separately commits to future work.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Should the emblem be green or black?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Green is my choice, and I will prepare a new drawing tomorrow."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_080_2",
+      "group": "v2f_test_family_080",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will prepare our picnic; could you find the boat ticket price?"
+        },
+        {
+          "outbound": false,
+          "body": "We are driving instead, so drop the ticket-price lookup. The picnic plan is unchanged."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The request was canceled but an independent user commitment remains.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will prepare our picnic; could you find the boat ticket price?"
+          },
+          {
+            "message_index": 1,
+            "quote": "We are driving instead, so drop the ticket-price lookup. The picnic plan is unchanged."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_027_1",
+      "group": "v2f_test_family_027",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which edition did you use for the translation?"
+        },
+        {
+          "outbound": false,
+          "body": "I am not sure offhand; I will check my notes."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A request for prose remains even when the other person expresses uncertainty.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which edition did you use for the translation?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I am not sure offhand; I will check my notes."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_059_1",
+      "group": "v2f_test_family_059",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Wetlands appeal: help us reach our community fundraising target."
+        },
+        {
+          "outbound": false,
+          "body": "The campaign ends tonight; donations of every size are welcome."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A generic fundraising countdown is promotional urgency.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Wetlands appeal: help us reach our community fundraising target."
+          },
+          {
+            "message_index": 1,
+            "quote": "The campaign ends tonight; donations of every size are welcome."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_008_1",
+      "group": "v2f_test_family_008",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The printer can bind on either edge."
+        },
+        {
+          "outbound": false,
+          "body": "Reply with short-edge or long-edge binding so I can submit the order."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A human requests a written decision rather than merely performing a task.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The printer can bind on either edge."
+          },
+          {
+            "message_index": 1,
+            "quote": "Reply with short-edge or long-edge binding so I can submit the order."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_036_2",
+      "group": "v2f_test_family_036",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Would you tell me where the archive login is?"
+        },
+        {
+          "outbound": false,
+          "body": "The help page had it; I no longer need directions."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The original request is explicitly canceled without a replacement.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Would you tell me where the archive login is?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The help page had it; I no longer need directions."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_045_2",
+      "group": "v2f_test_family_045",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "You can leave your coat next to the basement lift."
+        },
+        {
+          "outbound": true,
+          "body": "Perfect, I know where to go now."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "An acknowledgment follows a fully specified answer and leaves no request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "You can leave your coat next to the basement lift."
+          },
+          {
+            "message_index": 1,
+            "quote": "Perfect, I know where to go now."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_033_2",
+      "group": "v2f_test_family_033",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Where on the train should I board with my bike?"
+        },
+        {
+          "outbound": false,
+          "body": "Use the rear carriage marked C; the cycle racks are there."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The requested answer is naturally supplied in the final message.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Where on the train should I board with my bike?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Use the rear carriage marked C; the cycle racks are there."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_073_1",
+      "group": "v2f_test_family_073",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please send me the repaired watch."
+        },
+        {
+          "outbound": false,
+          "body": "I will post it tomorrow. Which strap colour do you prefer?"
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "An answer remains requested from the user alongside the other person's explicit promise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please send me the repaired watch."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will post it tomorrow. Which strap colour do you prefer?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_028_2",
+      "group": "v2f_test_family_028",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your note about an exception came through."
+        },
+        {
+          "outbound": true,
+          "body": "Are we covered by that exception?"
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A visible outbound question establishes a request despite missing earlier context.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your note about an exception came through."
+          },
+          {
+            "message_index": 1,
+            "quote": "Are we covered by that exception?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_037_1",
+      "group": "v2f_test_family_037",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "What is the ticket price and when do doors open?"
+        },
+        {
+          "outbound": false,
+          "body": "Admission is twelve dollars; doors open at six."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "All requested pieces are present in the reply.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "What is the ticket price and when do doors open?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Admission is twelve dollars; doors open at six."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_040_1",
+      "group": "v2f_test_family_040",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please put a fresh towel in the guest bathroom."
+        },
+        {
+          "outbound": false,
+          "body": "A clean towel is hanging on the guest bathroom rail."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The information closes the visible practical request without a formal completion word.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please put a fresh towel in the guest bathroom."
+          },
+          {
+            "message_index": 1,
+            "quote": "A clean towel is hanging on the guest bathroom rail."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_005_1",
+      "group": "v2f_test_family_005",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I saw your note about the arrangement."
+        },
+        {
+          "outbound": false,
+          "body": "Is that arrangement still happening?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "An explicit question remains valid without its earlier historical context.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I saw your note about the arrangement."
+          },
+          {
+            "message_index": 1,
+            "quote": "Is that arrangement still happening?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_062_1",
+      "group": "v2f_test_family_062",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Introducing the new home espresso range from Copper Bean."
+        },
+        {
+          "outbound": false,
+          "body": "Join our livestream launch and discover your next coffee machine."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A broad product-launch invitation is marketing rather than a calendar invitation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Introducing the new home espresso range from Copper Bean."
+          },
+          {
+            "message_index": 1,
+            "quote": "Join our livestream launch and discover your next coffee machine."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_030_2",
+      "group": "v2f_test_family_030",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which room should I reserve for you, loft or ground floor?"
+        },
+        {
+          "outbound": false,
+          "body": "I liked the photographs of each."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The recipient offers partial information but leaves the explicit choice unanswered.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which room should I reserve for you, loft or ground floor?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I liked the photographs of each."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_032_2",
+      "group": "v2f_test_family_032",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Change the delivery address from number 18 to number 81, please."
+        },
+        {
+          "outbound": false,
+          "body": "You are right about that address error."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The user asks for a correction which the recipient has not yet supplied.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Change the delivery address from number 18 to number 81, please."
+          },
+          {
+            "message_index": 1,
+            "quote": "You are right about that address error."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_047_2",
+      "group": "v2f_test_family_047",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Does the new lead reach the outlet?"
+        },
+        {
+          "outbound": true,
+          "body": "There is plenty of slack between the desk and the outlet."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A request is fulfilled by an unambiguous direct answer.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Does the new lead reach the outlet?"
+          },
+          {
+            "message_index": 1,
+            "quote": "There is plenty of slack between the desk and the outlet."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_036_1",
+      "group": "v2f_test_family_036",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you explain how to access the archive?"
+        },
+        {
+          "outbound": false,
+          "body": "I found the access instructions myself, so never mind my question."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The original request is explicitly canceled without a replacement.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you explain how to access the archive?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I found the access instructions myself, so never mind my question."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_046_2",
+      "group": "v2f_test_family_046",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Our terrier took first place in costume."
+        },
+        {
+          "outbound": false,
+          "body": "Isn't that just the funniest result!"
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The rhetorical question conveys a reaction rather than seeking an answer.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Our terrier took first place in costume."
+          },
+          {
+            "message_index": 1,
+            "quote": "Isn't that just the funniest result!"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_025_2",
+      "group": "v2f_test_family_025",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please return your signed release for the archive."
+        },
+        {
+          "outbound": true,
+          "body": "I appreciate you considering it."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Acknowledgment from the user does not withdraw their prior request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please return your signed release for the archive."
+          },
+          {
+            "message_index": 1,
+            "quote": "I appreciate you considering it."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_040_2",
+      "group": "v2f_test_family_040",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you leave a towel out for our guest?"
+        },
+        {
+          "outbound": false,
+          "body": "There is a freshly washed towel beside the guest sink."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The information closes the visible practical request without a formal completion word.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you leave a towel out for our guest?"
+          },
+          {
+            "message_index": 1,
+            "quote": "There is a freshly washed towel beside the guest sink."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_042_1",
+      "group": "v2f_test_family_042",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The new greenhouse looks promising."
+        },
+        {
+          "outbound": false,
+          "body": "I hope we get a good tomato crop this year."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A wish about future work is not a specific commitment.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The new greenhouse looks promising."
+          },
+          {
+            "message_index": 1,
+            "quote": "I hope we get a good tomato crop this year."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_018_1",
+      "group": "v2f_test_family_018",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please move the empty crates into the shed."
+        },
+        {
+          "outbound": false,
+          "body": "I have located the shed key."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A requested action remains owed by the other person.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please move the empty crates into the shed."
+          },
+          {
+            "message_index": 1,
+            "quote": "I have located the shed key."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_080_1",
+      "group": "v2f_test_family_080",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please look up the ferry fare. I will pack the picnic."
+        },
+        {
+          "outbound": false,
+          "body": "The trip is now by car, so you do not need the ferry fare; we still want the picnic."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The request was canceled but an independent user commitment remains.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please look up the ferry fare. I will pack the picnic."
+          },
+          {
+            "message_index": 1,
+            "quote": "The trip is now by car, so you do not need the ferry fare; we still want the picnic."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_049_1",
+      "group": "v2f_test_family_049",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Harbour Outfitters: our autumn collection has landed."
+        },
+        {
+          "outbound": false,
+          "body": "Shop jackets before the weekend sale ends Sunday."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The messages are promotional offers without a personal obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Harbour Outfitters: our autumn collection has landed."
+          },
+          {
+            "message_index": 1,
+            "quote": "Shop jackets before the weekend sale ends Sunday."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_007_1",
+      "group": "v2f_test_family_007",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated account notice: your identity check is pending."
+        },
+        {
+          "outbound": false,
+          "body": "You must upload your identity document by 20 September to retain access."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The user must personally act by the explicit automated deadline.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated account notice: your identity check is pending."
+          },
+          {
+            "message_index": 1,
+            "quote": "You must upload your identity document by 20 September to retain access."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_076_1",
+      "group": "v2f_test_family_076",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Application status: supporting material missing."
+        },
+        {
+          "outbound": false,
+          "body": "The authorised representative must supply the missing supporting material."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The notice does not identify whose action is required or whether the user owns it.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Application status: supporting material missing."
+          },
+          {
+            "message_index": 1,
+            "quote": "The authorised representative must supply the missing supporting material."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_021_1",
+      "group": "v2f_test_family_021",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The measurement includes the lip."
+        },
+        {
+          "outbound": true,
+          "body": "Does that include both lips or only the upper one?"
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The latest question asks the recipient for clarification.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The measurement includes the lip."
+          },
+          {
+            "message_index": 1,
+            "quote": "Does that include both lips or only the upper one?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_061_2",
+      "group": "v2f_test_family_061",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Document portal robot: transfer complete."
+        },
+        {
+          "outbound": false,
+          "body": "Automated validation succeeded and your document is now in storage."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Routine successful system processing does not establish a human obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Document portal robot: transfer complete."
+          },
+          {
+            "message_index": 1,
+            "quote": "Automated validation succeeded and your document is now in storage."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_068_2",
+      "group": "v2f_test_family_068",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will prepare a seating plan; could you give me the hall measurements?"
+        },
+        {
+          "outbound": false,
+          "body": "You will have my measurements tomorrow morning."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Explicit outstanding obligations are assigned to both participants.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will prepare a seating plan; could you give me the hall measurements?"
+          },
+          {
+            "message_index": 1,
+            "quote": "You will have my measurements tomorrow morning."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_056_2",
+      "group": "v2f_test_family_056",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Account log: trusted laptop authenticated successfully."
+        },
+        {
+          "outbound": false,
+          "body": "Account log: laptop session ended; no security action required."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The system logs a completed sign-in without requesting action.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Account log: trusted laptop authenticated successfully."
+          },
+          {
+            "message_index": 1,
+            "quote": "Account log: laptop session ended; no security action required."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_066_2",
+      "group": "v2f_test_family_066",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Weather has taken a toll on the wooden bench."
+        },
+        {
+          "outbound": true,
+          "body": "I will give it a fresh coat of oil after sanding it on Saturday."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The user makes a specific commitment that needs task routing.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Weather has taken a toll on the wooden bench."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will give it a fresh coat of oil after sanding it on Saturday."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_023_2",
+      "group": "v2f_test_family_023",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Has my package arrived with you yet?"
+        },
+        {
+          "outbound": false,
+          "body": "Deliveries to the workshop have been erratic."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The other person has not answered an explicit status question.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Has my package arrived with you yet?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Deliveries to the workshop have been erratic."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_063_1",
+      "group": "v2f_test_family_063",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Helpdesk robot: ticket 458 has been marked resolved."
+        },
+        {
+          "outbound": false,
+          "body": "System notice: ticket archived after closure."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Automated closed-ticket notifications do not request further work.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Helpdesk robot: ticket 458 has been marked resolved."
+          },
+          {
+            "message_index": 1,
+            "quote": "System notice: ticket archived after closure."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_057_1",
+      "group": "v2f_test_family_057",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Careers bulletin: several new openings in landscape design."
+        },
+        {
+          "outbound": false,
+          "body": "Browse this week's featured roles and subscribe for job alerts."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "General recruitment advertising is not an individual response obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Careers bulletin: several new openings in landscape design."
+          },
+          {
+            "message_index": 1,
+            "quote": "Browse this week's featured roles and subscribe for job alerts."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_070_2",
+      "group": "v2f_test_family_070",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The spare-key business, all over again."
+        },
+        {
+          "outbound": true,
+          "body": "I know the one you mean."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The fragment and its acknowledgment do not identify an actionable owner or request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The spare-key business, all over again."
+          },
+          {
+            "message_index": 1,
+            "quote": "I know the one you mean."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_051_2",
+      "group": "v2f_test_family_051",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Skywatch newsletter: highlights from the night sky."
+        },
+        {
+          "outbound": false,
+          "body": "Read our weekly roundup of comet news and telescope stories."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Digest headlines are newsletter content rather than personal requests.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Skywatch newsletter: highlights from the night sky."
+          },
+          {
+            "message_index": 1,
+            "quote": "Read our weekly roundup of comet news and telescope stories."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_043_2",
+      "group": "v2f_test_family_043",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please look up the amplifier serial number for me."
+        },
+        {
+          "outbound": true,
+          "body": "The receipt already has the number I needed, so cancel that lookup."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The visible request was fulfilled elsewhere and expressly closed.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please look up the amplifier serial number for me."
+          },
+          {
+            "message_index": 1,
+            "quote": "The receipt already has the number I needed, so cancel that lookup."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_008_2",
+      "group": "v2f_test_family_008",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "We have two binding options for your booklet."
+        },
+        {
+          "outbound": false,
+          "body": "Which edge should the staples run along?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A human requests a written decision rather than merely performing a task.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "We have two binding options for your booklet."
+          },
+          {
+            "message_index": 1,
+            "quote": "Which edge should the staples run along?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_065_1",
+      "group": "v2f_test_family_065",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The replacement bulbs are in the drawer."
+        },
+        {
+          "outbound": false,
+          "body": "Please change the bulb over the back stairs."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The incoming request is a physical task with no requested prose response.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The replacement bulbs are in the drawer."
+          },
+          {
+            "message_index": 1,
+            "quote": "Please change the bulb over the back stairs."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_035_2",
+      "group": "v2f_test_family_035",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you stop the pump once the water reaches the line?"
+        },
+        {
+          "outbound": false,
+          "body": "Water is at the line now; the pump is silent and switched off."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A natural report of the resulting state satisfies the requested action.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you stop the pump once the water reaches the line?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Water is at the line now; the pump is silent and switched off."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_002_2",
+      "group": "v2f_test_family_002",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please give me the stool count and your preference on backrests."
+        },
+        {
+          "outbound": true,
+          "body": "Backrests would help."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The user answered only one of two explicit questions.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please give me the stool count and your preference on backrests."
+          },
+          {
+            "message_index": 1,
+            "quote": "Backrests would help."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_010_1",
+      "group": "v2f_test_family_010",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What temperature should I set for this glaze?"
+        },
+        {
+          "outbound": true,
+          "body": "It needs to be fairly hot."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The response did not resolve the request for a usable value.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "What temperature should I set for this glaze?"
+          },
+          {
+            "message_index": 1,
+            "quote": "It needs to be fairly hot."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_022_1",
+      "group": "v2f_test_family_022",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please photograph every side of the cabinet."
+        },
+        {
+          "outbound": true,
+          "body": "Only the hinge side is needed now; send me that photograph."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The user replaced the earlier request with an unfinished narrower one.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please photograph every side of the cabinet."
+          },
+          {
+            "message_index": 1,
+            "quote": "Only the hinge side is needed now; send me that photograph."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_009_1",
+      "group": "v2f_test_family_009",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The accessible path matters most."
+        },
+        {
+          "outbound": false,
+          "body": "The garden path has a ramp. Would you prefer that route?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The sender supplied context but still asks the user a question.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The accessible path matters most."
+          },
+          {
+            "message_index": 1,
+            "quote": "The garden path has a ramp. Would you prefer that route?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_014_1",
+      "group": "v2f_test_family_014",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I have tentatively put you in the morning session."
+        },
+        {
+          "outbound": false,
+          "body": "Please confirm whether the morning session works for you."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The latest human message explicitly asks for confirmation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I have tentatively put you in the morning session."
+          },
+          {
+            "message_index": 1,
+            "quote": "Please confirm whether the morning session works for you."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_054_2",
+      "group": "v2f_test_family_054",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated storage report: nightly snapshot queued."
+        },
+        {
+          "outbound": false,
+          "body": "Snapshot complete. All scheduled backup checks passed."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Routine background-job reports need no personal intervention.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated storage report: nightly snapshot queued."
+          },
+          {
+            "message_index": 1,
+            "quote": "Snapshot complete. All scheduled backup checks passed."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_053_1",
+      "group": "v2f_test_family_053",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Tonight only: hear renowned gardeners at our online summit."
+        },
+        {
+          "outbound": false,
+          "body": "Register before the broadcast begins to claim your free seat."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Generic event advertising remains promotional despite its urgency.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Tonight only: hear renowned gardeners at our online summit."
+          },
+          {
+            "message_index": 1,
+            "quote": "Register before the broadcast begins to claim your free seat."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_045_1",
+      "group": "v2f_test_family_045",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The museum cloakroom is downstairs by the lift."
+        },
+        {
+          "outbound": true,
+          "body": "That is helpful, thank you."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "An acknowledgment follows a fully specified answer and leaves no request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The museum cloakroom is downstairs by the lift."
+          },
+          {
+            "message_index": 1,
+            "quote": "That is helpful, thank you."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_038_1",
+      "group": "v2f_test_family_038",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Calendar invitation: pottery circle, Sunday 11:00."
+        },
+        {
+          "outbound": false,
+          "body": "Calendar update: Marisol has accepted the pottery circle invitation."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A calendar attendance update is informational.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Calendar invitation: pottery circle, Sunday 11:00."
+          },
+          {
+            "message_index": 1,
+            "quote": "Calendar update: Marisol has accepted the pottery circle invitation."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_029_2",
+      "group": "v2f_test_family_029",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Did you get the envelope containing the house keys?"
+        },
+        {
+          "outbound": false,
+          "body": "I will be home this evening."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A requested confirmation has not been given.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Did you get the envelope containing the house keys?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I will be home this evening."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_052_1",
+      "group": "v2f_test_family_052",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Auto receipt: your membership payment was processed."
+        },
+        {
+          "outbound": false,
+          "body": "Payment record: $15 received; balance due $0."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Automatic payment receipts contain no remaining deadline or action.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Auto receipt: your membership payment was processed."
+          },
+          {
+            "message_index": 1,
+            "quote": "Payment record: $15 received; balance due $0."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_071_1",
+      "group": "v2f_test_family_071",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I have just come back online."
+        },
+        {
+          "outbound": false,
+          "body": "Done."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A bare completion claim has no visible referent in the exchange.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I have just come back online."
+          },
+          {
+            "message_index": 1,
+            "quote": "Done."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_020_1",
+      "group": "v2f_test_family_020",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you post me the spare latch?"
+        },
+        {
+          "outbound": false,
+          "body": "I will mail it after my shift tomorrow."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A specific promise responds to an explicit user request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you post me the spare latch?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I will mail it after my shift tomorrow."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_054_1",
+      "group": "v2f_test_family_054",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Backup daemon: scheduled backup started at 02:00."
+        },
+        {
+          "outbound": false,
+          "body": "Backup daemon: backup completed; retention policy applied successfully."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Routine background-job reports need no personal intervention.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Backup daemon: scheduled backup started at 02:00."
+          },
+          {
+            "message_index": 1,
+            "quote": "Backup daemon: backup completed; retention policy applied successfully."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_066_1",
+      "group": "v2f_test_family_066",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The bench could use some attention after the rain."
+        },
+        {
+          "outbound": true,
+          "body": "I will sand and oil it this weekend."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The user makes a specific commitment that needs task routing.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The bench could use some attention after the rain."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will sand and oil it this weekend."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_042_2",
+      "group": "v2f_test_family_042",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "It was nice seeing the greenhouse finished."
+        },
+        {
+          "outbound": false,
+          "body": "Maybe this will finally be our year for tomatoes."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A wish about future work is not a specific commitment.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "It was nice seeing the greenhouse finished."
+          },
+          {
+            "message_index": 1,
+            "quote": "Maybe this will finally be our year for tomatoes."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_046_1",
+      "group": "v2f_test_family_046",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The dog won the fancy-dress prize."
+        },
+        {
+          "outbound": false,
+          "body": "Who would have guessed a cardboard crown could steal the show!"
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The rhetorical question conveys a reaction rather than seeking an answer.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The dog won the fancy-dress prize."
+          },
+          {
+            "message_index": 1,
+            "quote": "Who would have guessed a cardboard crown could steal the show!"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_064_1",
+      "group": "v2f_test_family_064",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The Frugal Kitchen weekly: make more from your leftovers."
+        },
+        {
+          "outbound": false,
+          "body": "This edition includes soup ideas, pantry tips, and a reader recipe."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "General tips and articles are recurring newsletter material.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The Frugal Kitchen weekly: make more from your leftovers."
+          },
+          {
+            "message_index": 1,
+            "quote": "This edition includes soup ideas, pantry tips, and a reader recipe."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_078_2",
+      "group": "v2f_test_family_078",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will transport the spare table. When does setup start?"
+        },
+        {
+          "outbound": false,
+          "body": "We start setting up at 08:00."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The user still owes a promised action after the other person fulfills the requested answer.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will transport the spare table. When does setup start?"
+          },
+          {
+            "message_index": 1,
+            "quote": "We start setting up at 08:00."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_021_2",
+      "group": "v2f_test_family_021",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Our quoted dimension counts the rim."
+        },
+        {
+          "outbound": true,
+          "body": "Which rim is included in that dimension?"
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The latest question asks the recipient for clarification.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Our quoted dimension counts the rim."
+          },
+          {
+            "message_index": 1,
+            "quote": "Which rim is included in that dimension?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_077_2",
+      "group": "v2f_test_family_077",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Tell me the replacement frame dimensions and dispose of the broken frame."
+        },
+        {
+          "outbound": true,
+          "body": "Your note came through."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A reply request and a separate user task cannot be safely reduced to one reply label.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Tell me the replacement frame dimensions and dispose of the broken frame."
+          },
+          {
+            "message_index": 1,
+            "quote": "Your note came through."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_078_1",
+      "group": "v2f_test_family_078",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "What time is setup? I will bring the folding table."
+        },
+        {
+          "outbound": false,
+          "body": "Setup begins at eight in the morning."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The user still owes a promised action after the other person fulfills the requested answer.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "What time is setup? I will bring the folding table."
+          },
+          {
+            "message_index": 1,
+            "quote": "Setup begins at eight in the morning."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_061_1",
+      "group": "v2f_test_family_061",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "File service: your upload has been received."
+        },
+        {
+          "outbound": false,
+          "body": "File service: virus scan passed; file stored successfully."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Routine successful system processing does not establish a human obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "File service: your upload has been received."
+          },
+          {
+            "message_index": 1,
+            "quote": "File service: virus scan passed; file stored successfully."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_049_2",
+      "group": "v2f_test_family_049",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "New-season outerwear is now in the Harbour Outfitters shop."
+        },
+        {
+          "outbound": false,
+          "body": "Last chance for our public weekend discount: offer ends at midnight."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The messages are promotional offers without a personal obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "New-season outerwear is now in the Harbour Outfitters shop."
+          },
+          {
+            "message_index": 1,
+            "quote": "Last chance for our public weekend discount: offer ends at midnight."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_074_2",
+      "group": "v2f_test_family_074",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I created the shared folder for the exhibition."
+        },
+        {
+          "outbound": false,
+          "body": "Please put your original image files in that folder."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A digital task requested from the user is not a requested prose reply.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I created the shared folder for the exhibition."
+          },
+          {
+            "message_index": 1,
+            "quote": "Please put your original image files in that folder."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_025_1",
+      "group": "v2f_test_family_025",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I need the signed release from you before I can archive this."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for taking a look."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Acknowledgment from the user does not withdraw their prior request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I need the signed release from you before I can archive this."
+          },
+          {
+            "message_index": 1,
+            "quote": "Thanks for taking a look."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_077_1",
+      "group": "v2f_test_family_077",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What size frame should I buy? Also, take the cracked frame to recycling."
+        },
+        {
+          "outbound": true,
+          "body": "I have read this."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A reply request and a separate user task cannot be safely reduced to one reply label.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "What size frame should I buy? Also, take the cracked frame to recycling."
+          },
+          {
+            "message_index": 1,
+            "quote": "I have read this."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_053_2",
+      "group": "v2f_test_family_053",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Garden summit mailing list: speakers go live at seven."
+        },
+        {
+          "outbound": false,
+          "body": "Seats are available to everyone; sign up before showtime."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Generic event advertising remains promotional despite its urgency.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Garden summit mailing list: speakers go live at seven."
+          },
+          {
+            "message_index": 1,
+            "quote": "Seats are available to everyone; sign up before showtime."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_024_1",
+      "group": "v2f_test_family_024",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please let me know the revised recital start time."
+        },
+        {
+          "outbound": false,
+          "body": "The piano tuner is booked."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "An unrelated update leaves the user request outstanding.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please let me know the revised recital start time."
+          },
+          {
+            "message_index": 1,
+            "quote": "The piano tuner is booked."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_004_2",
+      "group": "v2f_test_family_004",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please comment on the wording and layout of this invitation."
+        },
+        {
+          "outbound": false,
+          "body": "Ignore the layout for now; is your surname correct?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The latest message narrows the response requested from the user.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please comment on the wording and layout of this invitation."
+          },
+          {
+            "message_index": 1,
+            "quote": "Ignore the layout for now; is your surname correct?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_065_2",
+      "group": "v2f_test_family_065",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "You will find spare bulbs beside the fuse box."
+        },
+        {
+          "outbound": false,
+          "body": "Swap out the burned-out stairwell light, please."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The incoming request is a physical task with no requested prose response.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "You will find spare bulbs beside the fuse box."
+          },
+          {
+            "message_index": 1,
+            "quote": "Swap out the burned-out stairwell light, please."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_006_1",
+      "group": "v2f_test_family_006",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What made the clay crack along this edge?"
+        },
+        {
+          "outbound": true,
+          "body": "Oh, that is disappointing."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A reaction does not supply the requested explanation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "What made the clay crack along this edge?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Oh, that is disappointing."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_018_2",
+      "group": "v2f_test_family_018",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you put those empty crates under cover in the shed?"
+        },
+        {
+          "outbound": false,
+          "body": "The shed is unlocked now."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A requested action remains owed by the other person.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you put those empty crates under cover in the shed?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The shed is unlocked now."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_051_1",
+      "group": "v2f_test_family_051",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Weekly astronomy digest: this month's bright planets."
+        },
+        {
+          "outbound": false,
+          "body": "In today's issue: a comet discovery and the history of observatories."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Digest headlines are newsletter content rather than personal requests.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Weekly astronomy digest: this month's bright planets."
+          },
+          {
+            "message_index": 1,
+            "quote": "In today's issue: a comet discovery and the history of observatories."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_067_2",
+      "group": "v2f_test_family_067",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I enjoyed hearing about your ridge walk."
+        },
+        {
+          "outbound": false,
+          "body": "I will email my walking directions to you tonight."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "An unsolicited incoming promise has no visible user request to establish waiting.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I enjoyed hearing about your ridge walk."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will email my walking directions to you tonight."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_058_1",
+      "group": "v2f_test_family_058",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your weekly puzzle statistics are ready."
+        },
+        {
+          "outbound": false,
+          "body": "Puzzle app: you solved nine grids and maintained a three-day streak."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Automated activity summaries have no personal action requirement.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your weekly puzzle statistics are ready."
+          },
+          {
+            "message_index": 1,
+            "quote": "Puzzle app: you solved nine grids and maintained a three-day streak."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_055_2",
+      "group": "v2f_test_family_055",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Retail feedback robot: we welcome your opinions."
+        },
+        {
+          "outbound": false,
+          "body": "Our voluntary questionnaire enters you into the monthly prize draw."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A general survey solicitation creates no personal deadline.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Retail feedback robot: we welcome your opinions."
+          },
+          {
+            "message_index": 1,
+            "quote": "Our voluntary questionnaire enters you into the monthly prize draw."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_015_2",
+      "group": "v2f_test_family_015",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I appreciate your help with the plants this week."
+        },
+        {
+          "outbound": false,
+          "body": "The tray is doing well so far; what watering schedule do you want me to follow?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Courtesy and background do not remove an embedded question.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I appreciate your help with the plants this week."
+          },
+          {
+            "message_index": 1,
+            "quote": "The tray is doing well so far; what watering schedule do you want me to follow?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_035_1",
+      "group": "v2f_test_family_035",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please turn off the pump when the tank is full."
+        },
+        {
+          "outbound": false,
+          "body": "The tank is full and the pump switch is in the off position."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A natural report of the resulting state satisfies the requested action.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please turn off the pump when the tank is full."
+          },
+          {
+            "message_index": 1,
+            "quote": "The tank is full and the pump switch is in the off position."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_070_1",
+      "group": "v2f_test_family_070",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "That spare key situation again\u2026"
+        },
+        {
+          "outbound": true,
+          "body": "Yes, the same situation."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The fragment and its acknowledgment do not identify an actionable owner or request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "That spare key situation again\u2026"
+          },
+          {
+            "message_index": 1,
+            "quote": "Yes, the same situation."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_060_1",
+      "group": "v2f_test_family_060",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Journal alert: a new issue of Materials Review is available."
+        },
+        {
+          "outbound": false,
+          "body": "Contents alert: articles on ceramics, coatings, and alloy fatigue."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Automated publication alerts only announce new content.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Journal alert: a new issue of Materials Review is available."
+          },
+          {
+            "message_index": 1,
+            "quote": "Contents alert: articles on ceramics, coatings, and alloy fatigue."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_014_2",
+      "group": "v2f_test_family_014",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "There is a provisional morning slot under your name."
+        },
+        {
+          "outbound": false,
+          "body": "Can you confirm that you can attend then?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The latest human message explicitly asks for confirmation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "There is a provisional morning slot under your name."
+          },
+          {
+            "message_index": 1,
+            "quote": "Can you confirm that you can attend then?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_075_1",
+      "group": "v2f_test_family_075",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please lock the studio after rehearsal."
+        },
+        {
+          "outbound": true,
+          "body": "I will lock it once everyone leaves."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The user promises an action in response to an incoming task request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please lock the studio after rehearsal."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will lock it once everyone leaves."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_056_1",
+      "group": "v2f_test_family_056",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Security notification: successful sign-in from your saved device."
+        },
+        {
+          "outbound": false,
+          "body": "Automated session record: that device signed out normally."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The system logs a completed sign-in without requesting action.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Security notification: successful sign-in from your saved device."
+          },
+          {
+            "message_index": 1,
+            "quote": "Automated session record: that device signed out normally."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_043_1",
+      "group": "v2f_test_family_043",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you find the serial number on the amplifier?"
+        },
+        {
+          "outbound": true,
+          "body": "I found it on my receipt; no need to check the amplifier now."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The visible request was fulfilled elsewhere and expressly closed.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you find the serial number on the amplifier?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I found it on my receipt; no need to check the amplifier now."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_010_2",
+      "group": "v2f_test_family_010",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the firing temperature in degrees for this glaze."
+        },
+        {
+          "outbound": true,
+          "body": "Higher than the last batch."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The response did not resolve the request for a usable value.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please tell me the firing temperature in degrees for this glaze."
+          },
+          {
+            "message_index": 1,
+            "quote": "Higher than the last batch."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_020_2",
+      "group": "v2f_test_family_020",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please send the replacement latch to my home address."
+        },
+        {
+          "outbound": false,
+          "body": "I can get your latch into tomorrow morning's post."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A specific promise responds to an explicit user request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please send the replacement latch to my home address."
+          },
+          {
+            "message_index": 1,
+            "quote": "I can get your latch into tomorrow morning's post."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_055_1",
+      "group": "v2f_test_family_055",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Customer research mailing: how was your shopping experience?"
+        },
+        {
+          "outbound": false,
+          "body": "Take our optional survey for a chance to win a gift card."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A general survey solicitation creates no personal deadline.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Customer research mailing: how was your shopping experience?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Take our optional survey for a chance to win a gift card."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_058_2",
+      "group": "v2f_test_family_058",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated puzzle recap for the past seven days."
+        },
+        {
+          "outbound": false,
+          "body": "Weekly results: nine completed puzzles, longest streak three days."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Automated activity summaries have no personal action requirement.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated puzzle recap for the past seven days."
+          },
+          {
+            "message_index": 1,
+            "quote": "Weekly results: nine completed puzzles, longest streak three days."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_013_2",
+      "group": "v2f_test_family_013",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Whose name belongs in the billing field?"
+        },
+        {
+          "outbound": true,
+          "body": "The venue booking is already confirmed."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "An answer to a different issue does not settle the visible question.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Whose name belongs in the billing field?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The venue booking is already confirmed."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_060_2",
+      "group": "v2f_test_family_060",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Materials Review subscription bot: September issue published."
+        },
+        {
+          "outbound": false,
+          "body": "This issue features ceramic processing and fatigue studies; view the table of contents online."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Automated publication alerts only announce new content.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Materials Review subscription bot: September issue published."
+          },
+          {
+            "message_index": 1,
+            "quote": "This issue features ceramic processing and fatigue studies; view the table of contents online."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_017_2",
+      "group": "v2f_test_family_017",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you tell me whether the eastern tunnel is open on Saturday?"
+        },
+        {
+          "outbound": false,
+          "body": "Good to hear from you about the walk."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The user explicitly requested an answer and received only acknowledgment.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you tell me whether the eastern tunnel is open on Saturday?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Good to hear from you about the walk."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_044_1",
+      "group": "v2f_test_family_044",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is the field open after the rain?"
+        },
+        {
+          "outbound": true,
+          "body": "> Is the field open after the rain?\nThe groundskeeper confirmed it is open as usual."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A quoted historical question is resolved by the current prose.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Is the field open after the rain?"
+          },
+          {
+            "message_index": 1,
+            "quote": "> Is the field open after the rain?\nThe groundskeeper confirmed it is open as usual."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_041_2",
+      "group": "v2f_test_family_041",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I had a look at the restored vase today."
+        },
+        {
+          "outbound": false,
+          "body": "The join barely shows under the display lights."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A notification of a completed event contains no further obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I had a look at the restored vase today."
+          },
+          {
+            "message_index": 1,
+            "quote": "The join barely shows under the display lights."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_050_1",
+      "group": "v2f_test_family_050",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Parcel tracking: shipment accepted at origin depot."
+        },
+        {
+          "outbound": false,
+          "body": "Parcel tracking: shipment sorted at regional facility."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Routine automated tracking updates require no user action.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Parcel tracking: shipment accepted at origin depot."
+          },
+          {
+            "message_index": 1,
+            "quote": "Parcel tracking: shipment sorted at regional facility."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_031_1",
+      "group": "v2f_test_family_031",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please disable my old badge at reception."
+        },
+        {
+          "outbound": false,
+          "body": "I have your old badge number on screen."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A task directly requested by the user belongs to the other person.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please disable my old badge at reception."
+          },
+          {
+            "message_index": 1,
+            "quote": "I have your old badge number on screen."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_012_2",
+      "group": "v2f_test_family_012",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I would like the ingredients for those bars."
+        },
+        {
+          "outbound": false,
+          "body": "They contain apples, cinnamon and oats. Is there an ingredient you need us to leave out?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The other person requests a prose response after the prior request was satisfied.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I would like the ingredients for those bars."
+          },
+          {
+            "message_index": 1,
+            "quote": "They contain apples, cinnamon and oats. Is there an ingredient you need us to leave out?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_001_1",
+      "group": "v2f_test_family_001",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which shelf should the returned atlas go on?"
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for checking with me."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The requested answer remains outstanding despite an acknowledgment.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which shelf should the returned atlas go on?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Thanks for checking with me."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_026_1",
+      "group": "v2f_test_family_026",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you replace the dead battery in the hallway sensor?"
+        },
+        {
+          "outbound": false,
+          "body": "I bought a new battery this morning."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Completion of a preparatory step is not completion of the requested action.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you replace the dead battery in the hallway sensor?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I bought a new battery this morning."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_011_2",
+      "group": "v2f_test_family_011",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you make the Tuesday interview slot?"
+        },
+        {
+          "outbound": false,
+          "body": "We no longer have Tuesday available; how about 15:00 on Thursday?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A withdrawn question is replaced with another outstanding question.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you make the Tuesday interview slot?"
+          },
+          {
+            "message_index": 1,
+            "quote": "We no longer have Tuesday available; how about 15:00 on Thursday?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_032_1",
+      "group": "v2f_test_family_032",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please correct the street number on the delivery label to 81."
+        },
+        {
+          "outbound": false,
+          "body": "I see the number is wrong."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The user asks for a correction which the recipient has not yet supplied.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please correct the street number on the delivery label to 81."
+          },
+          {
+            "message_index": 1,
+            "quote": "I see the number is wrong."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_034_1",
+      "group": "v2f_test_family_034",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Do you want plain or striped fabric for the cushion?"
+        },
+        {
+          "outbound": true,
+          "body": "The plain fabric, please."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The user provides the requested choice without creating another commitment.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Do you want plain or striped fabric for the cushion?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The plain fabric, please."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_075_2",
+      "group": "v2f_test_family_075",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Secure the rehearsal room when the group is finished, please."
+        },
+        {
+          "outbound": true,
+          "body": "I will check the lock on my way out."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The user promises an action in response to an incoming task request.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Secure the rehearsal room when the group is finished, please."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will check the lock on my way out."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_057_2",
+      "group": "v2f_test_family_057",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Landscape Jobs weekly: fresh positions near your selected area."
+        },
+        {
+          "outbound": false,
+          "body": "Visit the listings to explore our newest advertised vacancies."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "General recruitment advertising is not an individual response obligation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Landscape Jobs weekly: fresh positions near your selected area."
+          },
+          {
+            "message_index": 1,
+            "quote": "Visit the listings to explore our newest advertised vacancies."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_016_2",
+      "group": "v2f_test_family_016",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Equipment lending bot: you currently hold camera kit 4."
+        },
+        {
+          "outbound": false,
+          "body": "Return the kit assigned to you no later than 5 pm this Friday."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The automated reminder contains a personal deadline rather than a promotion.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Equipment lending bot: you currently hold camera kit 4."
+          },
+          {
+            "message_index": 1,
+            "quote": "Return the kit assigned to you no later than 5 pm this Friday."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_069_1",
+      "group": "v2f_test_family_069",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please collect the empty jars from the porch."
+        },
+        {
+          "outbound": true,
+          "body": "I saw your message."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A task-only obligation survives acknowledgment by the user.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please collect the empty jars from the porch."
+          },
+          {
+            "message_index": 1,
+            "quote": "I saw your message."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_068_1",
+      "group": "v2f_test_family_068",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please send the room dimensions. I will draw the seating layout."
+        },
+        {
+          "outbound": false,
+          "body": "I will measure the room this afternoon."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Explicit outstanding obligations are assigned to both participants.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please send the room dimensions. I will draw the seating layout."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will measure the room this afternoon."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_059_2",
+      "group": "v2f_test_family_059",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Conservation mailing: our public appeal is nearly over."
+        },
+        {
+          "outbound": false,
+          "body": "There are just hours left to contribute to the wetland fund."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A generic fundraising countdown is promotional urgency.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Conservation mailing: our public appeal is nearly over."
+          },
+          {
+            "message_index": 1,
+            "quote": "There are just hours left to contribute to the wetland fund."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_030_1",
+      "group": "v2f_test_family_030",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Would you prefer the loft room or the ground-floor room?"
+        },
+        {
+          "outbound": false,
+          "body": "Both rooms sound comfortable."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The recipient offers partial information but leaves the explicit choice unanswered.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Would you prefer the loft room or the ground-floor room?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Both rooms sound comfortable."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_001_2",
+      "group": "v2f_test_family_001",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Tell me whether this atlas belongs with maps or reference books."
+        },
+        {
+          "outbound": true,
+          "body": "I appreciate you sorting these."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The requested answer remains outstanding despite an acknowledgment.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Tell me whether this atlas belongs with maps or reference books."
+          },
+          {
+            "message_index": 1,
+            "quote": "I appreciate you sorting these."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_039_2",
+      "group": "v2f_test_family_039",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Calendar invitation: residents' lunch, 12:00."
+        },
+        {
+          "outbound": false,
+          "body": "Location changed from community hall to courtyard; time unchanged."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The calendar change does not request a prose response.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Calendar invitation: residents' lunch, 12:00."
+          },
+          {
+            "message_index": 1,
+            "quote": "Location changed from community hall to courtyard; time unchanged."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_024_2",
+      "group": "v2f_test_family_024",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "What time does the recital now begin?"
+        },
+        {
+          "outbound": false,
+          "body": "We have confirmed a tuner for the piano."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "An unrelated update leaves the user request outstanding.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "What time does the recital now begin?"
+          },
+          {
+            "message_index": 1,
+            "quote": "We have confirmed a tuner for the piano."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_079_1",
+      "group": "v2f_test_family_079",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I will bake a loaf for you on Sunday."
+        },
+        {
+          "outbound": true,
+          "body": "That is kind of you."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The incoming promise remains unrequested even after the user acknowledges it.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will bake a loaf for you on Sunday."
+          },
+          {
+            "message_index": 1,
+            "quote": "That is kind of you."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_003_1",
+      "group": "v2f_test_family_003",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The north entrance works for me."
+        },
+        {
+          "outbound": false,
+          "body": "Do you mean the entrance facing the fountain?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A new clarification question still calls for prose from the user.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The north entrance works for me."
+          },
+          {
+            "message_index": 1,
+            "quote": "Do you mean the entrance facing the fountain?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_029_1",
+      "group": "v2f_test_family_029",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please confirm you received the keys."
+        },
+        {
+          "outbound": false,
+          "body": "I have been away from the house all day."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A requested confirmation has not been given.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please confirm you received the keys."
+          },
+          {
+            "message_index": 1,
+            "quote": "I have been away from the house all day."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_073_2",
+      "group": "v2f_test_family_073",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you mail back my watch after the repair?"
+        },
+        {
+          "outbound": false,
+          "body": "Your watch will go in tomorrow's post; do you want the brown strap or the black one?"
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "An answer remains requested from the user alongside the other person's explicit promise.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you mail back my watch after the repair?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Your watch will go in tomorrow's post; do you want the brown strap or the black one?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_016_1",
+      "group": "v2f_test_family_016",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Library system: the camera kit is checked out to your card."
+        },
+        {
+          "outbound": false,
+          "body": "Your camera kit must be returned by Friday at 17:00."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The automated reminder contains a personal deadline rather than a promotion.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Library system: the camera kit is checked out to your card."
+          },
+          {
+            "message_index": 1,
+            "quote": "Your camera kit must be returned by Friday at 17:00."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_071_2",
+      "group": "v2f_test_family_071",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I only now saw the thread."
+        },
+        {
+          "outbound": false,
+          "body": "All sorted."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A bare completion claim has no visible referent in the exchange.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I only now saw the thread."
+          },
+          {
+            "message_index": 1,
+            "quote": "All sorted."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_031_2",
+      "group": "v2f_test_family_031",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you deactivate the lost entry card for me?"
+        },
+        {
+          "outbound": false,
+          "body": "Your card record is open in the system."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A task directly requested by the user belongs to the other person.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you deactivate the lost entry card for me?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Your card record is open in the system."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_037_2",
+      "group": "v2f_test_family_037",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please give me the admission cost and opening time."
+        },
+        {
+          "outbound": false,
+          "body": "Doors: 18:00. Entry: $12."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "All requested pieces are present in the reply.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please give me the admission cost and opening time."
+          },
+          {
+            "message_index": 1,
+            "quote": "Doors: 18:00. Entry: $12."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_012_1",
+      "group": "v2f_test_family_012",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send the ingredient list?"
+        },
+        {
+          "outbound": false,
+          "body": "Ingredients: oats, apples, cinnamon. Which ingredient were you concerned about?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The other person requests a prose response after the prior request was satisfied.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you send the ingredient list?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Ingredients: oats, apples, cinnamon. Which ingredient were you concerned about?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_007_2",
+      "group": "v2f_test_family_007",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "System message: the verification step on your account is incomplete."
+        },
+        {
+          "outbound": false,
+          "body": "Complete your personal identity verification by 18:00 on 20 September or your login will be suspended."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The user must personally act by the explicit automated deadline.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "System message: the verification step on your account is incomplete."
+          },
+          {
+            "message_index": 1,
+            "quote": "Complete your personal identity verification by 18:00 on 20 September or your login will be suspended."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_048_1",
+      "group": "v2f_test_family_048",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please remove me from the public volunteer roster."
+        },
+        {
+          "outbound": false,
+          "body": "Your name no longer appears on the published roster."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The latest message confirms the requested change through its resulting state.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please remove me from the public volunteer roster."
+          },
+          {
+            "message_index": 1,
+            "quote": "Your name no longer appears on the published roster."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_033_1",
+      "group": "v2f_test_family_033",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which carriage has the bicycle spaces?"
+        },
+        {
+          "outbound": false,
+          "body": "Bikes go in carriage C, at the rear."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The requested answer is naturally supplied in the final message.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which carriage has the bicycle spaces?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Bikes go in carriage C, at the rear."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_062_2",
+      "group": "v2f_test_family_062",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Copper Bean promotional mailing: our newest machines are here."
+        },
+        {
+          "outbound": false,
+          "body": "Watch the product reveal online and explore introductory offers."
+        }
+      ],
+      "expected": "noise",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A broad product-launch invitation is marketing rather than a calendar invitation.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Copper Bean promotional mailing: our newest machines are here."
+          },
+          {
+            "message_index": 1,
+            "quote": "Watch the product reveal online and explore introductory offers."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_076_2",
+      "group": "v2f_test_family_076",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Portal alert: a document is missing from the application."
+        },
+        {
+          "outbound": false,
+          "body": "The appointed case contact needs to upload the outstanding document."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The notice does not identify whose action is required or whether the user owns it.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Portal alert: a document is missing from the application."
+          },
+          {
+            "message_index": 1,
+            "quote": "The appointed case contact needs to upload the outstanding document."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_019_2",
+      "group": "v2f_test_family_019",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I need both the headcount and the dietary list."
+        },
+        {
+          "outbound": false,
+          "body": "Dietary requirements: two vegan meals. I am still counting the registrations."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Only part of the user request has been completed.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I need both the headcount and the dietary list."
+          },
+          {
+            "message_index": 1,
+            "quote": "Dietary requirements: two vegan meals. I am still counting the registrations."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_022_2",
+      "group": "v2f_test_family_022",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you take a full set of cabinet photos?"
+        },
+        {
+          "outbound": true,
+          "body": "Skip the full set and just photograph the hinges for me."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The user replaced the earlier request with an unfinished narrower one.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you take a full set of cabinet photos?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Skip the full set and just photograph the hinges for me."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_026_2",
+      "group": "v2f_test_family_026",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please fit a fresh battery in the hall sensor."
+        },
+        {
+          "outbound": false,
+          "body": "The replacement battery is on the counter ready to use."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Completion of a preparatory step is not completion of the requested action.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please fit a fresh battery in the hall sensor."
+          },
+          {
+            "message_index": 1,
+            "quote": "The replacement battery is on the counter ready to use."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_038_2",
+      "group": "v2f_test_family_038",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Calendar: clay workshop scheduled for Sunday morning."
+        },
+        {
+          "outbound": false,
+          "body": "Attendee update: Marisol changed her RSVP to attending."
+        }
+      ],
+      "expected": "fyi",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A calendar attendance update is informational.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Calendar: clay workshop scheduled for Sunday morning."
+          },
+          {
+            "message_index": 1,
+            "quote": "Attendee update: Marisol changed her RSVP to attending."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_015_1",
+      "group": "v2f_test_family_015",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Thanks for keeping an eye on the seedlings."
+        },
+        {
+          "outbound": false,
+          "body": "They look healthy. How often should I water the tray while you are away?"
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "Courtesy and background do not remove an embedded question.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Thanks for keeping an eye on the seedlings."
+          },
+          {
+            "message_index": 1,
+            "quote": "They look healthy. How often should I water the tray while you are away?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_002_1",
+      "group": "v2f_test_family_002",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "How many stools do you need, and should they have backs?"
+        },
+        {
+          "outbound": true,
+          "body": "Six stools."
+        }
+      ],
+      "expected": "needs_reply",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The user answered only one of two explicit questions.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "How many stools do you need, and should they have backs?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Six stools."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_027_2",
+      "group": "v2f_test_family_027",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Tell me the source edition for your translated passage."
+        },
+        {
+          "outbound": false,
+          "body": "I need to consult my notebook to identify it."
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A request for prose remains even when the other person expresses uncertainty.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Tell me the source edition for your translated passage."
+          },
+          {
+            "message_index": 1,
+            "quote": "I need to consult my notebook to identify it."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_028_1",
+      "group": "v2f_test_family_028",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I saw the mention of the exception."
+        },
+        {
+          "outbound": true,
+          "body": "Does that exception apply to our booking?"
+        }
+      ],
+      "expected": "waiting_on_them",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "A visible outbound question establishes a request despite missing earlier context.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I saw the mention of the exception."
+          },
+          {
+            "message_index": 1,
+            "quote": "Does that exception apply to our booking?"
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_079_2",
+      "group": "v2f_test_family_079",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "You will have a homemade loaf from me this weekend."
+        },
+        {
+          "outbound": true,
+          "body": "I appreciate the thought."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "The incoming promise remains unrequested even after the user acknowledges it.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "You will have a homemade loaf from me this weekend."
+          },
+          {
+            "message_index": 1,
+            "quote": "I appreciate the thought."
+          }
+        ]
+      },
+      "author_flags": []
+    },
+    {
+      "id": "v2f_test_067_1",
+      "group": "v2f_test_family_067",
+      "split": "test",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "That trail sounds beautiful in autumn."
+        },
+        {
+          "outbound": false,
+          "body": "I will send you my route notes tomorrow."
+        }
+      ],
+      "expected": "abstain",
+      "annotation": {
+        "author": "v2f-test-author",
+        "rationale": "An unsolicited incoming promise has no visible user request to establish waiting.",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "That trail sounds beautiful in autumn."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will send you my route notes tomorrow."
+          }
+        ]
+      },
+      "author_flags": []
+    }
+  ]
+}
