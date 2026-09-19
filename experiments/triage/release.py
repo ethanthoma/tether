@@ -3,16 +3,29 @@
 import argparse
 import hashlib
 import json
+import math
 from pathlib import Path
 
+from calibrate import check_separation
 from shadow import load_artifact
-from train import LABELS, features, load_dataset, predictions, probabilities, score
+from train import (
+    BASE,
+    LABELS,
+    REVISION,
+    features,
+    load_dataset,
+    predictions,
+    probabilities,
+    score,
+    training_split,
+)
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model", type=Path, required=True)
     parser.add_argument("--data", type=Path, required=True)
+    parser.add_argument("--training-data", type=Path, required=True)
     parser.add_argument("--plan", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
@@ -20,16 +33,22 @@ def main() -> None:
     if policy != "reply-triage-v2":
         raise ValueError("v2 evaluation policy required")
     validate_test(cases)
-    source = json.loads(args.data.read_text())
-    if (
-        source.get("review_status")
-        != "blind_reviewer_agreed_independence_self_attested"
-    ):
-        raise ValueError("independently reviewed test export required")
+    validate_reviewed_source(json.loads(args.data.read_text()))
+    training_cases, training_policy = load_dataset(args.training_data)
+    validate_reviewed_source(json.loads(args.training_data.read_text()))
+    if training_policy != policy:
+        raise ValueError("training and test policies differ")
+    train, dev = training_split(training_cases)
+    separation = check_separation([train, dev, cases])
     model = args.model.resolve(strict=True)
     head, identity = load_artifact(model)
     if head.get("label_policy") != policy:
         raise ValueError("model and test policies differ")
+    training_bytes = (model / "training.json").read_bytes()
+    training_hash = hashlib.sha256(args.training_data.read_bytes()).hexdigest()
+    validate_training(
+        json.loads(training_bytes), head, training_hash, len(train), len(dev)
+    )
     import torch
     from sentence_transformers import SentenceTransformer
 
@@ -49,6 +68,11 @@ def main() -> None:
         "model_sha256": identity,
         "test_sha256": hashlib.sha256(args.data.read_bytes()).hexdigest(),
         "plan_sha256": hashlib.sha256(args.plan.read_bytes()).hexdigest(),
+        "training_report_sha256": hashlib.sha256(training_bytes).hexdigest(),
+        "training_data_sha256": training_hash,
+        "train_count": len(train),
+        "dev_count": len(dev),
+        "separation": separation,
         "threshold": head["threshold"],
         **release_metrics(cases, selected, raw),
         "limitations": "Synthetic, correlated families; not an estimate of real-mail accuracy.",
@@ -72,6 +96,66 @@ def main() -> None:
     )
     if not report["approved"]:
         raise SystemExit(1)
+
+
+def validate_reviewed_source(source: dict) -> None:
+    if (
+        source.get("provenance") != "fully_synthetic_assistant_authored"
+        or source.get("review_status")
+        != "blind_reviewer_agreed_independence_self_attested"
+    ):
+        raise ValueError("independently reviewed fully synthetic export required")
+
+
+def validate_training(
+    report: dict, head: dict, data_hash: str, train_count: int, dev_count: int
+) -> None:
+    expected = {
+        "label_policy": "reply-triage-v2",
+        "base": BASE,
+        "revision": REVISION,
+        "data_sha256": data_hash,
+        "train_count": train_count,
+        "dev_count": dev_count,
+        "seed": 42,
+        "epochs": 12,
+        "batch_size": 16,
+        "encoder_learning_rate": 2e-5,
+        "head_learning_rate": 1e-3,
+        "weight_decay": 0.01,
+        "gradient_norm_max": 1.0,
+        "loss": "inverse-frequency-weighted cross entropy",
+        "head_initialization": "frozen-encoder logistic regression",
+        "checkpoint_selection": "lowest unweighted development cross entropy, including epoch zero",
+        "threshold_selection": "maximum development coverage with zero accepted errors on the original fixed grid",
+        "threshold": head["threshold"],
+    }
+    for key, value in expected.items():
+        if type(report.get(key)) is not type(value) or report[key] != value:
+            raise ValueError(f"training metadata mismatch: {key}")
+    epoch = report.get("selected_epoch")
+    history = report.get("history")
+    if type(epoch) is not int or not 0 <= epoch <= 12:
+        raise ValueError("invalid selected epoch")
+    if not isinstance(history, list) or len(history) != 13:
+        raise ValueError("complete epoch-zero through epoch-twelve history required")
+    for index, row in enumerate(history):
+        if (
+            not isinstance(row, dict)
+            or type(row.get("epoch")) is not int
+            or row["epoch"] != index
+            or type(row.get("dev_loss")) not in (int, float)
+            or not math.isfinite(row["dev_loss"])
+            or row["dev_loss"] < 0
+        ):
+            raise ValueError("invalid development history")
+    if epoch != min(range(13), key=lambda index: history[index]["dev_loss"]):
+        raise ValueError("selected epoch is not first minimum development loss")
+    if report.get("encoder_frozen") is not (epoch == 0):
+        raise ValueError("training encoder state differs from selected epoch")
+    for key in ("base", "revision", "encoder_frozen"):
+        if head.get(key) != report[key]:
+            raise ValueError(f"model and training metadata differ: {key}")
 
 
 def validate_test(cases: list[dict]) -> None:
