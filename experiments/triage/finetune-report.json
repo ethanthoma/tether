@@ -1,0 +1,522 @@
+{
+  "reproduced_identical_weights_head_and_history": true,
+  "training": {
+    "base": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "encoder_frozen": false,
+    "data_sha256": "bca6d3b5d50beea98e5067dead9aee9eb56de359d905be8b21fcff1607d1d8f0",
+    "train_count": 261,
+    "dev_count": 63,
+    "seed": 42,
+    "epochs": 12,
+    "batch_size": 16,
+    "encoder_learning_rate": 2e-05,
+    "head_learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "gradient_norm_max": 1.0,
+    "loss": "inverse-frequency-weighted cross entropy",
+    "head_initialization": "frozen-encoder logistic regression",
+    "checkpoint_selection": "lowest unweighted development cross entropy, including epoch zero",
+    "selected_epoch": 12,
+    "threshold": 1.0,
+    "threshold_selection": "maximum development coverage with zero accepted errors on the original fixed grid",
+    "dev_raw": {
+      "cases": 63,
+      "accepted": 48,
+      "correct_accepted": 43,
+      "correct_abstentions": 10,
+      "false_reminders": 1,
+      "false_silencing": 3,
+      "actionable_abstained": 4,
+      "ambiguous_accepted": 1
+    },
+    "dev_selective": {
+      "cases": 63,
+      "accepted": 0,
+      "correct_accepted": 0,
+      "correct_abstentions": 11,
+      "false_reminders": 0,
+      "false_silencing": 0,
+      "actionable_abstained": 31,
+      "ambiguous_accepted": 0
+    },
+    "history": [
+      {
+        "epoch": 0,
+        "train_loss": null,
+        "dev_loss": 1.1223256587982178,
+        "dev_raw": {
+          "cases": 63,
+          "accepted": 41,
+          "correct_accepted": 24,
+          "correct_abstentions": 7,
+          "false_reminders": 11,
+          "false_silencing": 5,
+          "actionable_abstained": 11,
+          "ambiguous_accepted": 4
+        }
+      },
+      {
+        "epoch": 1,
+        "train_loss": 0.37609938278052085,
+        "dev_loss": 0.934217631816864,
+        "dev_raw": {
+          "cases": 63,
+          "accepted": 46,
+          "correct_accepted": 32,
+          "correct_abstentions": 7,
+          "false_reminders": 10,
+          "false_silencing": 3,
+          "actionable_abstained": 8,
+          "ambiguous_accepted": 4
+        }
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.19782730560193115,
+        "dev_loss": 0.8078110218048096,
+        "dev_raw": {
+          "cases": 63,
+          "accepted": 44,
+          "correct_accepted": 33,
+          "correct_abstentions": 8,
+          "false_reminders": 6,
+          "false_silencing": 4,
+          "actionable_abstained": 9,
+          "ambiguous_accepted": 3
+        }
+      },
+      {
+        "epoch": 3,
+        "train_loss": 0.09041985761645426,
+        "dev_loss": 0.713738739490509,
+        "dev_raw": {
+          "cases": 63,
+          "accepted": 46,
+          "correct_accepted": 37,
+          "correct_abstentions": 7,
+          "false_reminders": 4,
+          "false_silencing": 4,
+          "actionable_abstained": 7,
+          "ambiguous_accepted": 4
+        }
+      },
+      {
+        "epoch": 4,
+        "train_loss": 0.03964897430362715,
+        "dev_loss": 0.5280815958976746,
+        "dev_raw": {
+          "cases": 63,
+          "accepted": 50,
+          "correct_accepted": 43,
+          "correct_abstentions": 9,
+          "false_reminders": 2,
+          "false_silencing": 4,
+          "actionable_abstained": 4,
+          "ambiguous_accepted": 2
+        }
+      },
+      {
+        "epoch": 5,
+        "train_loss": 0.015955929166255555,
+        "dev_loss": 0.5068325996398926,
+        "dev_raw": {
+          "cases": 63,
+          "accepted": 47,
+          "correct_accepted": 42,
+          "correct_abstentions": 8,
+          "false_reminders": 2,
+          "false_silencing": 2,
+          "actionable_abstained": 5,
+          "ambiguous_accepted": 3
+        }
+      },
+      {
+        "epoch": 6,
+        "train_loss": 0.007947382340528842,
+        "dev_loss": 0.4633358120918274,
+        "dev_raw": {
+          "cases": 63,
+          "accepted": 49,
+          "correct_accepted": 44,
+          "correct_abstentions": 10,
+          "false_reminders": 1,
+          "false_silencing": 3,
+          "actionable_abstained": 4,
+          "ambiguous_accepted": 1
+        }
+      },
+      {
+        "epoch": 7,
+        "train_loss": 0.004811904127299215,
+        "dev_loss": 0.42500725388526917,
+        "dev_raw": {
+          "cases": 63,
+          "accepted": 48,
+          "correct_accepted": 43,
+          "correct_abstentions": 10,
+          "false_reminders": 1,
+          "false_silencing": 3,
+          "actionable_abstained": 4,
+          "ambiguous_accepted": 1
+        }
+      },
+      {
+        "epoch": 8,
+        "train_loss": 0.00319240756254372,
+        "dev_loss": 0.43466171622276306,
+        "dev_raw": {
+          "cases": 63,
+          "accepted": 49,
+          "correct_accepted": 44,
+          "correct_abstentions": 10,
+          "false_reminders": 1,
+          "false_silencing": 3,
+          "actionable_abstained": 4,
+          "ambiguous_accepted": 1
+        }
+      },
+      {
+        "epoch": 9,
+        "train_loss": 0.002460517663637112,
+        "dev_loss": 0.4238327443599701,
+        "dev_raw": {
+          "cases": 63,
+          "accepted": 48,
+          "correct_accepted": 43,
+          "correct_abstentions": 10,
+          "false_reminders": 1,
+          "false_silencing": 3,
+          "actionable_abstained": 4,
+          "ambiguous_accepted": 1
+        }
+      },
+      {
+        "epoch": 10,
+        "train_loss": 0.0021051831799470087,
+        "dev_loss": 0.4222389757633209,
+        "dev_raw": {
+          "cases": 63,
+          "accepted": 48,
+          "correct_accepted": 43,
+          "correct_abstentions": 10,
+          "false_reminders": 1,
+          "false_silencing": 3,
+          "actionable_abstained": 4,
+          "ambiguous_accepted": 1
+        }
+      },
+      {
+        "epoch": 11,
+        "train_loss": 0.001629599958829496,
+        "dev_loss": 0.4216950535774231,
+        "dev_raw": {
+          "cases": 63,
+          "accepted": 48,
+          "correct_accepted": 44,
+          "correct_abstentions": 10,
+          "false_reminders": 1,
+          "false_silencing": 2,
+          "actionable_abstained": 4,
+          "ambiguous_accepted": 1
+        }
+      },
+      {
+        "epoch": 12,
+        "train_loss": 0.001413769742573872,
+        "dev_loss": 0.4136202931404114,
+        "dev_raw": {
+          "cases": 63,
+          "accepted": 48,
+          "correct_accepted": 43,
+          "correct_abstentions": 10,
+          "false_reminders": 1,
+          "false_silencing": 3,
+          "actionable_abstained": 4,
+          "ambiguous_accepted": 1
+        }
+      }
+    ]
+  },
+  "evaluation": {
+    "raw": {
+      "cases": 63,
+      "accepted": 48,
+      "correct_accepted": 46,
+      "correct_abstentions": 13,
+      "false_reminders": 2,
+      "false_silencing": 0,
+      "actionable_abstained": 2,
+      "ambiguous_accepted": 0
+    },
+    "selective": {
+      "cases": 63,
+      "accepted": 0,
+      "correct_accepted": 0,
+      "correct_abstentions": 13,
+      "false_reminders": 0,
+      "false_silencing": 0,
+      "actionable_abstained": 29,
+      "ambiguous_accepted": 0
+    }
+  },
+  "evaluation_usage": "previously inspected synthetic regression set; not a fresh generalization estimate",
+  "holdout_sha256": "a9192351556ba3aa062ce0ebf08984572b47592ac4cb0d8d22ec39b4bdbb68b9",
+  "encoder_sha256": "032fe78ec9d5500364c1af40f9cf0c514518d6881675f5ab50504e4eebf9a065",
+  "head_sha256": "063312556498e29881d698b088841a0496cb4ef30013d1725f965c6abde53b26",
+  "saved_inference_matches_training_layout": true,
+  "predictions": {
+    "test_insurance_value_0": {
+      "raw": "needs_reply",
+      "selective": "abstain"
+    },
+    "test_insurance_value_0_reversed": {
+      "raw": "waiting_on_them",
+      "selective": "abstain"
+    },
+    "test_insurance_value_1": {
+      "raw": "waiting_on_them",
+      "selective": "abstain"
+    },
+    "test_insurance_value_1_reversed": {
+      "raw": "needs_reply",
+      "selective": "abstain"
+    },
+    "test_insurance_value_2": {
+      "raw": "fyi",
+      "selective": "abstain"
+    },
+    "test_insurance_value_2_reversed": {
+      "raw": "fyi",
+      "selective": "abstain"
+    },
+    "test_language_partner_0": {
+      "raw": "abstain",
+      "selective": "abstain"
+    },
+    "test_language_partner_0_reversed": {
+      "raw": "abstain",
+      "selective": "abstain"
+    },
+    "test_language_partner_1": {
+      "raw": "fyi",
+      "selective": "abstain"
+    },
+    "test_language_partner_1_reversed": {
+      "raw": "fyi",
+      "selective": "abstain"
+    },
+    "test_language_partner_2": {
+      "raw": "abstain",
+      "selective": "abstain"
+    },
+    "test_language_partner_2_reversed": {
+      "raw": "abstain",
+      "selective": "abstain"
+    },
+    "test_model_repair_0": {
+      "raw": "waiting_on_them",
+      "selective": "abstain"
+    },
+    "test_model_repair_0_reversed": {
+      "raw": "needs_reply",
+      "selective": "abstain"
+    },
+    "test_model_repair_1": {
+      "raw": "fyi",
+      "selective": "abstain"
+    },
+    "test_model_repair_1_reversed": {
+      "raw": "fyi",
+      "selective": "abstain"
+    },
+    "test_model_repair_2": {
+      "raw": "needs_reply",
+      "selective": "abstain"
+    },
+    "test_model_repair_2_reversed": {
+      "raw": "waiting_on_them",
+      "selective": "abstain"
+    },
+    "test_ticket_transfer_0": {
+      "raw": "needs_reply",
+      "selective": "abstain"
+    },
+    "test_ticket_transfer_0_reversed": {
+      "raw": "waiting_on_them",
+      "selective": "abstain"
+    },
+    "test_ticket_transfer_1": {
+      "raw": "waiting_on_them",
+      "selective": "abstain"
+    },
+    "test_ticket_transfer_1_reversed": {
+      "raw": "needs_reply",
+      "selective": "abstain"
+    },
+    "test_ticket_transfer_2": {
+      "raw": "waiting_on_them",
+      "selective": "abstain"
+    },
+    "test_ticket_transfer_2_reversed": {
+      "raw": "needs_reply",
+      "selective": "abstain"
+    },
+    "test_archive_box_0": {
+      "raw": "fyi",
+      "selective": "abstain"
+    },
+    "test_archive_box_0_reversed": {
+      "raw": "fyi",
+      "selective": "abstain"
+    },
+    "test_archive_box_1": {
+      "raw": "needs_reply",
+      "selective": "abstain"
+    },
+    "test_archive_box_1_reversed": {
+      "raw": "waiting_on_them",
+      "selective": "abstain"
+    },
+    "test_archive_box_2": {
+      "raw": "abstain",
+      "selective": "abstain"
+    },
+    "test_archive_box_2_reversed": {
+      "raw": "abstain",
+      "selective": "abstain"
+    },
+    "test_chess_event_0": {
+      "raw": "abstain",
+      "selective": "abstain"
+    },
+    "test_chess_event_0_reversed": {
+      "raw": "abstain",
+      "selective": "abstain"
+    },
+    "test_chess_event_1": {
+      "raw": "waiting_on_them",
+      "selective": "abstain"
+    },
+    "test_chess_event_1_reversed": {
+      "raw": "needs_reply",
+      "selective": "abstain"
+    },
+    "test_chess_event_2": {
+      "raw": "needs_reply",
+      "selective": "abstain"
+    },
+    "test_chess_event_2_reversed": {
+      "raw": "waiting_on_them",
+      "selective": "abstain"
+    },
+    "test_voicemail_0": {
+      "raw": "abstain",
+      "selective": "abstain"
+    },
+    "test_voicemail_0_reversed": {
+      "raw": "abstain",
+      "selective": "abstain"
+    },
+    "test_voicemail_1": {
+      "raw": "needs_reply",
+      "selective": "abstain"
+    },
+    "test_voicemail_1_reversed": {
+      "raw": "waiting_on_them",
+      "selective": "abstain"
+    },
+    "test_voicemail_2": {
+      "raw": "fyi",
+      "selective": "abstain"
+    },
+    "test_voicemail_2_reversed": {
+      "raw": "fyi",
+      "selective": "abstain"
+    },
+    "test_old_invoice_0": {
+      "raw": "fyi",
+      "selective": "abstain"
+    },
+    "test_old_invoice_0_reversed": {
+      "raw": "fyi",
+      "selective": "abstain"
+    },
+    "test_old_invoice_1": {
+      "raw": "needs_reply",
+      "selective": "abstain"
+    },
+    "test_old_invoice_1_reversed": {
+      "raw": "waiting_on_them",
+      "selective": "abstain"
+    },
+    "test_old_invoice_2": {
+      "raw": "abstain",
+      "selective": "abstain"
+    },
+    "test_old_invoice_2_reversed": {
+      "raw": "abstain",
+      "selective": "abstain"
+    },
+    "test_pool_pass_0": {
+      "raw": "needs_reply",
+      "selective": "abstain"
+    },
+    "test_pool_pass_1": {
+      "raw": "fyi",
+      "selective": "abstain"
+    },
+    "test_pool_pass_2": {
+      "raw": "abstain",
+      "selective": "abstain"
+    },
+    "test_woodworking_news_0": {
+      "raw": "noise",
+      "selective": "abstain"
+    },
+    "test_woodworking_news_1": {
+      "raw": "needs_reply",
+      "selective": "abstain"
+    },
+    "test_woodworking_news_2": {
+      "raw": "fyi",
+      "selective": "abstain"
+    },
+    "test_change_optional_0": {
+      "raw": "fyi",
+      "selective": "abstain"
+    },
+    "test_change_optional_1": {
+      "raw": "needs_reply",
+      "selective": "abstain"
+    },
+    "test_change_optional_2": {
+      "raw": "noise",
+      "selective": "abstain"
+    },
+    "test_hurried_reply_0": {
+      "raw": "needs_reply",
+      "selective": "abstain"
+    },
+    "test_hurried_reply_0_reversed": {
+      "raw": "waiting_on_them",
+      "selective": "abstain"
+    },
+    "test_hurried_reply_1": {
+      "raw": "fyi",
+      "selective": "abstain"
+    },
+    "test_hurried_reply_1_reversed": {
+      "raw": "fyi",
+      "selective": "abstain"
+    },
+    "test_hurried_reply_2": {
+      "raw": "abstain",
+      "selective": "abstain"
+    },
+    "test_hurried_reply_2_reversed": {
+      "raw": "abstain",
+      "selective": "abstain"
+    }
+  }
+}

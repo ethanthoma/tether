@@ -1,5 +1,8 @@
 # Synthetic triage data and description length
 
+[FINETUNING.md](FINETUNING.md) records the subsequent supervised encoder experiment
+on these unchanged splits, including its confidence/coverage limitation.
+
 This dataset is fully synthetic: no mailbox exports, public email corpora, or copied
 benchmark messages. The task definition is informed by earlier development work.
 `synthetic_scenarios.json` contains 72 authored scenario families, each with three
@@ -63,6 +66,9 @@ classifier on previous families before encoding the next block. Cumulative famil
 boundaries are 8, 16, 32, and all available training families. The encoder, inputs,
 family boundaries, order, and learning algorithm are shared side information;
 encoder weights are not charged. This cannot compare total model sizes.
+The diagnostic always loads the pinned public encoder from the local cache.
+Passing a fine-tuned encoder is deliberately unsupported: it would already know
+labels from later families, invalidating the prequential measurement.
 
 For blocks without two previously seen classes, use the Laplace-smoothed prior.
 Otherwise add 1e-6 probability mass to every class and renormalize, including
@@ -96,7 +102,6 @@ HF_HUB_OFFLINE=1 experiments/triage/.venv/bin/python experiments/triage/train.py
   --output experiments/triage/runs/my-synthetic-model
 HF_HUB_OFFLINE=1 experiments/triage/.venv/bin/python experiments/triage/mdl.py \
   --data experiments/triage/runs/my-synthetic/data.json \
-  --encoder experiments/triage/runs/my-synthetic-model/encoder \
   --output experiments/triage/runs/my-synthetic/mdl.json
 HF_HUB_OFFLINE=1 experiments/triage/.venv/bin/python experiments/triage/train.py predict \
   --model experiments/triage/runs/my-synthetic-model \

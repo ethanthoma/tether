@@ -1,0 +1,80 @@
+import unittest
+
+import numpy as np
+import torch
+from finetune import batch_features
+from train import features, select_threshold
+
+
+class DifferentiableEncoder(torch.nn.Module):
+    max_seq_length = 256
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.vector = torch.nn.Parameter(torch.tensor([1.0, 2.0]))
+
+    @property
+    def tokenizer(self) -> "DifferentiableEncoder":
+        return self
+
+    def preprocess(self, inputs: list[str]) -> dict:
+        return {"count": len(inputs)}
+
+    def forward(self, inputs: dict) -> dict:
+        return {"sentence_embedding": self.vector.expand(inputs["count"], -1)}
+
+    def encode(self, text: str | list[str], **kwargs: object) -> list[str] | np.ndarray:
+        if isinstance(text, str):
+            return text.split()
+        normalized = torch.nn.functional.normalize(self.vector, dim=0)
+        return normalized.detach().expand(len(text), -1).numpy()
+
+
+class FinetuningTests(unittest.TestCase):
+    def test_layout_matches_frozen_inference_and_backpropagates(self) -> None:
+        cases = [
+            {"messages": [{"outbound": False, "body": "First"}]},
+            {"messages": [{"outbound": True, "body": "Second"}]},
+            {
+                "messages": [
+                    {"outbound": False, "body": "Third"},
+                    {"outbound": True, "body": "Fourth"},
+                ]
+            },
+            {
+                "messages": [
+                    {"outbound": True, "body": "Fifth"},
+                    {"outbound": False, "body": "Sixth"},
+                ]
+            },
+        ]
+        encoder = DifferentiableEncoder()
+        matrix = batch_features(encoder, cases)
+        np.testing.assert_allclose(matrix.detach().numpy(), features(encoder, cases))
+        matrix.sum().backward()
+        self.assertIsNotNone(encoder.vector.grad)
+        self.assertGreater(float(encoder.vector.grad.abs().sum()), 0)
+
+    def test_batch_and_token_limits(self) -> None:
+        encoder = DifferentiableEncoder()
+        with self.assertRaisesRegex(ValueError, "cases per batch"):
+            batch_features(encoder, [])
+        with self.assertRaisesRegex(ValueError, "cases per batch"):
+            batch_features(encoder, [{}] * 17)
+        with self.assertRaisesRegex(ValueError, "token limit"):
+            batch_features(
+                encoder, [{"messages": [{"outbound": False, "body": "word " * 257}]}]
+            )
+
+    def test_cutoff_rejects_errors_and_maximizes_correct_coverage(self) -> None:
+        head = {"labels": ["fyi", "needs_reply"]}
+        cases = [{"expected": "needs_reply"}, {"expected": "needs_reply"}]
+        values = np.array([[0.1, 0.9], [0.8, 0.2]])
+        self.assertEqual(select_threshold(head, cases, values), 0.85)
+        self.assertEqual(
+            select_threshold(head, cases, np.array([[0.1, 0.9], [0.2, 0.8]])), 0.0
+        )
+
+
+if __name__ == "__main__":
+    unittest.main()

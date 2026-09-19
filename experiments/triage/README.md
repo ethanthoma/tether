@@ -1,5 +1,9 @@
 # Triage classifier evaluation
 
+The completed encoder-training experiment is in [FINETUNING.md](FINETUNING.md).
+It improves raw regression results, but its selected confidence cutoff abstains
+on every case; it remains offline.
+
 For the current fully synthetic corpus, research rationale, and prequential MDL
 diagnostic, see [SYNTHETIC.md](SYNTHETIC.md). The older challenge set below remains
 a development artifact and is excluded from the new training and test run.

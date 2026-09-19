@@ -6,13 +6,20 @@ import json
 from pathlib import Path
 
 import numpy as np
-from train import LABELS, features, fit_classifier, load_cases, training_split
+from train import (
+    BASE,
+    LABELS,
+    REVISION,
+    features,
+    fit_classifier,
+    load_cases,
+    training_split,
+)
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data", type=Path, required=True)
-    parser.add_argument("--encoder", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     import torch
@@ -21,7 +28,11 @@ def main() -> None:
     torch.set_num_threads(4)
     train, _ = training_split(load_cases(args.data))
     encoder = SentenceTransformer(
-        str(args.encoder), device="cpu", local_files_only=True, trust_remote_code=False
+        BASE,
+        revision=REVISION,
+        device="cpu",
+        local_files_only=True,
+        trust_remote_code=False,
     )
     matrix = features(encoder, train)
     labels = np.array([LABELS.index(case["expected"]) for case in train])
@@ -30,6 +41,8 @@ def main() -> None:
     runs = [prequential(matrix, labels, groups, seed) for seed in (41, 42, 43)]
     controls = [prequential(matrix, shuffled, groups, seed) for seed in (41, 42, 43)]
     report = {
+        "base": BASE,
+        "revision": REVISION,
         "interpretation": "conditional prequential label code; not Kolmogorov complexity or a quality certificate",
         "side_information": "frozen encoder, messages/directions, family boundaries, order seeds, learner and coding protocol",
         "data_sha256": hashlib.sha256(args.data.read_bytes()).hexdigest(),

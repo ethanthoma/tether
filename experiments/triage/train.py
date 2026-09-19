@@ -192,12 +192,7 @@ def train_model(data: Path, output: Path) -> None:
         "intercepts": classifier.intercept_.tolist(),
     }
     values = probabilities(head, features(encoder, dev))
-    candidates = []
-    for threshold in [0.0, *[i / 100 for i in range(40, 100, 5)], 1.0]:
-        metrics = score(dev, predictions(head, values, threshold))
-        if metrics["accepted"] == metrics["correct_accepted"]:
-            candidates.append((metrics["accepted"], -threshold))
-    head["threshold"] = -max(candidates)[1]
+    head["threshold"] = select_threshold(head, dev, values)
     report = {
         "base": BASE,
         "revision": REVISION,
@@ -236,6 +231,15 @@ def fit_classifier(matrix: np.ndarray, labels: list[str]) -> "LogisticRegression
     if classifier.n_iter_.max() >= classifier.max_iter:
         raise RuntimeError("classifier did not converge")
     return classifier
+
+
+def select_threshold(head: dict, cases: list[dict], values: np.ndarray) -> float:
+    candidates = []
+    for threshold in [0.0, *[i / 100 for i in range(40, 100, 5)], 1.0]:
+        metrics = score(cases, predictions(head, values, threshold))
+        if metrics["accepted"] == metrics["correct_accepted"]:
+            candidates.append((metrics["accepted"], -threshold))
+    return -max(candidates)[1]
 
 
 def predict_model(model: Path, data: Path, output: Path) -> None:
