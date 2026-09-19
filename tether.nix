@@ -35,7 +35,7 @@ in
 
   systemd.tmpfiles.rules = [
     "d /var/lib/tether 0700 ethoma users -"
-    "d /var/lib/tether-model 0700 ethoma users -"
+    "d /var/lib/tether-model 0750 root users -"
   ];
 
   # Discord delivers slash commands as signed POSTs, so the endpoint must be
