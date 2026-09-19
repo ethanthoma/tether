@@ -1,0 +1,4727 @@
+{
+  "version": 1,
+  "label_policy": "reply-triage-v2",
+  "specification": "# Synthetic triage labeling specification\n\nVersion: 2. Scope: future offline reviews aligned with the production reply policy.\nExisting datasets, models, and the archived v1 review retain their original\nmeanings. See [POLICY.md](POLICY.md) for explicit adoption requirements.\n\n## What the reviewer sees\n\nRead the supplied one or two messages in chronological order. `outbound: true`\nmeans the user sent the message; `false` means another sender did. Judge only the\nvisible exchange. Do not invent earlier requests, missing attachments, deadlines,\nor an obligation to acknowledge every message. Quoted material is history, not a\nnew request. The latest message changes only the obligations it actually addresses.\n\n## Labels\n\n| Label | Meaning under version 2 |\n| --- | --- |\n| `needs_reply` | A human visibly requested an outstanding prose response from the user, or an automated notice explicitly requires the user personally to act by a stated deadline. |\n| `waiting_on_them` | A human owes an outstanding response or action to a visible, explicit request from the user. An unsolicited promise alone does not qualify. |\n| `fyi` | Information worth seeing, with no remaining obligation supported by the visible exchange. |\n| `noise` | Newsletters, promotions, or routine automated mail with no personal deadline or calendar exception; never worth a nudge. |\n| `abstain` | Ownership/context is insufficient, material obligations belong to both sides, or task/commitment routing cannot be represented safely by the other labels. |\n\nThe five-label classifier cannot extract commitments or represent every task.\nA user-only task or promise, or an unsolicited incoming promise without a visible\nuser request, must not silently become `fyi`: use `abstain`. If an otherwise\nclassifiable reply also contains a separate user commitment needing extraction,\nabstain rather than losing that routing obligation. Abstention is a classifier\ndecision, not a production thread state; keep the work available to the existing\ntriage/commitment path. This specification does not change production behavior.\n\n## Resolve outstanding obligations\n\n- **Cancellation or replacement:** disregard a request explicitly withdrawn,\n  fulfilled elsewhere, or superseded. Retain unrelated unfinished obligations.\n  \u201cWe found another driver; forget the pickup\u201d closes the pickup request.\n- **Partial completion:** completing one part does not complete a remaining\n  requested part. \u201cThe figures are attached; I'll send the notes tomorrow\u201d leaves\n  the sender's promised notes outstanding.\n- **Promises:** count a specific commitment (\u201cI'll send the draft\u201d), not a wish\n  (\u201cI hope to finish\u201d) or speculation (\u201cperhaps Sam can help\u201d). A user-only promise\n  receives `abstain` and needs the separate commitment extractor. A promise does\n  not erase an outstanding requested answer.\n- **Two owners:** explicit outstanding promises or requests on both sides produce\n  `abstain`, even if one depends on the other. Do not infer a separate obligation\n  merely because a request enables later work.\n- **Acknowledgments:** \u201cThanks\u201d does not cancel an earlier unfinished request.\n  It is `fyi` only when no visible obligation remains. \u201cDone\u201d without a visible\n  referent can require `abstain`.\n- **Notices:** calendar invitations and attendance updates are informational;\n  don't invent a prose reply. A personal automated deadline is different from\n  a generic marketing deadline. Use `abstain` when action or ownership is unclear.\n- **Quoted questions:** a resolved or canceled question in quoted history is not\n  outstanding again merely because it appears in the message.\n- **Reply versus task:** inbound \u201cWhich draft should I use?\u201d is `needs_reply`.\n  Inbound \u201cPlease carry the boxes upstairs\u201d is `abstain`: the task exists, but\n  does not request prose. The same task requested outbound can be `waiting_on_them`.\n- **Visible questions:** missing historical details do not erase an explicit\n  question. \u201cIs that arrangement happening?\u201d inbound requires a reply; outbound\n  establishes waiting. The classifier need not know the answer. Use `abstain`\n  when the existence or owner of a request is unclear, such as \u201cThat arrangement\n  again\u2026\u201d without a question or identifiable disposition. Quoted, rhetorical,\n  and canceled questions still require context.\n- **Direction:** assess each variant independently; reversal is not a mechanical\n  label swap under this policy. Flag implausible reversed notices or broken roles.\n\n## Review record\n\nFor every case, supply one label, at least one evidence span, a short rationale,\nand zero or more flags. Evidence has a zero-based `message_index` and a nonempty\n`quote` copied exactly from that message. Evidence supports the interpretation;\nits presence alone does not establish correctness.\n\nAllowed flags:\n\n- `policy_mismatch`: an interpretation requires behavior outside this contract\n  and no specified abstention resolves it. Task/commitment routing abstentions\n  conform to version 2; do not flag every action or promise.\n- `insufficient_context`: a defective/incomplete example needs clarification\n  before review. Intentional uncertainty that clearly supports `abstain` is not\n  itself a defect and does not require this flag.\n- `unnatural_direction`: message direction or participant references are implausible.\n- `label_ambiguity`: the rules leave competing labels unresolved, rather than\n  deliberately requiring an uncertainty abstention.\n\nA reasoned `abstain` is a valid, potentially unflagged label. Flags request adjudication and\nwithhold the family even when author and reviewer agree on that label. Review\nmessages without viewing author labels, model predictions, scenario IDs, or split\nmetadata. Identify yourself and attest that author labels were unseen. This is\nself-reported independence, not proof of human review or an external quality audit.\n",
+  "cases": [
+    {
+      "id": "b0a8a2f97e0df3fd6d3206fc422cf099",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Is that arrangement for the wildflower census still happening? Please tell me whether it is going ahead."
+        }
+      ]
+    },
+    {
+      "id": "c9dcbe591004c96fcdb51ff9c37bb372",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the cheese count and the session length for the cheese tasting. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "There are five cheeses to taste. The session lasts one hour."
+        }
+      ]
+    },
+    {
+      "id": "368eeed143b3ca6d4004c192662dbd0c",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the team check-in location for the dragon boat race? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Our plans changed, so I no longer need that detail. Please disregard my earlier request entirely."
+        }
+      ]
+    },
+    {
+      "id": "79b85993fe9f4b01b53a9a1e420b1643",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is that arrangement for the lantern festival still happening? Please tell me whether it is going ahead."
+        }
+      ]
+    },
+    {
+      "id": "f44329cbb23a0217a2cbb378b9cfd84d",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the round count and the entry cost for the chess tournament. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "There are six rounds scheduled. Entry costs twenty dollars."
+        }
+      ]
+    },
+    {
+      "id": "c2be1b9c04197b1af4fe2951ce74e37a",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will label the herbarium sheets tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": false,
+          "body": "That sounds good to me, and I have noted your plan in my notebook."
+        }
+      ]
+    },
+    {
+      "id": "84283b328568d6ff4478822c03b7a228",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Where should we meet for the fossil walk?"
+        },
+        {
+          "outbound": false,
+          "body": "The museum has a new display case."
+        }
+      ]
+    },
+    {
+      "id": "d7dd6068acd52a1aa81a04c5af49a0d6",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the pickup location and the return time for the kayak rental. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ]
+    },
+    {
+      "id": "0a5203fa2a9ddafec3d5def8aa6e3b30",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the delivery estimate for the stained glass commission? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Cancel that question; I found the answer on the noticeboard. There is no need to respond."
+        }
+      ]
+    },
+    {
+      "id": "26ca941daecc10e64f8a610a20fcd588",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will repair the croquet hoops tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": true,
+          "body": "The croquet hoops are repaired and in the shed."
+        }
+      ]
+    },
+    {
+      "id": "7c953b7822264c9407d51f91e459985b",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the judging criteria for the ice sculpture contest? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Just keeping my question here so it does not get lost. I still need that information."
+        }
+      ]
+    },
+    {
+      "id": "440dfb5db4309447c48ed95c75987666",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the pickup location and the return time for the kayak rental. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Pickup is at Willow Dock."
+        }
+      ]
+    },
+    {
+      "id": "cb6b36301e3bb3c485e41f7c0d0a0859",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The silversmithing tools newsletter is here. Our seasonal sale ends Friday; browse the newest selection while these special offers last."
+        }
+      ]
+    },
+    {
+      "id": "68f9407479eb1b785dfadeca74e178d0",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the judging criteria for the ice sculpture contest? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Our plans changed, so I no longer need that detail. Please disregard my earlier request entirely."
+        }
+      ]
+    },
+    {
+      "id": "3308c37121af55d38c95dbf42f3e14a4",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which lecture title goes on the mycology poster?"
+        },
+        {
+          "outbound": true,
+          "body": "The lecture room has new blinds."
+        }
+      ]
+    },
+    {
+      "id": "5cd7c15e891dffa2c2a0f232e099d0f3",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the meeting point and the radio channel for the cave survey. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "We meet at the east entrance."
+        }
+      ]
+    },
+    {
+      "id": "ef7f4276a076907ac773bdcc658bb970",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which greenhouse should I use for the seedling trays?"
+        }
+      ]
+    },
+    {
+      "id": "c23c5eade38a30b0da568e136081f733",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "What is the water depth for the model boat pond?"
+        },
+        {
+          "outbound": false,
+          "body": "I have seen your question and will answer it after checking my notes."
+        }
+      ]
+    },
+    {
+      "id": "55d08dfd1d78c2a30ab500df51e34efe",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the departure time for the snowshoe trip? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Just keeping my question here so it does not get lost. I still need that information."
+        }
+      ]
+    },
+    {
+      "id": "9d7b9fdd5f6ed79cb893ee0d027e2b94",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated tent cleaning notification: your cleaning receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automatic reminder: you can download your cleaning receipt whenever convenient. This is for your records only."
+        }
+      ]
+    },
+    {
+      "id": "00c6253ef8e7197c30df69b1a03a7002",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will oil the community spinning wheel tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": true,
+          "body": "The community spinning wheel is oiled and ready to use."
+        }
+      ]
+    },
+    {
+      "id": "1a7809be5c2ee9fff7e4c3744cb6da77",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the team check-in location for the dragon boat race? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for reading this when you have a moment. The question above is still open."
+        }
+      ]
+    },
+    {
+      "id": "0ce29de0897a3e6d74bc2daaffbf03aa",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will digitize the family slides tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": true,
+          "body": "The family slides are digitized and saved in the shared folder."
+        }
+      ]
+    },
+    {
+      "id": "78b205501ecbbc2d8457ca72c15fdc4a",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the stall dimensions for the pottery market? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Just keeping my question here so it does not get lost. I still need that information."
+        }
+      ]
+    },
+    {
+      "id": "cbc69d66e11dc8d6f9c929cdcb70d0ff",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will digitize the family slides tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": true,
+          "body": "I am withdrawing that offer; I will not be doing the work after all. Please consider my promise canceled."
+        }
+      ]
+    },
+    {
+      "id": "599670074390ccb5b80988cd4af01c0a",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the frequency band and the antenna length for the radio workshop. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ]
+    },
+    {
+      "id": "9990ed9f0542b5dc9ef13050ee0a105d",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "A quick personal note from Morgan: I checked the sourdough workshop paperwork and the amount is correct. I thought you would like to know; nothing is needed from you."
+        }
+      ]
+    },
+    {
+      "id": "2016fcdf54b69f8a70d65bef180df232",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Where should we meet for the fossil walk?"
+        },
+        {
+          "outbound": false,
+          "body": "Meet at the old quarry entrance."
+        }
+      ]
+    },
+    {
+      "id": "7508bbcfea44f8c8bcd169ce91f3ee96",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the reading room hours for the local history archive? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for reading this when you have a moment. The question above is still open."
+        }
+      ]
+    },
+    {
+      "id": "7b181a3d9ded9ee1c2185fce16fcdf47",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the track count and the file format for the choir recording. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "There are fourteen tracks in total. The file format is uncompressed WAV."
+        }
+      ]
+    },
+    {
+      "id": "58ea513cd0c0080aeea0149e25e2c17a",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What flavor should the wedding macarons be?"
+        },
+        {
+          "outbound": true,
+          "body": "Do you mean the filling or the shells?"
+        }
+      ]
+    },
+    {
+      "id": "cf8164f5f3ff83bae9b3147b3382b622",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please hang the quilt display in the lobby. This is the only job I need help with today."
+        }
+      ]
+    },
+    {
+      "id": "67cd2eb1b0b3f2e65fccb2f4c6136184",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Could you confirm the spelling for the calligraphy certificate?"
+        },
+        {
+          "outbound": true,
+          "body": "My new pen arrived this afternoon."
+        }
+      ]
+    },
+    {
+      "id": "cd85dcce2f39bd39101d705d80aaae67",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the room number and the materials fee for the bookbinding course. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ]
+    },
+    {
+      "id": "27e7adda9a765503f3c57990c256d03c",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please recharge the metal detector batteries tonight. This is the only job I need help with today."
+        }
+      ]
+    },
+    {
+      "id": "251554ac2781d73fc1f3b0a7260cde95",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated sailing berth rental notification: your berth receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "A personal note from Ellis at the desk: I checked your berth receipt myself and corrected the spelling of your name. Nothing further is needed."
+        }
+      ]
+    },
+    {
+      "id": "126cbd717f974fe8bdfb7978064b1931",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the cabinet number and the opening date for the mineral exhibit. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ]
+    },
+    {
+      "id": "41bfd53ce2c088f1c15d34c249ef936d",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you please wash the dog agility tunnel this afternoon? Let me know once the work is finished."
+        }
+      ]
+    },
+    {
+      "id": "3dfc4c32fcf2d4baec788d8a3555565a",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What cleaning solution is safe for the agility tunnel?"
+        }
+      ]
+    },
+    {
+      "id": "353146e869a33843ab394ca61b83e62b",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the paper weight and the sheet count for the printmaking order. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ]
+    },
+    {
+      "id": "c6c7286df5bae19ebb915934f382b3b5",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "A quick personal note from Morgan: I checked the watercolor prints paperwork and the amount is correct. I thought you would like to know; nothing is needed from you."
+        }
+      ]
+    },
+    {
+      "id": "1da08dc753d5b35ebc5f2df988171c4e",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the cabinet number and the opening date for the mineral exhibit. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "The exhibit is in cabinet nine. It opens on November the first."
+        }
+      ]
+    },
+    {
+      "id": "04e1d18a254944fe93a48acee408a952",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will deliver the origami display tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": false,
+          "body": "Thank you for offering to do that. I appreciate the help very much."
+        }
+      ]
+    },
+    {
+      "id": "022b4590633423de4a63191987fa5bbd",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will restore the weather vane tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": true,
+          "body": "I am withdrawing that offer; I will not be doing the work after all. Please consider my promise canceled."
+        }
+      ]
+    },
+    {
+      "id": "f6d2fde808363b6e3afd85616711d33d",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the duration and the minimum age for the glassblowing session. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ]
+    },
+    {
+      "id": "71c3344b6bf4ed2712aebafe92ecc350",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which charger works with the metal detector batteries?"
+        }
+      ]
+    },
+    {
+      "id": "6dfd41adadcb4d625e45edc0979cb3bc",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the round count and the entry cost for the chess tournament. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ]
+    },
+    {
+      "id": "d3f337af2d46641b70058559a2a90678",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "That detail about the canoe carving demonstration again; there was some understanding."
+        }
+      ]
+    },
+    {
+      "id": "631859f5fbfb9c09b8bede7e769701ec",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The terrarium handoff situation is still a thing, apparently, with somebody involved."
+        }
+      ]
+    },
+    {
+      "id": "7d226f895d7f6d7a87d13caf4e9c6437",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which translation should the puppet show use?"
+        },
+        {
+          "outbound": true,
+          "body": "Are we performing for adults or the school group?"
+        }
+      ]
+    },
+    {
+      "id": "2f578ff7e5db30a2bea51228d6df7b84",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the departure time for the snowshoe trip? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Cancel that question; I found the answer on the noticeboard. There is no need to respond."
+        }
+      ]
+    },
+    {
+      "id": "06d15232787174e2a3652af3293ee3c6",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the studio number and the start time for the dance rehearsal. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "We are in studio three. We start at six this evening."
+        }
+      ]
+    },
+    {
+      "id": "b63785ffa0fb739fbd0e8e49743c525c",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the paper weight and the sheet count for the printmaking order. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "The paper is three hundred grams per square meter. The order contains fifty sheets."
+        }
+      ]
+    },
+    {
+      "id": "1403a1d6af7484a1d9ed597915de85ce",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The language tutoring newsletter is here. Our seasonal sale ends Friday; browse the newest selection while these special offers last."
+        }
+      ]
+    },
+    {
+      "id": "64fe18b1342ec8bc8dac02293021a4bf",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which orchard row needs the soil sample?"
+        },
+        {
+          "outbound": false,
+          "body": "The farm shop now sells local honey."
+        }
+      ]
+    },
+    {
+      "id": "21d60ef3c64ad3e843c197212264e713",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please let me know the correct gate for the sheep delivery."
+        },
+        {
+          "outbound": true,
+          "body": "The feed merchant has changed its logo."
+        }
+      ]
+    },
+    {
+      "id": "f93b1bc9dbbcc7a399cdf44125004436",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will refinish the harpsichord bench tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": false,
+          "body": "Thank you for offering to do that. I appreciate the help very much."
+        }
+      ]
+    },
+    {
+      "id": "74c69262a84d109d30ddc65b8f854c52",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated dog grooming notification: your grooming receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automatic reminder: you can download your grooming receipt whenever convenient. This is for your records only."
+        }
+      ]
+    },
+    {
+      "id": "8cbd87db72744fff9a5f71c96316dcde",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the route number for the cable car."
+        },
+        {
+          "outbound": false,
+          "body": "Take route twelve to the summit."
+        }
+      ]
+    },
+    {
+      "id": "7eb37bdf5a1bf3622e3d6585eeb7c22f",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated notice for your scuba cylinder testing account: you are required to authorize your cylinder inspection by November 3 at noon. This requirement applies to you personally."
+        }
+      ]
+    },
+    {
+      "id": "f9168f5906c7bad170ef00c6e32a5a26",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "What is the water depth for the model boat pond?"
+        },
+        {
+          "outbound": false,
+          "body": "Do you mean the center or the launch area?"
+        }
+      ]
+    },
+    {
+      "id": "209eac6972de0a08346086af04c07a11",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you please stack the juggling mats beside the stage? Let me know once the work is finished."
+        }
+      ]
+    },
+    {
+      "id": "ee5a42d45d1fb3eb6ddc4f18e52b2b00",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated subscription digest: news about the bell ringing practice and other local attractions is now online. Read whenever you like; no response is needed."
+        }
+      ]
+    },
+    {
+      "id": "5454dcde5aa9ec0dd513f293e29b30e4",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will label the herbarium sheets tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": true,
+          "body": "The herbarium sheets are labeled and filed."
+        }
+      ]
+    },
+    {
+      "id": "b40f76c8e5f8896ee66998e850e091f5",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you confirm the patch color for our rowing crew?"
+        },
+        {
+          "outbound": false,
+          "body": "Is this for the jackets or the caps?"
+        }
+      ]
+    },
+    {
+      "id": "8f4f9509341ec68823f6faf658fd2fc5",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated skate sharpening notification: your sharpening receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automated account notice: you personally must approve the pending skate collection authorization in your account by October 14 at 5 p.m. or it will lapse."
+        }
+      ]
+    },
+    {
+      "id": "dc0f69aca7b57c7637e1f4fea12ea189",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated tent cleaning notification: your cleaning receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automated record update: your cleaning receipt has been archived successfully. No action is required from you."
+        }
+      ]
+    },
+    {
+      "id": "e596dcc426decad80973cd1035ee1f5c",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the starting time and the ticket price for the falconry demonstration. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ]
+    },
+    {
+      "id": "fdb050c82b08a6b3d9fd0d3bfa227528",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the track count and the file format for the choir recording. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ]
+    },
+    {
+      "id": "963a6986de1120055d98060d094c6be2",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the stall dimensions for the pottery market? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Our plans changed, so I no longer need that detail. Please disregard my earlier request entirely."
+        }
+      ]
+    },
+    {
+      "id": "4fac711f2909a04518bc671ace19432d",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated skate sharpening notification: your sharpening receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "A personal note from Ellis at the desk: I checked your sharpening receipt myself and corrected the spelling of your name. Nothing further is needed."
+        }
+      ]
+    },
+    {
+      "id": "07bb09163f0a662337b179dc730dfd5d",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the instructor name and the class capacity for the bonsai clinic. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ]
+    },
+    {
+      "id": "3c85813af9f2e8f75b8a3b8e225f20c6",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automatic kombucha cultures update: your shipment tracking record is now available. No action or reply is needed."
+        }
+      ]
+    },
+    {
+      "id": "7810b694872c01cacf4f7b30a926371d",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The sourdough workshop newsletter is here. Our seasonal sale ends Friday; browse the newest selection while these special offers last."
+        }
+      ]
+    },
+    {
+      "id": "42bf12503bc7fef49fc1bd96ee248ab1",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the cabinet number and the opening date for the mineral exhibit. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "The exhibit is in cabinet nine."
+        }
+      ]
+    },
+    {
+      "id": "0d2f681ba8073e1b25a21c04c1c63bfb",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the loom type and the arrival time for the weaving retreat. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ]
+    },
+    {
+      "id": "267dfc5d34647118fdd3ed172b955a41",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which lecture title goes on the mycology poster?"
+        },
+        {
+          "outbound": true,
+          "body": "Is this the public talk or the laboratory seminar?"
+        }
+      ]
+    },
+    {
+      "id": "40d7a83ac9ecf55cd549c2222a6572d6",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "For the kiln booking, which firing temperature should we use?"
+        },
+        {
+          "outbound": false,
+          "body": "I have seen your question and will answer it after checking my notes."
+        }
+      ]
+    },
+    {
+      "id": "7686a842976158c61f4072b99c0d34ed",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will catalog the antique postcards tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": false,
+          "body": "That sounds good to me, and I have noted your plan in my notebook."
+        }
+      ]
+    },
+    {
+      "id": "5a51f393fc56dff5f4773919c4d97f65",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the meeting point and the radio channel for the cave survey. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "We meet at the east entrance. Please use radio channel four."
+        }
+      ]
+    },
+    {
+      "id": "c8ea85444a483b5356daec637b038f6d",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please wash the dog agility tunnel this afternoon. This is the only job I need help with today."
+        }
+      ]
+    },
+    {
+      "id": "7b4219ebaf785f3635a7b826a15af9b6",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What flavor should the wedding macarons be?"
+        },
+        {
+          "outbound": true,
+          "body": "The bakery has a new shop sign."
+        }
+      ]
+    },
+    {
+      "id": "aaef87c1200eeaa3ce8f3d62891c7f7c",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please pack the field microscope in its case. This is the only job I need help with today."
+        }
+      ]
+    },
+    {
+      "id": "6a58107e559ba7ad34ea0f7bc439dfb5",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which wall should I use for the quilt display?"
+        }
+      ]
+    },
+    {
+      "id": "ec5e2045914e8b0e21b258fef305e8b9",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated tent cleaning notification: your cleaning receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "A personal note from Ellis at the desk: I checked your cleaning receipt myself and corrected the spelling of your name. Nothing further is needed."
+        }
+      ]
+    },
+    {
+      "id": "e2048d9a86d5ec7fde7e08404a461552",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the registration cost for the alpaca show? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Cancel that question; I found the answer on the noticeboard. There is no need to respond."
+        }
+      ]
+    },
+    {
+      "id": "55a642f02464ee77f017e4981f8c42c3",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will mend the theater costumes tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": true,
+          "body": "The theater costumes are mended and hanging backstage."
+        }
+      ]
+    },
+    {
+      "id": "22fca28f749634729525acf9fe435608",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "For the kiln booking, which firing temperature should we use?"
+        },
+        {
+          "outbound": false,
+          "body": "The studio curtains arrived this morning."
+        }
+      ]
+    },
+    {
+      "id": "a866b0319a1073f64e01461e939ec464",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which edition should our astronomy club order?"
+        },
+        {
+          "outbound": false,
+          "body": "There was a bright meteor last night."
+        }
+      ]
+    },
+    {
+      "id": "168cc7887b49ce06099e6bcc3d29c6a1",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please water the rooftop moss garden before noon. This is the only job I need help with today."
+        }
+      ]
+    },
+    {
+      "id": "590856a6bf6cf5f02d8ee819be1eaf93",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "What size should the climbing wall holds be?"
+        },
+        {
+          "outbound": false,
+          "body": "The gym repainted its reception yesterday."
+        }
+      ]
+    },
+    {
+      "id": "753d7fc5986719ab0bb1d9117f843611",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will refinish the harpsichord bench tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": true,
+          "body": "The harpsichord bench is refinished and back in place."
+        }
+      ]
+    },
+    {
+      "id": "60a430aa1080b9dac8a44e9a04b8313c",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated bike locker rental notification: your locker receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "A personal note from Ellis at the desk: I checked your locker receipt myself and corrected the spelling of your name. Nothing further is needed."
+        }
+      ]
+    },
+    {
+      "id": "137bca3bbe29b3f6df33613c8911a922",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the panel count and the panel width for the ceramic mural. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "There are eighteen panels altogether."
+        }
+      ]
+    },
+    {
+      "id": "338e8a733e767a09ef561c8c8e2e0762",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which ferry terminal should our cycling group use?"
+        },
+        {
+          "outbound": false,
+          "body": "Use the north terminal for departure."
+        }
+      ]
+    },
+    {
+      "id": "0b30e68c7e7fb1b81be1d5bafd89f4b6",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you confirm the patch color for our rowing crew?"
+        },
+        {
+          "outbound": false,
+          "body": "I have seen your question and will answer it after checking my notes."
+        }
+      ]
+    },
+    {
+      "id": "629fae723928e9dc11ad9f24679b07cc",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the registration cost for the alpaca show? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Just keeping my question here so it does not get lost. I still need that information."
+        }
+      ]
+    },
+    {
+      "id": "e87da7b234ac92343cf4decacb3cdba6",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the replacement part number and the quoted cost for the watch repair. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ]
+    },
+    {
+      "id": "196e3e057abcc31c3de308706d53c65c",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will digitize the family slides tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": false,
+          "body": "That sounds good to me, and I have noted your plan in my notebook."
+        }
+      ]
+    },
+    {
+      "id": "83c80ed35481f396e58806a1f8adab81",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you tell me the mesh size for the shrimp net?"
+        },
+        {
+          "outbound": true,
+          "body": "I have seen your question and will answer it after checking my notes."
+        }
+      ]
+    },
+    {
+      "id": "42a08f76f10a12817afa5e3edeb2c796",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the duration and the minimum age for the glassblowing session. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "The session lasts ninety minutes. The minimum age is sixteen."
+        }
+      ]
+    },
+    {
+      "id": "905c06a4f571bb09fa02ba6849aaea8a",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will label the herbarium sheets tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": true,
+          "body": "I am withdrawing that offer; I will not be doing the work after all. Please consider my promise canceled."
+        }
+      ]
+    },
+    {
+      "id": "12f8535cf4e8b0b0e34b0d09910ea82d",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated sailing berth rental notification: your berth receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automatic reminder: you can download your berth receipt whenever convenient. This is for your records only."
+        }
+      ]
+    },
+    {
+      "id": "d16266c1960ff51dcd3b0f17713ce567",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the judging criteria for the ice sculpture contest? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for reading this when you have a moment. The question above is still open."
+        }
+      ]
+    },
+    {
+      "id": "f1f625e445fe54fc275c9a257ca4f14a",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the venue and the closing time for the seed swap. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ]
+    },
+    {
+      "id": "1f39674c32fcd830b6771116c1d6052b",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "How many frames should the animation loop contain?"
+        },
+        {
+          "outbound": true,
+          "body": "Are you exporting at twenty-four or thirty frames per second?"
+        }
+      ]
+    },
+    {
+      "id": "1d36848c2a19cd141d43816e695a8b7c",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What time does the submarine museum tour finish?"
+        },
+        {
+          "outbound": true,
+          "body": "The guided tour finishes at three."
+        }
+      ]
+    },
+    {
+      "id": "984b8e9c689668c9bfa5f2a74fab42bb",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which translation should the puppet show use?"
+        },
+        {
+          "outbound": true,
+          "body": "The stage curtains are now green."
+        }
+      ]
+    },
+    {
+      "id": "1e0fa4be30b778837d73232176ada1d6",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the loom type and the arrival time for the weaving retreat. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "We use rigid heddle looms."
+        }
+      ]
+    },
+    {
+      "id": "bd21b0d1605547e1e956fd75300de93b",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated subscription digest: news about the geology field trip and other local attractions is now online. Read whenever you like; no response is needed."
+        }
+      ]
+    },
+    {
+      "id": "686d5275976023048dfa14ca9c4efe08",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the instructor name and the class capacity for the bonsai clinic. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "The instructor is named Rowan Hale. The class has room for ten people."
+        }
+      ]
+    },
+    {
+      "id": "4bff32bd436231ed400d516f082010a8",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will mend the theater costumes tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": true,
+          "body": "I am withdrawing that offer; I will not be doing the work after all. Please consider my promise canceled."
+        }
+      ]
+    },
+    {
+      "id": "23c829203b26f57584f6771760bdb1ad",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the venue and the closing time for the seed swap. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "The venue is Alder Hall. It closes at five in the afternoon."
+        }
+      ]
+    },
+    {
+      "id": "8a403ff0b46c9dc4c38e3fc661db7034",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the section length and the crew size for the trail restoration. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ]
+    },
+    {
+      "id": "f8e151644a6ba85ebe94c7d168941f68",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the next practice time for the fencing club? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Just keeping my question here so it does not get lost. I still need that information."
+        }
+      ]
+    },
+    {
+      "id": "b941e5154c7e25e09d00edf2a0171e0c",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automatic model railway parts update: your payment processing record is now available. No action or reply is needed."
+        }
+      ]
+    },
+    {
+      "id": "1ed46fbcd5813f6a74b1e8966f32670e",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you tell me when the beehive inspection starts?"
+        },
+        {
+          "outbound": true,
+          "body": "I have seen your question and will answer it after checking my notes."
+        }
+      ]
+    },
+    {
+      "id": "5914645d3c3f01dcd44d0139bdd6aaeb",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will deliver the origami display tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": true,
+          "body": "I am withdrawing that offer; I will not be doing the work after all. Please consider my promise canceled."
+        }
+      ]
+    },
+    {
+      "id": "2727eef8f297acc7824f8369ae62a194",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automatic embroidery supplies update: your shipment tracking record is now available. No action or reply is needed."
+        }
+      ]
+    },
+    {
+      "id": "b0f051bdbce103aa0b83a9120c3527db",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which edition should our astronomy club order?"
+        },
+        {
+          "outbound": false,
+          "body": "I have seen your question and will answer it after checking my notes."
+        }
+      ]
+    },
+    {
+      "id": "58779d9d7dbf701021fbe365b34b23a4",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the required needle size for the leatherworking class? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for reading this when you have a moment. The question above is still open."
+        }
+      ]
+    },
+    {
+      "id": "649151e4d9524e2f6640bb857887411f",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the boat name and the boarding time for the lighthouse visit. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ]
+    },
+    {
+      "id": "7de82b9f099ec3548185c84205efec62",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the instructor name and the class capacity for the bonsai clinic. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ]
+    },
+    {
+      "id": "dad3a8876f7197eae9a4dc0b9a81cd1b",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the judging criteria for the ice sculpture contest? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Cancel that question; I found the answer on the noticeboard. There is no need to respond."
+        }
+      ]
+    },
+    {
+      "id": "41158834f99a69b54a984014eadabdd6",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the duration and the minimum age for the glassblowing session. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ]
+    },
+    {
+      "id": "a03847878e7dba56440083476b846269",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Is that arrangement for the lantern festival still happening? Please tell me whether it is going ahead."
+        }
+      ]
+    },
+    {
+      "id": "58ee0f493a7bd5d3ce2799ba4786ada1",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated notice for your language tutoring account: you are required to approve your placement result by November 3 at noon. This requirement applies to you personally."
+        }
+      ]
+    },
+    {
+      "id": "6e16f2d6b237047bec8c9a14cf17b69c",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which entrance will the curling teams use today?"
+        }
+      ]
+    },
+    {
+      "id": "18af82d9ccced1514d9a574b3830c8a4",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated notice for your birdwatching membership account: you are required to renew your individual permit by November 3 at noon. This requirement applies to you personally."
+        }
+      ]
+    },
+    {
+      "id": "392906aab576b68ba4a7936b20ba370e",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What flavor should the wedding macarons be?"
+        },
+        {
+          "outbound": true,
+          "body": "Make both the shells and filling raspberry."
+        }
+      ]
+    },
+    {
+      "id": "828d893074155aeea4b0997fa0ce74e1",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I will pack the field microscope in its case. I decided to take care of this myself."
+        }
+      ]
+    },
+    {
+      "id": "4f4b63113823715c4187fa0462885e4e",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the next practice time for the fencing club? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Our plans changed, so I no longer need that detail. Please disregard my earlier request entirely."
+        }
+      ]
+    },
+    {
+      "id": "ae1753e7aeff0af551d5d618a07f3ecd",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Where should we meet for the fossil walk?"
+        },
+        {
+          "outbound": false,
+          "body": "I have seen your question and will answer it after checking my notes."
+        }
+      ]
+    },
+    {
+      "id": "b217461302e5d5d44daed3dd8166ea2e",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which ferry terminal should our cycling group use?"
+        },
+        {
+          "outbound": false,
+          "body": "I have seen your question and will answer it after checking my notes."
+        }
+      ]
+    },
+    {
+      "id": "f8905a3e3c7de12abf1d69593f942f8a",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated tent cleaning notification: your cleaning receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automated account notice: you personally must approve the pending tent pickup authorization in your account by October 14 at 5 p.m. or it will lapse."
+        }
+      ]
+    },
+    {
+      "id": "4a125757612e3a9d27644c39621d9fa8",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I will carry the seedling trays to the greenhouse. I decided to take care of this myself."
+        }
+      ]
+    },
+    {
+      "id": "f4e86883dfe434e83b0c99e2340a5039",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated bike locker rental notification: your locker receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automated account notice: you personally must approve the pending locker renewal in your account by October 14 at 5 p.m. or it will lapse."
+        }
+      ]
+    },
+    {
+      "id": "042af5d9a22490b3f1d026ad2363bc84",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "How many frames should the animation loop contain?"
+        },
+        {
+          "outbound": true,
+          "body": "The studio has replaced the kettle."
+        }
+      ]
+    },
+    {
+      "id": "8c14399472b0609ebc2ce08d0e21def5",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is that arrangement for the terrarium exchange still happening? Please tell me whether it is going ahead."
+        }
+      ]
+    },
+    {
+      "id": "ca58f4aa44ebb056f0d96ea8467aadca",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What time does the submarine museum tour finish?"
+        },
+        {
+          "outbound": true,
+          "body": "Do you mean the guided visit or the audio tour?"
+        }
+      ]
+    },
+    {
+      "id": "66155c1bd1d7495b866e9bce6019f77e",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the next practice time for the fencing club? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Cancel that question; I found the answer on the noticeboard. There is no need to respond."
+        }
+      ]
+    },
+    {
+      "id": "63396a136d8037a6b9fc5746d6234c6a",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the departure time for the snowshoe trip? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Our plans changed, so I no longer need that detail. Please disregard my earlier request entirely."
+        }
+      ]
+    },
+    {
+      "id": "5a29548367017c39e09905929cecf5f3",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which case fits the field microscope properly?"
+        }
+      ]
+    },
+    {
+      "id": "fda1e700b739c2d54c4f979a3c382094",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please sweep the curling rink entrance before opening. This is the only job I need help with today."
+        }
+      ]
+    },
+    {
+      "id": "774d6288dbce07d69ad40f6f6a598acd",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the boat name and the boarding time for the lighthouse visit. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "The boat is named Swift Tern."
+        }
+      ]
+    },
+    {
+      "id": "cdddccfabe04cc71a6c89dc81903163a",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated piano storage notification: your storage payment receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automated account notice: you personally must approve the pending storage renewal in your account by October 14 at 5 p.m. or it will lapse."
+        }
+      ]
+    },
+    {
+      "id": "9fd48bf0e6b7ff8ccebbf8c1782c7cfc",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated puzzle subscription notification: your subscription receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automated record update: your subscription receipt has been archived successfully. No action is required from you."
+        }
+      ]
+    },
+    {
+      "id": "42a81f2590c50f87faaabeea369e1101",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the cheese count and the session length for the cheese tasting. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ]
+    },
+    {
+      "id": "2ebd06cf79311dcb15d4646f01c108e1",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated subscription digest: news about the canoe carving demonstration and other local attractions is now online. Read whenever you like; no response is needed."
+        }
+      ]
+    },
+    {
+      "id": "a12ee84c2c0f4444962f6788ea31edd7",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated film developing notification: your processing receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automated record update: your processing receipt has been archived successfully. No action is required from you."
+        }
+      ]
+    },
+    {
+      "id": "61144945e72a324d632fb6feb65e7e0d",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated subscription digest: news about the wildflower census and other local attractions is now online. Read whenever you like; no response is needed."
+        }
+      ]
+    },
+    {
+      "id": "5aa10375d6defc94a23afa30dba783b4",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which lecture title goes on the mycology poster?"
+        },
+        {
+          "outbound": true,
+          "body": "I have seen your question and will answer it after checking my notes."
+        }
+      ]
+    },
+    {
+      "id": "68278aa6d89d0eaafea760173fbfa3d3",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Could you confirm the spelling for the calligraphy certificate?"
+        },
+        {
+          "outbound": true,
+          "body": "Do you need the full name or just the surname?"
+        }
+      ]
+    },
+    {
+      "id": "c8bccec530037ce2174a5e918b82c7ca",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "What is the water depth for the model boat pond?"
+        },
+        {
+          "outbound": false,
+          "body": "The park benches have new plaques."
+        }
+      ]
+    },
+    {
+      "id": "111451861dd5792893e1650a380de45f",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the delivery estimate for the stained glass commission? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Just keeping my question here so it does not get lost. I still need that information."
+        }
+      ]
+    },
+    {
+      "id": "05e369994c833fab0aab5d043455c53b",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "How often should the rooftop moss garden be watered?"
+        }
+      ]
+    },
+    {
+      "id": "d31db85a5802fba311af6a14bd1e7746",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "That arrangement with the lanterns again; someone was supposed to handle it."
+        }
+      ]
+    },
+    {
+      "id": "982b6bec9211903dedd2e065c90c5117",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please confirm the lens diameter for the telescope adapter."
+        },
+        {
+          "outbound": false,
+          "body": "The required barrel diameter is fifty millimeters."
+        }
+      ]
+    },
+    {
+      "id": "c3690e97fc9000f29d6439972c332db2",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you please recharge the metal detector batteries tonight? Let me know once the work is finished."
+        }
+      ]
+    },
+    {
+      "id": "9a79ece2e521ed5822f71380d3cc2f6a",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated rehearsal booth rental notification: your booth receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automated record update: your booth receipt has been archived successfully. No action is required from you."
+        }
+      ]
+    },
+    {
+      "id": "879ded1dcacaa0638ce05ded8dc0fb54",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The sandcastle exhibition situation again, with the old arrangement mentioned but nothing definite."
+        }
+      ]
+    },
+    {
+      "id": "18038c5b2c21d6d063d1e4d66f0eb84f",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the room number and the materials fee for the bookbinding course. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "The room is number eight."
+        }
+      ]
+    },
+    {
+      "id": "4deb9082639a195d92bdd040158dd5bf",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated skate sharpening notification: your sharpening receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automated record update: your sharpening receipt has been archived successfully. No action is required from you."
+        }
+      ]
+    },
+    {
+      "id": "e9964e028d41f613267883fe0629ca2b",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated rehearsal booth rental notification: your booth receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automatic reminder: you can download your booth receipt whenever convenient. This is for your records only."
+        }
+      ]
+    },
+    {
+      "id": "fb2b0677c331b0ecf5b63cc00f805e5c",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated notice for your embroidery supplies account: you are required to confirm the delivery address by November 3 at noon. This requirement applies to you personally."
+        }
+      ]
+    },
+    {
+      "id": "d4c3cbf72418d2fdd1e546d97bcc2154",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the panel count and the panel width for the ceramic mural. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ]
+    },
+    {
+      "id": "fa92b3cd417371585def0849d162274f",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the boat name and the boarding time for the lighthouse visit. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "The boat is named Swift Tern. Boarding starts at eleven in the morning."
+        }
+      ]
+    },
+    {
+      "id": "afa3cd1775df93ff2a046f3879e53b56",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the registration cost for the alpaca show? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Our plans changed, so I no longer need that detail. Please disregard my earlier request entirely."
+        }
+      ]
+    },
+    {
+      "id": "d1bc514d72bf82a91dd73125de476ede",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which lecture title goes on the mycology poster?"
+        },
+        {
+          "outbound": true,
+          "body": "Use the title Fungi Beneath Our Feet."
+        }
+      ]
+    },
+    {
+      "id": "7bade36723da141d45f690843cf2d0f6",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the cheese count and the session length for the cheese tasting. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ]
+    },
+    {
+      "id": "3e773a3c39d31bc50bae2541928f8d76",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automatic scuba cylinder testing update: your test receipt record is now available. No action or reply is needed."
+        }
+      ]
+    },
+    {
+      "id": "1fcfbf394a5b76009d6bc5667c93598a",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Where should the archery targets go after practice?"
+        }
+      ]
+    },
+    {
+      "id": "49db1739e100ba41bee6640d3d430e85",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated film developing notification: your processing receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "A personal note from Ellis at the desk: I checked your processing receipt myself and corrected the spelling of your name. Nothing further is needed."
+        }
+      ]
+    },
+    {
+      "id": "9a975833e9011d5de442a402e40a5397",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I will move the archery targets into the shed. I decided to take care of this myself."
+        }
+      ]
+    },
+    {
+      "id": "470c19c3e22a7be30e1ce2956ecc28be",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the departure time for the snowshoe trip? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for reading this when you have a moment. The question above is still open."
+        }
+      ]
+    },
+    {
+      "id": "b94b5918871dafa0de562d23f08efd8f",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is that arrangement for the sandcastle exhibition still happening? Please tell me whether it is going ahead."
+        }
+      ]
+    },
+    {
+      "id": "635c34d1f6d5fa263e86be60b8a69325",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "A quick personal note from Morgan: I checked the model railway parts paperwork and the amount is correct. I thought you would like to know; nothing is needed from you."
+        }
+      ]
+    },
+    {
+      "id": "5b1d22de310b64732e079f484153e2b0",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Is that arrangement for the sandcastle exhibition still happening? Please tell me whether it is going ahead."
+        }
+      ]
+    },
+    {
+      "id": "5fbe2d160256d7eba1998ec6556a8c21",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will mend the theater costumes tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": false,
+          "body": "Thank you for offering to do that. I appreciate the help very much."
+        }
+      ]
+    },
+    {
+      "id": "7644518abdea2ac6c2ec566a000c50d2",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will mend the theater costumes tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": false,
+          "body": "That sounds good to me, and I have noted your plan in my notebook."
+        }
+      ]
+    },
+    {
+      "id": "f539693f417b58eba92f3f1371ebae36",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the frequency band and the antenna length for the radio workshop. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "The frequency band is two meters."
+        }
+      ]
+    },
+    {
+      "id": "09dcf9e2f4f0f2a1a1425f2d38dafd64",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Is that arrangement for the historic organ visit still happening? Please tell me whether it is going ahead."
+        }
+      ]
+    },
+    {
+      "id": "86a67093633c2c0be751ed8db27e66cb",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated sailing berth rental notification: your berth receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automated record update: your berth receipt has been archived successfully. No action is required from you."
+        }
+      ]
+    },
+    {
+      "id": "42288691e506e1965423f1162c48357c",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the studio number and the start time for the dance rehearsal. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ]
+    },
+    {
+      "id": "c931b11b61051d4f28a5f91fbb1a5667",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I will stack the juggling mats beside the stage. I decided to take care of this myself."
+        }
+      ]
+    },
+    {
+      "id": "a0052e4eff2350664e02b627e0525eab",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you please unlock the squash court before practice? Let me know once the work is finished."
+        }
+      ]
+    },
+    {
+      "id": "0431960dee4ab4a5c3bd2422638680f4",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which edition should our astronomy club order?"
+        },
+        {
+          "outbound": false,
+          "body": "Is this for beginners or the advanced observing group?"
+        }
+      ]
+    },
+    {
+      "id": "74209e27c5d762c195aabb164847bc7b",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated bike locker rental notification: your locker receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automatic reminder: you can download your locker receipt whenever convenient. This is for your records only."
+        }
+      ]
+    },
+    {
+      "id": "f99c86a90830d4c9c2d502f619896dcf",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you please water the rooftop moss garden before noon? Let me know once the work is finished."
+        }
+      ]
+    },
+    {
+      "id": "dcbb79872a531ed192aa435ee6f5a81b",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "A quick personal note from Morgan: I checked the birdwatching membership paperwork and the amount is correct. I thought you would like to know; nothing is needed from you."
+        }
+      ]
+    },
+    {
+      "id": "7708ba3f7db99c893e04e8d4629abb29",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the starting time and the ticket price for the falconry demonstration. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "The demonstration starts at ten."
+        }
+      ]
+    },
+    {
+      "id": "72e65aa761fe0078229490642aaabf74",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will repair the croquet hoops tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": false,
+          "body": "Thank you for offering to do that. I appreciate the help very much."
+        }
+      ]
+    },
+    {
+      "id": "7d81aefb03e2720b4fadfef55e08f42e",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated subscription digest: news about the lantern festival and other local attractions is now online. Read whenever you like; no response is needed."
+        }
+      ]
+    },
+    {
+      "id": "02320d68d3293b0ba72134f26ec9571c",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the paper weight and the sheet count for the printmaking order. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ]
+    },
+    {
+      "id": "eb43006881504e6f86fc7c8bda031664",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which orchard row needs the soil sample?"
+        },
+        {
+          "outbound": false,
+          "body": "Take the sample from row seven."
+        }
+      ]
+    },
+    {
+      "id": "873f466356a2b0b9fbd77700ae73d317",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated sailing berth rental notification: your berth receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automated account notice: you personally must approve the pending berth renewal in your account by October 14 at 5 p.m. or it will lapse."
+        }
+      ]
+    },
+    {
+      "id": "506fad455f8e67f8525ac666a1ff3a65",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please confirm the lens diameter for the telescope adapter."
+        },
+        {
+          "outbound": false,
+          "body": "The observatory roof was washed yesterday."
+        }
+      ]
+    },
+    {
+      "id": "13fe09981eefb6eb226ec58ef3dc49cc",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The birdwatching membership newsletter is here. Our seasonal sale ends Friday; browse the newest selection while these special offers last."
+        }
+      ]
+    },
+    {
+      "id": "e499448358632f30240b3fadb05e9c3d",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated notice for your kombucha cultures account: you are required to verify your delivery details by November 3 at noon. This requirement applies to you personally."
+        }
+      ]
+    },
+    {
+      "id": "0d025b142426c0d57bc3c0ccafc7ad14",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which orchard row needs the soil sample?"
+        },
+        {
+          "outbound": false,
+          "body": "Are you referring to apples or pears?"
+        }
+      ]
+    },
+    {
+      "id": "d2858bfec7e1ed7955b841717fd684bc",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please move the archery targets into the shed. This is the only job I need help with today."
+        }
+      ]
+    },
+    {
+      "id": "20cda79c24dbb5c492f2982c4897c002",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated notice for your watercolor prints account: you are required to approve your print proof by November 3 at noon. This requirement applies to you personally."
+        }
+      ]
+    },
+    {
+      "id": "90de669dc384b7b60a703ada814baab2",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is that arrangement for the wildflower census still happening? Please tell me whether it is going ahead."
+        }
+      ]
+    },
+    {
+      "id": "3a00ef1b2f349f786a0e5782aae1ce28",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the round count and the entry cost for the chess tournament. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ]
+    },
+    {
+      "id": "df85aa24dd20b238ef461859db90a06e",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "A quick personal note from Morgan: I checked the kombucha cultures paperwork and the amount is correct. I thought you would like to know; nothing is needed from you."
+        }
+      ]
+    },
+    {
+      "id": "fec1bf4980baa140ac6260c93d0c0998",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "A quick personal note from Morgan: I checked the scuba cylinder testing paperwork and the amount is correct. I thought you would like to know; nothing is needed from you."
+        }
+      ]
+    },
+    {
+      "id": "c7506c46d5fbeb9be1ffb07fabcee86f",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the starting time and the ticket price for the falconry demonstration. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ]
+    },
+    {
+      "id": "7121fc1728e48eea92d762a24e31fa43",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will clean the aquarium filter tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": true,
+          "body": "The aquarium filter is clean and running again."
+        }
+      ]
+    },
+    {
+      "id": "e9739d73486d8b979b8654530b6395d1",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the required needle size for the leatherworking class? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Cancel that question; I found the answer on the noticeboard. There is no need to respond."
+        }
+      ]
+    },
+    {
+      "id": "36a447d7f3245bab9c643d443630b8fb",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated puzzle subscription notification: your subscription receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automatic reminder: you can download your subscription receipt whenever convenient. This is for your records only."
+        }
+      ]
+    },
+    {
+      "id": "8e7307676bf24ea3834b2a00fc9f4514",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please confirm the lens diameter for the telescope adapter."
+        },
+        {
+          "outbound": false,
+          "body": "Are you measuring the barrel or the optical glass?"
+        }
+      ]
+    },
+    {
+      "id": "0009fbc8b9119f727ab0a47b2c75f22a",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated subscription digest: news about the tap dancing recital and other local attractions is now online. Read whenever you like; no response is needed."
+        }
+      ]
+    },
+    {
+      "id": "bcaa29154566ccbab9e9935d6179560c",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the required needle size for the leatherworking class? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Our plans changed, so I no longer need that detail. Please disregard my earlier request entirely."
+        }
+      ]
+    },
+    {
+      "id": "8624f833ecdb74bc2d47d2fd9ce939a9",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please let me know the correct gate for the sheep delivery."
+        },
+        {
+          "outbound": true,
+          "body": "Use the west gate for the delivery."
+        }
+      ]
+    },
+    {
+      "id": "27c02ca60a9abe4ae74f0ce95b0949f0",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the track count and the file format for the choir recording. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "There are fourteen tracks in total."
+        }
+      ]
+    },
+    {
+      "id": "d8e0bb043f72ad0911ad353ed0b8d6d5",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the reading room hours for the local history archive? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Just keeping my question here so it does not get lost. I still need that information."
+        }
+      ]
+    },
+    {
+      "id": "17e3daf5be63388ebcf408402a409ad2",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automatic watercolor prints update: your purchase confirmation record is now available. No action or reply is needed."
+        }
+      ]
+    },
+    {
+      "id": "4993cac4cd20d032d7410f910ce3bee2",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the boat name and the boarding time for the lighthouse visit. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ]
+    },
+    {
+      "id": "dd1c84d1e299fc3080f6974ea60367a0",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Is that arrangement for the tap dancing recital still happening? Please tell me whether it is going ahead."
+        }
+      ]
+    },
+    {
+      "id": "90a449ee04f206aaf18dd3d9083ffa03",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will refinish the harpsichord bench tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": false,
+          "body": "That sounds good to me, and I have noted your plan in my notebook."
+        }
+      ]
+    },
+    {
+      "id": "a990ad5123046d5a113023ff08e3cef2",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the panel count and the panel width for the ceramic mural. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ]
+    },
+    {
+      "id": "a7fb786c1a46d9eb181617db73a93423",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automatic language tutoring update: your lesson booking record is now available. No action or reply is needed."
+        }
+      ]
+    },
+    {
+      "id": "139a37b7f3c148f8ca242c148760aa75",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The watercolor prints newsletter is here. Our seasonal sale ends Friday; browse the newest selection while these special offers last."
+        }
+      ]
+    },
+    {
+      "id": "73b6c575f1150960f8e2a7ec98db8373",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I will wash the dog agility tunnel this afternoon. I decided to take care of this myself."
+        }
+      ]
+    },
+    {
+      "id": "e949e093aab786ff7fd93c99a65af799",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is that arrangement for the historic organ visit still happening? Please tell me whether it is going ahead."
+        }
+      ]
+    },
+    {
+      "id": "eb7a42308131499c52ceb36dd8816dc1",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated film developing notification: your processing receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automated account notice: you personally must approve the pending negative retention choice in your account by October 14 at 5 p.m. or it will lapse."
+        }
+      ]
+    },
+    {
+      "id": "95c1c78cfc31250ace6fe430be6431b6",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the preferred tuning for the dulcimer."
+        },
+        {
+          "outbound": true,
+          "body": "Is this for the ballad or the dance set?"
+        }
+      ]
+    },
+    {
+      "id": "3b7084847f4ed40abf689cc7e4804c57",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated rehearsal booth rental notification: your booth receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "A personal note from Ellis at the desk: I checked your booth receipt myself and corrected the spelling of your name. Nothing further is needed."
+        }
+      ]
+    },
+    {
+      "id": "5f0040f6cfd0f725c129761065c44b70",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automatic silversmithing tools update: your order confirmation record is now available. No action or reply is needed."
+        }
+      ]
+    },
+    {
+      "id": "7981cc5737fa5ceb6991f58e8fac1fd3",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the required needle size for the leatherworking class? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Just keeping my question here so it does not get lost. I still need that information."
+        }
+      ]
+    },
+    {
+      "id": "110bf8ff8d28f909e71cad359136bde5",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the delivery estimate for the stained glass commission? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Our plans changed, so I no longer need that detail. Please disregard my earlier request entirely."
+        }
+      ]
+    },
+    {
+      "id": "f3de1afc919122c86bfc49fedd354321",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the replacement part number and the quoted cost for the watch repair. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "The replacement part number is W32. The quoted cost is eighty dollars."
+        }
+      ]
+    },
+    {
+      "id": "494aacdda1e36e5e40f8297c73b01b5a",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Is that arrangement for the kite making picnic still happening? Please tell me whether it is going ahead."
+        }
+      ]
+    },
+    {
+      "id": "402cb41501d4b2395a9ca615eaa63218",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated piano storage notification: your storage payment receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automated record update: your storage payment receipt has been archived successfully. No action is required from you."
+        }
+      ]
+    },
+    {
+      "id": "5b1f95c98c95c3773276096967b1f0c8",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Could you confirm the spelling for the calligraphy certificate?"
+        },
+        {
+          "outbound": true,
+          "body": "I have seen your question and will answer it after checking my notes."
+        }
+      ]
+    },
+    {
+      "id": "2f38e1ad4d3800c38896da615bcac5f6",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automatic birdwatching membership update: your membership payment record is now available. No action or reply is needed."
+        }
+      ]
+    },
+    {
+      "id": "355e2fe9f57ce3244ad90a1efde51dc0",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the room number and the materials fee for the bookbinding course. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "The room is number eight. The materials fee is thirty dollars."
+        }
+      ]
+    },
+    {
+      "id": "112630fe53f3c641b2eb98d25e7510b2",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will label the herbarium sheets tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": false,
+          "body": "Thank you for offering to do that. I appreciate the help very much."
+        }
+      ]
+    },
+    {
+      "id": "fc19e5def193d7ce528197a364a53585",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you confirm the patch color for our rowing crew?"
+        },
+        {
+          "outbound": false,
+          "body": "The patch color is dark blue."
+        }
+      ]
+    },
+    {
+      "id": "56e405d35dd30ea44aca22a9b5116050",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "A quick personal note from Morgan: I checked the silversmithing tools paperwork and the amount is correct. I thought you would like to know; nothing is needed from you."
+        }
+      ]
+    },
+    {
+      "id": "f16c7ed34de0da6bd0b9e32c578e050e",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you tell me the mesh size for the shrimp net?"
+        },
+        {
+          "outbound": true,
+          "body": "The dock railings were painted white."
+        }
+      ]
+    },
+    {
+      "id": "e8eec8a54d1b4ef1a5458d6f0f8407db",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "For the kiln booking, which firing temperature should we use?"
+        },
+        {
+          "outbound": false,
+          "body": "Use 1220 degrees for this firing."
+        }
+      ]
+    },
+    {
+      "id": "396f088cff7b0417b4f8283d25c35f43",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the paper weight and the sheet count for the printmaking order. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "The paper is three hundred grams per square meter."
+        }
+      ]
+    },
+    {
+      "id": "6d37a1a8e31851c9d743e065734fdbfe",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the reading room hours for the local history archive? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Our plans changed, so I no longer need that detail. Please disregard my earlier request entirely."
+        }
+      ]
+    },
+    {
+      "id": "3c5321b5cd650d952a3080174212d15c",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the route number for the cable car."
+        },
+        {
+          "outbound": false,
+          "body": "Are you traveling uphill or back downtown?"
+        }
+      ]
+    },
+    {
+      "id": "f35433c71fa29ce51a88a6886604a4a6",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Is that arrangement for the terrarium exchange still happening? Please tell me whether it is going ahead."
+        }
+      ]
+    },
+    {
+      "id": "175454f58a92156bdd5325a36ee695cc",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the round count and the entry cost for the chess tournament. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "There are six rounds scheduled."
+        }
+      ]
+    },
+    {
+      "id": "305a4fee9f512b6487f4890e1bfd128e",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is that arrangement for the geology field trip still happening? Please tell me whether it is going ahead."
+        }
+      ]
+    },
+    {
+      "id": "8481c70f31a341bc85831fb3192fbfb4",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the projector model for the planetarium? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Our plans changed, so I no longer need that detail. Please disregard my earlier request entirely."
+        }
+      ]
+    },
+    {
+      "id": "7af817559fe7de382d52d40ec4a94bfb",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will catalog the antique postcards tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": true,
+          "body": "The antique postcards are cataloged in the binder."
+        }
+      ]
+    },
+    {
+      "id": "e786561f2ad112984b04301123ecc14f",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please let me know the correct gate for the sheep delivery."
+        },
+        {
+          "outbound": true,
+          "body": "I have seen your question and will answer it after checking my notes."
+        }
+      ]
+    },
+    {
+      "id": "f738ac95fb4e0ebd8737d0e04039b455",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the delivery estimate for the stained glass commission? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for reading this when you have a moment. The question above is still open."
+        }
+      ]
+    },
+    {
+      "id": "f57839d593a229a17f45c5a485cfb699",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the meeting point and the radio channel for the cave survey. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ]
+    },
+    {
+      "id": "fb8b6b1545d33dbd632ceeef1c5af8b0",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the frequency band and the antenna length for the radio workshop. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ]
+    },
+    {
+      "id": "bb1acc92be9b823f3c651280edfc6e98",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which edition should our astronomy club order?"
+        },
+        {
+          "outbound": false,
+          "body": "Order the fourth edition for the club."
+        }
+      ]
+    },
+    {
+      "id": "809be90313217a89f7f7de639b82187e",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the replacement part number and the quoted cost for the watch repair. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ]
+    },
+    {
+      "id": "6f1e365326c768583691696c179df0cd",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the replacement part number and the quoted cost for the watch repair. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "The replacement part number is W32."
+        }
+      ]
+    },
+    {
+      "id": "0e6161e4b9ee8eb64a3859124db0a7f6",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The kombucha cultures newsletter is here. Our seasonal sale ends Friday; browse the newest selection while these special offers last."
+        }
+      ]
+    },
+    {
+      "id": "6a706fc8af43d9eceb5cc317d1d80a1d",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you tell me when the beehive inspection starts?"
+        },
+        {
+          "outbound": true,
+          "body": "Are you asking about Saturday or Sunday?"
+        }
+      ]
+    },
+    {
+      "id": "24ea49ab48b0de9e3ceade3a9315d79d",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will catalog the antique postcards tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": false,
+          "body": "Thank you for offering to do that. I appreciate the help very much."
+        }
+      ]
+    },
+    {
+      "id": "2f69e8997c3254294d8ba48072b3884a",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The organ visit arrangement, as before; whose part that was is anyone\u2019s guess."
+        }
+      ]
+    },
+    {
+      "id": "3b4f86d1c0df7964efd6376d02664f79",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the team check-in location for the dragon boat race? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Just keeping my question here so it does not get lost. I still need that information."
+        }
+      ]
+    },
+    {
+      "id": "570ed05f1a8b2b7cb9d30431953da54e",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Is that arrangement for the bell ringing practice still happening? Please tell me whether it is going ahead."
+        }
+      ]
+    },
+    {
+      "id": "f880cabefc278ab7652fe3d3784f20bb",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the projector model for the planetarium? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for reading this when you have a moment. The question above is still open."
+        }
+      ]
+    },
+    {
+      "id": "940ed3095d623966a9ceaa291977f8a3",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automatic sourdough workshop update: your registration receipt record is now available. No action or reply is needed."
+        }
+      ]
+    },
+    {
+      "id": "833369ad851439d83b7edeb5dee979fa",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the stall dimensions for the pottery market? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for reading this when you have a moment. The question above is still open."
+        }
+      ]
+    },
+    {
+      "id": "52e3f59bc3a9ec747595860ea621701d",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the room number and the materials fee for the bookbinding course. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ]
+    },
+    {
+      "id": "3eea1cf2b88c95ce8661810a7ad2548c",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which ferry terminal should our cycling group use?"
+        },
+        {
+          "outbound": false,
+          "body": "Is this for departure or the return journey?"
+        }
+      ]
+    },
+    {
+      "id": "48e4930dfcb068c3ea3ae6327ed4515c",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the instructor name and the class capacity for the bonsai clinic. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "The instructor is named Rowan Hale."
+        }
+      ]
+    },
+    {
+      "id": "9f44a7b59fd1804cfb849024db59be1e",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the loom type and the arrival time for the weaving retreat. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ]
+    },
+    {
+      "id": "c4fe4a06e432dcfe9f0455c40288f4c1",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is that arrangement for the bell ringing practice still happening? Please tell me whether it is going ahead."
+        }
+      ]
+    },
+    {
+      "id": "de68e432ef2aaab25e096cff518e3294",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is that arrangement for the canoe carving demonstration still happening? Please tell me whether it is going ahead."
+        }
+      ]
+    },
+    {
+      "id": "34cb5d1eddc7562c143a8e231f5c9c91",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the preferred tuning for the dulcimer."
+        },
+        {
+          "outbound": true,
+          "body": "I have seen your question and will answer it after checking my notes."
+        }
+      ]
+    },
+    {
+      "id": "f883340c183d5147d2f1d3e971b815ca",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated sewing machine service notification: your service receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automatic reminder: you can download your service receipt whenever convenient. This is for your records only."
+        }
+      ]
+    },
+    {
+      "id": "5cae27dd3d6ff9186f8d82b6346d18ee",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated piano storage notification: your storage payment receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "A personal note from Ellis at the desk: I checked your storage payment receipt myself and corrected the spelling of your name. Nothing further is needed."
+        }
+      ]
+    },
+    {
+      "id": "6ab27e08fa9414cc915c2cf5a0563823",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated film developing notification: your processing receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automatic reminder: you can download your processing receipt whenever convenient. This is for your records only."
+        }
+      ]
+    },
+    {
+      "id": "8a852c4927fb137e92dc94627b3ef7d4",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will catalog the antique postcards tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": true,
+          "body": "I am withdrawing that offer; I will not be doing the work after all. Please consider my promise canceled."
+        }
+      ]
+    },
+    {
+      "id": "0a6203b89dd863df54ecf3939f4f4178",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which ferry terminal should our cycling group use?"
+        },
+        {
+          "outbound": false,
+          "body": "The bicycle shop moved its front desk."
+        }
+      ]
+    },
+    {
+      "id": "1c52c801ba0fd45a7ec135c934fa4947",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will clean the aquarium filter tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": false,
+          "body": "That sounds good to me, and I have noted your plan in my notebook."
+        }
+      ]
+    },
+    {
+      "id": "0ebbe7f5079fc9a7d03632300e42a45a",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated subscription digest: news about the sandcastle exhibition and other local attractions is now online. Read whenever you like; no response is needed."
+        }
+      ]
+    },
+    {
+      "id": "96ddddcbdb7ceca95453c4c90bb90cff",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the section length and the crew size for the trail restoration. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "The section is two hundred meters long. There are eight people in the crew."
+        }
+      ]
+    },
+    {
+      "id": "f5a18a09d8764e5dd22cfb3685de8c26",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated notice for your sourdough workshop account: you are required to complete your personal registration by November 3 at noon. This requirement applies to you personally."
+        }
+      ]
+    },
+    {
+      "id": "56d8755d50c2b6aaeed4eb1debeed3a9",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will restore the weather vane tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": false,
+          "body": "That sounds good to me, and I have noted your plan in my notebook."
+        }
+      ]
+    },
+    {
+      "id": "400b70470fcebb95dbac663c20508fc0",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which orchard row needs the soil sample?"
+        },
+        {
+          "outbound": false,
+          "body": "I have seen your question and will answer it after checking my notes."
+        }
+      ]
+    },
+    {
+      "id": "22a388b43317dd45d15e729f76cab5a1",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will restore the weather vane tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": true,
+          "body": "The weather vane is restored and back on the roof."
+        }
+      ]
+    },
+    {
+      "id": "2643ae7dc0ec5dd24eb73a11b1bc7ea3",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will oil the community spinning wheel tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": false,
+          "body": "Thank you for offering to do that. I appreciate the help very much."
+        }
+      ]
+    },
+    {
+      "id": "8d59a126c598aafb822449cb24be4708",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please confirm the lens diameter for the telescope adapter."
+        },
+        {
+          "outbound": false,
+          "body": "I have seen your question and will answer it after checking my notes."
+        }
+      ]
+    },
+    {
+      "id": "82f2ec5636a81011fd81ac8da0004a3e",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the studio number and the start time for the dance rehearsal. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ]
+    },
+    {
+      "id": "2d5d1e7126f5df1066e8534d92a7c86f",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the section length and the crew size for the trail restoration. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "The section is two hundred meters long."
+        }
+      ]
+    },
+    {
+      "id": "e9f775228e425375a1c7176487314bd2",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The woodturning equipment newsletter is here. Our seasonal sale ends Friday; browse the newest selection while these special offers last."
+        }
+      ]
+    },
+    {
+      "id": "7e1e59cd91e48eb72b31ea4104331f10",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will repair the croquet hoops tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": true,
+          "body": "I am withdrawing that offer; I will not be doing the work after all. Please consider my promise canceled."
+        }
+      ]
+    },
+    {
+      "id": "9cb5a917894f5de9999f92b097bebae8",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will restore the weather vane tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": false,
+          "body": "Thank you for offering to do that. I appreciate the help very much."
+        }
+      ]
+    },
+    {
+      "id": "a80b8fb6b7d36598bc042fe5f5b5a5bd",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What time does the submarine museum tour finish?"
+        },
+        {
+          "outbound": true,
+          "body": "I have seen your question and will answer it after checking my notes."
+        }
+      ]
+    },
+    {
+      "id": "13ed4b6f279028fe6255faccce01ad42",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "What size should the climbing wall holds be?"
+        },
+        {
+          "outbound": false,
+          "body": "I have seen your question and will answer it after checking my notes."
+        }
+      ]
+    },
+    {
+      "id": "e866dec290a2a6bd16ca4a01f27d5dae",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will repair the croquet hoops tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": false,
+          "body": "That sounds good to me, and I have noted your plan in my notebook."
+        }
+      ]
+    },
+    {
+      "id": "16dee3bb9db92e93adbd3fb7dd0d9d2c",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the cabinet number and the opening date for the mineral exhibit. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ]
+    },
+    {
+      "id": "ee44bf99f351110d3942bed035200256",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the bag count and the delivery date for the charcoal delivery. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ]
+    },
+    {
+      "id": "de69cc539d4cea3372241006fd005400",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "For the kiln booking, which firing temperature should we use?"
+        },
+        {
+          "outbound": false,
+          "body": "Do you mean the porcelain batch or the stoneware batch?"
+        }
+      ]
+    },
+    {
+      "id": "2484f53f54c2a2f7ceefcb2b65b68fc0",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the frequency band and the antenna length for the radio workshop. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "The frequency band is two meters. The antenna length is fifty centimeters."
+        }
+      ]
+    },
+    {
+      "id": "9abfd6b3758847b03bdb979f72f10d96",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated dog grooming notification: your grooming receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automated record update: your grooming receipt has been archived successfully. No action is required from you."
+        }
+      ]
+    },
+    {
+      "id": "76c6eaad121af767707887bf52142104",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "A quick personal note from Morgan: I checked the woodturning equipment paperwork and the amount is correct. I thought you would like to know; nothing is needed from you."
+        }
+      ]
+    },
+    {
+      "id": "406326b6919f7cd8b600398903080b6f",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated dog grooming notification: your grooming receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automated account notice: you personally must approve the pending boarding consent in your account by October 14 at 5 p.m. or it will lapse."
+        }
+      ]
+    },
+    {
+      "id": "0e4429026c7dd7978dc22b15f2903f4c",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you please carry the seedling trays to the greenhouse? Let me know once the work is finished."
+        }
+      ]
+    },
+    {
+      "id": "06c4081127d58d28c3e613a93be389bb",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I will sweep the curling rink entrance before opening. I decided to take care of this myself."
+        }
+      ]
+    },
+    {
+      "id": "038e885de6ade2cd163b0de2b99dbabe",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The transport situation for the rock collecting trip is back on the table somehow."
+        }
+      ]
+    },
+    {
+      "id": "8e4ed24e1aa23be4a325f0b041fe080a",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the projector model for the planetarium? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Just keeping my question here so it does not get lost. I still need that information."
+        }
+      ]
+    },
+    {
+      "id": "997e67198d315fd97803beaa7d675e04",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The wildflower survey arrangement is hanging around, but the ownership seems muddled."
+        }
+      ]
+    },
+    {
+      "id": "88bc6a6b701158809f2d5eed3df007ef",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you tell me the mesh size for the shrimp net?"
+        },
+        {
+          "outbound": true,
+          "body": "Is the net intended for juveniles or adults?"
+        }
+      ]
+    },
+    {
+      "id": "07b7d807b1efafb2b5658f50bdc82658",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the duration and the minimum age for the glassblowing session. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "The session lasts ninety minutes."
+        }
+      ]
+    },
+    {
+      "id": "d5e62b5ac59d66b97f7c3de80ac7265f",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the track count and the file format for the choir recording. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ]
+    },
+    {
+      "id": "4f38da3ca1fef40d9202c03d731d38b0",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated notice for your model railway parts account: you are required to approve the substituted part by November 3 at noon. This requirement applies to you personally."
+        }
+      ]
+    },
+    {
+      "id": "76afad0da640ba497783955d6bba50e9",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated subscription digest: news about the historic organ visit and other local attractions is now online. Read whenever you like; no response is needed."
+        }
+      ]
+    },
+    {
+      "id": "85e5a5e1bc1d66b14165cafd56a9934d",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the loom type and the arrival time for the weaving retreat. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "We use rigid heddle looms. Arrival is at four on Friday."
+        }
+      ]
+    },
+    {
+      "id": "c2b728c24902f9ead8e64e6adb9d8c7d",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automatic woodturning equipment update: your order processing record is now available. No action or reply is needed."
+        }
+      ]
+    },
+    {
+      "id": "e009ca77fd0fad79dc0f2cda91a9a61f",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you tell me when the beehive inspection starts?"
+        },
+        {
+          "outbound": true,
+          "body": "The inspection starts at nine on Saturday."
+        }
+      ]
+    },
+    {
+      "id": "26077a3a66f0c66be880406bf8979b2e",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the preferred tuning for the dulcimer."
+        },
+        {
+          "outbound": true,
+          "body": "Use DAD tuning for the performance."
+        }
+      ]
+    },
+    {
+      "id": "af00d24e86e7020f649819793b4e0692",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated notice for your silversmithing tools account: you are required to confirm your pickup date by November 3 at noon. This requirement applies to you personally."
+        }
+      ]
+    },
+    {
+      "id": "f5351bb32f5970ddd868d47659006b62",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you please pack the field microscope in its case? Let me know once the work is finished."
+        }
+      ]
+    },
+    {
+      "id": "a8e5df93a68d334c009a0d5078faebe6",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the projector model for the planetarium? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Cancel that question; I found the answer on the noticeboard. There is no need to respond."
+        }
+      ]
+    },
+    {
+      "id": "8ed0e6f98313b448eb26b8dd947220c4",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated notice for your woodturning equipment account: you are required to select your collection appointment by November 3 at noon. This requirement applies to you personally."
+        }
+      ]
+    },
+    {
+      "id": "25f10ecbeeff74b67be174df4dc30f79",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated bike locker rental notification: your locker receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automated record update: your locker receipt has been archived successfully. No action is required from you."
+        }
+      ]
+    },
+    {
+      "id": "c20b6280d400c8438c63f1f7a368fe0e",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the next practice time for the fencing club? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for reading this when you have a moment. The question above is still open."
+        }
+      ]
+    },
+    {
+      "id": "60866d7321aca36d5f986c3dcfd99f85",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will refinish the harpsichord bench tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": true,
+          "body": "I am withdrawing that offer; I will not be doing the work after all. Please consider my promise canceled."
+        }
+      ]
+    },
+    {
+      "id": "c11bbbb15b20b79fad555b2d04815363",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the preferred tuning for the dulcimer."
+        },
+        {
+          "outbound": true,
+          "body": "The instrument case has a green lining."
+        }
+      ]
+    },
+    {
+      "id": "3da14e29ef02d7d353f833763215b7d4",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the section length and the crew size for the trail restoration. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ]
+    },
+    {
+      "id": "bcd7a6b7ed66fb542d07b9b05ccf0662",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the route number for the cable car."
+        },
+        {
+          "outbound": false,
+          "body": "I have seen your question and will answer it after checking my notes."
+        }
+      ]
+    },
+    {
+      "id": "61ce6ed04dec605aa32419bc63865207",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the bag count and the delivery date for the charcoal delivery. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "There will be twelve bags."
+        }
+      ]
+    },
+    {
+      "id": "f04d2808bcd1a86a3c53fb3d88bbd9f6",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated skate sharpening notification: your sharpening receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automatic reminder: you can download your sharpening receipt whenever convenient. This is for your records only."
+        }
+      ]
+    },
+    {
+      "id": "18f6acef3a60a346098b632365390760",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please unlock the squash court before practice. This is the only job I need help with today."
+        }
+      ]
+    },
+    {
+      "id": "3888256fe9595992510611507e5b14a4",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "A quick personal note from Morgan: I checked the language tutoring paperwork and the amount is correct. I thought you would like to know; nothing is needed from you."
+        }
+      ]
+    },
+    {
+      "id": "9e757c3c30671d3c7f761b32f97d3594",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I will recharge the metal detector batteries tonight. I decided to take care of this myself."
+        }
+      ]
+    },
+    {
+      "id": "d638bca86d44ba7ac9a29799d8fb85ff",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I will unlock the squash court before practice. I decided to take care of this myself."
+        }
+      ]
+    },
+    {
+      "id": "32392b7eb73ab22347208e22f82a49e2",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please let me know the correct gate for the sheep delivery."
+        },
+        {
+          "outbound": true,
+          "body": "Are these the ewes or the lambs?"
+        }
+      ]
+    },
+    {
+      "id": "6a773ea56a7f47114b503c421bda856b",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The embroidery supplies newsletter is here. Our seasonal sale ends Friday; browse the newest selection while these special offers last."
+        }
+      ]
+    },
+    {
+      "id": "7b359ba7cbda5078c05c7c40a17cc9bc",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which translation should the puppet show use?"
+        },
+        {
+          "outbound": true,
+          "body": "I have seen your question and will answer it after checking my notes."
+        }
+      ]
+    },
+    {
+      "id": "10c47184fa64ddf9944cb8a1e29ab2c3",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the reading room hours for the local history archive? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Cancel that question; I found the answer on the noticeboard. There is no need to respond."
+        }
+      ]
+    },
+    {
+      "id": "49d297da5fe97c8f11a6baa214e5a623",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the route number for the cable car."
+        },
+        {
+          "outbound": false,
+          "body": "The ticket office walls were repainted."
+        }
+      ]
+    },
+    {
+      "id": "cd27c2382c11c481b104ba4c08776828",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated puzzle subscription notification: your subscription receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "A personal note from Ellis at the desk: I checked your subscription receipt myself and corrected the spelling of your name. Nothing further is needed."
+        }
+      ]
+    },
+    {
+      "id": "31377aa6a1fa254ad02be1ce4f13c83a",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you please move the archery targets into the shed? Let me know once the work is finished."
+        }
+      ]
+    },
+    {
+      "id": "72d688c78dd2309825007e4b9e6cfa21",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please stack the juggling mats beside the stage. This is the only job I need help with today."
+        }
+      ]
+    },
+    {
+      "id": "b817844e484559b2058d0a73baa91539",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I will hang the quilt display in the lobby. I decided to take care of this myself."
+        }
+      ]
+    },
+    {
+      "id": "d8122579836b76b618d56bf2249d2282",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the studio number and the start time for the dance rehearsal. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "We are in studio three."
+        }
+      ]
+    },
+    {
+      "id": "548b3e34ab47715be30e7acf55c96538",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "That same recital matter remains in the air; the names got mixed up."
+        }
+      ]
+    },
+    {
+      "id": "5c6077b93d1a7fae0cff0652e8d0df7f",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated dog grooming notification: your grooming receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "A personal note from Ellis at the desk: I checked your grooming receipt myself and corrected the spelling of your name. Nothing further is needed."
+        }
+      ]
+    },
+    {
+      "id": "8cd36247f2a9cb26491f20522bc455c3",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated sewing machine service notification: your service receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automated account notice: you personally must approve the pending repair authorization in your account by October 14 at 5 p.m. or it will lapse."
+        }
+      ]
+    },
+    {
+      "id": "9851bc785448f55f22ff9a344684374b",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the pickup location and the return time for the kayak rental. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "Pickup is at Willow Dock. Return is at four in the afternoon."
+        }
+      ]
+    },
+    {
+      "id": "6cee792f7a842ea908df9709675f5261",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will deliver the origami display tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": true,
+          "body": "The origami display is delivered to the library."
+        }
+      ]
+    },
+    {
+      "id": "334efb6c9785e94297118801967287ed",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What time is the squash court available for practice?"
+        }
+      ]
+    },
+    {
+      "id": "c54c2c6652e01fc57d93ccbe28417761",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will digitize the family slides tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": false,
+          "body": "Thank you for offering to do that. I appreciate the help very much."
+        }
+      ]
+    },
+    {
+      "id": "ccbf076283575121a63c8347049a8ccb",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the stall dimensions for the pottery market? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Cancel that question; I found the answer on the noticeboard. There is no need to respond."
+        }
+      ]
+    },
+    {
+      "id": "c5927a5748871605ed2a1def6b174afd",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the starting time and the ticket price for the falconry demonstration. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "The demonstration starts at ten. Tickets cost twelve dollars."
+        }
+      ]
+    },
+    {
+      "id": "7705a2b323e7387aa4ee285b593ff464",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is that arrangement for the kite making picnic still happening? Please tell me whether it is going ahead."
+        }
+      ]
+    },
+    {
+      "id": "b3fd477fda0eddae6894ac9bc1f45ac6",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you tell me the mesh size for the shrimp net?"
+        },
+        {
+          "outbound": true,
+          "body": "Use a mesh size of six millimeters."
+        }
+      ]
+    },
+    {
+      "id": "654550faa56b7d24aa5774f65256b620",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The bell ringing matter from before; apparently something remains with someone."
+        }
+      ]
+    },
+    {
+      "id": "c8c9769085389e4e9e475de63116e6ad",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you please hang the quilt display in the lobby? Let me know once the work is finished."
+        }
+      ]
+    },
+    {
+      "id": "9d2691068d6caac9d027ae52cfd1dcfa",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The kite picnic materials issue has resurfaced, and the responsibility sounds unsettled."
+        }
+      ]
+    },
+    {
+      "id": "508bacf4c8f2fa70c3b836463698eb86",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the bag count and the delivery date for the charcoal delivery. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "There will be twelve bags. Delivery is on October the second."
+        }
+      ]
+    },
+    {
+      "id": "b99597cff0511bef900542aa1bb9349d",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What time does the submarine museum tour finish?"
+        },
+        {
+          "outbound": true,
+          "body": "The museum cafe has changed its menu."
+        }
+      ]
+    },
+    {
+      "id": "0e7308e12177bcecfd5d57a11aa53971",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Can you tell me when the beehive inspection starts?"
+        },
+        {
+          "outbound": true,
+          "body": "The spare veils are in the cupboard."
+        }
+      ]
+    },
+    {
+      "id": "15ccd2f1abd6f801861e638d222d2e96",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "How many juggling mats do we need on stage?"
+        }
+      ]
+    },
+    {
+      "id": "14dbd1ac63bf8ce9e4982f2cd1c564c1",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Could you confirm the spelling for the calligraphy certificate?"
+        },
+        {
+          "outbound": true,
+          "body": "The correct full spelling is Mira Wren."
+        }
+      ]
+    },
+    {
+      "id": "151c292166c252a4e993e3e9898f23ac",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you please sweep the curling rink entrance before opening? Let me know once the work is finished."
+        }
+      ]
+    },
+    {
+      "id": "f4a8e31b7162cd2a832244969587d116",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated sewing machine service notification: your service receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automated record update: your service receipt has been archived successfully. No action is required from you."
+        }
+      ]
+    },
+    {
+      "id": "2505c38c2101174f77dac18ee8307267",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the bag count and the delivery date for the charcoal delivery. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ]
+    },
+    {
+      "id": "37f54df2a41dab744db6002f8c54d0c4",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the venue and the closing time for the seed swap. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ]
+    },
+    {
+      "id": "b5ea2a2562d4a5f7a0afa6b1c8609e43",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "How many frames should the animation loop contain?"
+        },
+        {
+          "outbound": true,
+          "body": "I have seen your question and will answer it after checking my notes."
+        }
+      ]
+    },
+    {
+      "id": "6fdc23ccded60cc8ca8cff58f9ef704e",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "A quick personal note from Morgan: I checked the embroidery supplies paperwork and the amount is correct. I thought you would like to know; nothing is needed from you."
+        }
+      ]
+    },
+    {
+      "id": "26432182ffaa4f6284e291d86a9916b5",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "What size should the climbing wall holds be?"
+        },
+        {
+          "outbound": false,
+          "body": "The holds should all be medium size."
+        }
+      ]
+    },
+    {
+      "id": "0afcfb0333af797d58f94297579a2c98",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The scuba cylinder testing newsletter is here. Our seasonal sale ends Friday; browse the newest selection while these special offers last."
+        }
+      ]
+    },
+    {
+      "id": "8cc34d2f46d20337d099791d5bf146ca",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated sewing machine service notification: your service receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "A personal note from Ellis at the desk: I checked your service receipt myself and corrected the spelling of your name. Nothing further is needed."
+        }
+      ]
+    },
+    {
+      "id": "4a50eb10fca34539687d86f8873c85b4",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The model railway parts newsletter is here. Our seasonal sale ends Friday; browse the newest selection while these special offers last."
+        }
+      ]
+    },
+    {
+      "id": "c9c4382f7204b1eba4f71649dcb97972",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "What is the water depth for the model boat pond?"
+        },
+        {
+          "outbound": false,
+          "body": "The launch area is forty centimeters deep."
+        }
+      ]
+    },
+    {
+      "id": "6ca42c727e9fce0b31a1784991b33aec",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Where should we meet for the fossil walk?"
+        },
+        {
+          "outbound": false,
+          "body": "Do you mean the short walk or the coastal route?"
+        }
+      ]
+    },
+    {
+      "id": "53188ce0d91309fb691dd1ec02a680c0",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the meeting point and the radio channel for the cave survey. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ]
+    },
+    {
+      "id": "79e819ca3813cc5a11a37ba42084c9d8",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated subscription digest: news about the terrarium exchange and other local attractions is now online. Read whenever you like; no response is needed."
+        }
+      ]
+    },
+    {
+      "id": "21c878d8710db4e085556549079e2038",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Is that arrangement for the canoe carving demonstration still happening? Please tell me whether it is going ahead."
+        }
+      ]
+    },
+    {
+      "id": "c245eef07caa35d5b25f8743b39aa62b",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the cheese count and the session length for the cheese tasting. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "There are five cheeses to taste."
+        }
+      ]
+    },
+    {
+      "id": "b961109fd1c060f671edfc2302ddba36",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will oil the community spinning wheel tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": true,
+          "body": "I am withdrawing that offer; I will not be doing the work after all. Please consider my promise canceled."
+        }
+      ]
+    },
+    {
+      "id": "cd51a0369abc15db709d582269bb1f30",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "How many frames should the animation loop contain?"
+        },
+        {
+          "outbound": true,
+          "body": "The loop should contain seventy-two frames."
+        }
+      ]
+    },
+    {
+      "id": "3ee735c1420cec0e98e96b2fa1aa9982",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "What size should the climbing wall holds be?"
+        },
+        {
+          "outbound": false,
+          "body": "Is the wall for children or adults?"
+        }
+      ]
+    },
+    {
+      "id": "03e6d53359a88ba3d820ad5c5dbcd257",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will clean the aquarium filter tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": false,
+          "body": "Thank you for offering to do that. I appreciate the help very much."
+        }
+      ]
+    },
+    {
+      "id": "7926de15cade63abe71d29962b94e130",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated piano storage notification: your storage payment receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automatic reminder: you can download your storage payment receipt whenever convenient. This is for your records only."
+        }
+      ]
+    },
+    {
+      "id": "b5c8e240ee2f9f313a3c07ebee0e2c81",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is that arrangement for the tap dancing recital still happening? Please tell me whether it is going ahead."
+        }
+      ]
+    },
+    {
+      "id": "ed3f0c0ecd8369e0ebf78c5b4e2d1c33",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will deliver the origami display tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": false,
+          "body": "That sounds good to me, and I have noted your plan in my notebook."
+        }
+      ]
+    },
+    {
+      "id": "17a5c047e8be3b2cdc661630d27296be",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please carry the seedling trays to the greenhouse. This is the only job I need help with today."
+        }
+      ]
+    },
+    {
+      "id": "62deab8a49e2018a1e0804b2273aaf40",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which translation should the puppet show use?"
+        },
+        {
+          "outbound": true,
+          "body": "Use the translation by Dana Vale."
+        }
+      ]
+    },
+    {
+      "id": "d4b328ed930ae99cca73a88f1bb23921",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please tell me the panel count and the panel width for the ceramic mural. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "There are eighteen panels altogether. Each panel is forty centimeters wide."
+        }
+      ]
+    },
+    {
+      "id": "1b3a05e3b52098c3213ac1ecac8ec6b9",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the team check-in location for the dragon boat race? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Cancel that question; I found the answer on the noticeboard. There is no need to respond."
+        }
+      ]
+    },
+    {
+      "id": "d4f6ea347bdf286a99e5d913f1cb1acf",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Is that arrangement for the geology field trip still happening? Please tell me whether it is going ahead."
+        }
+      ]
+    },
+    {
+      "id": "1ccea7a062ecd7da02fbb543ba3ac995",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated puzzle subscription notification: your subscription receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automated account notice: you personally must approve the pending address verification in your account by October 14 at 5 p.m. or it will lapse."
+        }
+      ]
+    },
+    {
+      "id": "482ed363cbaf7d75b1104bc21465a6d7",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will oil the community spinning wheel tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": false,
+          "body": "That sounds good to me, and I have noted your plan in my notebook."
+        }
+      ]
+    },
+    {
+      "id": "80f88c20bf0d7c9a21947e0122ef380d",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What flavor should the wedding macarons be?"
+        },
+        {
+          "outbound": true,
+          "body": "I have seen your question and will answer it after checking my notes."
+        }
+      ]
+    },
+    {
+      "id": "6269089026d066c391c2504a798ade68",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you send me the registration cost for the alpaca show? A short reply would help me plan."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for reading this when you have a moment. The question above is still open."
+        }
+      ]
+    },
+    {
+      "id": "0d784d99afc49e8a088c6fb24f6d2462",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the venue and the closing time for the seed swap. I need both details for my notes."
+        },
+        {
+          "outbound": false,
+          "body": "The venue is Alder Hall."
+        }
+      ]
+    },
+    {
+      "id": "c12be0e76d392ca55b1a4a5d2dbe9f32",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated rehearsal booth rental notification: your booth receipt is available in your account. This email requires no response."
+        },
+        {
+          "outbound": false,
+          "body": "Automated account notice: you personally must approve the pending reservation confirmation in your account by October 14 at 5 p.m. or it will lapse."
+        }
+      ]
+    },
+    {
+      "id": "64337c14ae0919025783780f09814b2d",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the pickup location and the return time for the kayak rental. I need both details for my notes."
+        },
+        {
+          "outbound": true,
+          "body": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ]
+    },
+    {
+      "id": "b6566b045417edf6b39d03bd7d7435d3",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated subscription digest: news about the kite making picnic and other local attractions is now online. Read whenever you like; no response is needed."
+        }
+      ]
+    },
+    {
+      "id": "1bd2bb87b857819c22b5f585f4ddd76a",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will clean the aquarium filter tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "outbound": true,
+          "body": "I am withdrawing that offer; I will not be doing the work after all. Please consider my promise canceled."
+        }
+      ]
+    },
+    {
+      "id": "de4b4539afbb22e6fd56bad575ffeeff",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you confirm the patch color for our rowing crew?"
+        },
+        {
+          "outbound": false,
+          "body": "The boathouse windows were cleaned yesterday."
+        }
+      ]
+    },
+    {
+      "id": "af15cf6b5769d94ae7e070e448fb27d4",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I will water the rooftop moss garden before noon. I decided to take care of this myself."
+        }
+      ]
+    }
+  ]
+}

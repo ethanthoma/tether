@@ -1,0 +1,2986 @@
+{
+  "version": 1,
+  "packet_sha256": "e636a514ab958d804bc463b89ca922294517ac42e9809e2757c47f92ac8c49c8",
+  "reviewer": "v2e-training-blind-a",
+  "author_labels_unseen": true,
+  "reviews": [
+    {
+      "id": "b0a8a2f97e0df3fd6d3206fc422cf099",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is that arrangement for the wildflower census still happening? Please tell me whether it is going ahead."
+        }
+      ],
+      "rationale": "The user explicitly requested a response or action; the recipient has not fulfilled it.",
+      "flags": []
+    },
+    {
+      "id": "c9dcbe591004c96fcdb51ff9c37bb372",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the cheese count and the session length for the cheese tasting. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "There are five cheeses to taste. The session lasts one hour."
+        }
+      ],
+      "rationale": "The visible answer supplies the requested information, leaving no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "368eeed143b3ca6d4004c192662dbd0c",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the team check-in location for the dragon boat race? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Our plans changed, so I no longer need that detail. Please disregard my earlier request entirely."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "79b85993fe9f4b01b53a9a1e420b1643",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is that arrangement for the lantern festival still happening? Please tell me whether it is going ahead."
+        }
+      ],
+      "rationale": "An incoming human question explicitly requests a prose response from the user.",
+      "flags": []
+    },
+    {
+      "id": "f44329cbb23a0217a2cbb378b9cfd84d",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the round count and the entry cost for the chess tournament. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "There are six rounds scheduled. Entry costs twenty dollars."
+        }
+      ],
+      "rationale": "The visible answer supplies the requested information, leaving no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "c2be1b9c04197b1af4fe2951ce74e37a",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will label the herbarium sheets tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "message_index": 1,
+          "quote": "That sounds good to me, and I have noted your plan in my notebook."
+        }
+      ],
+      "rationale": "The users outstanding promise requires commitment routing; the acknowledgment does not complete it.",
+      "flags": []
+    },
+    {
+      "id": "84283b328568d6ff4478822c03b7a228",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Where should we meet for the fossil walk?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The museum has a new display case."
+        }
+      ],
+      "rationale": "The incoming update does not answer the users explicit question; the requested response remains outstanding.",
+      "flags": []
+    },
+    {
+      "id": "d7dd6068acd52a1aa81a04c5af49a0d6",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the pickup location and the return time for the kayak rental. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ],
+      "rationale": "Acknowledgment or a promise to answer does not fulfill the visible user request.",
+      "flags": []
+    },
+    {
+      "id": "0a5203fa2a9ddafec3d5def8aa6e3b30",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the delivery estimate for the stained glass commission? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Cancel that question; I found the answer on the noticeboard. There is no need to respond."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "26ca941daecc10e64f8a610a20fcd588",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will repair the croquet hoops tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "message_index": 1,
+          "quote": "The croquet hoops are repaired and in the shed."
+        }
+      ],
+      "rationale": "The user explicitly reports completing the promised work.",
+      "flags": []
+    },
+    {
+      "id": "7c953b7822264c9407d51f91e459985b",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the judging criteria for the ice sculpture contest? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Just keeping my question here so it does not get lost. I still need that information."
+        }
+      ],
+      "rationale": "The user explicitly requested a response or action; the recipient has not fulfilled it.",
+      "flags": []
+    },
+    {
+      "id": "440dfb5db4309447c48ed95c75987666",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the pickup location and the return time for the kayak rental. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Pickup is at Willow Dock."
+        }
+      ],
+      "rationale": "The recipient supplied only one of the two requested details; the other remains outstanding.",
+      "flags": []
+    },
+    {
+      "id": "cb6b36301e3bb3c485e41f7c0d0a0859",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "The silversmithing tools newsletter is here. Our seasonal sale ends Friday; browse the newest selection while these special offers last."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "68f9407479eb1b785dfadeca74e178d0",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the judging criteria for the ice sculpture contest? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Our plans changed, so I no longer need that detail. Please disregard my earlier request entirely."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "3308c37121af55d38c95dbf42f3e14a4",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which lecture title goes on the mycology poster?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The lecture room has new blinds."
+        }
+      ],
+      "rationale": "The users unrelated update leaves the incoming question unanswered.",
+      "flags": []
+    },
+    {
+      "id": "5cd7c15e891dffa2c2a0f232e099d0f3",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the meeting point and the radio channel for the cave survey. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "We meet at the east entrance."
+        }
+      ],
+      "rationale": "The user supplied only one requested detail and still owes the other prose answer.",
+      "flags": []
+    },
+    {
+      "id": "ef7f4276a076907ac773bdcc658bb970",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which greenhouse should I use for the seedling trays?"
+        }
+      ],
+      "rationale": "An incoming human question explicitly requests a prose response from the user.",
+      "flags": []
+    },
+    {
+      "id": "c23c5eade38a30b0da568e136081f733",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What is the water depth for the model boat pond?"
+        },
+        {
+          "message_index": 1,
+          "quote": "I have seen your question and will answer it after checking my notes."
+        }
+      ],
+      "rationale": "Acknowledgment or a promise to answer does not fulfill the visible user request.",
+      "flags": []
+    },
+    {
+      "id": "55d08dfd1d78c2a30ab500df51e34efe",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the departure time for the snowshoe trip? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Just keeping my question here so it does not get lost. I still need that information."
+        }
+      ],
+      "rationale": "The user explicitly requested a response or action; the recipient has not fulfilled it.",
+      "flags": []
+    },
+    {
+      "id": "9d7b9fdd5f6ed79cb893ee0d027e2b94",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated tent cleaning notification: your cleaning receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "Automatic reminder: you can download your cleaning receipt whenever convenient. This is for your records only."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "00c6253ef8e7197c30df69b1a03a7002",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will oil the community spinning wheel tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "message_index": 1,
+          "quote": "The community spinning wheel is oiled and ready to use."
+        }
+      ],
+      "rationale": "The user explicitly reports completing the promised work.",
+      "flags": []
+    },
+    {
+      "id": "1a7809be5c2ee9fff7e4c3744cb6da77",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the team check-in location for the dragon boat race? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks for reading this when you have a moment. The question above is still open."
+        }
+      ],
+      "rationale": "The user explicitly requested a response or action; the recipient has not fulfilled it.",
+      "flags": []
+    },
+    {
+      "id": "0ce29de0897a3e6d74bc2daaffbf03aa",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will digitize the family slides tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "message_index": 1,
+          "quote": "The family slides are digitized and saved in the shared folder."
+        }
+      ],
+      "rationale": "The user explicitly reports completing the promised work.",
+      "flags": []
+    },
+    {
+      "id": "78b205501ecbbc2d8457ca72c15fdc4a",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the stall dimensions for the pottery market? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Just keeping my question here so it does not get lost. I still need that information."
+        }
+      ],
+      "rationale": "The user explicitly requested a response or action; the recipient has not fulfilled it.",
+      "flags": []
+    },
+    {
+      "id": "cbc69d66e11dc8d6f9c929cdcb70d0ff",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will digitize the family slides tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "message_index": 1,
+          "quote": "I am withdrawing that offer; I will not be doing the work after all. Please consider my promise canceled."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "599670074390ccb5b80988cd4af01c0a",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the frequency band and the antenna length for the radio workshop. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ],
+      "rationale": "Acknowledgment or a promise to answer does not fulfill the visible user request.",
+      "flags": []
+    },
+    {
+      "id": "9990ed9f0542b5dc9ef13050ee0a105d",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "A quick personal note from Morgan: I checked the sourdough workshop paperwork and the amount is correct. I thought you would like to know; nothing is needed from you."
+        }
+      ],
+      "rationale": "The personal informational update requests nothing and establishes no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "2016fcdf54b69f8a70d65bef180df232",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Where should we meet for the fossil walk?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Meet at the old quarry entrance."
+        }
+      ],
+      "rationale": "The visible answer supplies the requested information, leaving no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "7508bbcfea44f8c8bcd169ce91f3ee96",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the reading room hours for the local history archive? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks for reading this when you have a moment. The question above is still open."
+        }
+      ],
+      "rationale": "The user explicitly requested a response or action; the recipient has not fulfilled it.",
+      "flags": []
+    },
+    {
+      "id": "7b181a3d9ded9ee1c2185fce16fcdf47",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the track count and the file format for the choir recording. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "There are fourteen tracks in total. The file format is uncompressed WAV."
+        }
+      ],
+      "rationale": "The visible answer supplies the requested information, leaving no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "58ea513cd0c0080aeea0149e25e2c17a",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What flavor should the wedding macarons be?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Do you mean the filling or the shells?"
+        }
+      ],
+      "rationale": "The original question remains unanswered while the other side requests clarification; both sides have explicit outstanding responses.",
+      "flags": []
+    },
+    {
+      "id": "cf8164f5f3ff83bae9b3147b3382b622",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please hang the quilt display in the lobby. This is the only job I need help with today."
+        }
+      ],
+      "rationale": "The incoming request assigns the user a physical task without requesting prose, so task routing is required.",
+      "flags": []
+    },
+    {
+      "id": "67cd2eb1b0b3f2e65fccb2f4c6136184",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you confirm the spelling for the calligraphy certificate?"
+        },
+        {
+          "message_index": 1,
+          "quote": "My new pen arrived this afternoon."
+        }
+      ],
+      "rationale": "The users unrelated update leaves the incoming question unanswered.",
+      "flags": []
+    },
+    {
+      "id": "cd85dcce2f39bd39101d705d80aaae67",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the room number and the materials fee for the bookbinding course. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ],
+      "rationale": "The user acknowledged or promised to answer the incoming request but has not supplied the requested response.",
+      "flags": []
+    },
+    {
+      "id": "27e7adda9a765503f3c57990c256d03c",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please recharge the metal detector batteries tonight. This is the only job I need help with today."
+        }
+      ],
+      "rationale": "The incoming request assigns the user a physical task without requesting prose, so task routing is required.",
+      "flags": []
+    },
+    {
+      "id": "251554ac2781d73fc1f3b0a7260cde95",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated sailing berth rental notification: your berth receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "A personal note from Ellis at the desk: I checked your berth receipt myself and corrected the spelling of your name. Nothing further is needed."
+        }
+      ],
+      "rationale": "The personal informational update requests nothing and establishes no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "126cbd717f974fe8bdfb7978064b1931",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the cabinet number and the opening date for the mineral exhibit. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "41bfd53ce2c088f1c15d34c249ef936d",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you please wash the dog agility tunnel this afternoon? Let me know once the work is finished."
+        }
+      ],
+      "rationale": "The user explicitly requested a response or action; the recipient has not fulfilled it.",
+      "flags": []
+    },
+    {
+      "id": "3dfc4c32fcf2d4baec788d8a3555565a",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What cleaning solution is safe for the agility tunnel?"
+        }
+      ],
+      "rationale": "An incoming human question explicitly requests a prose response from the user.",
+      "flags": []
+    },
+    {
+      "id": "353146e869a33843ab394ca61b83e62b",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the paper weight and the sheet count for the printmaking order. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "c6c7286df5bae19ebb915934f382b3b5",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "A quick personal note from Morgan: I checked the watercolor prints paperwork and the amount is correct. I thought you would like to know; nothing is needed from you."
+        }
+      ],
+      "rationale": "The personal informational update requests nothing and establishes no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "1da08dc753d5b35ebc5f2df988171c4e",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the cabinet number and the opening date for the mineral exhibit. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "The exhibit is in cabinet nine. It opens on November the first."
+        }
+      ],
+      "rationale": "The visible answer supplies the requested information, leaving no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "04e1d18a254944fe93a48acee408a952",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will deliver the origami display tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thank you for offering to do that. I appreciate the help very much."
+        }
+      ],
+      "rationale": "The users outstanding promise requires commitment routing; the acknowledgment does not complete it.",
+      "flags": []
+    },
+    {
+      "id": "022b4590633423de4a63191987fa5bbd",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will restore the weather vane tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "message_index": 1,
+          "quote": "I am withdrawing that offer; I will not be doing the work after all. Please consider my promise canceled."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "f6d2fde808363b6e3afd85616711d33d",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the duration and the minimum age for the glassblowing session. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "71c3344b6bf4ed2712aebafe92ecc350",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which charger works with the metal detector batteries?"
+        }
+      ],
+      "rationale": "An incoming human question explicitly requests a prose response from the user.",
+      "flags": []
+    },
+    {
+      "id": "6dfd41adadcb4d625e45edc0979cb3bc",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the round count and the entry cost for the chess tournament. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "d3f337af2d46641b70058559a2a90678",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "That detail about the canoe carving demonstration again; there was some understanding."
+        }
+      ],
+      "rationale": "The vague arrangement reference establishes neither a clear request nor its owner.",
+      "flags": []
+    },
+    {
+      "id": "631859f5fbfb9c09b8bede7e769701ec",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "The terrarium handoff situation is still a thing, apparently, with somebody involved."
+        }
+      ],
+      "rationale": "The vague arrangement reference establishes neither a clear request nor its owner.",
+      "flags": []
+    },
+    {
+      "id": "7d226f895d7f6d7a87d13caf4e9c6437",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which translation should the puppet show use?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Are we performing for adults or the school group?"
+        }
+      ],
+      "rationale": "The original question remains unanswered while the other side requests clarification; both sides have explicit outstanding responses.",
+      "flags": []
+    },
+    {
+      "id": "2f578ff7e5db30a2bea51228d6df7b84",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the departure time for the snowshoe trip? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Cancel that question; I found the answer on the noticeboard. There is no need to respond."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "06d15232787174e2a3652af3293ee3c6",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the studio number and the start time for the dance rehearsal. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "We are in studio three. We start at six this evening."
+        }
+      ],
+      "rationale": "The visible answer supplies the requested information, leaving no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "b63785ffa0fb739fbd0e8e49743c525c",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the paper weight and the sheet count for the printmaking order. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "The paper is three hundred grams per square meter. The order contains fifty sheets."
+        }
+      ],
+      "rationale": "The visible answer supplies the requested information, leaving no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "1403a1d6af7484a1d9ed597915de85ce",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "The language tutoring newsletter is here. Our seasonal sale ends Friday; browse the newest selection while these special offers last."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "64fe18b1342ec8bc8dac02293021a4bf",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which orchard row needs the soil sample?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The farm shop now sells local honey."
+        }
+      ],
+      "rationale": "The incoming update does not answer the users explicit question; the requested response remains outstanding.",
+      "flags": []
+    },
+    {
+      "id": "21d60ef3c64ad3e843c197212264e713",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please let me know the correct gate for the sheep delivery."
+        },
+        {
+          "message_index": 1,
+          "quote": "The feed merchant has changed its logo."
+        }
+      ],
+      "rationale": "The users unrelated update leaves the incoming question unanswered.",
+      "flags": []
+    },
+    {
+      "id": "f93b1bc9dbbcc7a399cdf44125004436",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will refinish the harpsichord bench tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thank you for offering to do that. I appreciate the help very much."
+        }
+      ],
+      "rationale": "The users outstanding promise requires commitment routing; the acknowledgment does not complete it.",
+      "flags": []
+    },
+    {
+      "id": "74c69262a84d109d30ddc65b8f854c52",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated dog grooming notification: your grooming receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "Automatic reminder: you can download your grooming receipt whenever convenient. This is for your records only."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "8cbd87db72744fff9a5f71c96316dcde",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the route number for the cable car."
+        },
+        {
+          "message_index": 1,
+          "quote": "Take route twelve to the summit."
+        }
+      ],
+      "rationale": "The visible answer supplies the requested information, leaving no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "7eb37bdf5a1bf3622e3d6585eeb7c22f",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated notice for your scuba cylinder testing account: you are required to authorize your cylinder inspection by November 3 at noon. This requirement applies to you personally."
+        }
+      ],
+      "rationale": "The automated notice explicitly requires the user personally to act by a stated deadline.",
+      "flags": []
+    },
+    {
+      "id": "f9168f5906c7bad170ef00c6e32a5a26",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What is the water depth for the model boat pond?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Do you mean the center or the launch area?"
+        }
+      ],
+      "rationale": "The original question remains unanswered while the other side requests clarification; both sides have explicit outstanding responses.",
+      "flags": []
+    },
+    {
+      "id": "209eac6972de0a08346086af04c07a11",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you please stack the juggling mats beside the stage? Let me know once the work is finished."
+        }
+      ],
+      "rationale": "The user explicitly requested a response or action; the recipient has not fulfilled it.",
+      "flags": []
+    },
+    {
+      "id": "ee5a42d45d1fb3eb6ddc4f18e52b2b00",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated subscription digest: news about the bell ringing practice and other local attractions is now online. Read whenever you like; no response is needed."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "5454dcde5aa9ec0dd513f293e29b30e4",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will label the herbarium sheets tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "message_index": 1,
+          "quote": "The herbarium sheets are labeled and filed."
+        }
+      ],
+      "rationale": "The user explicitly reports completing the promised work.",
+      "flags": []
+    },
+    {
+      "id": "b40f76c8e5f8896ee66998e850e091f5",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Can you confirm the patch color for our rowing crew?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Is this for the jackets or the caps?"
+        }
+      ],
+      "rationale": "The original question remains unanswered while the other side requests clarification; both sides have explicit outstanding responses.",
+      "flags": []
+    },
+    {
+      "id": "8f4f9509341ec68823f6faf658fd2fc5",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated skate sharpening notification: your sharpening receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "Automated account notice: you personally must approve the pending skate collection authorization in your account by October 14 at 5 p.m. or it will lapse."
+        }
+      ],
+      "rationale": "The automated notice explicitly requires the user personally to act by a stated deadline.",
+      "flags": []
+    },
+    {
+      "id": "dc0f69aca7b57c7637e1f4fea12ea189",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated tent cleaning notification: your cleaning receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "Automated record update: your cleaning receipt has been archived successfully. No action is required from you."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "e596dcc426decad80973cd1035ee1f5c",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the starting time and the ticket price for the falconry demonstration. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "fdb050c82b08a6b3d9fd0d3bfa227528",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the track count and the file format for the choir recording. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ],
+      "rationale": "Acknowledgment or a promise to answer does not fulfill the visible user request.",
+      "flags": []
+    },
+    {
+      "id": "963a6986de1120055d98060d094c6be2",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the stall dimensions for the pottery market? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Our plans changed, so I no longer need that detail. Please disregard my earlier request entirely."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "4fac711f2909a04518bc671ace19432d",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated skate sharpening notification: your sharpening receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "A personal note from Ellis at the desk: I checked your sharpening receipt myself and corrected the spelling of your name. Nothing further is needed."
+        }
+      ],
+      "rationale": "The personal informational update requests nothing and establishes no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "07bb09163f0a662337b179dc730dfd5d",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the instructor name and the class capacity for the bonsai clinic. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "3c85813af9f2e8f75b8a3b8e225f20c6",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automatic kombucha cultures update: your shipment tracking record is now available. No action or reply is needed."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "7810b694872c01cacf4f7b30a926371d",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "The sourdough workshop newsletter is here. Our seasonal sale ends Friday; browse the newest selection while these special offers last."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "42bf12503bc7fef49fc1bd96ee248ab1",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the cabinet number and the opening date for the mineral exhibit. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "The exhibit is in cabinet nine."
+        }
+      ],
+      "rationale": "The user supplied only one requested detail and still owes the other prose answer.",
+      "flags": []
+    },
+    {
+      "id": "0d2f681ba8073e1b25a21c04c1c63bfb",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the loom type and the arrival time for the weaving retreat. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ],
+      "rationale": "Acknowledgment or a promise to answer does not fulfill the visible user request.",
+      "flags": []
+    },
+    {
+      "id": "267dfc5d34647118fdd3ed172b955a41",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which lecture title goes on the mycology poster?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Is this the public talk or the laboratory seminar?"
+        }
+      ],
+      "rationale": "The original question remains unanswered while the other side requests clarification; both sides have explicit outstanding responses.",
+      "flags": []
+    },
+    {
+      "id": "40d7a83ac9ecf55cd549c2222a6572d6",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "For the kiln booking, which firing temperature should we use?"
+        },
+        {
+          "message_index": 1,
+          "quote": "I have seen your question and will answer it after checking my notes."
+        }
+      ],
+      "rationale": "Acknowledgment or a promise to answer does not fulfill the visible user request.",
+      "flags": []
+    },
+    {
+      "id": "7686a842976158c61f4072b99c0d34ed",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will catalog the antique postcards tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "message_index": 1,
+          "quote": "That sounds good to me, and I have noted your plan in my notebook."
+        }
+      ],
+      "rationale": "The users outstanding promise requires commitment routing; the acknowledgment does not complete it.",
+      "flags": []
+    },
+    {
+      "id": "5a51f393fc56dff5f4773919c4d97f65",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the meeting point and the radio channel for the cave survey. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "We meet at the east entrance. Please use radio channel four."
+        }
+      ],
+      "rationale": "The visible answer supplies the requested information, leaving no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "c8ea85444a483b5356daec637b038f6d",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please wash the dog agility tunnel this afternoon. This is the only job I need help with today."
+        }
+      ],
+      "rationale": "The incoming request assigns the user a physical task without requesting prose, so task routing is required.",
+      "flags": []
+    },
+    {
+      "id": "7b4219ebaf785f3635a7b826a15af9b6",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What flavor should the wedding macarons be?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The bakery has a new shop sign."
+        }
+      ],
+      "rationale": "The users unrelated update leaves the incoming question unanswered.",
+      "flags": []
+    },
+    {
+      "id": "aaef87c1200eeaa3ce8f3d62891c7f7c",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please pack the field microscope in its case. This is the only job I need help with today."
+        }
+      ],
+      "rationale": "The incoming request assigns the user a physical task without requesting prose, so task routing is required.",
+      "flags": []
+    },
+    {
+      "id": "6a58107e559ba7ad34ea0f7bc439dfb5",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which wall should I use for the quilt display?"
+        }
+      ],
+      "rationale": "An incoming human question explicitly requests a prose response from the user.",
+      "flags": []
+    },
+    {
+      "id": "ec5e2045914e8b0e21b258fef305e8b9",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated tent cleaning notification: your cleaning receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "A personal note from Ellis at the desk: I checked your cleaning receipt myself and corrected the spelling of your name. Nothing further is needed."
+        }
+      ],
+      "rationale": "The personal informational update requests nothing and establishes no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "e2048d9a86d5ec7fde7e08404a461552",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the registration cost for the alpaca show? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Cancel that question; I found the answer on the noticeboard. There is no need to respond."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "55a642f02464ee77f017e4981f8c42c3",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will mend the theater costumes tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "message_index": 1,
+          "quote": "The theater costumes are mended and hanging backstage."
+        }
+      ],
+      "rationale": "The user explicitly reports completing the promised work.",
+      "flags": []
+    },
+    {
+      "id": "22fca28f749634729525acf9fe435608",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "For the kiln booking, which firing temperature should we use?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The studio curtains arrived this morning."
+        }
+      ],
+      "rationale": "The incoming update does not answer the users explicit question; the requested response remains outstanding.",
+      "flags": []
+    },
+    {
+      "id": "a866b0319a1073f64e01461e939ec464",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which edition should our astronomy club order?"
+        },
+        {
+          "message_index": 1,
+          "quote": "There was a bright meteor last night."
+        }
+      ],
+      "rationale": "The incoming update does not answer the users explicit question; the requested response remains outstanding.",
+      "flags": []
+    },
+    {
+      "id": "168cc7887b49ce06099e6bcc3d29c6a1",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please water the rooftop moss garden before noon. This is the only job I need help with today."
+        }
+      ],
+      "rationale": "The incoming request assigns the user a physical task without requesting prose, so task routing is required.",
+      "flags": []
+    },
+    {
+      "id": "590856a6bf6cf5f02d8ee819be1eaf93",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What size should the climbing wall holds be?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The gym repainted its reception yesterday."
+        }
+      ],
+      "rationale": "The incoming update does not answer the users explicit question; the requested response remains outstanding.",
+      "flags": []
+    },
+    {
+      "id": "753d7fc5986719ab0bb1d9117f843611",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will refinish the harpsichord bench tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "message_index": 1,
+          "quote": "The harpsichord bench is refinished and back in place."
+        }
+      ],
+      "rationale": "The user explicitly reports completing the promised work.",
+      "flags": []
+    },
+    {
+      "id": "60a430aa1080b9dac8a44e9a04b8313c",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated bike locker rental notification: your locker receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "A personal note from Ellis at the desk: I checked your locker receipt myself and corrected the spelling of your name. Nothing further is needed."
+        }
+      ],
+      "rationale": "The personal informational update requests nothing and establishes no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "137bca3bbe29b3f6df33613c8911a922",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the panel count and the panel width for the ceramic mural. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "There are eighteen panels altogether."
+        }
+      ],
+      "rationale": "The user supplied only one requested detail and still owes the other prose answer.",
+      "flags": []
+    },
+    {
+      "id": "338e8a733e767a09ef561c8c8e2e0762",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which ferry terminal should our cycling group use?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Use the north terminal for departure."
+        }
+      ],
+      "rationale": "The visible answer supplies the requested information, leaving no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "0b30e68c7e7fb1b81be1d5bafd89f4b6",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Can you confirm the patch color for our rowing crew?"
+        },
+        {
+          "message_index": 1,
+          "quote": "I have seen your question and will answer it after checking my notes."
+        }
+      ],
+      "rationale": "Acknowledgment or a promise to answer does not fulfill the visible user request.",
+      "flags": []
+    },
+    {
+      "id": "629fae723928e9dc11ad9f24679b07cc",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the registration cost for the alpaca show? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Just keeping my question here so it does not get lost. I still need that information."
+        }
+      ],
+      "rationale": "The user explicitly requested a response or action; the recipient has not fulfilled it.",
+      "flags": []
+    },
+    {
+      "id": "e87da7b234ac92343cf4decacb3cdba6",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the replacement part number and the quoted cost for the watch repair. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ],
+      "rationale": "Acknowledgment or a promise to answer does not fulfill the visible user request.",
+      "flags": []
+    },
+    {
+      "id": "196e3e057abcc31c3de308706d53c65c",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will digitize the family slides tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "message_index": 1,
+          "quote": "That sounds good to me, and I have noted your plan in my notebook."
+        }
+      ],
+      "rationale": "The users outstanding promise requires commitment routing; the acknowledgment does not complete it.",
+      "flags": []
+    },
+    {
+      "id": "83c80ed35481f396e58806a1f8adab81",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Can you tell me the mesh size for the shrimp net?"
+        },
+        {
+          "message_index": 1,
+          "quote": "I have seen your question and will answer it after checking my notes."
+        }
+      ],
+      "rationale": "The user acknowledged or promised to answer the incoming request but has not supplied the requested response.",
+      "flags": []
+    },
+    {
+      "id": "42a08f76f10a12817afa5e3edeb2c796",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the duration and the minimum age for the glassblowing session. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "The session lasts ninety minutes. The minimum age is sixteen."
+        }
+      ],
+      "rationale": "The visible answer supplies the requested information, leaving no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "905c06a4f571bb09fa02ba6849aaea8a",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will label the herbarium sheets tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "message_index": 1,
+          "quote": "I am withdrawing that offer; I will not be doing the work after all. Please consider my promise canceled."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "12f8535cf4e8b0b0e34b0d09910ea82d",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated sailing berth rental notification: your berth receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "Automatic reminder: you can download your berth receipt whenever convenient. This is for your records only."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "d16266c1960ff51dcd3b0f17713ce567",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the judging criteria for the ice sculpture contest? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks for reading this when you have a moment. The question above is still open."
+        }
+      ],
+      "rationale": "The user explicitly requested a response or action; the recipient has not fulfilled it.",
+      "flags": []
+    },
+    {
+      "id": "f1f625e445fe54fc275c9a257ca4f14a",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the venue and the closing time for the seed swap. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ],
+      "rationale": "Acknowledgment or a promise to answer does not fulfill the visible user request.",
+      "flags": []
+    },
+    {
+      "id": "1f39674c32fcd830b6771116c1d6052b",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "How many frames should the animation loop contain?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Are you exporting at twenty-four or thirty frames per second?"
+        }
+      ],
+      "rationale": "The original question remains unanswered while the other side requests clarification; both sides have explicit outstanding responses.",
+      "flags": []
+    },
+    {
+      "id": "1d36848c2a19cd141d43816e695a8b7c",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What time does the submarine museum tour finish?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The guided tour finishes at three."
+        }
+      ],
+      "rationale": "The visible answer supplies the requested information, leaving no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "984b8e9c689668c9bfa5f2a74fab42bb",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which translation should the puppet show use?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The stage curtains are now green."
+        }
+      ],
+      "rationale": "The users unrelated update leaves the incoming question unanswered.",
+      "flags": []
+    },
+    {
+      "id": "1e0fa4be30b778837d73232176ada1d6",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the loom type and the arrival time for the weaving retreat. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "We use rigid heddle looms."
+        }
+      ],
+      "rationale": "The recipient supplied only one of the two requested details; the other remains outstanding.",
+      "flags": []
+    },
+    {
+      "id": "bd21b0d1605547e1e956fd75300de93b",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated subscription digest: news about the geology field trip and other local attractions is now online. Read whenever you like; no response is needed."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "686d5275976023048dfa14ca9c4efe08",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the instructor name and the class capacity for the bonsai clinic. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "The instructor is named Rowan Hale. The class has room for ten people."
+        }
+      ],
+      "rationale": "The visible answer supplies the requested information, leaving no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "4bff32bd436231ed400d516f082010a8",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will mend the theater costumes tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "message_index": 1,
+          "quote": "I am withdrawing that offer; I will not be doing the work after all. Please consider my promise canceled."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "23c829203b26f57584f6771760bdb1ad",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the venue and the closing time for the seed swap. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "The venue is Alder Hall. It closes at five in the afternoon."
+        }
+      ],
+      "rationale": "The visible answer supplies the requested information, leaving no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "8a403ff0b46c9dc4c38e3fc661db7034",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the section length and the crew size for the trail restoration. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ],
+      "rationale": "The user acknowledged or promised to answer the incoming request but has not supplied the requested response.",
+      "flags": []
+    },
+    {
+      "id": "f8e151644a6ba85ebe94c7d168941f68",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the next practice time for the fencing club? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Just keeping my question here so it does not get lost. I still need that information."
+        }
+      ],
+      "rationale": "The user explicitly requested a response or action; the recipient has not fulfilled it.",
+      "flags": []
+    },
+    {
+      "id": "b941e5154c7e25e09d00edf2a0171e0c",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automatic model railway parts update: your payment processing record is now available. No action or reply is needed."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "1ed46fbcd5813f6a74b1e8966f32670e",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Can you tell me when the beehive inspection starts?"
+        },
+        {
+          "message_index": 1,
+          "quote": "I have seen your question and will answer it after checking my notes."
+        }
+      ],
+      "rationale": "The user acknowledged or promised to answer the incoming request but has not supplied the requested response.",
+      "flags": []
+    },
+    {
+      "id": "5914645d3c3f01dcd44d0139bdd6aaeb",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will deliver the origami display tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "message_index": 1,
+          "quote": "I am withdrawing that offer; I will not be doing the work after all. Please consider my promise canceled."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "2727eef8f297acc7824f8369ae62a194",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automatic embroidery supplies update: your shipment tracking record is now available. No action or reply is needed."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "b0f051bdbce103aa0b83a9120c3527db",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which edition should our astronomy club order?"
+        },
+        {
+          "message_index": 1,
+          "quote": "I have seen your question and will answer it after checking my notes."
+        }
+      ],
+      "rationale": "Acknowledgment or a promise to answer does not fulfill the visible user request.",
+      "flags": []
+    },
+    {
+      "id": "58779d9d7dbf701021fbe365b34b23a4",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the required needle size for the leatherworking class? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks for reading this when you have a moment. The question above is still open."
+        }
+      ],
+      "rationale": "The user explicitly requested a response or action; the recipient has not fulfilled it.",
+      "flags": []
+    },
+    {
+      "id": "649151e4d9524e2f6640bb857887411f",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the boat name and the boarding time for the lighthouse visit. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "7de82b9f099ec3548185c84205efec62",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the instructor name and the class capacity for the bonsai clinic. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ],
+      "rationale": "The user acknowledged or promised to answer the incoming request but has not supplied the requested response.",
+      "flags": []
+    },
+    {
+      "id": "dad3a8876f7197eae9a4dc0b9a81cd1b",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the judging criteria for the ice sculpture contest? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Cancel that question; I found the answer on the noticeboard. There is no need to respond."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "41158834f99a69b54a984014eadabdd6",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the duration and the minimum age for the glassblowing session. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ],
+      "rationale": "Acknowledgment or a promise to answer does not fulfill the visible user request.",
+      "flags": []
+    },
+    {
+      "id": "a03847878e7dba56440083476b846269",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is that arrangement for the lantern festival still happening? Please tell me whether it is going ahead."
+        }
+      ],
+      "rationale": "The user explicitly requested a response or action; the recipient has not fulfilled it.",
+      "flags": []
+    },
+    {
+      "id": "58ee0f493a7bd5d3ce2799ba4786ada1",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated notice for your language tutoring account: you are required to approve your placement result by November 3 at noon. This requirement applies to you personally."
+        }
+      ],
+      "rationale": "The automated notice explicitly requires the user personally to act by a stated deadline.",
+      "flags": []
+    },
+    {
+      "id": "6e16f2d6b237047bec8c9a14cf17b69c",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which entrance will the curling teams use today?"
+        }
+      ],
+      "rationale": "An incoming human question explicitly requests a prose response from the user.",
+      "flags": []
+    },
+    {
+      "id": "18af82d9ccced1514d9a574b3830c8a4",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated notice for your birdwatching membership account: you are required to renew your individual permit by November 3 at noon. This requirement applies to you personally."
+        }
+      ],
+      "rationale": "The automated notice explicitly requires the user personally to act by a stated deadline.",
+      "flags": []
+    },
+    {
+      "id": "392906aab576b68ba4a7936b20ba370e",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What flavor should the wedding macarons be?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Make both the shells and filling raspberry."
+        }
+      ],
+      "rationale": "The visible answer supplies the requested information, leaving no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "828d893074155aeea4b0997fa0ce74e1",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will pack the field microscope in its case. I decided to take care of this myself."
+        }
+      ],
+      "rationale": "The unsolicited incoming commitment has no visible user request and requires commitment routing.",
+      "flags": []
+    },
+    {
+      "id": "4f4b63113823715c4187fa0462885e4e",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the next practice time for the fencing club? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Our plans changed, so I no longer need that detail. Please disregard my earlier request entirely."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "ae1753e7aeff0af551d5d618a07f3ecd",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Where should we meet for the fossil walk?"
+        },
+        {
+          "message_index": 1,
+          "quote": "I have seen your question and will answer it after checking my notes."
+        }
+      ],
+      "rationale": "Acknowledgment or a promise to answer does not fulfill the visible user request.",
+      "flags": []
+    },
+    {
+      "id": "b217461302e5d5d44daed3dd8166ea2e",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which ferry terminal should our cycling group use?"
+        },
+        {
+          "message_index": 1,
+          "quote": "I have seen your question and will answer it after checking my notes."
+        }
+      ],
+      "rationale": "Acknowledgment or a promise to answer does not fulfill the visible user request.",
+      "flags": []
+    },
+    {
+      "id": "f8905a3e3c7de12abf1d69593f942f8a",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated tent cleaning notification: your cleaning receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "Automated account notice: you personally must approve the pending tent pickup authorization in your account by October 14 at 5 p.m. or it will lapse."
+        }
+      ],
+      "rationale": "The automated notice explicitly requires the user personally to act by a stated deadline.",
+      "flags": []
+    },
+    {
+      "id": "4a125757612e3a9d27644c39621d9fa8",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will carry the seedling trays to the greenhouse. I decided to take care of this myself."
+        }
+      ],
+      "rationale": "The unsolicited incoming commitment has no visible user request and requires commitment routing.",
+      "flags": []
+    },
+    {
+      "id": "f4e86883dfe434e83b0c99e2340a5039",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated bike locker rental notification: your locker receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "Automated account notice: you personally must approve the pending locker renewal in your account by October 14 at 5 p.m. or it will lapse."
+        }
+      ],
+      "rationale": "The automated notice explicitly requires the user personally to act by a stated deadline.",
+      "flags": []
+    },
+    {
+      "id": "042af5d9a22490b3f1d026ad2363bc84",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "How many frames should the animation loop contain?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The studio has replaced the kettle."
+        }
+      ],
+      "rationale": "The users unrelated update leaves the incoming question unanswered.",
+      "flags": []
+    },
+    {
+      "id": "8c14399472b0609ebc2ce08d0e21def5",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is that arrangement for the terrarium exchange still happening? Please tell me whether it is going ahead."
+        }
+      ],
+      "rationale": "An incoming human question explicitly requests a prose response from the user.",
+      "flags": []
+    },
+    {
+      "id": "ca58f4aa44ebb056f0d96ea8467aadca",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What time does the submarine museum tour finish?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Do you mean the guided visit or the audio tour?"
+        }
+      ],
+      "rationale": "The original question remains unanswered while the other side requests clarification; both sides have explicit outstanding responses.",
+      "flags": []
+    },
+    {
+      "id": "66155c1bd1d7495b866e9bce6019f77e",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the next practice time for the fencing club? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Cancel that question; I found the answer on the noticeboard. There is no need to respond."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "63396a136d8037a6b9fc5746d6234c6a",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the departure time for the snowshoe trip? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Our plans changed, so I no longer need that detail. Please disregard my earlier request entirely."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "5a29548367017c39e09905929cecf5f3",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which case fits the field microscope properly?"
+        }
+      ],
+      "rationale": "An incoming human question explicitly requests a prose response from the user.",
+      "flags": []
+    },
+    {
+      "id": "fda1e700b739c2d54c4f979a3c382094",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please sweep the curling rink entrance before opening. This is the only job I need help with today."
+        }
+      ],
+      "rationale": "The incoming request assigns the user a physical task without requesting prose, so task routing is required.",
+      "flags": []
+    },
+    {
+      "id": "774d6288dbce07d69ad40f6f6a598acd",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the boat name and the boarding time for the lighthouse visit. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "The boat is named Swift Tern."
+        }
+      ],
+      "rationale": "The recipient supplied only one of the two requested details; the other remains outstanding.",
+      "flags": []
+    },
+    {
+      "id": "cdddccfabe04cc71a6c89dc81903163a",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated piano storage notification: your storage payment receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "Automated account notice: you personally must approve the pending storage renewal in your account by October 14 at 5 p.m. or it will lapse."
+        }
+      ],
+      "rationale": "The automated notice explicitly requires the user personally to act by a stated deadline.",
+      "flags": []
+    },
+    {
+      "id": "9fd48bf0e6b7ff8ccebbf8c1782c7cfc",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated puzzle subscription notification: your subscription receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "Automated record update: your subscription receipt has been archived successfully. No action is required from you."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "42a81f2590c50f87faaabeea369e1101",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the cheese count and the session length for the cheese tasting. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ],
+      "rationale": "The user acknowledged or promised to answer the incoming request but has not supplied the requested response.",
+      "flags": []
+    },
+    {
+      "id": "2ebd06cf79311dcb15d4646f01c108e1",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated subscription digest: news about the canoe carving demonstration and other local attractions is now online. Read whenever you like; no response is needed."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "a12ee84c2c0f4444962f6788ea31edd7",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated film developing notification: your processing receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "Automated record update: your processing receipt has been archived successfully. No action is required from you."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "61144945e72a324d632fb6feb65e7e0d",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated subscription digest: news about the wildflower census and other local attractions is now online. Read whenever you like; no response is needed."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "5aa10375d6defc94a23afa30dba783b4",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which lecture title goes on the mycology poster?"
+        },
+        {
+          "message_index": 1,
+          "quote": "I have seen your question and will answer it after checking my notes."
+        }
+      ],
+      "rationale": "The user acknowledged or promised to answer the incoming request but has not supplied the requested response.",
+      "flags": []
+    },
+    {
+      "id": "68278aa6d89d0eaafea760173fbfa3d3",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you confirm the spelling for the calligraphy certificate?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Do you need the full name or just the surname?"
+        }
+      ],
+      "rationale": "The original question remains unanswered while the other side requests clarification; both sides have explicit outstanding responses.",
+      "flags": []
+    },
+    {
+      "id": "c8bccec530037ce2174a5e918b82c7ca",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "What is the water depth for the model boat pond?"
+        },
+        {
+          "message_index": 1,
+          "quote": "The park benches have new plaques."
+        }
+      ],
+      "rationale": "The incoming update does not answer the users explicit question; the requested response remains outstanding.",
+      "flags": []
+    },
+    {
+      "id": "111451861dd5792893e1650a380de45f",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the delivery estimate for the stained glass commission? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Just keeping my question here so it does not get lost. I still need that information."
+        }
+      ],
+      "rationale": "The user explicitly requested a response or action; the recipient has not fulfilled it.",
+      "flags": []
+    },
+    {
+      "id": "05e369994c833fab0aab5d043455c53b",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "How often should the rooftop moss garden be watered?"
+        }
+      ],
+      "rationale": "An incoming human question explicitly requests a prose response from the user.",
+      "flags": []
+    },
+    {
+      "id": "d31db85a5802fba311af6a14bd1e7746",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "That arrangement with the lanterns again; someone was supposed to handle it."
+        }
+      ],
+      "rationale": "The vague arrangement reference establishes neither a clear request nor its owner.",
+      "flags": []
+    },
+    {
+      "id": "982b6bec9211903dedd2e065c90c5117",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please confirm the lens diameter for the telescope adapter."
+        },
+        {
+          "message_index": 1,
+          "quote": "The required barrel diameter is fifty millimeters."
+        }
+      ],
+      "rationale": "The user asks for lens diameter, while the reply supplies barrel diameter; the requested dimension is not clearly answered.",
+      "flags": [
+        "label_ambiguity"
+      ]
+    },
+    {
+      "id": "c3690e97fc9000f29d6439972c332db2",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you please recharge the metal detector batteries tonight? Let me know once the work is finished."
+        }
+      ],
+      "rationale": "The user explicitly requested a response or action; the recipient has not fulfilled it.",
+      "flags": []
+    },
+    {
+      "id": "9a79ece2e521ed5822f71380d3cc2f6a",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated rehearsal booth rental notification: your booth receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "Automated record update: your booth receipt has been archived successfully. No action is required from you."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "879ded1dcacaa0638ce05ded8dc0fb54",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "The sandcastle exhibition situation again, with the old arrangement mentioned but nothing definite."
+        }
+      ],
+      "rationale": "The vague arrangement reference establishes neither a clear request nor its owner.",
+      "flags": []
+    },
+    {
+      "id": "18038c5b2c21d6d063d1e4d66f0eb84f",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the room number and the materials fee for the bookbinding course. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "The room is number eight."
+        }
+      ],
+      "rationale": "The user supplied only one requested detail and still owes the other prose answer.",
+      "flags": []
+    },
+    {
+      "id": "4deb9082639a195d92bdd040158dd5bf",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated skate sharpening notification: your sharpening receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "Automated record update: your sharpening receipt has been archived successfully. No action is required from you."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "e9964e028d41f613267883fe0629ca2b",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated rehearsal booth rental notification: your booth receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "Automatic reminder: you can download your booth receipt whenever convenient. This is for your records only."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "fb2b0677c331b0ecf5b63cc00f805e5c",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated notice for your embroidery supplies account: you are required to confirm the delivery address by November 3 at noon. This requirement applies to you personally."
+        }
+      ],
+      "rationale": "The automated notice explicitly requires the user personally to act by a stated deadline.",
+      "flags": []
+    },
+    {
+      "id": "d4c3cbf72418d2fdd1e546d97bcc2154",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the panel count and the panel width for the ceramic mural. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ],
+      "rationale": "The user acknowledged or promised to answer the incoming request but has not supplied the requested response.",
+      "flags": []
+    },
+    {
+      "id": "fa92b3cd417371585def0849d162274f",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the boat name and the boarding time for the lighthouse visit. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "The boat is named Swift Tern. Boarding starts at eleven in the morning."
+        }
+      ],
+      "rationale": "The visible answer supplies the requested information, leaving no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "afa3cd1775df93ff2a046f3879e53b56",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the registration cost for the alpaca show? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Our plans changed, so I no longer need that detail. Please disregard my earlier request entirely."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "d1bc514d72bf82a91dd73125de476ede",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which lecture title goes on the mycology poster?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Use the title Fungi Beneath Our Feet."
+        }
+      ],
+      "rationale": "The visible answer supplies the requested information, leaving no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "7bade36723da141d45f690843cf2d0f6",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the cheese count and the session length for the cheese tasting. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "3e773a3c39d31bc50bae2541928f8d76",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automatic scuba cylinder testing update: your test receipt record is now available. No action or reply is needed."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "1fcfbf394a5b76009d6bc5667c93598a",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Where should the archery targets go after practice?"
+        }
+      ],
+      "rationale": "An incoming human question explicitly requests a prose response from the user.",
+      "flags": []
+    },
+    {
+      "id": "49db1739e100ba41bee6640d3d430e85",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated film developing notification: your processing receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "A personal note from Ellis at the desk: I checked your processing receipt myself and corrected the spelling of your name. Nothing further is needed."
+        }
+      ],
+      "rationale": "The personal informational update requests nothing and establishes no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "9a975833e9011d5de442a402e40a5397",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will move the archery targets into the shed. I decided to take care of this myself."
+        }
+      ],
+      "rationale": "The unsolicited incoming commitment has no visible user request and requires commitment routing.",
+      "flags": []
+    },
+    {
+      "id": "470c19c3e22a7be30e1ce2956ecc28be",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you send me the departure time for the snowshoe trip? A short reply would help me plan."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks for reading this when you have a moment. The question above is still open."
+        }
+      ],
+      "rationale": "The user explicitly requested a response or action; the recipient has not fulfilled it.",
+      "flags": []
+    },
+    {
+      "id": "b94b5918871dafa0de562d23f08efd8f",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is that arrangement for the sandcastle exhibition still happening? Please tell me whether it is going ahead."
+        }
+      ],
+      "rationale": "An incoming human question explicitly requests a prose response from the user.",
+      "flags": []
+    },
+    {
+      "id": "635c34d1f6d5fa263e86be60b8a69325",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "A quick personal note from Morgan: I checked the model railway parts paperwork and the amount is correct. I thought you would like to know; nothing is needed from you."
+        }
+      ],
+      "rationale": "The personal informational update requests nothing and establishes no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "5b1d22de310b64732e079f484153e2b0",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is that arrangement for the sandcastle exhibition still happening? Please tell me whether it is going ahead."
+        }
+      ],
+      "rationale": "The user explicitly requested a response or action; the recipient has not fulfilled it.",
+      "flags": []
+    },
+    {
+      "id": "5fbe2d160256d7eba1998ec6556a8c21",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will mend the theater costumes tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thank you for offering to do that. I appreciate the help very much."
+        }
+      ],
+      "rationale": "The users outstanding promise requires commitment routing; the acknowledgment does not complete it.",
+      "flags": []
+    },
+    {
+      "id": "7644518abdea2ac6c2ec566a000c50d2",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will mend the theater costumes tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "message_index": 1,
+          "quote": "That sounds good to me, and I have noted your plan in my notebook."
+        }
+      ],
+      "rationale": "The users outstanding promise requires commitment routing; the acknowledgment does not complete it.",
+      "flags": []
+    },
+    {
+      "id": "f539693f417b58eba92f3f1371ebae36",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the frequency band and the antenna length for the radio workshop. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "The frequency band is two meters."
+        }
+      ],
+      "rationale": "The recipient supplied only one of the two requested details; the other remains outstanding.",
+      "flags": []
+    },
+    {
+      "id": "09dcf9e2f4f0f2a1a1425f2d38dafd64",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Is that arrangement for the historic organ visit still happening? Please tell me whether it is going ahead."
+        }
+      ],
+      "rationale": "The user explicitly requested a response or action; the recipient has not fulfilled it.",
+      "flags": []
+    },
+    {
+      "id": "86a67093633c2c0be751ed8db27e66cb",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated sailing berth rental notification: your berth receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "Automated record update: your berth receipt has been archived successfully. No action is required from you."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "42288691e506e1965423f1162c48357c",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the studio number and the start time for the dance rehearsal. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Please disregard both questions in my previous message. I found all the details in the printed program."
+        }
+      ],
+      "rationale": "The request or promise is explicitly withdrawn, leaving no supported obligation.",
+      "flags": []
+    },
+    {
+      "id": "c931b11b61051d4f28a5f91fbb1a5667",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will stack the juggling mats beside the stage. I decided to take care of this myself."
+        }
+      ],
+      "rationale": "The unsolicited incoming commitment has no visible user request and requires commitment routing.",
+      "flags": []
+    },
+    {
+      "id": "a0052e4eff2350664e02b627e0525eab",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you please unlock the squash court before practice? Let me know once the work is finished."
+        }
+      ],
+      "rationale": "The user explicitly requested a response or action; the recipient has not fulfilled it.",
+      "flags": []
+    },
+    {
+      "id": "0431960dee4ab4a5c3bd2422638680f4",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which edition should our astronomy club order?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Is this for beginners or the advanced observing group?"
+        }
+      ],
+      "rationale": "The original question remains unanswered while the other side requests clarification; both sides have explicit outstanding responses.",
+      "flags": []
+    },
+    {
+      "id": "74209e27c5d762c195aabb164847bc7b",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated bike locker rental notification: your locker receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "Automatic reminder: you can download your locker receipt whenever convenient. This is for your records only."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "f99c86a90830d4c9c2d502f619896dcf",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Could you please water the rooftop moss garden before noon? Let me know once the work is finished."
+        }
+      ],
+      "rationale": "The user explicitly requested a response or action; the recipient has not fulfilled it.",
+      "flags": []
+    },
+    {
+      "id": "dcbb79872a531ed192aa435ee6f5a81b",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "A quick personal note from Morgan: I checked the birdwatching membership paperwork and the amount is correct. I thought you would like to know; nothing is needed from you."
+        }
+      ],
+      "rationale": "The personal informational update requests nothing and establishes no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "7708ba3f7db99c893e04e8d4629abb29",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the starting time and the ticket price for the falconry demonstration. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "The demonstration starts at ten."
+        }
+      ],
+      "rationale": "The recipient supplied only one of the two requested details; the other remains outstanding.",
+      "flags": []
+    },
+    {
+      "id": "72e65aa761fe0078229490642aaabf74",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "I will repair the croquet hoops tomorrow afternoon. I have set aside time for it."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thank you for offering to do that. I appreciate the help very much."
+        }
+      ],
+      "rationale": "The users outstanding promise requires commitment routing; the acknowledgment does not complete it.",
+      "flags": []
+    },
+    {
+      "id": "7d81aefb03e2720b4fadfef55e08f42e",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated subscription digest: news about the lantern festival and other local attractions is now online. Read whenever you like; no response is needed."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "02320d68d3293b0ba72134f26ec9571c",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please tell me the paper weight and the sheet count for the printmaking order. I need both details for my notes."
+        },
+        {
+          "message_index": 1,
+          "quote": "Thanks for getting in touch about this. I have read both questions."
+        }
+      ],
+      "rationale": "The user acknowledged or promised to answer the incoming request but has not supplied the requested response.",
+      "flags": []
+    },
+    {
+      "id": "eb43006881504e6f86fc7c8bda031664",
+      "label": "fyi",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which orchard row needs the soil sample?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Take the sample from row seven."
+        }
+      ],
+      "rationale": "The visible answer supplies the requested information, leaving no outstanding obligation.",
+      "flags": []
+    },
+    {
+      "id": "873f466356a2b0b9fbd77700ae73d317",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated sailing berth rental notification: your berth receipt is available in your account. This email requires no response."
+        },
+        {
+          "message_index": 1,
+          "quote": "Automated account notice: you personally must approve the pending berth renewal in your account by October 14 at 5 p.m. or it will lapse."
+        }
+      ],
+      "rationale": "The automated notice explicitly requires the user personally to act by a stated deadline.",
+      "flags": []
+    },
+    {
+      "id": "506fad455f8e67f8525ac666a1ff3a65",
+      "label": "waiting_on_them",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Please confirm the lens diameter for the telescope adapter."
+        },
+        {
+          "message_index": 1,
+          "quote": "The observatory roof was washed yesterday."
+        }
+      ],
+      "rationale": "The incoming update does not answer the users explicit question; the requested response remains outstanding.",
+      "flags": []
+    },
+    {
+      "id": "13fe09981eefb6eb226ec58ef3dc49cc",
+      "label": "noise",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "The birdwatching membership newsletter is here. Our seasonal sale ends Friday; browse the newest selection while these special offers last."
+        }
+      ],
+      "rationale": "Routine automated records, digest, or promotional mail has no personal action deadline or calendar exception.",
+      "flags": []
+    },
+    {
+      "id": "e499448358632f30240b3fadb05e9c3d",
+      "label": "needs_reply",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Automated notice for your kombucha cultures account: you are required to verify your delivery details by November 3 at noon. This requirement applies to you personally."
+        }
+      ],
+      "rationale": "The automated notice explicitly requires the user personally to act by a stated deadline.",
+      "flags": []
+    },
+    {
+      "id": "0d025b142426c0d57bc3c0ccafc7ad14",
+      "label": "abstain",
+      "evidence": [
+        {
+          "message_index": 0,
+          "quote": "Which orchard row needs the soil sample?"
+        },
+        {
+          "message_index": 1,
+          "quote": "Are you referring to apples or pears?"
+        }
+      ],
+      "rationale": "The original question remains unanswered while the other side requests clarification; both sides have explicit outstanding responses.",
+      "flags": []
+    }
+  ]
+}

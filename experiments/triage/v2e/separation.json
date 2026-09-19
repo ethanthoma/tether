@@ -1,0 +1,8 @@
+{
+  "partition_counts": [
+    1689,
+    120,
+    120
+  ],
+  "cross_partition_trigram_jaccard_max": 0.22727272727272727
+}
