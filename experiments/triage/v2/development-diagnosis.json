@@ -1,0 +1,1100 @@
+{
+  "counts": {
+    "train": {
+      "abstain": 412,
+      "needs_reply": 89,
+      "noise": 45,
+      "fyi": 233,
+      "waiting_on_them": 114
+    },
+    "dev": {
+      "fyi": 25,
+      "abstain": 29,
+      "waiting_on_them": 26,
+      "noise": 10,
+      "needs_reply": 30
+    }
+  },
+  "models": [
+    {
+      "name": "base-C0.01",
+      "threshold": 0.4,
+      "raw": {
+        "cases": 120,
+        "accepted": 120,
+        "correct_accepted": 36,
+        "correct_abstentions": 0,
+        "false_reminders": 81,
+        "false_silencing": 0,
+        "actionable_abstained": 0,
+        "ambiguous_accepted": 29
+      },
+      "selective": {
+        "cases": 120,
+        "accepted": 0,
+        "correct_accepted": 0,
+        "correct_abstentions": 29,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 56,
+        "ambiguous_accepted": 0
+      }
+    },
+    {
+      "name": "base-C0.1",
+      "threshold": 0.5,
+      "raw": {
+        "cases": 120,
+        "accepted": 120,
+        "correct_accepted": 37,
+        "correct_abstentions": 0,
+        "false_reminders": 54,
+        "false_silencing": 23,
+        "actionable_abstained": 0,
+        "ambiguous_accepted": 29
+      },
+      "selective": {
+        "cases": 120,
+        "accepted": 0,
+        "correct_accepted": 0,
+        "correct_abstentions": 29,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 56,
+        "ambiguous_accepted": 0
+      }
+    },
+    {
+      "name": "base-C1",
+      "threshold": 0.75,
+      "raw": {
+        "cases": 120,
+        "accepted": 104,
+        "correct_accepted": 39,
+        "correct_abstentions": 7,
+        "false_reminders": 29,
+        "false_silencing": 27,
+        "actionable_abstained": 2,
+        "ambiguous_accepted": 22
+      },
+      "selective": {
+        "cases": 120,
+        "accepted": 2,
+        "correct_accepted": 2,
+        "correct_abstentions": 29,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 54,
+        "ambiguous_accepted": 0
+      }
+    },
+    {
+      "name": "base-C10",
+      "threshold": 1.0,
+      "raw": {
+        "cases": 120,
+        "accepted": 88,
+        "correct_accepted": 36,
+        "correct_abstentions": 14,
+        "false_reminders": 15,
+        "false_silencing": 25,
+        "actionable_abstained": 7,
+        "ambiguous_accepted": 15
+      },
+      "selective": {
+        "cases": 120,
+        "accepted": 0,
+        "correct_accepted": 0,
+        "correct_abstentions": 29,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 56,
+        "ambiguous_accepted": 0
+      }
+    },
+    {
+      "name": "v2-C0.01",
+      "threshold": 0.4,
+      "raw": {
+        "cases": 120,
+        "accepted": 120,
+        "correct_accepted": 41,
+        "correct_abstentions": 0,
+        "false_reminders": 66,
+        "false_silencing": 5,
+        "actionable_abstained": 0,
+        "ambiguous_accepted": 29
+      },
+      "selective": {
+        "cases": 120,
+        "accepted": 0,
+        "correct_accepted": 0,
+        "correct_abstentions": 29,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 56,
+        "ambiguous_accepted": 0
+      }
+    },
+    {
+      "name": "v2-C0.1",
+      "threshold": 0.65,
+      "raw": {
+        "cases": 120,
+        "accepted": 101,
+        "correct_accepted": 53,
+        "correct_abstentions": 8,
+        "false_reminders": 20,
+        "false_silencing": 16,
+        "actionable_abstained": 6,
+        "ambiguous_accepted": 21
+      },
+      "selective": {
+        "cases": 120,
+        "accepted": 5,
+        "correct_accepted": 5,
+        "correct_abstentions": 29,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 51,
+        "ambiguous_accepted": 0
+      }
+    },
+    {
+      "name": "v2-C1",
+      "threshold": 0.95,
+      "raw": {
+        "cases": 120,
+        "accepted": 96,
+        "correct_accepted": 58,
+        "correct_abstentions": 13,
+        "false_reminders": 14,
+        "false_silencing": 14,
+        "actionable_abstained": 4,
+        "ambiguous_accepted": 16
+      },
+      "selective": {
+        "cases": 120,
+        "accepted": 2,
+        "correct_accepted": 2,
+        "correct_abstentions": 29,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 54,
+        "ambiguous_accepted": 0
+      }
+    },
+    {
+      "name": "v2-C10",
+      "threshold": 1.0,
+      "raw": {
+        "cases": 120,
+        "accepted": 94,
+        "correct_accepted": 59,
+        "correct_abstentions": 14,
+        "false_reminders": 12,
+        "false_silencing": 12,
+        "actionable_abstained": 4,
+        "ambiguous_accepted": 15
+      },
+      "selective": {
+        "cases": 120,
+        "accepted": 0,
+        "correct_accepted": 0,
+        "correct_abstentions": 29,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 56,
+        "ambiguous_accepted": 0
+      }
+    },
+    {
+      "name": "word-C0.1",
+      "threshold": 0.4,
+      "raw": {
+        "cases": 120,
+        "accepted": 106,
+        "correct_accepted": 50,
+        "correct_abstentions": 7,
+        "false_reminders": 43,
+        "false_silencing": 8,
+        "actionable_abstained": 6,
+        "ambiguous_accepted": 22
+      },
+      "selective": {
+        "cases": 120,
+        "accepted": 0,
+        "correct_accepted": 0,
+        "correct_abstentions": 29,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 56,
+        "ambiguous_accepted": 0
+      }
+    },
+    {
+      "name": "word-C1",
+      "threshold": 0.6,
+      "raw": {
+        "cases": 120,
+        "accepted": 90,
+        "correct_accepted": 53,
+        "correct_abstentions": 14,
+        "false_reminders": 21,
+        "false_silencing": 7,
+        "actionable_abstained": 13,
+        "ambiguous_accepted": 15
+      },
+      "selective": {
+        "cases": 120,
+        "accepted": 8,
+        "correct_accepted": 8,
+        "correct_abstentions": 29,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 51,
+        "ambiguous_accepted": 0
+      }
+    },
+    {
+      "name": "word-C10",
+      "threshold": 0.85,
+      "raw": {
+        "cases": 120,
+        "accepted": 76,
+        "correct_accepted": 53,
+        "correct_abstentions": 20,
+        "false_reminders": 10,
+        "false_silencing": 8,
+        "actionable_abstained": 19,
+        "ambiguous_accepted": 9
+      },
+      "selective": {
+        "cases": 120,
+        "accepted": 9,
+        "correct_accepted": 9,
+        "correct_abstentions": 29,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 51,
+        "ambiguous_accepted": 0
+      }
+    },
+    {
+      "name": "char_wb-C0.1",
+      "threshold": 0.4,
+      "raw": {
+        "cases": 120,
+        "accepted": 108,
+        "correct_accepted": 47,
+        "correct_abstentions": 5,
+        "false_reminders": 51,
+        "false_silencing": 4,
+        "actionable_abstained": 7,
+        "ambiguous_accepted": 24
+      },
+      "selective": {
+        "cases": 120,
+        "accepted": 0,
+        "correct_accepted": 0,
+        "correct_abstentions": 29,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 56,
+        "ambiguous_accepted": 0
+      }
+    },
+    {
+      "name": "char_wb-C1",
+      "threshold": 0.6,
+      "raw": {
+        "cases": 120,
+        "accepted": 87,
+        "correct_accepted": 55,
+        "correct_abstentions": 15,
+        "false_reminders": 16,
+        "false_silencing": 7,
+        "actionable_abstained": 16,
+        "ambiguous_accepted": 14
+      },
+      "selective": {
+        "cases": 120,
+        "accepted": 4,
+        "correct_accepted": 4,
+        "correct_abstentions": 29,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 54,
+        "ambiguous_accepted": 0
+      }
+    },
+    {
+      "name": "char_wb-C10",
+      "threshold": 0.8,
+      "raw": {
+        "cases": 120,
+        "accepted": 72,
+        "correct_accepted": 49,
+        "correct_abstentions": 19,
+        "false_reminders": 4,
+        "false_silencing": 8,
+        "actionable_abstained": 25,
+        "ambiguous_accepted": 10
+      },
+      "selective": {
+        "cases": 120,
+        "accepted": 11,
+        "correct_accepted": 11,
+        "correct_abstentions": 29,
+        "false_reminders": 0,
+        "false_silencing": 0,
+        "actionable_abstained": 51,
+        "ambiguous_accepted": 0
+      }
+    }
+  ],
+  "selected_model_errors": [
+    {
+      "id": "v2_dev_piano_pedal_4",
+      "expected": "waiting_on_them",
+      "predicted": "fyi",
+      "confidence": 0.997025992776164,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you lubricate the right pedal hinge?"
+        },
+        {
+          "outbound": false,
+          "body": "I located the hinge but haven't lubricated it yet."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_astronomy_occultation_2",
+      "expected": "abstain",
+      "predicted": "needs_reply",
+      "confidence": 0.9968243269165857,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The north-station thing is yours, I think. Or was it mine?"
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_bus_card_4",
+      "expected": "noise",
+      "predicted": "fyi",
+      "confidence": 0.9950393980380368,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Auto-reload receipt: 20 credits added to your transit balance. Payment complete. Keep this for your records."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_dog_agility_2",
+      "expected": "waiting_on_them",
+      "predicted": "fyi",
+      "confidence": 0.9909740464041427,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please lower the practice jump before Nori's run."
+        },
+        {
+          "outbound": false,
+          "body": "I have moved it into position; lowering the bar is still to do."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_phone_repair_2",
+      "expected": "waiting_on_them",
+      "predicted": "fyi",
+      "confidence": 0.981058552250271,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please test the microphone before returning the handset."
+        },
+        {
+          "outbound": false,
+          "body": "The screen is repaired. I haven't tested the microphone yet."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_underwater_club_3",
+      "expected": "abstain",
+      "predicted": "fyi",
+      "confidence": 0.9775523296407987,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Bring your fins to the tank and rinse them in the side basin."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_crossword_collab_2",
+      "expected": "fyi",
+      "predicted": "abstain",
+      "confidence": 0.9664266469156274,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "My note said '> Is twelve a verb?' You answered that yesterday. I've now fixed the clue; no more questions."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_telescope_mirror_3",
+      "expected": "waiting_on_them",
+      "predicted": "fyi",
+      "confidence": 0.9601635277254987,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Would you inspect the coating and report whether it needs replacing?"
+        },
+        {
+          "outbound": false,
+          "body": "I have inspected it; the written recommendation still needs finishing."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_bat_rescue_3",
+      "expected": "waiting_on_them",
+      "predicted": "abstain",
+      "confidence": 0.9584026365034111,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you describe the safe release conditions for this bat?"
+        },
+        {
+          "outbound": false,
+          "body": "I'll ask our wildlife specialist and get back to you with the conditions."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_climbing_competition_3",
+      "expected": "abstain",
+      "predicted": "fyi",
+      "confidence": 0.9366750099787552,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Tie the demonstration knot and leave it clipped to the practice rail."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_translation_idiom_4",
+      "expected": "waiting_on_them",
+      "predicted": "abstain",
+      "confidence": 0.9365081110876865,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you give me two written examples of that idiom?"
+        },
+        {
+          "outbound": false,
+          "body": "I have one example so far; I'll find a second before replying properly."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_mushroom_identification_3",
+      "expected": "waiting_on_them",
+      "predicted": "abstain",
+      "confidence": 0.9343555835814679,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you explain which features rule out the lookalike species?"
+        },
+        {
+          "outbound": false,
+          "body": "The gill colour is one feature; I'll explain the other distinguishing signs when I finish checking."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_translation_idiom_2",
+      "expected": "fyi",
+      "predicted": "abstain",
+      "confidence": 0.9331379552679776,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Quoted query: 'Does break a plate sound insulting?' That question was answered in the glossary. No response needed on this copy."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_fountain_pen_4",
+      "expected": "abstain",
+      "predicted": "waiting_on_them",
+      "confidence": 0.9316978701325025,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me your nib repair price. I'll mail the pen to you tomorrow."
+        },
+        {
+          "outbound": false,
+          "body": "I can work out the price this evening."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_sock_darning_3",
+      "expected": "waiting_on_them",
+      "predicted": "fyi",
+      "confidence": 0.9262459127230498,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you mend the heel on the striped sock?"
+        },
+        {
+          "outbound": false,
+          "body": "The toe is fine. I haven't started on the heel yet."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_climbing_competition_2",
+      "expected": "fyi",
+      "predicted": "noise",
+      "confidence": 0.9256580144456963,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Calendar attendance update: your belay partner accepted the Saturday warm-up invitation."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_crossword_collab_4",
+      "expected": "waiting_on_them",
+      "predicted": "abstain",
+      "confidence": 0.9210353725930459,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you explain the pun in 7 across?"
+        },
+        {
+          "outbound": false,
+          "body": "Thanks for spotting it. I'll explain after I've checked the original wording."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_street_magic_2",
+      "expected": "fyi",
+      "predicted": "abstain",
+      "confidence": 0.9147330620709527,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "That old note asks 'was the coin visible?' We've already reviewed the footage and closed that question."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_taxi_lost_scarf_4",
+      "expected": "noise",
+      "predicted": "fyi",
+      "confidence": 0.9049590575305938,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Ride receipt: fare 18.40, paid with your saved card. This receipt was generated automatically."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_phone_repair_4",
+      "expected": "noise",
+      "predicted": "abstain",
+      "confidence": 0.8590382798548907,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automatic repair ticket notification: ticket P62 was opened successfully. This message does not require a response."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_password_vault_2",
+      "expected": "waiting_on_them",
+      "predicted": "abstain",
+      "confidence": 0.8434367048846545,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Mina, can you explain what the vault's amber shield icon means?"
+        },
+        {
+          "outbound": false,
+          "body": "I'm checking the manual for that icon; I'll answer after lunch."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_mushroom_identification_4",
+      "expected": "fyi",
+      "predicted": "abstain",
+      "confidence": 0.8317404670793913,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your observation has been added to the survey as unidentified. This is just a record of the decision, not a request to identify it."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_subtitling_2",
+      "expected": "waiting_on_them",
+      "predicted": "fyi",
+      "confidence": 0.8209871986749797,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you explain why the captions disappear at 02:14?"
+        },
+        {
+          "outbound": false,
+          "body": "I found the dropout; still checking its cause for you."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_telescope_mirror_1",
+      "expected": "needs_reply",
+      "predicted": "abstain",
+      "confidence": 0.804649382802625,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is the mirror scratch visible through the eyepiece, or only when inspecting the surface? Please tell me."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_tram_model_4",
+      "expected": "fyi",
+      "predicted": "abstain",
+      "confidence": 0.784275665794011,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The model tram's route number is now corrected to 6. No changes or answers needed from you."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_robot_vacuum_2",
+      "expected": "abstain",
+      "predicted": "fyi",
+      "confidence": 0.7784691258367771,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Lift the robot onto the charging dock and clean the left wheel."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_volcano_fieldwork_3",
+      "expected": "waiting_on_them",
+      "predicted": "fyi",
+      "confidence": 0.7779082601379618,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you explain the gap in the plume readings?"
+        },
+        {
+          "outbound": false,
+          "body": "The sensor battery was fine. I still owe you an explanation for the missing interval."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_astronomy_occultation_3",
+      "expected": "waiting_on_them",
+      "predicted": "abstain",
+      "confidence": 0.771129937382251,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you tell me the recorded disappearance time?"
+        },
+        {
+          "outbound": false,
+          "body": "I still have to read the stopwatch log before I can tell you."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_indie_film_credit_4",
+      "expected": "fyi",
+      "predicted": "abstain",
+      "confidence": 0.7661635827191617,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Forget the request to remove my middle initial; the current credit is fine."
+        },
+        {
+          "outbound": false,
+          "body": "Understood, we'll keep the current credit."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_subtitling_4",
+      "expected": "noise",
+      "predicted": "fyi",
+      "confidence": 0.7660082757814057,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "CaptionCloud auto-receipt: export completed. Your monthly export count is now four."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_beehive_inspection_3",
+      "expected": "waiting_on_them",
+      "predicted": "fyi",
+      "confidence": 0.7631200294572303,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Would you inspect the empty hive stand for rot?"
+        },
+        {
+          "outbound": false,
+          "body": "The corner joints are sound; I haven't checked the legs yet."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_hearing_aid_4",
+      "expected": "fyi",
+      "predicted": "needs_reply",
+      "confidence": 0.7344382459342137,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Appointment calendar notice: the hearing-aid fitting now starts at 11:20, not 11:00."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_school_lunch_2",
+      "expected": "fyi",
+      "predicted": "abstain",
+      "confidence": 0.7195384380848429,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "You can ignore my earlier question about Ren's lunch. The office already confirmed dairy-free and I updated the list."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_game_server_4",
+      "expected": "noise",
+      "predicted": "fyi",
+      "confidence": 0.7136793066106928,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated shard health report: all regions normal, no incidents detected in the last 24 hours."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_piano_pedal_3",
+      "expected": "abstain",
+      "predicted": "needs_reply",
+      "confidence": 0.6904977050670127,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The pedal business, whenever. You know."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_diploma_name_4",
+      "expected": "waiting_on_them",
+      "predicted": "abstain",
+      "confidence": 0.6500834258174627,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you tell me whether the diploma uses my full middle name?"
+        },
+        {
+          "outbound": false,
+          "body": "I'm opening the print record now and will check that for you."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_subtitling_3",
+      "expected": "abstain",
+      "predicted": "needs_reply",
+      "confidence": 0.6219589459903705,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Upload the subtitle file to the portal tonight, please."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_orienteering_checkpoint_3",
+      "expected": "waiting_on_them",
+      "predicted": "abstain",
+      "confidence": 0.6093949683238116,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Is the checkpoint arrangement still happening?"
+        },
+        {
+          "outbound": false,
+          "body": "I don't have an answer yet; let me check with the marshal."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_hearing_aid_2",
+      "expected": "abstain",
+      "predicted": "fyi",
+      "confidence": 0.6059790226922003,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Put fresh batteries in both hearing aids before the appointment."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_hearing_aid_3",
+      "expected": "waiting_on_them",
+      "predicted": "fyi",
+      "confidence": 0.573285750143153,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you explain how to switch off the startup tune?"
+        },
+        {
+          "outbound": false,
+          "body": "I've sent the cleaning leaflet, but I still need to find the tune instructions."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_astronomy_occultation_4",
+      "expected": "fyi",
+      "predicted": "abstain",
+      "confidence": 0.5516485184878098,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The occultation was visible from both stations. This is the final observing summary, with no follow-up requested."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_volcano_fieldwork_2",
+      "expected": "fyi",
+      "predicted": "abstain",
+      "confidence": 0.5487055780345234,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The earlier request for the station code is withdrawn; the timestamp log resolved it."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_school_lunch_3",
+      "expected": "abstain",
+      "predicted": "needs_reply",
+      "confidence": 0.5484010005954287,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please put Ren's reusable lunch tub in the classroom basket before drop-off."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_family_reunion_name_3",
+      "expected": "fyi",
+      "predicted": "abstain",
+      "confidence": 0.5389804338271073,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Badge spellings are finalized using the names everyone already confirmed. No further replies needed."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_fountain_pen_3",
+      "expected": "waiting_on_them",
+      "predicted": "fyi",
+      "confidence": 0.5284334517042302,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please check the nib alignment and tell me what you find."
+        },
+        {
+          "outbound": false,
+          "body": "The tines are aligned, but I'm still testing the scratch on the downstroke."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_street_magic_4",
+      "expected": "waiting_on_them",
+      "predicted": "fyi",
+      "confidence": 0.5284255672577571,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you film the coin trick from overhead?"
+        },
+        {
+          "outbound": false,
+          "body": "I have a side view only; the overhead take still needs recording."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_telescope_mirror_4",
+      "expected": "abstain",
+      "predicted": "waiting_on_them",
+      "confidence": 0.4971858754745083,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please inspect the mirror coating. I'll remove the mirror from its tube first."
+        },
+        {
+          "outbound": false,
+          "body": "I can do the inspection once it's out."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_indie_film_credit_3",
+      "expected": "waiting_on_them",
+      "predicted": "abstain",
+      "confidence": 0.4934473080014261,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please remove my middle initial from the credits."
+        },
+        {
+          "outbound": false,
+          "body": "I've noted the change, but haven't rendered the corrected cut yet."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_game_server_2",
+      "expected": "waiting_on_them",
+      "predicted": "fyi",
+      "confidence": 0.46340037968877906,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you restart the match server after everyone signs out?"
+        },
+        {
+          "outbound": false,
+          "body": "Everyone is out now. Restart is next on my list."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_orienteering_checkpoint_2",
+      "expected": "abstain",
+      "predicted": "fyi",
+      "confidence": 0.3938646017490467,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Checkpoint C again. same business as before..."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_school_lunch_4",
+      "expected": "noise",
+      "predicted": "abstain",
+      "confidence": 0.38933443893165665,
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated cafeteria receipt: Friday lunch paid, balance zero. No action required."
+        }
+      ]
+    },
+    {
+      "id": "v2_dev_tram_model_3",
+      "expected": "abstain",
+      "predicted": "waiting_on_them",
+      "confidence": 0.389087541615424,
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please tell me the model tram's finished length."
+        },
+        {
+          "outbound": false,
+          "body": "I can measure it, but please tell me first whether you want couplers included."
+        }
+      ]
+    }
+  ],
+  "selected_model_confusion": {
+    "fyi->fyi": 13,
+    "abstain->needs_reply": 4,
+    "abstain->abstain": 17,
+    "waiting_on_them->waiting_on_them": 5,
+    "noise->fyi": 4,
+    "noise->abstain": 2,
+    "needs_reply->needs_reply": 29,
+    "waiting_on_them->fyi": 12,
+    "noise->noise": 4,
+    "waiting_on_them->abstain": 9,
+    "fyi->abstain": 10,
+    "needs_reply->abstain": 1,
+    "abstain->waiting_on_them": 3,
+    "abstain->fyi": 5,
+    "fyi->needs_reply": 1,
+    "fyi->noise": 1
+  }
+}
