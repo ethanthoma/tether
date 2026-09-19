@@ -1,0 +1,1318 @@
+{
+  "version": 1,
+  "label_policy": "reply-triage-v2",
+  "model_sha256": "4ac8bcd6afedea4f11fb44c5d23926f4ad1118eb740a4c7842d44b9f717ffab2",
+  "approved": true,
+  "source_model_sha256": "951f1830d3c52e5f899d080776fecd00b5b66ff39c3ca6cb85c8e3731fe00bac",
+  "training_data_sha256": "092276e37bfed1fcdcac6fc0013fb1176759fb6522135b1df7a75c6eb78c0cd4",
+  "training_report_sha256": "970c690719d621d21c6b54f21fa4256c53f9e88b3e627ec5e4a62124b2115e95",
+  "calibration_data_sha256": "5eb471524894cc5bfbebe29bc046b7a05dff5d29b7f4c6ff9b4627430cabb205",
+  "plan_sha256": "649623669bdab22035a1d13dfa834344d1edc3991a66f0ad59c616f69235806d",
+  "rule": "maximum source and fresh-calibration zero-error grid cutoff; actionable classes floor at 0.90; abstain stays one",
+  "thresholds": {
+    "abstain": 1.0,
+    "fyi": 0.975,
+    "needs_reply": 0.9,
+    "noise": 0.8,
+    "waiting_on_them": 0.95
+  },
+  "original_development_readiness": {
+    "approved": true,
+    "cases": 152,
+    "accepted": 43,
+    "accepted_errors": 0,
+    "coverage": 0.28289473684210525,
+    "actionable_correct": {
+      "needs_reply": 17,
+      "waiting_on_them": 1
+    }
+  },
+  "calibration_readiness": {
+    "approved": true,
+    "cases": 392,
+    "accepted": 128,
+    "accepted_errors": 0,
+    "coverage": 0.32653061224489793,
+    "actionable_correct": {
+      "needs_reply": 44,
+      "waiting_on_them": 6
+    }
+  },
+  "separation": {
+    "partition_counts": [
+      2189,
+      152,
+      392,
+      198
+    ],
+    "cross_partition_trigram_jaccard_max": 0.3
+  },
+  "test_sha256": "e0af4868bdb3eb9cdf8cebcec2fc75d7a015c0f54bf2e9124b632f5f65a24fa4",
+  "families": 99,
+  "coverage": 0.32323232323232326,
+  "accepted_errors": 0,
+  "raw_accuracy": 0.8787878787878788,
+  "raw": {
+    "cases": 198,
+    "accepted": 163,
+    "correct_accepted": 145,
+    "correct_abstentions": 29,
+    "false_reminders": 8,
+    "false_silencing": 4,
+    "actionable_abstained": 2,
+    "ambiguous_accepted": 9
+  },
+  "selective": {
+    "cases": 198,
+    "accepted": 64,
+    "correct_accepted": 64,
+    "correct_abstentions": 38,
+    "false_reminders": 0,
+    "false_silencing": 0,
+    "actionable_abstained": 56,
+    "ambiguous_accepted": 0
+  },
+  "per_class": {
+    "abstain": {
+      "cases": 38,
+      "accepted": 0,
+      "correct_accepted": 0,
+      "correct_abstentions": 38,
+      "false_reminders": 0,
+      "false_silencing": 0,
+      "actionable_abstained": 0,
+      "ambiguous_accepted": 0
+    },
+    "fyi": {
+      "cases": 40,
+      "accepted": 7,
+      "correct_accepted": 7,
+      "correct_abstentions": 0,
+      "false_reminders": 0,
+      "false_silencing": 0,
+      "actionable_abstained": 0,
+      "ambiguous_accepted": 0
+    },
+    "needs_reply": {
+      "cases": 40,
+      "accepted": 22,
+      "correct_accepted": 22,
+      "correct_abstentions": 0,
+      "false_reminders": 0,
+      "false_silencing": 0,
+      "actionable_abstained": 18,
+      "ambiguous_accepted": 0
+    },
+    "noise": {
+      "cases": 40,
+      "accepted": 33,
+      "correct_accepted": 33,
+      "correct_abstentions": 0,
+      "false_reminders": 0,
+      "false_silencing": 0,
+      "actionable_abstained": 0,
+      "ambiguous_accepted": 0
+    },
+    "waiting_on_them": {
+      "cases": 40,
+      "accepted": 2,
+      "correct_accepted": 2,
+      "correct_abstentions": 0,
+      "false_reminders": 0,
+      "false_silencing": 0,
+      "actionable_abstained": 38,
+      "ambiguous_accepted": 0
+    }
+  },
+  "limitations": "Synthetic correlated families; not an estimate of real-mail accuracy.",
+  "predictions": [
+    {
+      "id": "i_test_047_1",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "fyi"
+    },
+    {
+      "id": "i_test_056_2",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_057_2",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_050_2",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_080_2",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_004_2",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_100_1",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_049_1",
+      "expected": "fyi",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_092_1",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_061_1",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_005_2",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_073_2",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_071_2",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_018_1",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_006_1",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_072_2",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_029_2",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_026_2",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_045_1",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_037_2",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_098_2",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_019_2",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_090_2",
+      "expected": "abstain",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_040_1",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_008_2",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_052_2",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_003_1",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_007_1",
+      "expected": "needs_reply",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_088_2",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_082_1",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_071_1",
+      "expected": "noise",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_010_2",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_047_2",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_034_1",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_025_2",
+      "expected": "waiting_on_them",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_059_1",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "fyi"
+    },
+    {
+      "id": "i_test_067_2",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_036_1",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_028_2",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "waiting_on_them"
+    },
+    {
+      "id": "i_test_033_1",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_018_2",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_097_2",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_066_2",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_017_2",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_021_2",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_056_1",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_100_2",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_053_2",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_044_2",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_039_2",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_095_1",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_030_2",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_055_2",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "fyi"
+    },
+    {
+      "id": "i_test_024_2",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "waiting_on_them"
+    },
+    {
+      "id": "i_test_069_2",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_089_1",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_015_2",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_069_1",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_046_2",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_070_1",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_037_1",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_060_1",
+      "expected": "fyi",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_082_2",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_002_1",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_048_2",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_090_1",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_072_1",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_044_1",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_064_1",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_075_2",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_067_1",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_027_1",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_085_1",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_099_2",
+      "expected": "abstain",
+      "raw": "needs_reply",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_093_1",
+      "expected": "abstain",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_068_1",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_014_1",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_060_2",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_008_1",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_026_1",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_050_1",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "fyi"
+    },
+    {
+      "id": "i_test_006_2",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_062_1",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_020_2",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_020_1",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_009_1",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_049_2",
+      "expected": "fyi",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_078_2",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_033_2",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_074_2",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_089_2",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_094_1",
+      "expected": "abstain",
+      "raw": "needs_reply",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_011_2",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_017_1",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_093_2",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_085_2",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_077_1",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_059_2",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "fyi"
+    },
+    {
+      "id": "i_test_035_2",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_004_1",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_066_1",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_058_1",
+      "expected": "fyi",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_022_2",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_083_2",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_034_2",
+      "expected": "waiting_on_them",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_076_2",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_028_1",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_024_1",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_031_1",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_038_1",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_091_1",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_070_2",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_027_2",
+      "expected": "waiting_on_them",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_021_1",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_080_1",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_009_2",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_012_2",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_011_1",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_058_2",
+      "expected": "fyi",
+      "raw": "needs_reply",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_001_1",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_076_1",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_041_1",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_025_1",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_098_1",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_031_2",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_005_1",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_029_1",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_022_1",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_083_1",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_002_2",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_096_2",
+      "expected": "abstain",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_001_2",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_035_1",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_055_1",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_042_1",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_043_2",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_023_2",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_041_2",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_013_2",
+      "expected": "needs_reply",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_054_1",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_013_1",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_079_1",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_081_2",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_097_1",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_078_1",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_074_1",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_052_1",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_086_1",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_095_2",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_016_2",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_007_2",
+      "expected": "needs_reply",
+      "raw": "noise",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_042_2",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_014_2",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_038_2",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_023_1",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_084_1",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_015_1",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_091_2",
+      "expected": "abstain",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_084_2",
+      "expected": "abstain",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_077_2",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_065_1",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_068_2",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_096_1",
+      "expected": "abstain",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_064_2",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_094_2",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_032_2",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_051_2",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_075_1",
+      "expected": "noise",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_086_2",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_062_2",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_057_1",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_012_1",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_065_2",
+      "expected": "noise",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_043_1",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "fyi"
+    },
+    {
+      "id": "i_test_003_2",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_079_2",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_092_2",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_061_2",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_054_2",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_073_1",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_048_1",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_019_1",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_046_1",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "fyi"
+    },
+    {
+      "id": "i_test_016_1",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "needs_reply"
+    },
+    {
+      "id": "i_test_088_1",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_039_1",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_030_1",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_099_1",
+      "expected": "abstain",
+      "raw": "needs_reply",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_040_2",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_063_1",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "noise"
+    },
+    {
+      "id": "i_test_051_1",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_036_2",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_081_1",
+      "expected": "abstain",
+      "raw": "abstain",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_053_1",
+      "expected": "fyi",
+      "raw": "needs_reply",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_045_2",
+      "expected": "fyi",
+      "raw": "fyi",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_032_1",
+      "expected": "waiting_on_them",
+      "raw": "waiting_on_them",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_010_1",
+      "expected": "needs_reply",
+      "raw": "needs_reply",
+      "selected": "abstain"
+    },
+    {
+      "id": "i_test_063_2",
+      "expected": "noise",
+      "raw": "noise",
+      "selected": "abstain"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   bend-shadow = import ./bend-shadow.nix { inherit pkgs; };
-  triage-runtime-path = "/nix/store/mk3cxyh659zj57xp0giw39gyv88j0mkg-tether-triage-runtime-v2";
+  triage-runtime-path = "/nix/store/yic2j3a431vavclskbwi1ay7c0mbdvwc-tether-triage-runtime-v2";
   triage-runtime = builtins.appendContext triage-runtime-path {
     ${triage-runtime-path}.path = true;
   };

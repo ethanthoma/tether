@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "label_policy": "reply-triage-v2",
+  "model_sha256": "4ac8bcd6afedea4f11fb44c5d23926f4ad1118eb740a4c7842d44b9f717ffab2",
+  "approved": true,
+  "source_model_sha256": "951f1830d3c52e5f899d080776fecd00b5b66ff39c3ca6cb85c8e3731fe00bac",
+  "training_data_sha256": "092276e37bfed1fcdcac6fc0013fb1176759fb6522135b1df7a75c6eb78c0cd4",
+  "training_report_sha256": "970c690719d621d21c6b54f21fa4256c53f9e88b3e627ec5e4a62124b2115e95",
+  "calibration_data_sha256": "5eb471524894cc5bfbebe29bc046b7a05dff5d29b7f4c6ff9b4627430cabb205",
+  "plan_sha256": "649623669bdab22035a1d13dfa834344d1edc3991a66f0ad59c616f69235806d",
+  "rule": "maximum source and fresh-calibration zero-error grid cutoff; actionable classes floor at 0.90; abstain stays one",
+  "thresholds": {
+    "abstain": 1.0,
+    "fyi": 0.975,
+    "needs_reply": 0.9,
+    "noise": 0.8,
+    "waiting_on_them": 0.95
+  },
+  "original_development_readiness": {
+    "approved": true,
+    "cases": 152,
+    "accepted": 43,
+    "accepted_errors": 0,
+    "coverage": 0.28289473684210525,
+    "actionable_correct": {
+      "needs_reply": 17,
+      "waiting_on_them": 1
+    }
+  },
+  "calibration_readiness": {
+    "approved": true,
+    "cases": 392,
+    "accepted": 128,
+    "accepted_errors": 0,
+    "coverage": 0.32653061224489793,
+    "actionable_correct": {
+      "needs_reply": 44,
+      "waiting_on_them": 6
+    }
+  },
+  "separation": {
+    "partition_counts": [
+      2189,
+      152,
+      392
+    ],
+    "cross_partition_trigram_jaccard_max": 0.2727272727272727
+  }
+}

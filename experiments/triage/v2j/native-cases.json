@@ -1,0 +1,65 @@
+{
+  "provenance": "fully_synthetic",
+  "model_sha256": "4ac8bcd6afedea4f11fb44c5d23926f4ad1118eb740a4c7842d44b9f717ffab2",
+  "source_test_sha256": "e0af4868bdb3eb9cdf8cebcec2fc75d7a015c0f54bf2e9124b632f5f65a24fa4",
+  "cases": [
+    {
+      "id": "i_test_018_1",
+      "expected": "needs_reply",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Were the chess clocks already in the cupboard when you arrived?"
+        }
+      ]
+    },
+    {
+      "id": "i_test_028_2",
+      "expected": "waiting_on_them",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Can you reserve a badminton court for our group?"
+        },
+        {
+          "outbound": false,
+          "body": "The desk has my request; they have not confirmed it."
+        }
+      ]
+    },
+    {
+      "id": "i_test_047_1",
+      "expected": "fyi",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Calendar attendance update: Jules declined the Sunday picnic."
+        }
+      ]
+    },
+    {
+      "id": "i_test_080_2",
+      "expected": "noise",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Studio supply promotion: members get fifteen percent off selected clay until Saturday."
+        }
+      ]
+    },
+    {
+      "id": "i_test_100_1",
+      "expected": "abstain",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please send me the rehearsal schedule."
+        },
+        {
+          "outbound": true,
+          "body": "Never mind the schedule. I will call the accompanist tomorrow myself."
+        }
+      ]
+    }
+  ]
+}
