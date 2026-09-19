@@ -11,14 +11,16 @@ import torch
 from sentence_transformers import SentenceTransformer
 from train import (
     BASE,
+    HEAD_VERSION,
     REVISION,
+    THRESHOLD_SELECTION,
     features,
     fit_classifier,
     load_dataset,
     predictions,
     probabilities,
     score,
-    select_threshold,
+    select_thresholds,
     training_split,
 )
 
@@ -101,7 +103,7 @@ def main() -> None:
                 "epoch": epoch,
                 "train_loss": loss_total / len(train) if epoch else None,
                 "dev_loss": dev_loss,
-                "dev_raw": score(dev, predictions({"labels": labels}, values, 0)),
+                "dev_raw": score(dev, predictions({"labels": labels}, values)),
             }
         )
         print(json.dumps(history[-1]), flush=True)
@@ -110,7 +112,7 @@ def main() -> None:
             best_values = values.copy()
             encoder.save_pretrained(args.output / "encoder", safe_serialization=True)
             saved_head = {
-                "version": 1,
+                "version": HEAD_VERSION,
                 "label_policy": policy,
                 "base": BASE,
                 "revision": REVISION,
@@ -129,7 +131,7 @@ def main() -> None:
     values = probabilities(saved_head, features(encoder, dev))
     assert best_values is not None
     np.testing.assert_allclose(values, best_values, rtol=1e-4, atol=1e-5)
-    saved_head["threshold"] = select_threshold(saved_head, dev, values)
+    saved_head["thresholds"] = select_thresholds(saved_head, dev, values)
     (args.output / "head.json").write_text(json.dumps(saved_head, indent=2) + "\n")
     report = {
         "label_policy": policy,
@@ -150,11 +152,11 @@ def main() -> None:
         "head_initialization": "frozen-encoder logistic regression",
         "checkpoint_selection": "lowest unweighted development cross entropy, including epoch zero",
         "selected_epoch": best_epoch,
-        "threshold": saved_head["threshold"],
-        "threshold_selection": "maximum development coverage with zero accepted errors on the original fixed grid",
-        "dev_raw": score(dev, predictions(saved_head, values, 0)),
+        "thresholds": saved_head["thresholds"],
+        "threshold_selection": THRESHOLD_SELECTION,
+        "dev_raw": score(dev, predictions(saved_head, values)),
         "dev_selective": score(
-            dev, predictions(saved_head, values, saved_head["threshold"])
+            dev, predictions(saved_head, values, saved_head["thresholds"])
         ),
         "history": history,
     }

@@ -3,7 +3,7 @@ import unittest
 import numpy as np
 import torch
 from finetune import batch_features
-from train import features, select_threshold
+from train import LABELS, features, predictions, select_thresholds
 
 
 class DifferentiableEncoder(torch.nn.Module):
@@ -67,13 +67,19 @@ class FinetuningTests(unittest.TestCase):
             )
 
     def test_cutoff_rejects_errors_and_maximizes_correct_coverage(self) -> None:
-        head = {"labels": ["fyi", "needs_reply"]}
+        head = {"labels": LABELS}
         cases = [{"expected": "needs_reply"}, {"expected": "needs_reply"}]
-        values = np.array([[0.1, 0.9], [0.8, 0.2]])
-        self.assertEqual(select_threshold(head, cases, values), 0.85)
+        values = np.array([[0.0, 0.1, 0.9, 0.0, 0.0], [0.0, 0.8, 0.2, 0.0, 0.0]])
+        expected = {**dict.fromkeys(LABELS, 1.0), "needs_reply": 0.0}
+        thresholds = select_thresholds(head, cases, values)
+        self.assertEqual(thresholds, expected)
         self.assertEqual(
-            select_threshold(head, cases, np.array([[0.1, 0.9], [0.2, 0.8]])), 0.0
+            predictions(head, values, thresholds), ["needs_reply", "abstain"]
         )
+        correct_values = np.array(
+            [[0.0, 0.1, 0.9, 0.0, 0.0], [0.0, 0.2, 0.8, 0.0, 0.0]]
+        )
+        self.assertEqual(select_thresholds(head, cases, correct_values), expected)
 
 
 if __name__ == "__main__":

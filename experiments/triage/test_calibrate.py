@@ -11,7 +11,7 @@ from calibrate import (
     negative_log_likelihood,
     scaled_probabilities,
 )
-from train import ROOT, load_cases, predictions, select_threshold
+from train import LABELS, ROOT, load_cases, predictions, select_thresholds
 
 
 class CalibrationTests(unittest.TestCase):
@@ -54,11 +54,12 @@ class CalibrationTests(unittest.TestCase):
             scaled_probabilities(np.array([[float("inf")]]), 1)
 
     def test_abstain_all_survives_floating_point_saturation(self) -> None:
-        head = {"labels": ["fyi", "needs_reply"]}
-        values = np.array([[1.0, 0.0]])
+        head = {"labels": LABELS}
+        values = np.array([[0.0, 1.0, 0.0, 0.0, 0.0]])
         cases = [{"expected": "needs_reply"}]
-        self.assertEqual(select_threshold(head, cases, values), 1)
-        self.assertEqual(predictions(head, values, 1), ["abstain"])
+        thresholds = select_thresholds(head, cases, values)
+        self.assertEqual(thresholds, dict.fromkeys(LABELS, 1.0))
+        self.assertEqual(predictions(head, values, thresholds), ["abstain"])
 
 
 if __name__ == "__main__":

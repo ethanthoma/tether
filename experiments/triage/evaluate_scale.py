@@ -63,8 +63,8 @@ def main() -> None:
             str(model / "encoder"), device="cpu", local_files_only=True
         )
         values = probabilities(head, features(encoder, cases))
-        raw = predictions(head, values, 0)
-        selective = predictions(head, values, head["threshold"])
+        raw = predictions(head, values)
+        selective = predictions(head, values, head["thresholds"])
         run["test_raw"] = score(cases, raw)
         run["test_selective"] = score(cases, selective)
         run["predictions"] = {

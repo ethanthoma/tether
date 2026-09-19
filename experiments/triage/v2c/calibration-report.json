@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "label_policy": "reply-triage-v2",
+  "method": "maximum development coverage per predicted class with zero accepted errors on the fixed classwise grid; unsupported classes abstain",
+  "data_sha256": "09804418a6ddef0747f8b3b2a4985a8f4a5d339ba1c72ef2083b8feddd8015e5",
+  "dev_count": 120,
+  "threshold_grid": [
+    0.0,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.85,
+    0.9,
+    0.95,
+    0.975,
+    0.99,
+    0.995,
+    0.999,
+    1.0
+  ],
+  "thresholds": {
+    "abstain": 1.0,
+    "fyi": 0.95,
+    "needs_reply": 0.975,
+    "noise": 0.0,
+    "waiting_on_them": 0.975
+  },
+  "source_head_sha256": "dbc9f9eb51cc2060d77602388f0b7446cc3acb367c18b21016a1f148a7727006",
+  "source_training_report_sha256": "fc6516497a02614193d09598ae4ef43d555e39d13cbd6e64c7a8b0cbddcf4de0",
+  "source_encoder_sha256": "83595417e76627ace4236aad73a47dc9ca5a842e47810c1d8f10b6af2a746db2",
+  "source_weights_sha256": "2bd4fca49f00593f4dc45b9678a7f13ea17119fb5e26555b9b33ccf89f83cf00",
+  "heldout_observed": false
+}

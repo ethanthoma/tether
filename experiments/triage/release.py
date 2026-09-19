@@ -7,16 +7,20 @@ import math
 from pathlib import Path
 
 from calibrate import check_separation
-from shadow import load_artifact
+from recalibrate import weights_sha256
+from shadow import artifact_sha256, load_artifact
 from train import (
     BASE,
     LABELS,
     REVISION,
+    THRESHOLD_GRID,
+    THRESHOLD_SELECTION,
     features,
     load_dataset,
     predictions,
     probabilities,
     score,
+    select_thresholds,
     training_split,
 )
 
@@ -46,8 +50,10 @@ def main() -> None:
         raise ValueError("model and test policies differ")
     training_bytes = (model / "training.json").read_bytes()
     training_hash = hashlib.sha256(args.training_data.read_bytes()).hexdigest()
-    validate_training(
-        json.loads(training_bytes), head, training_hash, len(train), len(dev)
+    training_report = json.loads(training_bytes)
+    validate_training(training_report, head, training_hash, len(train), len(dev))
+    calibration = validate_calibration(
+        model, head, training_report, training_hash, len(dev)
     )
     import torch
     from sentence_transformers import SentenceTransformer
@@ -59,9 +65,12 @@ def main() -> None:
         local_files_only=True,
         trust_remote_code=False,
     )
+    development = probabilities(head, features(encoder, dev))
+    if select_thresholds(head, dev, development) != head["thresholds"]:
+        raise ValueError("artifact cutoffs do not match development-only selection")
     values = probabilities(head, features(encoder, cases))
-    raw = predictions(head, values, 0)
-    selected = predictions(head, values, head["threshold"])
+    raw = predictions(head, values)
+    selected = predictions(head, values, head["thresholds"])
     report = {
         "version": 1,
         "label_policy": policy,
@@ -72,8 +81,9 @@ def main() -> None:
         "training_data_sha256": training_hash,
         "train_count": len(train),
         "dev_count": len(dev),
+        "calibration": calibration,
         "separation": separation,
-        "threshold": head["threshold"],
+        "thresholds": head["thresholds"],
         **release_metrics(cases, selected, raw),
         "limitations": "Synthetic, correlated families; not an estimate of real-mail accuracy.",
         "predictions": [
@@ -107,6 +117,51 @@ def validate_reviewed_source(source: dict) -> None:
         raise ValueError("independently reviewed fully synthetic export required")
 
 
+def validate_calibration(
+    model: Path, head: dict, training: dict, data_hash: str, dev_count: int
+) -> dict:
+    calibration_bytes = (model / "calibration.json").read_bytes()
+    calibration = json.loads(calibration_bytes)
+    source_head_bytes = (model / "source-head.json").read_bytes()
+    source_training_bytes = (model / "source-training.json").read_bytes()
+    source_head = json.loads(source_head_bytes)
+    source_training = json.loads(source_training_bytes)
+    expected = {
+        "version": 1,
+        "label_policy": "reply-triage-v2",
+        "method": THRESHOLD_SELECTION,
+        "data_sha256": data_hash,
+        "dev_count": dev_count,
+        "threshold_grid": THRESHOLD_GRID,
+        "thresholds": head["thresholds"],
+        "source_head_sha256": hashlib.sha256(source_head_bytes).hexdigest(),
+        "source_training_report_sha256": hashlib.sha256(
+            source_training_bytes
+        ).hexdigest(),
+        "source_encoder_sha256": artifact_sha256(model, include_head=False),
+        "source_weights_sha256": weights_sha256(head),
+        "heldout_observed": False,
+    }
+    for key, value in expected.items():
+        if type(calibration.get(key)) is not type(value) or calibration[key] != value:
+            raise ValueError(f"calibration provenance mismatch: {key}")
+    if weights_sha256(source_head) != expected["source_weights_sha256"]:
+        raise ValueError("recalibration changed trained head weights")
+    mutable_head = {"version", "threshold", "thresholds"}
+    if {
+        key: value for key, value in source_head.items() if key not in mutable_head
+    } != {key: value for key, value in head.items() if key not in mutable_head}:
+        raise ValueError("recalibration changed model metadata")
+    mutable_report = {"threshold", "thresholds", "threshold_selection", "dev_selective"}
+    if {
+        key: value
+        for key, value in source_training.items()
+        if key not in mutable_report
+    } != {key: value for key, value in training.items() if key not in mutable_report}:
+        raise ValueError("recalibration changed training history")
+    return {"report_sha256": hashlib.sha256(calibration_bytes).hexdigest(), **expected}
+
+
 def validate_training(
     report: dict, head: dict, data_hash: str, train_count: int, dev_count: int
 ) -> None:
@@ -127,8 +182,8 @@ def validate_training(
         "loss": "inverse-frequency-weighted cross entropy",
         "head_initialization": "frozen-encoder logistic regression",
         "checkpoint_selection": "lowest unweighted development cross entropy, including epoch zero",
-        "threshold_selection": "maximum development coverage with zero accepted errors on the original fixed grid",
-        "threshold": head["threshold"],
+        "threshold_selection": THRESHOLD_SELECTION,
+        "thresholds": head["thresholds"],
     }
     for key, value in expected.items():
         if type(report.get(key)) is not type(value) or report[key] != value:

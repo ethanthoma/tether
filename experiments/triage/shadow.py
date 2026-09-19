@@ -20,7 +20,15 @@ os.environ["HF_HUB_DISABLE_TELEMETRY"] = "1"
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 import numpy as np
-from train import LABELS, features, label_policy, predictions, probabilities
+from train import (
+    HEAD_VERSION,
+    LABELS,
+    features,
+    label_policy,
+    predictions,
+    probabilities,
+    validate_thresholds,
+)
 
 REQUEST_BYTES_MAX = 256 * 1024
 
@@ -93,6 +101,11 @@ def load_artifact(model: Path) -> tuple[dict, str]:
         raise ValueError("invalid head")
     head = json.loads(head_path.read_bytes())
     validate_head(head)
+    return head, artifact_sha256(model)
+
+
+def artifact_sha256(model: Path, include_head: bool = True) -> str:
+    head_path = model / "head.json"
     encoder = model / "encoder"
     if (
         encoder.is_symlink()
@@ -100,7 +113,7 @@ def load_artifact(model: Path) -> tuple[dict, str]:
         or not (encoder / "model.safetensors").is_file()
     ):
         raise ValueError("invalid encoder")
-    paths = [head_path]
+    paths = [head_path] if include_head else []
     for directories_count, (directory, directories, files) in enumerate(
         os.walk(encoder, followlinks=False), 1
     ):
@@ -109,8 +122,9 @@ def load_artifact(model: Path) -> tuple[dict, str]:
         paths.extend(Path(directory) / name for name in files)
         if len(paths) + len(directories) + directories_count > 128:
             raise ValueError("encoder file limit exceeded")
-    paths = [head_path] + sorted(
-        paths[1:], key=lambda path: path.relative_to(model).as_posix()
+    paths = ([head_path] if include_head else []) + sorted(
+        [path for path in paths if path != head_path],
+        key=lambda path: path.relative_to(model).as_posix(),
     )
     digest = hashlib.sha256()
     total = 0
@@ -130,27 +144,23 @@ def load_artifact(model: Path) -> tuple[dict, str]:
                 digest.update(source.read(65536))
             if source.tell() != size or source.read(1):
                 raise ValueError("artifact changed while reading")
-    return head, digest.hexdigest()
+    return digest.hexdigest()
 
 
 def validate_head(head: dict) -> None:
     if (
         not isinstance(head, dict)
         or type(head.get("version")) is not int
-        or head["version"] != 1
+        or head["version"] != HEAD_VERSION
     ):
         raise ValueError("invalid head version")
     label_policy(head)
     labels = head.get("labels")
     if not isinstance(labels, list) or len(labels) != 5 or set(labels) != set(LABELS):
         raise ValueError("invalid head labels")
-    threshold = head.get("threshold")
-    if (
-        type(threshold) not in (int, float)
-        or not np.isfinite(threshold)
-        or not 0 <= threshold <= 1
-    ):
-        raise ValueError("invalid head threshold")
+    if "threshold" in head:
+        raise ValueError("scalar head thresholds are unsupported")
+    validate_thresholds(head.get("thresholds"))
     for field, shape in (("coefficients", (5, 1540)), ("intercepts", (5,))):
         values = np.asarray(head.get(field), dtype=np.float64)
         if values.shape != shape or not np.isfinite(values).all():
@@ -199,7 +209,7 @@ def classify(cases: list[dict], head: dict, encoder: object, identity: str) -> d
         values = probabilities(head, matrix)
         if not np.isfinite(values).all() or np.any(values < 0) or np.any(values > 1):
             raise ValueError("invalid probabilities")
-        labels = predictions(head, values, head["threshold"])
+        labels = predictions(head, values, head["thresholds"])
         for index, label, row in zip(accepted, labels, values, strict=True):
             results[index].update(label=label, confidence=float(row.max()), status="ok")
     return {

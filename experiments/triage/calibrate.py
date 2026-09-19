@@ -10,13 +10,15 @@ import numpy as np
 from scipy.optimize import minimize_scalar
 from scipy.special import logsumexp
 from train import (
+    HEAD_VERSION,
     LABELS,
     ROOT,
+    THRESHOLD_SELECTION,
     features,
     load_cases,
     predictions,
     score,
-    select_threshold,
+    select_thresholds,
 )
 
 
@@ -43,7 +45,7 @@ def main() -> None:
     check_separation([prior, fit, selection])
     args.output.mkdir(parents=True, exist_ok=False)
     head = json.loads((args.model / "head.json").read_text())
-    if head["version"] != 1 or head["labels"] != LABELS:
+    if head["version"] != HEAD_VERSION or head["labels"] != LABELS:
         raise ValueError("unsupported classifier artifact")
     encoder = SentenceTransformer(
         str(args.model / "encoder"),
@@ -59,18 +61,18 @@ def main() -> None:
     selection_logits = features(encoder, selection) @ coefficients.T + intercepts
     temperature = fit_temperature(fit_logits, targets(fit))
     selection_values = scaled_probabilities(selection_logits, temperature)
-    threshold = select_threshold(head, selection, selection_values)
-    raw_threshold = select_threshold(
+    thresholds = select_thresholds(head, selection, selection_values)
+    raw_thresholds = select_thresholds(
         head, selection, scaled_probabilities(selection_logits, 1)
     )
     policy = {
-        "version": 1,
+        "version": 2,
         "temperature": temperature,
-        "threshold": threshold,
-        "unscaled_selection_threshold": raw_threshold,
+        "thresholds": thresholds,
+        "unscaled_selection_thresholds": raw_thresholds,
         "temperature_bounds": [0.25, 8.0],
         "temperature_selection": "minimum fit-set negative log likelihood; bounded scalar optimization, max 100 iterations",
-        "cutoff_selection": "original grid; maximum selection-set coverage with zero accepted errors",
+        "cutoff_selection": THRESHOLD_SELECTION,
         "head_sha256": hashlib.sha256(
             (args.model / "head.json").read_bytes()
         ).hexdigest(),
@@ -85,7 +87,7 @@ def main() -> None:
             selection_logits, targets(selection), temperature
         ),
         "selection_decisions": score(
-            selection, predictions(head, selection_values, threshold)
+            selection, predictions(head, selection_values, thresholds)
         ),
     }
     (args.output / "calibration.json").write_text(json.dumps(policy, indent=2) + "\n")
@@ -105,15 +107,16 @@ def main() -> None:
         "audit_calibration": calibration_metrics(
             audit_logits, targets(audit), policy["temperature"]
         ),
-        "audit_raw": score(audit, predictions(head, raw_values, 0)),
+        "audit_raw": score(audit, predictions(head, raw_values)),
         "audit_original_policy": score(
-            audit, predictions(head, raw_values, head["threshold"])
+            audit, predictions(head, raw_values, head["thresholds"])
         ),
         "audit_unscaled_reselected_policy": score(
-            audit, predictions(head, raw_values, policy["unscaled_selection_threshold"])
+            audit,
+            predictions(head, raw_values, policy["unscaled_selection_thresholds"]),
         ),
         "audit_calibrated_policy": score(
-            audit, predictions(head, values, policy["threshold"])
+            audit, predictions(head, values, policy["thresholds"])
         ),
         "predictions": {
             case["id"]: {
@@ -126,7 +129,7 @@ def main() -> None:
                 audit,
                 raw_values,
                 values,
-                predictions(head, values, policy["threshold"]),
+                predictions(head, values, policy["thresholds"]),
                 strict=True,
             )
         },

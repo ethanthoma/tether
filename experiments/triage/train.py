@@ -20,6 +20,17 @@ BASE = "sentence-transformers/all-MiniLM-L6-v2"
 REVISION = "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
 LABELS = ["abstain", "fyi", "needs_reply", "noise", "waiting_on_them"]
 LABEL_POLICIES = {"synthetic-obligations-v1", "reply-triage-v2"}
+HEAD_VERSION = 2
+THRESHOLD_GRID = [
+    0.0,
+    *[i / 100 for i in range(40, 100, 5)],
+    0.975,
+    0.99,
+    0.995,
+    0.999,
+    1.0,
+]
+THRESHOLD_SELECTION = "maximum development coverage per predicted class with zero accepted errors on the fixed classwise grid; unsupported classes abstain"
 ROOT = Path(__file__).resolve().parent
 
 
@@ -146,17 +157,40 @@ def probabilities(head: dict, matrix: np.ndarray) -> np.ndarray:
     return values / values.sum(axis=1, keepdims=True)
 
 
-def predictions(head: dict, values: np.ndarray, threshold: float) -> list[str]:
-    if not 0 <= threshold <= 1:
-        raise ValueError("threshold must be between zero and one")
-    if threshold == 1:
-        return ["abstain"] * len(values)
-    return [
-        head["labels"][int(row.argmax())]
-        if float(row.max()) >= threshold
-        else "abstain"
-        for row in values
-    ]
+def validate_thresholds(thresholds: dict) -> None:
+    if not isinstance(thresholds, dict) or set(thresholds) != set(LABELS):
+        raise ValueError("thresholds must contain exactly the five labels")
+    for threshold in thresholds.values():
+        if (
+            type(threshold) not in (int, float)
+            or not np.isfinite(threshold)
+            or not 0 <= threshold <= 1
+        ):
+            raise ValueError("thresholds must be finite numbers between zero and one")
+    if thresholds["abstain"] != 1:
+        raise ValueError("abstain threshold must be one")
+
+
+def predictions(
+    head: dict, values: np.ndarray, thresholds: dict | None = None
+) -> list[str]:
+    if thresholds is not None:
+        validate_thresholds(thresholds)
+    if (
+        values.ndim != 2
+        or values.shape[1] != len(head["labels"])
+        or not np.isfinite(values).all()
+    ):
+        raise ValueError("invalid probability matrix")
+    result = []
+    for row in values:
+        label = head["labels"][int(row.argmax())]
+        if thresholds is not None:
+            threshold = thresholds[label]
+            if threshold == 1 or float(row.max()) < threshold:
+                label = "abstain"
+        result.append(label)
+    return result
 
 
 def score(cases: list[dict], predicted: list[str]) -> dict:
@@ -204,7 +238,7 @@ def train_model(data: Path, output: Path) -> None:
     train_vectors = features(encoder, train)
     classifier = fit_classifier(train_vectors, [case["expected"] for case in train])
     head = {
-        "version": 1,
+        "version": HEAD_VERSION,
         "label_policy": policy,
         "base": BASE,
         "revision": REVISION,
@@ -214,7 +248,7 @@ def train_model(data: Path, output: Path) -> None:
         "intercepts": classifier.intercept_.tolist(),
     }
     values = probabilities(head, features(encoder, dev))
-    head["threshold"] = select_threshold(head, dev, values)
+    head["thresholds"] = select_thresholds(head, dev, values)
     report = {
         "label_policy": policy,
         "base": BASE,
@@ -233,10 +267,10 @@ def train_model(data: Path, output: Path) -> None:
         "data_sha256": hashlib.sha256(data.read_bytes()).hexdigest(),
         "train_count": len(train),
         "dev_count": len(dev),
-        "threshold": head["threshold"],
-        "threshold_selection": "maximum dev coverage with zero accepted dev errors; ties choose lower threshold",
-        "dev_raw": score(dev, predictions(head, values, 0)),
-        "dev_selective": score(dev, predictions(head, values, head["threshold"])),
+        "thresholds": head["thresholds"],
+        "threshold_selection": THRESHOLD_SELECTION,
+        "dev_raw": score(dev, predictions(head, values)),
+        "dev_selective": score(dev, predictions(head, values, head["thresholds"])),
     }
     encoder.save_pretrained(output / "encoder", safe_serialization=True)
     (output / "head.json").write_text(json.dumps(head, indent=2) + "\n")
@@ -256,13 +290,26 @@ def fit_classifier(matrix: np.ndarray, labels: list[str]) -> "LogisticRegression
     return classifier
 
 
-def select_threshold(head: dict, cases: list[dict], values: np.ndarray) -> float:
-    candidates = []
-    for threshold in [0.0, *[i / 100 for i in range(40, 100, 5)], 1.0]:
-        metrics = score(cases, predictions(head, values, threshold))
-        if metrics["accepted"] == metrics["correct_accepted"]:
-            candidates.append((metrics["accepted"], -threshold))
-    return -max(candidates)[1]
+def select_thresholds(head: dict, cases: list[dict], values: np.ndarray) -> dict:
+    raw = predictions(head, values)
+    if len(cases) != len(raw):
+        raise ValueError("prediction count mismatch")
+    thresholds = dict.fromkeys(LABELS, 1.0)
+    for label in LABELS:
+        if label == "abstain":
+            continue
+        candidates = []
+        for threshold in THRESHOLD_GRID[:-1]:
+            accepted = [
+                case
+                for case, predicted, row in zip(cases, raw, values, strict=True)
+                if predicted == label and float(row.max()) >= threshold
+            ]
+            if accepted and all(case["expected"] == label for case in accepted):
+                candidates.append((len(accepted), -threshold))
+        if candidates:
+            thresholds[label] = -max(candidates)[1]
+    return thresholds
 
 
 def predict_model(model: Path, data: Path, output: Path) -> None:
@@ -272,8 +319,13 @@ def predict_model(model: Path, data: Path, output: Path) -> None:
     head = json.loads((model / "head.json").read_text())
     if label_policy(head) != policy:
         raise ValueError("model and dataset label policies differ")
-    if head["version"] != 1 or set(head["labels"]) != set(LABELS):
+    if (
+        head["version"] != HEAD_VERSION
+        or "threshold" in head
+        or set(head["labels"]) != set(LABELS)
+    ):
         raise ValueError("unsupported classifier artifact")
+    validate_thresholds(head.get("thresholds"))
     encoder = SentenceTransformer(
         str(model / "encoder"),
         device="cpu",
@@ -281,7 +333,7 @@ def predict_model(model: Path, data: Path, output: Path) -> None:
         trust_remote_code=False,
     )
     values = probabilities(head, features(encoder, cases))
-    labels = predictions(head, values, head["threshold"])
+    labels = predictions(head, values, head["thresholds"])
     with output.open("x") as target:
         json.dump(
             {case["id"]: label for case, label in zip(cases, labels, strict=True)},
@@ -293,7 +345,7 @@ def predict_model(model: Path, data: Path, output: Path) -> None:
         print(
             json.dumps(
                 {
-                    "raw": score(cases, predictions(head, values, 0)),
+                    "raw": score(cases, predictions(head, values)),
                     "selective": score(cases, labels),
                 },
                 indent=2,

@@ -17,7 +17,7 @@ from shadow import (
     read_request,
     validate_head,
 )
-from train import LABELS
+from train import HEAD_VERSION, LABELS
 
 
 class EncoderStub:
@@ -38,11 +38,11 @@ class EncoderStub:
 
 def head() -> dict:
     return {
-        "version": 1,
+        "version": HEAD_VERSION,
         "labels": LABELS,
         "coefficients": np.zeros((5, 1540)).tolist(),
         "intercepts": [0, 0, 5, 0, 0],
-        "threshold": 0.8,
+        "thresholds": {label: 1.0 if label == "abstain" else 0.8 for label in LABELS},
     }
 
 
@@ -136,7 +136,7 @@ class ShadowTests(unittest.TestCase):
             )
         self.assertNotIn("Please reply", json.dumps(result))
         abstaining = head()
-        abstaining["threshold"] = 1
+        abstaining["thresholds"] = dict.fromkeys(LABELS, 1.0)
         row = classify(cases[:1], abstaining, encoder, "a" * 64)["results"][0]
         self.assertEqual(row["label"], "abstain")
         self.assertGreater(row["confidence"], 0.9)
@@ -168,6 +168,9 @@ class ShadowTests(unittest.TestCase):
         for field, value in [
             ("threshold", float("nan")),
             ("threshold", True),
+            ("thresholds", {"fyi": 0.8}),
+            ("thresholds", None),
+            ("version", 1),
             ("labels", LABELS[:4]),
             ("coefficients", [[0]]),
             ("label_policy", "unknown"),
