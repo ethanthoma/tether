@@ -1,0 +1,1375 @@
+{
+  "version": 1,
+  "label_policy": "reply-triage-v2",
+  "specification": "# Synthetic triage labeling specification\n\nVersion: 2. Scope: future offline reviews aligned with the production reply policy.\nExisting datasets, models, and the archived v1 review retain their original\nmeanings. See [POLICY.md](POLICY.md) for explicit adoption requirements.\n\n## What the reviewer sees\n\nRead the supplied one or two messages in chronological order. `outbound: true`\nmeans the user sent the message; `false` means another sender did. Judge only the\nvisible exchange. Do not invent earlier requests, missing attachments, deadlines,\nor an obligation to acknowledge every message. Quoted material is history, not a\nnew request. The latest message changes only the obligations it actually addresses.\n\n## Labels\n\n| Label | Meaning under version 2 |\n| --- | --- |\n| `needs_reply` | A human visibly requested an outstanding prose response from the user, or an automated notice explicitly requires the user personally to act by a stated deadline. |\n| `waiting_on_them` | A human owes an outstanding response or action to a visible, explicit request from the user. An unsolicited promise alone does not qualify. |\n| `fyi` | Information worth seeing, with no remaining obligation supported by the visible exchange. |\n| `noise` | Newsletters, promotions, or routine automated mail with no personal deadline or calendar exception; never worth a nudge. |\n| `abstain` | Ownership/context is insufficient, material obligations belong to both sides, or task/commitment routing cannot be represented safely by the other labels. |\n\nThe five-label classifier cannot extract commitments or represent every task.\nA user-only task or promise, or an unsolicited incoming promise without a visible\nuser request, must not silently become `fyi`: use `abstain`. If an otherwise\nclassifiable reply also contains a separate user commitment needing extraction,\nabstain rather than losing that routing obligation. Abstention is a classifier\ndecision, not a production thread state; keep the work available to the existing\ntriage/commitment path. This specification does not change production behavior.\n\n## Resolve outstanding obligations\n\n- **Cancellation or replacement:** disregard a request explicitly withdrawn,\n  fulfilled elsewhere, or superseded. Retain unrelated unfinished obligations.\n  \u201cWe found another driver; forget the pickup\u201d closes the pickup request.\n- **Partial completion:** completing one part does not complete a remaining\n  requested part. \u201cThe figures are attached; I'll send the notes tomorrow\u201d leaves\n  the sender's promised notes outstanding.\n- **Promises:** count a specific commitment (\u201cI'll send the draft\u201d), not a wish\n  (\u201cI hope to finish\u201d) or speculation (\u201cperhaps Sam can help\u201d). A user-only promise\n  receives `abstain` and needs the separate commitment extractor. A promise does\n  not erase an outstanding requested answer.\n- **Two owners:** explicit outstanding promises or requests on both sides produce\n  `abstain`, even if one depends on the other. Do not infer a separate obligation\n  merely because a request enables later work.\n- **Acknowledgments:** \u201cThanks\u201d does not cancel an earlier unfinished request.\n  It is `fyi` only when no visible obligation remains. \u201cDone\u201d without a visible\n  referent can require `abstain`.\n- **Notices:** calendar invitations and attendance updates are informational;\n  don't invent a prose reply. A personal automated deadline is different from\n  a generic marketing deadline. Use `abstain` when action or ownership is unclear.\n- **Quoted questions:** a resolved or canceled question in quoted history is not\n  outstanding again merely because it appears in the message.\n- **Reply versus task:** inbound \u201cWhich draft should I use?\u201d is `needs_reply`.\n  Inbound \u201cPlease carry the boxes upstairs\u201d is `abstain`: the task exists, but\n  does not request prose. The same task requested outbound can be `waiting_on_them`.\n- **Visible questions:** missing historical details do not erase an explicit\n  question. \u201cIs that arrangement happening?\u201d inbound requires a reply; outbound\n  establishes waiting. The classifier need not know the answer. Use `abstain`\n  when the existence or owner of a request is unclear, such as \u201cThat arrangement\n  again\u2026\u201d without a question or identifiable disposition. Quoted, rhetorical,\n  and canceled questions still require context.\n- **Direction:** assess each variant independently; reversal is not a mechanical\n  label swap under this policy. Flag implausible reversed notices or broken roles.\n\n## Review record\n\nFor every case, supply one label, at least one evidence span, a short rationale,\nand zero or more flags. Evidence has a zero-based `message_index` and a nonempty\n`quote` copied exactly from that message. Evidence supports the interpretation;\nits presence alone does not establish correctness.\n\nAllowed flags:\n\n- `policy_mismatch`: an interpretation requires behavior outside this contract\n  and no specified abstention resolves it. Task/commitment routing abstentions\n  conform to version 2; do not flag every action or promise.\n- `insufficient_context`: a defective/incomplete example needs clarification\n  before review. Intentional uncertainty that clearly supports `abstain` is not\n  itself a defect and does not require this flag.\n- `unnatural_direction`: message direction or participant references are implausible.\n- `label_ambiguity`: the rules leave competing labels unresolved, rather than\n  deliberately requiring an uncertainty abstention.\n\nA reasoned `abstain` is a valid, potentially unflagged label. Flags request adjudication and\nwithhold the family even when author and reviewer agree on that label. Review\nmessages without viewing author labels, model predictions, scenario IDs, or split\nmetadata. Identify yourself and attest that author labels were unseen. This is\nself-reported independence, not proof of human review or an external quality audit.\n",
+  "cases": [
+    {
+      "id": "d98af070fd39d24e99eb1219164f5181",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated case alert: supporting documents may be required by Friday, depending on which party is responsible. The responsible party is not yet assigned."
+        }
+      ]
+    },
+    {
+      "id": "0adc2b28bdf8a238708bd1fc14f9659c",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is that arrangement still happening next week?"
+        },
+        {
+          "outbound": true,
+          "body": "No, it has been canceled entirely."
+        }
+      ]
+    },
+    {
+      "id": "8e36c18d412c8f7178a8a1ea0d2cd172",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please collect the donated blankets from the porch tonight."
+        },
+        {
+          "outbound": false,
+          "body": "Thanks for labeling the bags so clearly."
+        }
+      ]
+    },
+    {
+      "id": "b3931896654837cdb816fa4dd2611664",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which room should I reserve for our pottery class?"
+        },
+        {
+          "outbound": false,
+          "body": "Thanks for taking care of the booking."
+        }
+      ]
+    },
+    {
+      "id": "6f898cb5aece4177a3918ba5238c0ed6",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Calendar invitation: neighborhood planning session, Thursday at seven."
+        },
+        {
+          "outbound": true,
+          "body": "I will prepare the street lighting report before the session."
+        }
+      ]
+    },
+    {
+      "id": "f0aea7e6a9c584b8d9c3f545a580436f",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Annual hosting discount ends tomorrow. Upgrade during the sale to receive the same promotional rate available to every new and existing customer."
+        }
+      ]
+    },
+    {
+      "id": "2a2fef95fa641fc1d27d84391810a21b",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The monthly cookware digest is here: new pans, seasonal recipes, and interviews with three home cooks. Browse the collection whenever inspiration strikes."
+        }
+      ]
+    },
+    {
+      "id": "ea86e8e919c2d3a15854acb2108e5f0b",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Could you tell me whether the upstairs radiator is making the same knocking sound today? I am comparing the rooms before speaking with the caretaker."
+        }
+      ]
+    },
+    {
+      "id": "79381e2f056153f71cb7c3e277832081",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The greenhouse looks beautiful in the rain."
+        },
+        {
+          "outbound": true,
+          "body": "I will repair its broken latch on Saturday."
+        }
+      ]
+    },
+    {
+      "id": "b24e23e83f288f0ff204f05e0c466010",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Is that arrangement still happening next week?"
+        },
+        {
+          "outbound": false,
+          "body": "I remember discussing it at the workshop."
+        }
+      ]
+    },
+    {
+      "id": "1bf617bdce45a77eb4888efb39bcc85b",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "About the permit situation at the garden..."
+        },
+        {
+          "outbound": true,
+          "body": "Still unclear whose part that is now."
+        }
+      ]
+    },
+    {
+      "id": "43111d1ece3a1f90bea6297525879148",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which entrance would be best if we arrange a chair delivery? The side street looks narrower than I remember."
+        }
+      ]
+    },
+    {
+      "id": "0fd19172a9900614f8bc75bea4368142",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The community orchard now has labels on every tree. The small pear near the gate is the oldest planting, despite its size."
+        }
+      ]
+    },
+    {
+      "id": "eacbe0102a421b81179f1bd1e3e09552",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Earlier you wrote, \"Which projector should we use?\" The small one is booked. What time should I unlock the hall?"
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for checking the equipment reservation."
+        }
+      ]
+    },
+    {
+      "id": "1cd9b10d26d75cb34494530168173fe4",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Library service notice: the online catalog will be unavailable during routine maintenance from two until three on Sunday morning."
+        }
+      ]
+    },
+    {
+      "id": "ac3e36fa99a22ef7c090e0040de1e553",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which version of the exhibition title should we print on the entrance sign?"
+        }
+      ]
+    },
+    {
+      "id": "7774ba5a53ab9f31ca8dc48873d04e4f",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I will send you my revised chapter on Tuesday afternoon."
+        }
+      ]
+    },
+    {
+      "id": "c95cad0e188a88563ab5ca5a8e203b54",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "There have been several changes around the building."
+        },
+        {
+          "outbound": true,
+          "body": "Done with that one now, I think."
+        }
+      ]
+    },
+    {
+      "id": "a30b17d0677e6b50ca480496a1c95900",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "For Monday choir rehearsal, which warmup exercise would you like me to lead? We have ten minutes before the accompanist arrives."
+        }
+      ]
+    },
+    {
+      "id": "991a13c5b6498c4f0dc749f94c3a9883",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please move the amplifier into the van. Also, which microphone should I bring?"
+        },
+        {
+          "outbound": true,
+          "body": "Bring the silver microphone with the long cable."
+        }
+      ]
+    },
+    {
+      "id": "a57f956141f9259081a3527baca5cb71",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please repair the broken greenhouse latch this weekend."
+        },
+        {
+          "outbound": false,
+          "body": "I will repair the latch on Saturday."
+        }
+      ]
+    },
+    {
+      "id": "34871387ebff60cf16679dfb5d612b25",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Readers club newsletter: our autumn fiction picks are here."
+        },
+        {
+          "outbound": false,
+          "body": "Readers club reminder: enjoy free shipping on book orders this weekend."
+        }
+      ]
+    },
+    {
+      "id": "28949087defd6fe08ebdee4bd44137a2",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated credential notice: your laboratory access expires Friday. You must personally complete the renewal form by Thursday at noon."
+        },
+        {
+          "outbound": true,
+          "body": "I have read the renewal instructions carefully."
+        }
+      ]
+    },
+    {
+      "id": "7a2c708711175c447e97063743e23a84",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Handled that part, or at least the obvious bit."
+        }
+      ]
+    },
+    {
+      "id": "5d7fbc6c8865d6d2862aa0f9292b1e2a",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which dessert should I bring to the picnic?"
+        },
+        {
+          "outbound": true,
+          "body": "I hope the weather stays clear all afternoon."
+        }
+      ]
+    },
+    {
+      "id": "90208d7ce37f512d87842a8a1f78aca7",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What are the supply costs, and who approved them?"
+        },
+        {
+          "outbound": true,
+          "body": "The supplies cost ninety dollars altogether."
+        }
+      ]
+    },
+    {
+      "id": "aaec5f2a6d389208d821f3f29c1346ad",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Discover our new website themes in this product newsletter. See fresh typography, playful color palettes, and examples from our customer gallery."
+        }
+      ]
+    },
+    {
+      "id": "a97fc2020c0eba871f12f92f149f3e6f",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Friends of the library merchandise sale ends Saturday. Everyone can enjoy discounted tote bags and mugs while supplies last."
+        }
+      ]
+    },
+    {
+      "id": "85e66336d5cc717099f482f70776bb54",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your weekly discussion digest contains twelve new posts about historical maps. Visit the forum to read whichever conversations interest you."
+        }
+      ]
+    },
+    {
+      "id": "7cdaeb1a817d3073f52c87b1541b4747",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Weekend craft sale: twenty percent off yarn until Sunday night."
+        },
+        {
+          "outbound": false,
+          "body": "Last chance for our weekend yarn discounts; the sale ends tonight."
+        }
+      ]
+    },
+    {
+      "id": "97e4e39ed8cfb841a0052caf34056b30",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which trail should we take on Sunday?"
+        },
+        {
+          "outbound": true,
+          "body": "Let us take the lake loop. I will collect your boots from the repair shop tomorrow."
+        }
+      ]
+    },
+    {
+      "id": "8f838c6d16b46181539a166ce21e3b00",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "The ferry terminal now has a covered waiting area beside the ticket office."
+        },
+        {
+          "outbound": true,
+          "body": "That is useful to know before our rainy-season trips."
+        }
+      ]
+    },
+    {
+      "id": "7532af8d9a21ccea1e62d2a5388f3298",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please send the invoice for the mural."
+        },
+        {
+          "outbound": false,
+          "body": "The invoice is attached, with the agreed total and payment details."
+        }
+      ]
+    },
+    {
+      "id": "ffb2e39d8be00c026773fb173c68847b",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The old question, \"Which projector?\", is resolved. What time will you unlock the hall?"
+        },
+        {
+          "outbound": false,
+          "body": "Good to know the equipment decision is settled."
+        }
+      ]
+    },
+    {
+      "id": "75b9f6617f8c5b3f202104b7930b954e",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please bleed the upstairs radiator when the heating is off. The valve key is on the hook beside the kitchen door."
+        }
+      ]
+    },
+    {
+      "id": "d7b8f89f6ce42a4da23425c692784c1b",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please update the volunteer roster with the three names I sent."
+        },
+        {
+          "outbound": true,
+          "body": "The roster layout is much clearer this season."
+        }
+      ]
+    },
+    {
+      "id": "7f767b1c0f445c672aaf665d75892d80",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "What was the name of the little green pear we tasted at the orchard? I forgot to photograph its label."
+        }
+      ]
+    },
+    {
+      "id": "15ec4f8cf8397f7377d5d3931a595237",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please bleed the upstairs radiator when the heating is off. The valve key is on the hook beside the kitchen door."
+        }
+      ]
+    },
+    {
+      "id": "d20c5ff0f0fbbd923226a74c53d7c881",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Are we still going ahead with that plan?"
+        }
+      ]
+    },
+    {
+      "id": "3955cd7df4c58b78de7b3494a369746e",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which room would you prefer for pottery?"
+        },
+        {
+          "outbound": true,
+          "body": "The basement studio works best for me."
+        }
+      ]
+    },
+    {
+      "id": "8b1fdbc1a470f241fba280daf26cb68f",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated confirmation: your website settings were saved successfully. The new display name is now visible on your account dashboard."
+        }
+      ]
+    },
+    {
+      "id": "579f7d87f690f305f5a0d630e27102be",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Calendar update for our rehearsal: the venue is now the school hall, with the original start time unchanged."
+        }
+      ]
+    },
+    {
+      "id": "26803f3c9e7b76337bf44b8f8b308ba8",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I will send you my revised chapter on Tuesday afternoon."
+        }
+      ]
+    },
+    {
+      "id": "b698eea291f3a363802c8ca409f590c8",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which version of the exhibition title should we print on the entrance sign?"
+        }
+      ]
+    },
+    {
+      "id": "070b67f33466d98829d6c97b74d0b613",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Are all three new volunteers already on the roster?"
+        },
+        {
+          "outbound": true,
+          "body": "The membership list has grown a lot recently."
+        }
+      ]
+    },
+    {
+      "id": "f44684271acfb47e9b380e738c403483",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please move the amplifier into the van. Also, which microphone should I bring?"
+        },
+        {
+          "outbound": false,
+          "body": "The performance is canceled. No equipment transport or microphone decision is needed."
+        }
+      ]
+    },
+    {
+      "id": "8c48241bb29745d47f2f4982830002c0",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which dessert should I bring to the picnic?"
+        },
+        {
+          "outbound": true,
+          "body": "I will wash and return your picnic blanket tomorrow."
+        }
+      ]
+    },
+    {
+      "id": "bce6cc3eae468d2b84dca297c907174a",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The community orchard now has labels on every tree. The small pear near the gate is the oldest planting, despite its size."
+        }
+      ]
+    },
+    {
+      "id": "cec7996a9426b9d67c9852343f43cb8f",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please send the trail map so I can compare the routes."
+        },
+        {
+          "outbound": false,
+          "body": "I will send the map after dinner."
+        }
+      ]
+    },
+    {
+      "id": "aee5310547a03ad41db710907f2a9f4f",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which dessert should I bring to the picnic?"
+        },
+        {
+          "outbound": false,
+          "body": "The park looks lovely after all that rain."
+        }
+      ]
+    },
+    {
+      "id": "e8b9d97b99c738a4fb812376d47c30c7",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Would you prefer soup or salad at the reunion?"
+        },
+        {
+          "outbound": false,
+          "body": "Forget the menu choice; we are doing a buffet. Will you attend the reunion?"
+        }
+      ]
+    },
+    {
+      "id": "e428c1c2ef602acbd0be64c86c185975",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Would you rather take the morning ferry or the afternoon crossing?"
+        },
+        {
+          "outbound": true,
+          "body": "The covered waiting area will make either trip more pleasant."
+        }
+      ]
+    },
+    {
+      "id": "d77e2e31226cbebbd3f29a3bd4d08146",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Calendar invitation: community choir rehearsal, Monday at six in the school hall. Organizer: neighborhood music association."
+        }
+      ]
+    },
+    {
+      "id": "3d1a4fbea5b73cd7a8cc41c23d1a7bdf",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated lab bulletin: the equipment catalog is available."
+        },
+        {
+          "outbound": false,
+          "body": "Personal access notice: you must reset your laboratory badge PIN by 4 pm today to retain access."
+        }
+      ]
+    },
+    {
+      "id": "88e7930d6f0971e777dea7c20a6d470f",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The greenhouse looks beautiful in the rain."
+        },
+        {
+          "outbound": false,
+          "body": "I hope someone has time to improve the latch eventually."
+        }
+      ]
+    },
+    {
+      "id": "a0569d2de796d9ccd13e9307e049e217",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "For your reference, here is the yarn discount advertisement; I am not asking you to buy anything."
+        },
+        {
+          "outbound": false,
+          "body": "Thanks, the color photographs are useful."
+        }
+      ]
+    },
+    {
+      "id": "db81ce5fc28f6e7e7cc4cc1c7ff92fa7",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please send the invoice for the mural."
+        },
+        {
+          "outbound": false,
+          "body": "The invoice is attached. Which date should we schedule the unveiling?"
+        }
+      ]
+    },
+    {
+      "id": "3366e7e0b58ce7269d3028376ffce9b5",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please move the amplifier into the van. Also, which microphone should I bring?"
+        },
+        {
+          "outbound": true,
+          "body": "Our driver will move the amplifier, so disregard that part."
+        }
+      ]
+    },
+    {
+      "id": "8c51abc774aee9df8b9dcad8836c31aa",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please send the trail map. I will book our campsite tomorrow."
+        },
+        {
+          "outbound": false,
+          "body": "I will send the map after dinner."
+        }
+      ]
+    },
+    {
+      "id": "b966d463d5c0c2a8611cd3c554cbd649",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please send the budget figures and the explanatory notes."
+        },
+        {
+          "outbound": false,
+          "body": "Here are the figures: supplies 90, transport 40. I will send the notes tomorrow."
+        }
+      ]
+    },
+    {
+      "id": "13988cd828f14f029bbe25ceafbb8092",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please send the budget figures and explanatory notes."
+        },
+        {
+          "outbound": true,
+          "body": "The figures are attached. I will write and send the notes tomorrow."
+        }
+      ]
+    },
+    {
+      "id": "eff2f4dc5efbfbf271b1245ecf7a2e02",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please update the volunteer roster with the three names I sent."
+        },
+        {
+          "outbound": false,
+          "body": "The roster layout is much clearer this season."
+        }
+      ]
+    },
+    {
+      "id": "85926f10ae4ebdec687301f30c7b2d1a",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Perhaps the chapter will read better with a shorter opening scene."
+        }
+      ]
+    },
+    {
+      "id": "a8169d662c7a42cceaa43c1d4bc13f50",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Payment receipt: your monthly storage subscription renewed successfully for the usual amount. This automated email is a copy for your records."
+        }
+      ]
+    },
+    {
+      "id": "9f80a108640452396b95ff563738a7d2",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Has the permit situation at the garden been resolved?"
+        },
+        {
+          "outbound": false,
+          "body": "The committee discussed the garden yesterday evening."
+        }
+      ]
+    },
+    {
+      "id": "72c50e8d9e2aa6f40110698c67f29168",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Library return receipt: all three items were checked in successfully today. Your account has no overdue items and no outstanding balance."
+        }
+      ]
+    },
+    {
+      "id": "c6d0d36dff1d92d7d121078a4f10c799",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which entrance would be best if we arrange a chair delivery? The side street looks narrower than I remember."
+        }
+      ]
+    },
+    {
+      "id": "1d899afc612dd4ffe920318eacb1af50",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The greenhouse looks beautiful in the rain."
+        },
+        {
+          "outbound": false,
+          "body": "I will repair its broken latch on Saturday."
+        }
+      ]
+    },
+    {
+      "id": "968476324aefa5b4c13369f003c1a5a7",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you collect the blankets from my porch?"
+        },
+        {
+          "outbound": true,
+          "body": "Our neighbor collected them already. Please disregard my pickup request."
+        }
+      ]
+    },
+    {
+      "id": "732cf44609c4716b298067a7d69f590e",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Calendar invitation: neighborhood planning session, Thursday at seven."
+        },
+        {
+          "outbound": false,
+          "body": "This is Mara writing separately: which agenda item would you like us to discuss first?"
+        }
+      ]
+    },
+    {
+      "id": "ab926edb0c5e99dc730df8cbaa93117a",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Who knew pears could vary so much? The orchard tasting was fascinating, and the little green variety was easily my favorite."
+        }
+      ]
+    },
+    {
+      "id": "61d819c62e22e505d0db5435be901772",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "I will deliver the spare chairs tomorrow. Which entrance should I use for the delivery?"
+        }
+      ]
+    },
+    {
+      "id": "3c69f10f9fd7c378256794100f2db403",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "What are the supply costs, and who approved them?"
+        },
+        {
+          "outbound": false,
+          "body": "The supplies cost ninety dollars; Priya approved them yesterday."
+        }
+      ]
+    },
+    {
+      "id": "1438ed7f983d721205f776e7d677df18",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "For the pottery class, would you prefer the sunny room or the basement studio?"
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for organizing the class this year."
+        }
+      ]
+    },
+    {
+      "id": "dd5de1f1d13360e9784bbcfe93cbcf70",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please update the volunteer roster with the three names I sent."
+        },
+        {
+          "outbound": false,
+          "body": "All three names are now on the roster."
+        }
+      ]
+    },
+    {
+      "id": "34991f95922789523fdde0b2d10373aa",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Help shape our history newsletter by taking an optional reader survey. The form closes Friday and is open to all subscribers."
+        }
+      ]
+    },
+    {
+      "id": "d2ee229e91517dc51730334a007361f1",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Are we still going ahead with that plan?"
+        }
+      ]
+    },
+    {
+      "id": "3dd8d0eab9e0654aeabc3a46268f4ff6",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Would you prefer soup or salad at the reunion?"
+        },
+        {
+          "outbound": false,
+          "body": "The reunion was canceled. No menu choice is needed now."
+        }
+      ]
+    },
+    {
+      "id": "c555b4f6ffca8d9ee14d5ab5b8b6b631",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated identity check: you personally must complete the verification form by noon tomorrow. This requirement applies to your account and cannot be completed by your team administrator."
+        }
+      ]
+    },
+    {
+      "id": "29b11a9767180b63ee402e2fa8aed8e7",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "I hope to get back into chapter revisions when things settle down."
+        }
+      ]
+    },
+    {
+      "id": "7f26586da13a462eb5c53de56dfc6273",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please mail back the borrowed atlas this week. I will reimburse your postage on Friday after I collect my pay."
+        }
+      ]
+    },
+    {
+      "id": "2607a19c54629e49134ea7a4a7783e9f",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Final hours of our cookware promotion! Order before midnight for fifteen percent off selected pans. Offer available to every subscriber."
+        }
+      ]
+    },
+    {
+      "id": "3aeb2dd1937b4b9c3c38fbbf3a318595",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "That plan again, with all the usual complications."
+        }
+      ]
+    },
+    {
+      "id": "2d7fc6aba80e8694cac1cb0da96809ea",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "That arrangement again, after everything last week..."
+        },
+        {
+          "outbound": true,
+          "body": "The whole situation is difficult to read."
+        }
+      ]
+    },
+    {
+      "id": "751e2ffb2e7ba4190024794791a121bf",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Has the permit situation at the garden been resolved?"
+        },
+        {
+          "outbound": false,
+          "body": "Yes, the permit was issued this morning and the matter is closed."
+        }
+      ]
+    },
+    {
+      "id": "c7eb14e2fadb0e411b5853bd4a3d3b59",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Would you prefer soup or salad at the reunion?"
+        },
+        {
+          "outbound": true,
+          "body": "Forget the food question. Will you attend the reunion?"
+        }
+      ]
+    },
+    {
+      "id": "98f6f13dd17d720e470a8c35fc89f33f",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated service digest: all scheduled website backups completed this week. The archive sizes stayed within your existing storage allowance."
+        }
+      ]
+    },
+    {
+      "id": "efb8554f450772a503eb533c64232164",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Your monthly library recommendations include travel writing, family sagas, and a new collection of nature essays. Explore the full list online."
+        }
+      ]
+    },
+    {
+      "id": "40dab1fa119af7379dbe2b137c9229ef",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Would you rather take the morning ferry or the afternoon crossing?"
+        },
+        {
+          "outbound": false,
+          "body": "The covered waiting area will make either trip more pleasant."
+        }
+      ]
+    },
+    {
+      "id": "ba5a76f76c8cdd70ad744792b2396c9c",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Where did you leave the spare key?"
+        },
+        {
+          "outbound": false,
+          "body": "Thank you for being patient with me."
+        }
+      ]
+    },
+    {
+      "id": "a77c6621188b398aa474b3175759a35c",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "City history newsletter: this edition explores vanished tram routes and the artists who painted them. Our archive now includes three newly scanned maps."
+        }
+      ]
+    },
+    {
+      "id": "401193117565c60e6c471182d22b0345",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please send the invoice for the mural."
+        },
+        {
+          "outbound": false,
+          "body": "I will send the invoice tonight; the painting itself is finished."
+        }
+      ]
+    },
+    {
+      "id": "ccda330a669002a1989e8b0ecc0eb726",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Archive note: \"Which projector should we use?\" We settled on the small projector yesterday; this is just for the record."
+        },
+        {
+          "outbound": true,
+          "body": "Thanks, I have saved the decision."
+        }
+      ]
+    },
+    {
+      "id": "48131fc08d1ffae5be67fecaf8a5b6eb",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Calendar attendance update: Eli declined the choir rehearsal because of a scheduling conflict. The event remains on the calendar."
+        }
+      ]
+    },
+    {
+      "id": "8f48555d88c9d86653aa92d55ca2c064",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Calendar invitation: neighborhood planning session, Thursday at seven."
+        },
+        {
+          "outbound": false,
+          "body": "Calendar cancellation: the planning session has been removed by its organizer."
+        }
+      ]
+    },
+    {
+      "id": "6798352e4b1dbe6f098110db63147fa1",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated lab bulletin: the new equipment catalog is available in the portal."
+        },
+        {
+          "outbound": false,
+          "body": "Automated lab bulletin: the catalog now includes photographs of the centrifuges."
+        }
+      ]
+    },
+    {
+      "id": "b2f12170ee9cd12aa6378b3ed9161363",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please collect the donated blankets from the porch tonight."
+        },
+        {
+          "outbound": true,
+          "body": "I appreciate you sorting everything into bags."
+        }
+      ]
+    },
+    {
+      "id": "a16160a130104465044a87c8e2c77067",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please print the exhibition title on the entrance sign before opening."
+        }
+      ]
+    },
+    {
+      "id": "115d0ca68f193f8ea9c1265038a5efa5",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which trail should we take on Sunday?"
+        },
+        {
+          "outbound": true,
+          "body": "The northern ridge looked lovely in your photos."
+        }
+      ]
+    },
+    {
+      "id": "de5f87a5d258cf95e60e04f129e79c80",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Would you prefer soup or salad at the reunion?"
+        },
+        {
+          "outbound": true,
+          "body": "The organizer canceled the meal, so that choice is moot. I will return the borrowed serving dishes tomorrow."
+        }
+      ]
+    },
+    {
+      "id": "5635073afe464fdf3a23280430ea8976",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated housing portal notice: you must confirm your own lease renewal choice by September 30. Your account remains marked as awaiting your decision."
+        }
+      ]
+    },
+    {
+      "id": "d18426ebd94491e63ac0a8af795208ed",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Which room is available for pottery next month?"
+        },
+        {
+          "outbound": false,
+          "body": "The sunny room is available. How many tables will your group need?"
+        }
+      ]
+    },
+    {
+      "id": "9287fc62620e5ab42eec34c1e647f211",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Personal license notice: your instructor certificate expires next week. You must upload your renewal declaration by 5 pm on Thursday to keep it active."
+        }
+      ]
+    },
+    {
+      "id": "46da6ed500350e55c797058e5ffc435d",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please collect the blankets from my porch tonight."
+        },
+        {
+          "outbound": false,
+          "body": "I collected every bag and delivered them to the shelter."
+        }
+      ]
+    },
+    {
+      "id": "9bbf9bbb694a58eeded4f5086c9699dc",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Earlier I asked, \"What time will you unlock the hall?\" Ignore that question; the event is now online."
+        },
+        {
+          "outbound": false,
+          "body": "Understood, I have removed the trip from my calendar."
+        }
+      ]
+    },
+    {
+      "id": "bfad3a4228a5db99310324b75a074acd",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Shop newsletter: this week we are featuring hand-dyed yarn."
+        },
+        {
+          "outbound": false,
+          "body": "Hi, this is the shop owner about your special order. Which of the two blue shades should I reserve for you?"
+        }
+      ]
+    },
+    {
+      "id": "18de630c056c28911e9260ddbb01d0a7",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Could you tell me whether the upstairs radiator is making the same knocking sound today? I am comparing the rooms before speaking with the caretaker."
+        }
+      ]
+    },
+    {
+      "id": "d04115648a7eafafa22e066becd4e196",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please send the invoice for the mural."
+        },
+        {
+          "outbound": false,
+          "body": "I will send the invoice tonight. What billing address should I use?"
+        }
+      ]
+    },
+    {
+      "id": "c37c0fece549efa8f8205d1384a5798e",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Has the permit situation at the garden been resolved?"
+        },
+        {
+          "outbound": true,
+          "body": "The committee discussed the garden yesterday evening."
+        }
+      ]
+    },
+    {
+      "id": "7c987bb40b0c76e17f92960f5b451ff8",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Which dessert should I bring to the picnic?"
+        },
+        {
+          "outbound": true,
+          "body": "Please bring the lemon cake; that is my choice."
+        }
+      ]
+    },
+    {
+      "id": "ccff2badad6acf9e82bfc7a911945a09",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "The spare key is in the blue drawer, as you asked."
+        },
+        {
+          "outbound": false,
+          "body": "Thank you, that answers my question completely."
+        }
+      ]
+    },
+    {
+      "id": "6a4a2eb3e2c27ad227cae26083e8ea63",
+      "messages": [
+        {
+          "outbound": true,
+          "body": "Please print the exhibition title on the entrance sign before opening."
+        }
+      ]
+    },
+    {
+      "id": "2bbaffbbf498b48e3f85e4d9b70c732d",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Calendar update: Mara accepted the neighborhood planning session for Thursday at seven."
+        },
+        {
+          "outbound": true,
+          "body": "Good to see the attendance list coming together."
+        }
+      ]
+    },
+    {
+      "id": "0abad072e16fdb4c3812c0c7f3ed0c41",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated shipment update: your parcel has reached the regional sorting center. Its estimated arrival remains Wednesday. No action is required."
+        }
+      ]
+    },
+    {
+      "id": "5d13e6bd923aae96127f3697478b0d79",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated credential notice: complete your laboratory access renewal by Thursday at noon."
+        },
+        {
+          "outbound": true,
+          "body": "I completed the renewal form and received confirmation."
+        }
+      ]
+    },
+    {
+      "id": "5620c09232ea723f54eb358153212c0a",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Is that arrangement still happening next week?"
+        },
+        {
+          "outbound": true,
+          "body": "I remember discussing it at the workshop."
+        }
+      ]
+    },
+    {
+      "id": "284491a37f8241ab5ccd6493e1eefbca",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Automated account notice: a successful sign-in was recorded from your saved device. This notice is informational and requires no response."
+        }
+      ]
+    },
+    {
+      "id": "cac408f92eba5da5a291219b887430d2",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please move the amplifier into the van. Also, which microphone should I bring?"
+        },
+        {
+          "outbound": false,
+          "body": "Leave the amplifier where it is; our driver will handle it."
+        }
+      ]
+    },
+    {
+      "id": "825656b9e59c29adc9efd9148c85dc69",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Where did you leave the spare key?"
+        },
+        {
+          "outbound": true,
+          "body": "Thanks for checking before you drive over."
+        }
+      ]
+    },
+    {
+      "id": "11c7276fdb6591006a930ff4abf46946",
+      "messages": [
+        {
+          "outbound": false,
+          "body": "Please collect my ferry tickets from the counter before you board."
+        },
+        {
+          "outbound": true,
+          "body": "The terminal should be quieter at that time."
+        }
+      ]
+    }
+  ]
+}
