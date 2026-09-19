@@ -1,0 +1,248 @@
+{
+  "label_policy": "reply-triage-v2",
+  "base": "sentence-transformers/all-MiniLM-L6-v2",
+  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "feature_layout": "joint-thread-v1",
+  "encoder_frozen": false,
+  "data_sha256": "7d061d562614b23b0c05af0186a2aa016a962fc0e969cfd0620ce714761542e8",
+  "train_count": 1989,
+  "dev_count": 152,
+  "seed": 42,
+  "epochs": 12,
+  "batch_size": 16,
+  "encoder_learning_rate": 2e-05,
+  "head_learning_rate": 0.001,
+  "weight_decay": 0.01,
+  "gradient_norm_max": 1.0,
+  "loss": "inverse-frequency-weighted cross entropy",
+  "head_initialization": "frozen-encoder logistic regression",
+  "checkpoint_selection": "lowest unweighted development cross entropy, including epoch zero",
+  "selected_epoch": 1,
+  "max_seq_length": 512,
+  "base_position_capacity": 512,
+  "thresholds": {
+    "abstain": 1.0,
+    "fyi": 0.99,
+    "needs_reply": 0.995,
+    "noise": 0.85,
+    "waiting_on_them": 0.95
+  },
+  "threshold_selection": "maximum development coverage per predicted class with zero accepted errors on the fixed classwise grid; unsupported classes abstain",
+  "dev_raw": {
+    "cases": 152,
+    "accepted": 135,
+    "correct_accepted": 74,
+    "correct_abstentions": 14,
+    "false_reminders": 22,
+    "false_silencing": 14,
+    "actionable_abstained": 2,
+    "ambiguous_accepted": 16
+  },
+  "dev_selective": {
+    "cases": 152,
+    "accepted": 26,
+    "correct_accepted": 26,
+    "correct_abstentions": 30,
+    "false_reminders": 0,
+    "false_silencing": 0,
+    "actionable_abstained": 53,
+    "ambiguous_accepted": 0
+  },
+  "history": [
+    {
+      "epoch": 0,
+      "train_loss": null,
+      "dev_loss": 1.483656406402588,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 131,
+        "correct_accepted": 57,
+        "correct_abstentions": 15,
+        "false_reminders": 41,
+        "false_silencing": 15,
+        "actionable_abstained": 5,
+        "ambiguous_accepted": 15
+      }
+    },
+    {
+      "epoch": 1,
+      "train_loss": 0.4357046355189481,
+      "dev_loss": 1.2676780223846436,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 135,
+        "correct_accepted": 74,
+        "correct_abstentions": 14,
+        "false_reminders": 22,
+        "false_silencing": 14,
+        "actionable_abstained": 2,
+        "ambiguous_accepted": 16
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.22821912328282332,
+      "dev_loss": 1.286340594291687,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 125,
+        "correct_accepted": 81,
+        "correct_abstentions": 22,
+        "false_reminders": 25,
+        "false_silencing": 5,
+        "actionable_abstained": 3,
+        "ambiguous_accepted": 8
+      }
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.12623326672927526,
+      "dev_loss": 1.5611623525619507,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 125,
+        "correct_accepted": 82,
+        "correct_abstentions": 22,
+        "false_reminders": 26,
+        "false_silencing": 6,
+        "actionable_abstained": 3,
+        "ambiguous_accepted": 8
+      }
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.08117172927930465,
+      "dev_loss": 1.5763238668441772,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 124,
+        "correct_accepted": 88,
+        "correct_abstentions": 23,
+        "false_reminders": 19,
+        "false_silencing": 8,
+        "actionable_abstained": 3,
+        "ambiguous_accepted": 7
+      }
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.04988795979573102,
+      "dev_loss": 2.098085880279541,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 121,
+        "correct_accepted": 79,
+        "correct_abstentions": 25,
+        "false_reminders": 17,
+        "false_silencing": 11,
+        "actionable_abstained": 4,
+        "ambiguous_accepted": 5
+      }
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.03548498897757774,
+      "dev_loss": 2.0471439361572266,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 118,
+        "correct_accepted": 81,
+        "correct_abstentions": 26,
+        "false_reminders": 18,
+        "false_silencing": 7,
+        "actionable_abstained": 5,
+        "ambiguous_accepted": 4
+      }
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.03393923816081607,
+      "dev_loss": 1.8695399761199951,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 120,
+        "correct_accepted": 85,
+        "correct_abstentions": 25,
+        "false_reminders": 20,
+        "false_silencing": 4,
+        "actionable_abstained": 4,
+        "ambiguous_accepted": 5
+      }
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.01826831560001075,
+      "dev_loss": 2.1338050365448,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 122,
+        "correct_accepted": 81,
+        "correct_abstentions": 23,
+        "false_reminders": 17,
+        "false_silencing": 12,
+        "actionable_abstained": 5,
+        "ambiguous_accepted": 7
+      }
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.01839470678216902,
+      "dev_loss": 2.167604684829712,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 125,
+        "correct_accepted": 85,
+        "correct_abstentions": 22,
+        "false_reminders": 17,
+        "false_silencing": 12,
+        "actionable_abstained": 3,
+        "ambiguous_accepted": 8
+      }
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.019146779286654012,
+      "dev_loss": 2.0291032791137695,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 119,
+        "correct_accepted": 88,
+        "correct_abstentions": 26,
+        "false_reminders": 21,
+        "false_silencing": 5,
+        "actionable_abstained": 4,
+        "ambiguous_accepted": 4
+      }
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.007466707890387427,
+      "dev_loss": 2.229583501815796,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 120,
+        "correct_accepted": 84,
+        "correct_abstentions": 25,
+        "false_reminders": 20,
+        "false_silencing": 10,
+        "actionable_abstained": 4,
+        "ambiguous_accepted": 5
+      }
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.006396197203813497,
+      "dev_loss": 2.123671531677246,
+      "dev_raw": {
+        "cases": 152,
+        "accepted": 119,
+        "correct_accepted": 88,
+        "correct_abstentions": 26,
+        "false_reminders": 14,
+        "false_silencing": 10,
+        "actionable_abstained": 5,
+        "ambiguous_accepted": 4
+      }
+    }
+  ]
+}
