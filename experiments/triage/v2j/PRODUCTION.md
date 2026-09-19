@@ -46,8 +46,15 @@ Thus the initial live sample shows **zero accepted coverage**, not measured
 real-mail accuracy. The short synthetic benchmark does not resolve that limitation.
 The full private report remains under the rollout backup directory.
 
+The first ordinary authority pulse ran at 02:45:13–02:45:30 PDT and exited
+successfully. It logged the active v2 model with 14 checked, zero accepted, and
+14 abstained or rejected. Zero threads were classified; 23 remained queued.
+There were no model-availability, identity, or invalid-switch errors. This confirms
+the live authority path and queue preservation, but **no accepted production
+classification has yet been observed**.
+
 The bot and all timers are active. No manual pulse, nudge, or test notification
-was sent. Ordinary post-activation pulse evidence is pending the next scheduled run.
+was sent. These are observations of the ordinary scheduled run.
 
 ## Runtime behavior and rollback
 

@@ -36,7 +36,7 @@ cutoffs against development data before making held-out predictions.
 - [V2e](v2e/RESULT.md) accepted 37/120 held-out cases with two false reminders:
   rejected. Its test is consumed.
 - [V2f](v2f/RESULT.md) accepted only 26/152 development cases and was rejected
-  before test. Its 154-case test remains unused.
+  before test. Its 154-case test was later consumed by v2h.
 - [V2g](v2g/RESULT.md) accepted 29/152 development cases (19.1%): rejected
   before test despite passing the synthetic Atlas resource check.
 - [V2h](v2h/RESULT.md) reached 40.1% safe development coverage, but its held-out
