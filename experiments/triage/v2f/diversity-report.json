@@ -1,0 +1,92 @@
+{
+  "method": "Lowercase word tokens; split sentences on .!? or newline; count sentences of at least six words across distinct author families. This is a repetition diagnostic, not proof of semantic diversity.",
+  "sources": {
+    "training": {
+      "source_sha256": "7925f5a56b9e9bfa24b40481ebdc53a88bee5dc0fbf3ac9f0835725ad10a4c2e",
+      "cases": 300,
+      "families": 150,
+      "labels": {
+        "abstain": 60,
+        "fyi": 60,
+        "needs_reply": 60,
+        "noise": 60,
+        "waiting_on_them": 60
+      },
+      "two_message_cases": 300,
+      "contexts": {
+        "abstain:outin": 60,
+        "fyi:outin": 60,
+        "needs_reply:outin": 60,
+        "noise:outin": 60,
+        "waiting_on_them:outin": 60
+      },
+      "unique_normalized_sentences_at_least_six_words": 621,
+      "sentences_repeated_across_families": 0,
+      "maximum_families_per_repeated_sentence": 0
+    },
+    "development": {
+      "source_sha256": "ac32ac9473603c90d3bece8bab7140257c4648997e2e35a059bb4d220a106108",
+      "cases": 160,
+      "families": 80,
+      "labels": {
+        "abstain": 32,
+        "fyi": 32,
+        "needs_reply": 32,
+        "noise": 32,
+        "waiting_on_them": 32
+      },
+      "two_message_cases": 160,
+      "contexts": {
+        "abstain:inin": 11,
+        "abstain:inout": 10,
+        "abstain:outin": 11,
+        "fyi:inin": 9,
+        "fyi:inout": 9,
+        "fyi:outin": 11,
+        "fyi:outout": 3,
+        "needs_reply:inin": 20,
+        "needs_reply:inout": 8,
+        "needs_reply:outin": 4,
+        "noise:inin": 32,
+        "waiting_on_them:inout": 6,
+        "waiting_on_them:outin": 22,
+        "waiting_on_them:outout": 4
+      },
+      "unique_normalized_sentences_at_least_six_words": 264,
+      "sentences_repeated_across_families": 0,
+      "maximum_families_per_repeated_sentence": 0
+    },
+    "test": {
+      "source_sha256": "e0784c7c40d46e8678b7f39b2685595a90f035f3dbe67d1d430e5550a2334e37",
+      "cases": 160,
+      "families": 80,
+      "labels": {
+        "abstain": 32,
+        "fyi": 32,
+        "needs_reply": 32,
+        "noise": 32,
+        "waiting_on_them": 32
+      },
+      "two_message_cases": 160,
+      "contexts": {
+        "abstain:inin": 6,
+        "abstain:inout": 14,
+        "abstain:outin": 12,
+        "fyi:inin": 8,
+        "fyi:inout": 8,
+        "fyi:outin": 14,
+        "fyi:outout": 2,
+        "needs_reply:inin": 12,
+        "needs_reply:inout": 10,
+        "needs_reply:outin": 10,
+        "noise:inin": 32,
+        "waiting_on_them:inout": 4,
+        "waiting_on_them:outin": 24,
+        "waiting_on_them:outout": 4
+      },
+      "unique_normalized_sentences_at_least_six_words": 289,
+      "sentences_repeated_across_families": 0,
+      "maximum_families_per_repeated_sentence": 0
+    }
+  }
+}

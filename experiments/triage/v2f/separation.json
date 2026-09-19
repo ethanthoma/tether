@@ -1,0 +1,15 @@
+{
+  "partition_counts": [
+    1989,
+    152,
+    154
+  ],
+  "cross_partition_trigram_jaccard_max": 0.23529411764705882,
+  "historical_evaluation": {
+    "partition_counts": [
+      606,
+      1029
+    ],
+    "cross_partition_trigram_jaccard_max": 0.21052631578947367
+  }
+}

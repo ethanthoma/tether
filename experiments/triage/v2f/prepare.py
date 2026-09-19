@@ -1,3 +1,5 @@
+"""Freeze reviewed v2f partitions after label-blind overlap quarantine."""
+
 import hashlib
 import json
 import re
@@ -5,10 +7,20 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
-sys.path.insert(0, str(Path("experiments/triage").resolve()))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from build_synthetic import expand_scenarios
 from calibrate import check_separation
 
-root = Path("experiments/triage")
+root = Path(__file__).resolve().parents[1]
+for name in (
+    "training",
+    "test",
+    "separation",
+    "overlap-exclusions",
+    "diversity-report",
+):
+    if (root / f"v2f/{name}.json").exists():
+        raise FileExistsError(f"v2f/{name}.json already exists")
 reports = {}
 for name in ("training", "development", "test"):
     path = root / f"v2f/{name}-candidate.json"
@@ -59,6 +71,9 @@ for name in ("training", "development", "test"):
     assert (
         reviewed["review_status"] == "blind_reviewer_agreed_independence_self_attested"
     )
+    expected_split = {"training": "train", "development": "dev", "test": "test"}[name]
+    if any(case.get("split") != expected_split for case in reviewed["cases"]):
+        raise ValueError(f"reviewed {name} contains an incorrect split")
     if name == "training":
         train += reviewed["cases"]
     elif name == "development":
@@ -68,9 +83,41 @@ for name in ("training", "development", "test"):
 test_source = reviewed.copy()
 assert len(train) <= 2000
 partitions = [train, dev, test]
+new_families = {
+    case["group"] for cases in partitions for case in cases
+} - existing_families
+historical, historical_sources = [], []
+for name in (
+    "cases.json",
+    "seed.json",
+    "synthetic_scenarios.json",
+    "scale_scenarios.json",
+    "calibration-temperature.json",
+    "calibration-selection.json",
+    "calibration-audit.json",
+    "v2/training.json",
+    "v2/test.json",
+    "v2b/test.json",
+    "reviews/v2d-test/reconciled/reviewed.json",
+):
+    content = (root / name).read_bytes()
+    source = json.loads(content)
+    cases = expand_scenarios(source) if "scenarios" in source else source["cases"]
+    evaluation = [case for case in cases if case.get("split") != "train"]
+    historical_sources.append(
+        {
+            "path": name,
+            "sha256": hashlib.sha256(content).hexdigest(),
+            "cases": len(evaluation),
+        }
+    )
+    historical.extend(
+        {**case, "group": f"history:{name}:{case.get('group', case['id'])}"}
+        for case in evaluation
+    )
 blocked, collisions = set(), []
 indexed = []
-for index, cases in enumerate(partitions):
+for index, cases in enumerate(partitions + [historical]):
     for case in cases:
         messages = [
             " ".join(re.findall(r"\w+", message["body"].lower()))
@@ -80,18 +127,19 @@ for index, cases in enumerate(partitions):
         indexed.append(
             (index, case, set(messages), set(zip(words, words[1:], words[2:])))
         )
-assert len(indexed) <= 2400
+assert len(indexed) <= 6000
 for offset, (left_index, left, left_messages, left_trigrams) in enumerate(indexed):
     for right_index, right, right_messages, right_trigrams in indexed[offset + 1 :]:
         if left_index == right_index:
+            continue
+        affected = {left["group"], right["group"]} & new_families
+        if not affected:
             continue
         exact = bool(left_messages & right_messages)
         union = left_trigrams | right_trigrams
         similarity = len(left_trigrams & right_trigrams) / len(union) if union else 0.0
         if not exact and similarity < 0.65:
             continue
-        affected = {left["group"], right["group"]} - existing_families
-        assert affected
         blocked.update(affected)
         collisions.append(
             {
@@ -105,12 +153,24 @@ train, dev, test = [
     [case for case in cases if case["group"] not in blocked] for cases in partitions
 ]
 separation = check_separation([train, dev, test])
+separation["historical_evaluation"] = check_separation(
+    [
+        [
+            case
+            for cases in (train, dev, test)
+            for case in cases
+            if case["group"] in new_families
+        ],
+        historical,
+    ]
+)
 base["cases"] = train + dev
 test_source["cases"] = test
 exclusions = {
     "rule": "Exclude all new families participating in exact-message or >=0.65 trigram overlap across partitions; preserve existing training families. Labels and model predictions are not used.",
     "excluded_families": sorted(blocked),
     "collisions": collisions,
+    "historical_sources": historical_sources,
 }
 for name, value in (
     ("training", base),

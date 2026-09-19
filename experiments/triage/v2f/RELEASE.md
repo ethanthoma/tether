@@ -31,6 +31,11 @@ message collision or cross-partition trigram Jaccard similarity of at least
 development and test families, exclude both families. Apply this rule without
 using labels or predictions and record all excluded family IDs. Evaluate only
 the resulting frozen `test.json`, after separation passes.
+Apply the same exclusion to new families overlapping historical evaluation
+data: the original cases/seed development sets, generated synthetic and scale
+development/test sets, three calibration sets, and v2/v2b/v2d evaluations.
+Record reference-file hashes and verify each reviewed case's declared split
+before assembly. Historical sources and existing training remain unchanged.
 
 ## Fixed recipe
 
