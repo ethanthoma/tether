@@ -23,6 +23,15 @@ entire families with disagreements or defect flags; do not relabel to fit a
 model. Preserve every source and review. Check family, exact-message, and
 trigram separation before fitting. Report final counts after quarantine.
 
+Before fitting, an overlap audit found independently authored messages shared
+across partitions. Preserve reviewed sources unchanged and derive separate
+exports: quarantine every new family participating in an exact normalized
+message collision or cross-partition trigram Jaccard similarity of at least
+0.65. Preserve existing training families; for collisions between new
+development and test families, exclude both families. Apply this rule without
+using labels or predictions and record all excluded family IDs. Evaluate only
+the resulting frozen `test.json`, after separation passes.
+
 ## Fixed recipe
 
 Keep schema 3, joint-thread-v1, the pinned MiniLM revision, combined 512-token
