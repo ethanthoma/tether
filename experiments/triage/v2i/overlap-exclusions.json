@@ -1,0 +1,135 @@
+{
+  "rule": "Exclude whole new families for exact normalized message or >=0.65 trigram overlap across new partitions or prior training/evaluation; labels and predictions are not used.",
+  "historical_sources": [
+    {
+      "path": "cases.json",
+      "sha256": "8bf1c9da731c953124b69d75c0eca002c21269ee48b5ffb9317d3abf0923f5d6",
+      "cases": 22
+    },
+    {
+      "path": "seed.json",
+      "sha256": "9a1c40ea94c8b178b0b6940860cd22aa4781229c96590e2ca8dd1faa890876b3",
+      "cases": 110
+    },
+    {
+      "path": "synthetic_scenarios.json",
+      "sha256": "bdf2f55e4c6a130a54c2663fdccbb6d2099c791eac40904c9e118537c10c414e",
+      "cases": 387
+    },
+    {
+      "path": "scale_scenarios.json",
+      "sha256": "d9ae88a74188e2660f57f41e77d1b8f439fefdbcc42909d694fa1d45e6399d6c",
+      "cases": 1008
+    },
+    {
+      "path": "calibration-temperature.json",
+      "sha256": "ecb900967c3fd34c1f4352b270c00c8f32ce2888352abf75a7228e59e30992ab",
+      "cases": 25
+    },
+    {
+      "path": "calibration-selection.json",
+      "sha256": "fece070a820ff93d593587dc56220368547b35ef349aed240df16a60ec9b5df0",
+      "cases": 25
+    },
+    {
+      "path": "calibration-audit.json",
+      "sha256": "67e4cd5a9cbbc9b0b16cb6e4e225facd973c3b43eb635770d2f6d6e254495acc",
+      "cases": 25
+    },
+    {
+      "path": "v2/training.json",
+      "sha256": "457c482d6a987e3312151179a51b8d4a4b89214d12f666f2fd2012a4d9bb2bf3",
+      "cases": 1013
+    },
+    {
+      "path": "v2/test.json",
+      "sha256": "70dfcfc658a218ce36fcb0cf57667e77a9ac86834ca8ef37a57c60a8db774245",
+      "cases": 120
+    },
+    {
+      "path": "v2b/test.json",
+      "sha256": "5e2d1cfd9dae4f8214bdd422b72d3a18e04f11ffb6135c507ae7bc6cf0063978",
+      "cases": 120
+    },
+    {
+      "path": "reviews/v2d-test/reconciled/reviewed.json",
+      "sha256": "104e48aa5764d75730ce346b993d72703429a1cd0536075cd62c115e4a822a5d",
+      "cases": 120
+    },
+    {
+      "path": "v2h/training.json",
+      "sha256": "092276e37bfed1fcdcac6fc0013fb1176759fb6522135b1df7a75c6eb78c0cd4",
+      "cases": 2341
+    },
+    {
+      "path": "v2f/test.json",
+      "sha256": "03725a6aea790dcb38effd866cc1cf605eb04a92a93645505483566af58cf4fb",
+      "cases": 154
+    }
+  ],
+  "historical_unique_message_sequences": 2900,
+  "excluded_families": [
+    "i_cal_family_047",
+    "i_cal_family_088",
+    "i_cal_family_187",
+    "i_test_family_087"
+  ],
+  "collisions": [
+    {
+      "case_ids": [
+        "i_cal_187_1",
+        "i_test_087_1"
+      ],
+      "exact_normalized_message": true,
+      "trigram_jaccard": 0.0,
+      "excluded_families": [
+        "i_cal_family_187",
+        "i_test_family_087"
+      ]
+    },
+    {
+      "case_ids": [
+        "i_cal_187_1",
+        "v2f_test_071_1"
+      ],
+      "exact_normalized_message": true,
+      "trigram_jaccard": 0.0,
+      "excluded_families": [
+        "i_cal_family_187"
+      ]
+    },
+    {
+      "case_ids": [
+        "i_cal_088_1",
+        "v2f_dev_044_2"
+      ],
+      "exact_normalized_message": true,
+      "trigram_jaccard": 0.17391304347826086,
+      "excluded_families": [
+        "i_cal_family_088"
+      ]
+    },
+    {
+      "case_ids": [
+        "i_cal_047_1",
+        "reminder"
+      ],
+      "exact_normalized_message": true,
+      "trigram_jaccard": 0.25,
+      "excluded_families": [
+        "i_cal_family_047"
+      ]
+    },
+    {
+      "case_ids": [
+        "i_test_087_1",
+        "v2f_test_071_1"
+      ],
+      "exact_normalized_message": true,
+      "trigram_jaccard": 0.0,
+      "excluded_families": [
+        "i_test_family_087"
+      ]
+    }
+  ]
+}

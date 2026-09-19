@@ -1,0 +1,75 @@
+{
+  "calibration": {
+    "source_sha256": "4b4c3487188263455ba199b3423b0e84d3cec7c633343c5193eb1d599ae6e35e",
+    "cases": 400,
+    "families": 200,
+    "labels": {
+      "needs_reply": 80,
+      "waiting_on_them": 80,
+      "fyi": 80,
+      "noise": 80,
+      "abstain": 80
+    },
+    "contexts": {
+      "needs_reply:in": 62,
+      "needs_reply:in-out": 6,
+      "needs_reply:in-in": 6,
+      "needs_reply:out-in": 6,
+      "waiting_on_them:out": 46,
+      "waiting_on_them:out-in": 26,
+      "waiting_on_them:out-out": 6,
+      "waiting_on_them:in-out": 2,
+      "fyi:in": 44,
+      "fyi:out-in": 14,
+      "fyi:in-out": 10,
+      "fyi:in-in": 4,
+      "fyi:out-out": 2,
+      "fyi:out": 6,
+      "noise:in": 78,
+      "noise:in-in": 2,
+      "abstain:in": 48,
+      "abstain:out": 12,
+      "abstain:out-in": 6,
+      "abstain:in-out": 8,
+      "abstain:out-out": 4,
+      "abstain:in-in": 2
+    },
+    "sentences_repeated_across_families": 0
+  },
+  "test": {
+    "source_sha256": "bd25fc2ae7d070961c57e188499d373ef841f047a75e378ef8e2bb7ec662faf6",
+    "cases": 200,
+    "families": 100,
+    "labels": {
+      "needs_reply": 40,
+      "waiting_on_them": 40,
+      "fyi": 40,
+      "noise": 40,
+      "abstain": 40
+    },
+    "contexts": {
+      "needs_reply:in": 28,
+      "needs_reply:in-out": 6,
+      "needs_reply:in-in": 4,
+      "needs_reply:out-in": 2,
+      "waiting_on_them:out": 14,
+      "waiting_on_them:out-in": 20,
+      "waiting_on_them:out-out": 4,
+      "waiting_on_them:in-out": 2,
+      "fyi:in": 20,
+      "fyi:out-in": 9,
+      "fyi:in-out": 5,
+      "fyi:in-in": 2,
+      "fyi:out-out": 2,
+      "fyi:out": 2,
+      "noise:in": 40,
+      "abstain:in": 19,
+      "abstain:out": 5,
+      "abstain:in-out": 4,
+      "abstain:out-in": 6,
+      "abstain:out-out": 4,
+      "abstain:in-in": 2
+    },
+    "sentences_repeated_across_families": 0
+  }
+}

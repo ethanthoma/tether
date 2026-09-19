@@ -1,0 +1,4509 @@
+{
+  "version": 1,
+  "label_policy": "reply-triage-v2",
+  "packet_sha256": "4b1609fe61e14d8b9a6bbc0c7aaaac07b76f071425023126770fc9f8fc4ed0a9",
+  "submissions": [
+    {
+      "reviewer": "v2i-test-blind",
+      "responses_sha256": "5ec732785990e5d332ef3a386c699b7b09390775d98b9a5949f62426a075a649",
+      "cases": 200
+    }
+  ],
+  "author": "v2i-test-author",
+  "independence": "reviewer_attested_not_externally_verified",
+  "cases": 200,
+  "reviewed": 200,
+  "accepted_cases": 200,
+  "accepted_families": 100,
+  "blocked_families": [],
+  "decisions": [
+    {
+      "id": "i_test_047_1",
+      "review_id": "77318ad15a36ab9dd5da28be07c5a63a",
+      "group": "i_test_family_047",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "77318ad15a36ab9dd5da28be07c5a63a",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Calendar attendance update: Jules declined the Sunday picnic."
+          }
+        ],
+        "rationale": "Calendar attendance changes are informational.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_056_2",
+      "review_id": "05d80b12c3adf319c6afe0fa2633a075",
+      "group": "i_test_family_056",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "05d80b12c3adf319c6afe0fa2633a075",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you remove me from the weaving workshop roster?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I removed your registration; there are no further steps."
+          }
+        ],
+        "rationale": "The removal request was completed with no remaining steps.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_057_2",
+      "review_id": "c9cb20e74b081cc0d01a0e8875285d3e",
+      "group": "i_test_family_057",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "c9cb20e74b081cc0d01a0e8875285d3e",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Good news from the orchard: all six pear saplings survived the cold night."
+          }
+        ],
+        "rationale": "Sapling survival is news without a request.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_050_2",
+      "review_id": "6b593c417eda77547dadfe24721a1873",
+      "group": "i_test_family_050",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "6b593c417eda77547dadfe24721a1873",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I finished sorting the seed packets into their storage boxes."
+          }
+        ],
+        "rationale": "Sorting is already finished, with no outstanding commitment.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_080_2",
+      "review_id": "4003d1d66f53b58f501cd0dcaf03fe01",
+      "group": "i_test_family_080",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "4003d1d66f53b58f501cd0dcaf03fe01",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Studio supply promotion: members get fifteen percent off selected clay until Saturday."
+          }
+        ],
+        "rationale": "General clay promotion has no personal obligation.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_004_2",
+      "review_id": "504e92897bf3528ef8b16699716e7ec9",
+      "group": "i_test_family_004",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "504e92897bf3528ef8b16699716e7ec9",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Is the squash packet labelled winter or summer?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Appreciate your help with the garden records."
+          }
+        ],
+        "rationale": "The squash variety question remains unanswered despite appreciation.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_100_1",
+      "review_id": "91d9ff4b2152c5c367a4ad91fb48ed40",
+      "group": "i_test_family_100",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "91d9ff4b2152c5c367a4ad91fb48ed40",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please send me the rehearsal schedule."
+          },
+          {
+            "message_index": 1,
+            "quote": "Never mind the schedule. I will call the accompanist tomorrow myself."
+          }
+        ],
+        "rationale": "The schedule request is canceled but the user commits to calling.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_049_1",
+      "review_id": "5696ee5d3a3bf479b1bcfbad645bc6da",
+      "group": "i_test_family_049",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "5696ee5d3a3bf479b1bcfbad645bc6da",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I hope to finish the sculpture this month. The stone is harder than I expected."
+          }
+        ],
+        "rationale": "A hope to finish is not a specific commitment.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_092_1",
+      "review_id": "15c75cd1d27208fdc5ef01ad1e37a6c6",
+      "group": "i_test_family_092",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "15c75cd1d27208fdc5ef01ad1e37a6c6",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please reply with your jacket size and collect the uniform from reception."
+          }
+        ],
+        "rationale": "The size reply is paired with a separate uniform collection task.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_061_1",
+      "review_id": "38285e42ab6d51081b519d4f3efbc572",
+      "group": "i_test_family_061",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "38285e42ab6d51081b519d4f3efbc572",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Weekly gadget roundup: five keyboards our editors loved, plus this week\u2019s reader poll."
+          }
+        ],
+        "rationale": "Gadget newsletter and reader poll are routine content.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_005_2",
+      "review_id": "5079fc934b46c740f252e8d3efcfd88e",
+      "group": "i_test_family_005",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "5079fc934b46c740f252e8d3efcfd88e",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which tutor is coming, and is it a morning lesson?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Never mind the time; please just tell me the tutor."
+          }
+        ],
+        "rationale": "The tutor question survives cancellation of the lesson time question.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_073_2",
+      "review_id": "f231bc6303a2bde33b08b957b2fdd8aa",
+      "group": "i_test_family_073",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "f231bc6303a2bde33b08b957b2fdd8aa",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automatic audience summary: twelve visitors opened your public photo collection this week."
+          }
+        ],
+        "rationale": "Automatic audience statistics are routine mail.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_071_2",
+      "review_id": "db920a86258b7bd2bd0a30e7ac2cb131",
+      "group": "i_test_family_071",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "db920a86258b7bd2bd0a30e7ac2cb131",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Account automation: your profile email preference was saved. This is a confirmation only."
+          }
+        ],
+        "rationale": "Automated preference confirmation requires no action.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_018_1",
+      "review_id": "4b951b7c170dff2918fc349c5b45676d",
+      "group": "i_test_family_018",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "4b951b7c170dff2918fc349c5b45676d",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Were the chess clocks already in the cupboard when you arrived?"
+          }
+        ],
+        "rationale": "The sender asks when the clocks were present.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_006_1",
+      "review_id": "d34b253340736d5d629b5869d490f7ba",
+      "group": "i_test_family_006",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "d34b253340736d5d629b5869d490f7ba",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated permit service: your individual mooring application lacks a signature. Sign it in your account by 18 October to keep your application active."
+          }
+        ],
+        "rationale": "The automated service personally requires a signature by a stated date.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_072_2",
+      "review_id": "40ec2373a27481bb3d4db5684cf64a66",
+      "group": "i_test_family_072",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "40ec2373a27481bb3d4db5684cf64a66",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Travel watchlist update: several lower fares match your saved destination search."
+          }
+        ],
+        "rationale": "Saved fare search alerts are routine promotional information.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_029_2",
+      "review_id": "ca1ab29e64ff93de5abca35d9819447a",
+      "group": "i_test_family_029",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "ca1ab29e64ff93de5abca35d9819447a",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "There are three fillings available for the cake."
+          },
+          {
+            "message_index": 1,
+            "quote": "Please tell me which filling can sit out for two hours."
+          }
+        ],
+        "rationale": "The user explicitly requests an answer about filling stability.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_026_2",
+      "review_id": "abbaea671e9abe9b71da7de03105f683",
+      "group": "i_test_family_026",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "abbaea671e9abe9b71da7de03105f683",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Have you settled the arrangement yet?"
+          }
+        ],
+        "rationale": "The explicit outbound arrangement question establishes an outstanding answer.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_045_1",
+      "review_id": "ed5eef3e07153cfbfd4dca6ebfff7af8",
+      "group": "i_test_family_045",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "ed5eef3e07153cfbfd4dca6ebfff7af8",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you water the office fern?"
+          },
+          {
+            "message_index": 1,
+            "quote": "No need to water it; I moved it home and watered it myself."
+          }
+        ],
+        "rationale": "The user explicitly canceled and completed the watering.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_037_2",
+      "review_id": "0956e111714888e783c4c3bd15f57ca7",
+      "group": "i_test_family_037",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "0956e111714888e783c4c3bd15f57ca7",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please tell me whether the casting sample passed the contamination check."
+          }
+        ],
+        "rationale": "The user requests the contamination result.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_098_2",
+      "review_id": "20d89c76b1602f6b06a50f0b7c5fd0ba",
+      "group": "i_test_family_098",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "20d89c76b1602f6b06a50f0b7c5fd0ba",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will patch the puncture in your rear tyre tomorrow."
+          },
+          {
+            "message_index": 1,
+            "quote": "Much appreciated; the pump is beside it."
+          }
+        ],
+        "rationale": "The user still owes a tyre repair after the acknowledgment.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_019_2",
+      "review_id": "a330b5059b4cf59df7104de8b841ee03",
+      "group": "i_test_family_019",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "a330b5059b4cf59df7104de8b841ee03",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Forget the request for a mailing address; which inbox should I send the comic draft to?"
+          }
+        ],
+        "rationale": "The replacement inbox question is outstanding.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_090_2",
+      "review_id": "c12e95a01d1186ce0bcd79420cbe59f3",
+      "group": "i_test_family_090",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "c12e95a01d1186ce0bcd79420cbe59f3",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "What was the final head count?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Thirty people attended. I will send a photo collage next week."
+          }
+        ],
+        "rationale": "The count is answered but an unsolicited photo collage promise remains.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_040_1",
+      "review_id": "d13df399e3ce0853e5eac57689918ce3",
+      "group": "i_test_family_040",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "d13df399e3ce0853e5eac57689918ce3",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you give me your final vote on the mural design?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I am undecided."
+          }
+        ],
+        "rationale": "Being undecided does not supply the requested final vote.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_008_2",
+      "review_id": "89f5a635d004807b085aad57819852c0",
+      "group": "i_test_family_008",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "89f5a635d004807b085aad57819852c0",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I have posted the shoreline measurements."
+          },
+          {
+            "message_index": 1,
+            "quote": "Please explain why station C is missing from your table."
+          }
+        ],
+        "rationale": "The sender requests an explanation for the missing station.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_052_2",
+      "review_id": "ef322943ac17daee025bf2f4f53486a7",
+      "group": "i_test_family_052",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "ef322943ac17daee025bf2f4f53486a7",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please share the agenda and vote totals."
+          },
+          {
+            "message_index": 1,
+            "quote": "Attached are the agenda and the complete vote totals."
+          }
+        ],
+        "rationale": "Both requested items are supplied.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_003_1",
+      "review_id": "2ad16b9af62a346894ebd2d5ec5d29c5",
+      "group": "i_test_family_003",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "2ad16b9af62a346894ebd2d5ec5d29c5",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please send your preferred spelling for the plaque and your pronouns."
+          },
+          {
+            "message_index": 1,
+            "quote": "Use Morgan Vale on the plaque."
+          }
+        ],
+        "rationale": "The plaque spelling is supplied but pronouns are not.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_007_1",
+      "review_id": "aa1d6fa206740b606e8fb16894e4a649",
+      "group": "i_test_family_007",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "aa1d6fa206740b606e8fb16894e4a649",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your reserved examination seat needs your confirmation by 6 November. Sign in and accept the seat; this message was generated automatically."
+          }
+        ],
+        "rationale": "The automatic notice requires personal seat acceptance by a date.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_088_2",
+      "review_id": "8c541120c57689f42cc0040d61d921b1",
+      "group": "i_test_family_088",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "8c541120c57689f42cc0040d61d921b1",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please enter the meter reading in the housing portal."
+          }
+        ],
+        "rationale": "Entering a portal reading is a task rather than a prose reply.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_082_1",
+      "review_id": "eeb1ea2be41d2e90e8eb3f5e789a0038",
+      "group": "i_test_family_082",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "eeb1ea2be41d2e90e8eb3f5e789a0038",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will finish the subtitle file tomorrow."
+          }
+        ],
+        "rationale": "The user makes a specific unfinished subtitle commitment.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_071_1",
+      "review_id": "79ef9de57af9c99c8ce74dd2f9801100",
+      "group": "i_test_family_071",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "79ef9de57af9c99c8ce74dd2f9801100",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The password for your account was changed successfully. This automatic message confirms the change; no response is needed."
+          }
+        ],
+        "rationale": "The routine automatic password confirmation requires no response.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_010_2",
+      "review_id": "e08f4eec10981b85916ab44a5e8766b9",
+      "group": "i_test_family_010",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "e08f4eec10981b85916ab44a5e8766b9",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which pitch should I reserve for our tent?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I have not decided yet."
+          }
+        ],
+        "rationale": "The user has not answered the pitch preference.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_047_2",
+      "review_id": "93d61927e4b8ccb9141f9f671584f65e",
+      "group": "i_test_family_047",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "93d61927e4b8ccb9141f9f671584f65e",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Event response: Priya accepted the reservoir walk invitation."
+          }
+        ],
+        "rationale": "An invitation acceptance is an informational calendar update.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_034_1",
+      "review_id": "7a93edbf1d58ae63d09720867f43e1c8",
+      "group": "i_test_family_034",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "7a93edbf1d58ae63d09720867f43e1c8",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you return my mandolin stand?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I have it packed by the door."
+          }
+        ],
+        "rationale": "Packing the stand does not complete its requested return.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_025_2",
+      "review_id": "fd15923048551404cfaf7981ece2f14c",
+      "group": "i_test_family_025",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "fd15923048551404cfaf7981ece2f14c",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you fetch the screen and the tripod?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Cancel the screen pickup; the tripod is still needed."
+          }
+        ],
+        "rationale": "The tripod pickup remains explicitly requested.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_087_2",
+      "review_id": "70d6c2660fc18924cace3c5525528446",
+      "group": "i_test_family_087",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "70d6c2660fc18924cace3c5525528446",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "All handled."
+          }
+        ],
+        "rationale": "The completion claim has no visible referent.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_059_1",
+      "review_id": "dfd9db6e7c218901b5ae4b1b5cc44d34",
+      "group": "i_test_family_059",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "dfd9db6e7c218901b5ae4b1b5cc44d34",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please bring both the folding table and the lantern."
+          },
+          {
+            "message_index": 1,
+            "quote": "The table is delivered. You told me at the door to cancel the lantern, so that is canceled."
+          }
+        ],
+        "rationale": "One delivery is completed and the other explicitly canceled.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_067_2",
+      "review_id": "76d950f6549da8e223f078ed5fc28d4f",
+      "group": "i_test_family_067",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "76d950f6549da8e223f078ed5fc28d4f",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated task status: your requested data export finished successfully; its download is ready."
+          }
+        ],
+        "rationale": "An automatic successful export notice is routine without a deadline.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_036_1",
+      "review_id": "3acd5f1ab7dbacfbc0e8ea8e1048a73c",
+      "group": "i_test_family_036",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "3acd5f1ab7dbacfbc0e8ea8e1048a73c",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you remove my photograph from the public gallery?"
+          }
+        ],
+        "rationale": "The user explicitly requests removal of a photograph.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_028_2",
+      "review_id": "9d7722d85dbf7db977160e2bb5fad569",
+      "group": "i_test_family_028",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "9d7722d85dbf7db977160e2bb5fad569",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you reserve a badminton court for our group?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The desk has my request; they have not confirmed it."
+          }
+        ],
+        "rationale": "The court reservation has not been confirmed or completed.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_033_1",
+      "review_id": "543bb21ac67e31cdf18760d2b7be2ab0",
+      "group": "i_test_family_033",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "543bb21ac67e31cdf18760d2b7be2ab0",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please reply with the language you want for the museum guide."
+          },
+          {
+            "message_index": 1,
+            "quote": "I am excited about the exhibition."
+          }
+        ],
+        "rationale": "Enthusiasm does not answer the requested language preference.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_018_2",
+      "review_id": "fdfbbbc1fdd581ce2193cbe0166528b7",
+      "group": "i_test_family_018",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "fdfbbbc1fdd581ce2193cbe0166528b7",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "For our equipment log, when did you first see the tournament clocks?"
+          }
+        ],
+        "rationale": "The sender explicitly requests the clock sighting time.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_097_2",
+      "review_id": "f9a7fc02ad416104cda04e8544800d31",
+      "group": "i_test_family_097",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "f9a7fc02ad416104cda04e8544800d31",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The costume purchase is awaiting sign-off, but the owner field names either your team or mine."
+          }
+        ],
+        "rationale": "Sign-off ownership is explicitly uncertain.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_066_2",
+      "review_id": "6897cdaa4d184397ca136a1abc995025",
+      "group": "i_test_family_066",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "6897cdaa4d184397ca136a1abc995025",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Trail Journal newsletter: Our readers rank their favourite woodland walks."
+          }
+        ],
+        "rationale": "A newsletter ranking is routine subscription content.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_017_2",
+      "review_id": "63323c55fa677ba736a10255e2be8409",
+      "group": "i_test_family_017",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "63323c55fa677ba736a10255e2be8409",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Is this caption accurate: \"Local fungi after rain\"? I need your written approval."
+          }
+        ],
+        "rationale": "The sender expressly requests written caption approval.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_021_2",
+      "review_id": "9bac1b288c19508df3d07b0f6a96b97b",
+      "group": "i_test_family_021",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "9bac1b288c19508df3d07b0f6a96b97b",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you move the oars off the public path before practice?"
+          }
+        ],
+        "rationale": "The user requests that the recipient move the oars.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_056_1",
+      "review_id": "84687e3d0a0d778c3c1364fa567ecec8",
+      "group": "i_test_family_056",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "84687e3d0a0d778c3c1364fa567ecec8",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please cancel my pottery class place."
+          },
+          {
+            "message_index": 1,
+            "quote": "Your place is canceled and the refund has been processed."
+          }
+        ],
+        "rationale": "The class cancellation and refund are completed.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_100_2",
+      "review_id": "46fa06f5d04352aa4216cfb4ae509a7c",
+      "group": "i_test_family_100",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "46fa06f5d04352aa4216cfb4ae509a7c",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you find the choir\u2019s arrival time?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Cancel that request. I will arrange the warm-up room on Tuesday."
+          }
+        ],
+        "rationale": "The canceled inquiry is replaced by a user commitment to arrange a room.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_053_2",
+      "review_id": "bf222787ef44e4c0905d7d6b9641b350",
+      "group": "i_test_family_053",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "bf222787ef44e4c0905d7d6b9641b350",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "How should I credit your photograph?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Credit it to Ellis North, please. That is the complete credit line."
+          }
+        ],
+        "rationale": "The requested complete credit line was supplied.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_044_2",
+      "review_id": "e584187c58f4ccbd3bd4f9e0cc71beb2",
+      "group": "i_test_family_044",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "e584187c58f4ccbd3bd4f9e0cc71beb2",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you take the clothing bags to the shelter?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The shelter van already collected them, so your trip is canceled."
+          }
+        ],
+        "rationale": "Collection elsewhere explicitly cancels the user task.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_039_2",
+      "review_id": "2d337fc0a6da903fb94052c9d630c272",
+      "group": "i_test_family_039",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "2d337fc0a6da903fb94052c9d630c272",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you remove the expired door code from the handbook?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I cannot open the handbook right now, so it is still there."
+          }
+        ],
+        "rationale": "The recipient reports the requested deletion remains undone.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_095_1",
+      "review_id": "6e8d12fe0b4838d3bbb1c4bd56edf791",
+      "group": "i_test_family_095",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "6e8d12fe0b4838d3bbb1c4bd56edf791",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will photograph the catalog items and write their descriptions."
+          },
+          {
+            "message_index": 1,
+            "quote": "The photographs are finished; the descriptions are still pending."
+          }
+        ],
+        "rationale": "The user still owes descriptions after completing photographs.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_030_2",
+      "review_id": "b67102ee0e972316923637d1a581557f",
+      "group": "i_test_family_030",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "b67102ee0e972316923637d1a581557f",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you fit a new filter cartridge?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Choose the fine mesh version for this tank."
+          }
+        ],
+        "rationale": "The mesh clarification retains the requested filter installation.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_055_2",
+      "review_id": "d0bce28023a3bcee29663b40d1b6f02e",
+      "group": "i_test_family_055",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "d0bce28023a3bcee29663b40d1b6f02e",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The storyboard I said I would share is attached now, with every panel included."
+          }
+        ],
+        "rationale": "The promised storyboard is fully delivered.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_024_2",
+      "review_id": "01831d84bfcd7da014b492eddfc26f63",
+      "group": "i_test_family_024",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "01831d84bfcd7da014b492eddfc26f63",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please find out the minimum age for the tower visit."
+          },
+          {
+            "message_index": 1,
+            "quote": "Much appreciated, this sounds fun."
+          }
+        ],
+        "rationale": "Appreciation does not answer the minimum age request.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_069_2",
+      "review_id": "0db779f0eb637b037b432c93a3303e81",
+      "group": "i_test_family_069",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "0db779f0eb637b037b432c93a3303e81",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Taste Club promotions: discover this week\u2019s dining discounts across the city."
+          }
+        ],
+        "rationale": "Dining discounts are promotional mail.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_089_1",
+      "review_id": "af2211b3c0030cc5a9d3b764dfba48ab",
+      "group": "i_test_family_089",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "af2211b3c0030cc5a9d3b764dfba48ab",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which cover should we print?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Use the striped one. I will deliver the paper stock tomorrow."
+          }
+        ],
+        "rationale": "The cover answer includes a separate user delivery promise.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_015_2",
+      "review_id": "c8f71d8fef1e65e6ad32b97b818bcac3",
+      "group": "i_test_family_015",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "c8f71d8fef1e65e6ad32b97b818bcac3",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Does your sewing machine rattle while idle or only while stitching?"
+          }
+        ],
+        "rationale": "The sender asks when the machine rattles.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_069_1",
+      "review_id": "6e8171b674eccf579cc2fb42b82f0894",
+      "group": "i_test_family_069",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "6e8171b674eccf579cc2fb42b82f0894",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Restaurant offers near you: two-for-one noodles and half-price tea this weekend."
+          }
+        ],
+        "rationale": "Restaurant discounts are promotions.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_046_2",
+      "review_id": "9e9070308f55df496564fe7c79c64c44",
+      "group": "i_test_family_046",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "9e9070308f55df496564fe7c79c64c44",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Calendar event added: Community puzzle night, 7 pm Thursday, library annex."
+          }
+        ],
+        "rationale": "A calendar event addition is informational.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_070_1",
+      "review_id": "6f03278a19e02d96ff6b2e64df851392",
+      "group": "i_test_family_070",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "6f03278a19e02d96ff6b2e64df851392",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated forum summary: 17 new topics appeared in the miniature railway group this week."
+          }
+        ],
+        "rationale": "The forum activity summary is routine automated mail.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_037_1",
+      "review_id": "50e188239df64e602bfef1074af0125d",
+      "group": "i_test_family_037",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "50e188239df64e602bfef1074af0125d",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Was the bronze sample tested for lead?"
+          }
+        ],
+        "rationale": "The user asks whether testing occurred.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_060_1",
+      "review_id": "b8a77ad3fb58af2ec3ddc0f40864dce5",
+      "group": "i_test_family_060",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "b8a77ad3fb58af2ec3ddc0f40864dce5",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The reading room is unusually quiet today."
+          },
+          {
+            "message_index": 1,
+            "quote": "That sounds peaceful."
+          }
+        ],
+        "rationale": "The exchange contains observations and appreciation without obligations.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_082_2",
+      "review_id": "8f380c61d421ee8846f154c0e13020b5",
+      "group": "i_test_family_082",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "8f380c61d421ee8846f154c0e13020b5",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will upload the captions after dinner on Thursday."
+          }
+        ],
+        "rationale": "The user explicitly promises a future upload.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_002_1",
+      "review_id": "4ca86c3a1a4ad3d2de1be93d10a8e15f",
+      "group": "i_test_family_002",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "4ca86c3a1a4ad3d2de1be93d10a8e15f",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Are we still using that arrangement for the ferry?"
+          }
+        ],
+        "rationale": "The explicit ferry arrangement question requires an answer despite absent history.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_048_2",
+      "review_id": "a87e8eecb928e8b0ed83cc7c8dc5986e",
+      "group": "i_test_family_048",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "a87e8eecb928e8b0ed83cc7c8dc5986e",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The question quoted below is resolved: the loading door is correct.\n> Where should the van park?"
+          }
+        ],
+        "rationale": "The quoted parking question is expressly resolved.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_090_1",
+      "review_id": "0a28bb66e88b6e434fbfe6c926db1cb9",
+      "group": "i_test_family_090",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "0a28bb66e88b6e434fbfe6c926db1cb9",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please send the attendance count."
+          },
+          {
+            "message_index": 1,
+            "quote": "The count is 23. I will also make you a seating chart tomorrow."
+          }
+        ],
+        "rationale": "The count is answered but the new unsolicited seating chart promise remains.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_072_1",
+      "review_id": "b98e00bfb41a5303efde65adf7633d6a",
+      "group": "i_test_family_072",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "b98e00bfb41a5303efde65adf7633d6a",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Flight fare alert: prices to Porto dropped this morning. Browse current deals."
+          }
+        ],
+        "rationale": "The fare alert advertises travel deals.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_044_1",
+      "review_id": "e39d2ca0c5b54963df4611b0ec5d8aff",
+      "group": "i_test_family_044",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "e39d2ca0c5b54963df4611b0ec5d8aff",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please collect the donated coats."
+          },
+          {
+            "message_index": 1,
+            "quote": "We found another collector; disregard the coat pickup."
+          }
+        ],
+        "rationale": "Another collector explicitly discharges the coat pickup.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_064_1",
+      "review_id": "11d9bd35b7b153a8db28168bdccab87b",
+      "group": "i_test_family_064",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "11d9bd35b7b153a8db28168bdccab87b",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your parcel was scanned at the regional sorting facility. This is an automatic tracking update."
+          }
+        ],
+        "rationale": "A routine automatic parcel scan has no personal deadline.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_075_2",
+      "review_id": "ab849b92c0790055285a297a10c64db1",
+      "group": "i_test_family_075",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "ab849b92c0790055285a297a10c64db1",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated forecast summary: cooler air arrives tomorrow, with scattered showers by afternoon."
+          }
+        ],
+        "rationale": "An automated forecast summary is routine informational mail.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_067_1",
+      "review_id": "91b8d48afe6541025c7b735a27ce2b06",
+      "group": "i_test_family_067",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "91b8d48afe6541025c7b735a27ce2b06",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "System notification: export job 514 completed. The archive is available in your dashboard."
+          }
+        ],
+        "rationale": "An automatic export completion notification has no deadline.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_027_1",
+      "review_id": "e2044a7974c59be65705438707ced0dd",
+      "group": "i_test_family_027",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "e2044a7974c59be65705438707ced0dd",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please send the field recording when it is mixed."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will export it on Thursday."
+          }
+        ],
+        "rationale": "The promised export has not fulfilled the requested recording delivery.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_085_1",
+      "review_id": "886980c4c678fed4f874e7858a97787d",
+      "group": "i_test_family_085",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "886980c4c678fed4f874e7858a97787d",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which fabric do you prefer? I will repair your torn curtain on Sunday."
+          }
+        ],
+        "rationale": "The user owes a fabric answer and the sender expressly promises repair.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_099_2",
+      "review_id": "4b3b9b7b1dde6b02366342ede2c7c9a6",
+      "group": "i_test_family_099",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "4b3b9b7b1dde6b02366342ede2c7c9a6",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "We settled the height quoted here. Please install the replacement gate latch.\n> How tall should the gate be?"
+          }
+        ],
+        "rationale": "The quoted question is settled but a user installation task remains.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_093_1",
+      "review_id": "bd1de672d208a6d8665de43cea79e911",
+      "group": "i_test_family_093",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "bd1de672d208a6d8665de43cea79e911",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you proofread my essay?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Yes, once you send me the missing conclusion. Please send that section."
+          }
+        ],
+        "rationale": "The recipient owes proofreading and explicitly requests the missing section from the user.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_068_1",
+      "review_id": "5a0c5bcbeb77f2d0c2f200a058019927",
+      "group": "i_test_family_068",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "5a0c5bcbeb77f2d0c2f200a058019927",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "You have earned the Early Bird badge in our vocabulary app. Keep your streak going!"
+          }
+        ],
+        "rationale": "An app badge announcement is routine engagement mail.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_014_1",
+      "review_id": "fdd917762faa084f192f28945bab9a45",
+      "group": "i_test_family_014",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "fdd917762faa084f192f28945bab9a45",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The adoption visit is booked. Are there any stairs between your door and the street?"
+          }
+        ],
+        "rationale": "The booked visit does not answer the explicit stairs question.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_060_2",
+      "review_id": "8a2497ff0b51755fceb90826c25f7f58",
+      "group": "i_test_family_060",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "8a2497ff0b51755fceb90826c25f7f58",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The train ride along the estuary was lovely."
+          },
+          {
+            "message_index": 1,
+            "quote": "Glad you enjoyed the view."
+          }
+        ],
+        "rationale": "Travel appreciation creates no response obligation.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_008_1",
+      "review_id": "001927284c3b6773b17c95fc99f0b756",
+      "group": "i_test_family_008",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "001927284c3b6773b17c95fc99f0b756",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The eelgrass survey notes are uploaded."
+          },
+          {
+            "message_index": 1,
+            "quote": "Which transect did you exclude from the count?"
+          }
+        ],
+        "rationale": "The sender requests identification of the excluded transect.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_026_1",
+      "review_id": "bc985ff60ab353a13fe21d68a725ce43",
+      "group": "i_test_family_026",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "bc985ff60ab353a13fe21d68a725ce43",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Is that decision final?"
+          }
+        ],
+        "rationale": "The outbound decision question establishes an outstanding response.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_050_1",
+      "review_id": "3d5741c8b6d97525c4bf179495694477",
+      "group": "i_test_family_050",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "3d5741c8b6d97525c4bf179495694477",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The seed trays are now labelled and placed by the greenhouse window."
+          }
+        ],
+        "rationale": "The seed tray work is reported complete.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_006_2",
+      "review_id": "5368a06062417c848f69a9afa724ca72",
+      "group": "i_test_family_006",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "5368a06062417c848f69a9afa724ca72",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Account notice: personally upload your signed dock declaration before 09:00 on 21 October; otherwise your permit review will close."
+          }
+        ],
+        "rationale": "The account notice requires a personal signed upload before a specific cutoff.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_062_1",
+      "review_id": "3fa7be10c4a0fc062f444e087108d0ca",
+      "group": "i_test_family_062",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "3fa7be10c4a0fc062f444e087108d0ca",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Spring shoe sale ends tonight. Browse hundreds of styles at up to 30 percent off."
+          }
+        ],
+        "rationale": "The sale cutoff is a generic marketing deadline.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_020_2",
+      "review_id": "918e0bcf53c3756fcb187e10d16b0fa4",
+      "group": "i_test_family_020",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "918e0bcf53c3756fcb187e10d16b0fa4",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Would you prefer an audio copy of the oral history?"
+          },
+          {
+            "message_index": 1,
+            "quote": "That is kind of you."
+          }
+        ],
+        "rationale": "Kindness acknowledgment does not resolve the audio preference.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_020_1",
+      "review_id": "a26675f141f5d1c997bd3c9dcf2e0bb1",
+      "group": "i_test_family_020",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "a26675f141f5d1c997bd3c9dcf2e0bb1",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Do you want the interview transcript in large print?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Thanks for offering."
+          }
+        ],
+        "rationale": "Thanks does not resolve the large-print preference.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_009_1",
+      "review_id": "edc4371dbd28b8299c5afc359d7c2255",
+      "group": "i_test_family_009",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "edc4371dbd28b8299c5afc359d7c2255",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The lettering question below was settled yesterday. For the new sign, should the arrow face left?\n> Should the letters be blue?"
+          }
+        ],
+        "rationale": "The new arrow direction question remains despite resolved lettering.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_049_2",
+      "review_id": "1dd99b62d5f8c98a584bb7424e90d853",
+      "group": "i_test_family_049",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "1dd99b62d5f8c98a584bb7424e90d853",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Perhaps the carving will be ready for winter; progress has been slow."
+          }
+        ],
+        "rationale": "Speculation about readiness is not a specific promise.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_078_2",
+      "review_id": "019e6a2fac4e86112e6af4f65f84f8bb",
+      "group": "i_test_family_078",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "019e6a2fac4e86112e6af4f65f84f8bb",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Aquarium Monthly dispatch: explore this month\u2019s articles on planted tanks and freshwater snails."
+          }
+        ],
+        "rationale": "The aquarium dispatch promotes newsletter articles.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_033_2",
+      "review_id": "9b2aa10a6687cd323c5f1ffe26c9898f",
+      "group": "i_test_family_033",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "9b2aa10a6687cd323c5f1ffe26c9898f",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which language edition should I order for you?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The photos of the collection look wonderful."
+          }
+        ],
+        "rationale": "Praise for photos does not answer the edition question.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_074_2",
+      "review_id": "c065ae0b0a14ecc5516c0d8aae43decf",
+      "group": "i_test_family_074",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "c065ae0b0a14ecc5516c0d8aae43decf",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Learning sale: claim the public early-registration price before Sunday night."
+          }
+        ],
+        "rationale": "The public registration price deadline is marketing.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_089_2",
+      "review_id": "3e45ddc4c1a6bc35fe2500a4e1dbc81f",
+      "group": "i_test_family_089",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "3e45ddc4c1a6bc35fe2500a4e1dbc81f",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Should the pamphlet use staples or stitching?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Choose staples. I will drop off the binding supplies tonight."
+          }
+        ],
+        "rationale": "The binding choice is answered but the user promises supplies delivery.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_094_1",
+      "review_id": "3bb1f02fce58a82bbe98c52265c45edc",
+      "group": "i_test_family_094",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "3bb1f02fce58a82bbe98c52265c45edc",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated account notice: a verification item is pending. The notice does not specify which account holder must complete it or when."
+          }
+        ],
+        "rationale": "The automated pending item has unclear ownership and action timing.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_011_2",
+      "review_id": "1019a2e81c8d6330d26120bdeebd3fb0",
+      "group": "i_test_family_011",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "1019a2e81c8d6330d26120bdeebd3fb0",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Perhaps the hall will be quiet this year. What is your guest count?"
+          }
+        ],
+        "rationale": "Speculation about the hall leaves an explicit guest-count question.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_017_1",
+      "review_id": "81a017bdac3c5276546bc671872ad286",
+      "group": "i_test_family_017",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "81a017bdac3c5276546bc671872ad286",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please approve the caption wording by replying yes, or send a correction."
+          }
+        ],
+        "rationale": "Approval or correction is expressly requested as a reply.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_093_2",
+      "review_id": "ab478dfb82717c11245e2894275875de",
+      "group": "i_test_family_093",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "ab478dfb82717c11245e2894275875de",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please check the figures in my report."
+          },
+          {
+            "message_index": 1,
+            "quote": "I will check them. First, please send me the underlying measurements."
+          }
+        ],
+        "rationale": "The requested checking and requested measurements create obligations on both sides.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_085_2",
+      "review_id": "6dabfc96cd18552fd4b23426c825fe20",
+      "group": "i_test_family_085",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "6dabfc96cd18552fd4b23426c825fe20",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please tell me the hem length. I will mend the curtain hooks tomorrow."
+          }
+        ],
+        "rationale": "The user owes a hem-length answer and the sender promises hook repairs.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_087_1",
+      "review_id": "4a50294f2c636a827451c5b2962007f0",
+      "group": "i_test_family_087",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "4a50294f2c636a827451c5b2962007f0",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Done."
+          }
+        ],
+        "rationale": "Done lacks a visible referent or identifiable disposition.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_077_1",
+      "review_id": "264e61562886b5cc08b7c43f686a6687",
+      "group": "i_test_family_077",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "264e61562886b5cc08b7c43f686a6687",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Cloud service bulletin: scheduled maintenance completed successfully in the western region."
+          }
+        ],
+        "rationale": "Routine successful cloud maintenance bulletin has no personal deadline.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_059_2",
+      "review_id": "6015b3fc148c54cbce8469c56f67b40e",
+      "group": "i_test_family_059",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "6015b3fc148c54cbce8469c56f67b40e",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you drop off the trestles and the shade cloth?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The trestles are there; the venue supplied shade cloth, so that part is no longer needed."
+          }
+        ],
+        "rationale": "Trestles are delivered and the shade cloth need is explicitly resolved elsewhere.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_035_2",
+      "review_id": "f314379aa31e229f87e50f68a53473fc",
+      "group": "i_test_family_035",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "f314379aa31e229f87e50f68a53473fc",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please confirm the new studio access period."
+          },
+          {
+            "message_index": 1,
+            "quote": "The period on the attachment is obsolete; I do not have the corrected dates yet."
+          }
+        ],
+        "rationale": "Obsolete dates do not fulfill the request for the new access period.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_004_1",
+      "review_id": "4f8782765f773cfaa5670e15c6e99103",
+      "group": "i_test_family_004",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "4f8782765f773cfaa5670e15c6e99103",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you confirm the seed variety?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Thanks for taking a look at this."
+          }
+        ],
+        "rationale": "Thanks does not answer the seed variety question.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_066_1",
+      "review_id": "ed46d31ec44009ef7eac595d1a3922d3",
+      "group": "i_test_family_066",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "ed46d31ec44009ef7eac595d1a3922d3",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "New post from Trail Journal: Ten waterfalls to see on your next holiday."
+          }
+        ],
+        "rationale": "A travel publication post is newsletter content.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_058_1",
+      "review_id": "d3af75bda7073d5e0e9657fc99632499",
+      "group": "i_test_family_058",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "d3af75bda7073d5e0e9657fc99632499",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Who could resist that sunset? I took this photo from the ridge."
+          }
+        ],
+        "rationale": "The sunset question is rhetorical photo appreciation.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_022_2",
+      "review_id": "47fc5160f7a20ddc250a399c3c4832fa",
+      "group": "i_test_family_022",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "47fc5160f7a20ddc250a399c3c4832fa",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please tell me the publication year of your map book."
+          }
+        ],
+        "rationale": "The user explicitly requests the map publication year.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_083_2",
+      "review_id": "5650736954bd665214ab09a5636e1483",
+      "group": "i_test_family_083",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "5650736954bd665214ab09a5636e1483",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will bring the boundary sketch to your office next week."
+          }
+        ],
+        "rationale": "An unsolicited specific sketch delivery promise needs commitment routing.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_034_2",
+      "review_id": "15f29fe12194002d568730fbf72a7b07",
+      "group": "i_test_family_034",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "15f29fe12194002d568730fbf72a7b07",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please drop my music stand at the rehearsal room."
+          },
+          {
+            "message_index": 1,
+            "quote": "It is in my car, ready to go."
+          }
+        ],
+        "rationale": "The stand being in a car does not establish delivery.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_076_2",
+      "review_id": "83ca4d6568d70fa3187e4c0bd281cc00",
+      "group": "i_test_family_076",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "83ca4d6568d70fa3187e4c0bd281cc00",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Housing alerts: three rentals now match the filters in your saved search."
+          }
+        ],
+        "rationale": "Saved housing search alerts are routine automated matches.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_028_1",
+      "review_id": "3e6374fca6dd4511ee114ea04a1b153c",
+      "group": "i_test_family_028",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "3e6374fca6dd4511ee114ea04a1b153c",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please book the squash court for Saturday."
+          },
+          {
+            "message_index": 1,
+            "quote": "I have asked reception, but there is no booking yet."
+          }
+        ],
+        "rationale": "Reception was asked but the requested booking remains incomplete.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_024_1",
+      "review_id": "18dbac7b708fd5afb82345c93547aaf8",
+      "group": "i_test_family_024",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "18dbac7b708fd5afb82345c93547aaf8",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you check whether the lighthouse tour allows children?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Thanks for planning the weekend."
+          }
+        ],
+        "rationale": "Thanks does not answer whether children are allowed.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_031_1",
+      "review_id": "80c894fab6aa6c5d9244f06d66c26f69",
+      "group": "i_test_family_031",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "80c894fab6aa6c5d9244f06d66c26f69",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Ignore the old cheese question below. What time does your stall close?\n> Is the cheddar smoked?"
+          }
+        ],
+        "rationale": "The current closing-time question survives cancellation of quoted history.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_038_1",
+      "review_id": "af0cd4490762073b54b3e2709c9105bc",
+      "group": "i_test_family_038",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "af0cd4490762073b54b3e2709c9105bc",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I hope the roads clear soon. Could you send the snowshoe route coordinates?"
+          }
+        ],
+        "rationale": "The user requests coordinates; the road-clearing hope is not a commitment.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_091_1",
+      "review_id": "2f3ecadb95592258253e90e92deb5865",
+      "group": "i_test_family_091",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "2f3ecadb95592258253e90e92deb5865",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please wash the folding chairs and tell me whether any are broken."
+          },
+          {
+            "message_index": 1,
+            "quote": "None of the chairs are broken."
+          }
+        ],
+        "rationale": "The condition answer leaves the washing task outstanding.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_070_2",
+      "review_id": "325655f26f9d28c6049cb69ab85f97c0",
+      "group": "i_test_family_070",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "325655f26f9d28c6049cb69ab85f97c0",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your forum digest includes recent track-layout photos and popular discussion threads."
+          }
+        ],
+        "rationale": "The forum digest contains routine content.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_027_2",
+      "review_id": "cf30adda7dc08621889b57f104400a78",
+      "group": "i_test_family_027",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "cf30adda7dc08621889b57f104400a78",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you share the cleaned interview audio?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I can deliver the cleaned file tomorrow evening."
+          }
+        ],
+        "rationale": "Future delivery leaves the requested cleaned audio outstanding.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_021_1",
+      "review_id": "650fdd1eae1c29b6fef30df543a2b9df",
+      "group": "i_test_family_021",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "650fdd1eae1c29b6fef30df543a2b9df",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please carry the spare benches into the boathouse."
+          }
+        ],
+        "rationale": "The outbound request assigns carrying benches to the recipient.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_080_1",
+      "review_id": "a961aa16e901d59a7cece5e8449d0d55",
+      "group": "i_test_family_080",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "a961aa16e901d59a7cece5e8449d0d55",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Discover our new pottery glazes. All subscribers can use GLAZE15 this week."
+          }
+        ],
+        "rationale": "A subscriber discount is promotional mail.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_009_2",
+      "review_id": "2daafecf6b84d1dddc60291ccbdda43e",
+      "group": "i_test_family_009",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "2daafecf6b84d1dddc60291ccbdda43e",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "We already chose the blue letters quoted here. Can you confirm the arrow direction for the entrance?\n> What colour should we use?"
+          }
+        ],
+        "rationale": "The current arrow question remains after resolving the quoted colour question.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_012_2",
+      "review_id": "8887103e3246138184c2d8e28d50933e",
+      "group": "i_test_family_012",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "8887103e3246138184c2d8e28d50933e",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "What distinguishing mark is on the umbrella you left here? We have three."
+          }
+        ],
+        "rationale": "The sender asks for an identifying umbrella mark.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_011_1",
+      "review_id": "1032af6c44c3e252a9b31af802e3371c",
+      "group": "i_test_family_011",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "1032af6c44c3e252a9b31af802e3371c",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I hope the recital goes smoothly. How many relatives are coming with you?"
+          }
+        ],
+        "rationale": "A hope about the recital does not obscure the explicit attendance question.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_058_2",
+      "review_id": "033c43c24f9c53d3d88414fdcceee679",
+      "group": "i_test_family_058",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "033c43c24f9c53d3d88414fdcceee679",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Is there anything prettier than snow on those peaks? Sharing my favourite photo from today."
+          }
+        ],
+        "rationale": "The mountain question is rhetorical and accompanies photo sharing.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_001_1",
+      "review_id": "d1044e4c5f262d1b835110b36ea2528d",
+      "group": "i_test_family_001",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "d1044e4c5f262d1b835110b36ea2528d",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The kiln booking is almost settled. Which shelf height do your bowls need?"
+          }
+        ],
+        "rationale": "The sender explicitly asks for shelf height; booking context adds no user task.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_076_1",
+      "review_id": "8bc8dec8c758818d15b1ae6ff71216fe",
+      "group": "i_test_family_076",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "8bc8dec8c758818d15b1ae6ff71216fe",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your saved property search has six new matches. View the listings in the app."
+          }
+        ],
+        "rationale": "Saved property matches are routine search notifications.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_041_1",
+      "review_id": "0e64afa5d93a0e4b6c5d80ad7642fe92",
+      "group": "i_test_family_041",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "0e64afa5d93a0e4b6c5d80ad7642fe92",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The lift inspection finished this morning. All floors are accessible again."
+          }
+        ],
+        "rationale": "Lift accessibility is useful news without a request.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_025_1",
+      "review_id": "2725fcfe2e8fa56d069365b3625b2573",
+      "group": "i_test_family_025",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "2725fcfe2e8fa56d069365b3625b2573",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please collect the projector and the extension cord."
+          },
+          {
+            "message_index": 1,
+            "quote": "I got the cord myself. Please still collect the projector."
+          }
+        ],
+        "rationale": "The projector pickup remains after the cord was obtained.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_098_1",
+      "review_id": "462d277b973a5c3a70ebb67e68669846",
+      "group": "i_test_family_098",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "462d277b973a5c3a70ebb67e68669846",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will repair your bicycle light."
+          },
+          {
+            "message_index": 1,
+            "quote": "Thanks, that will help a lot."
+          }
+        ],
+        "rationale": "The user repair promise remains after thanks.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_031_2",
+      "review_id": "8c975e63a2f76359568e2b6a99a10f22",
+      "group": "i_test_family_031",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "8c975e63a2f76359568e2b6a99a10f22",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The cheddar answer is settled. Do you take card payments at the market?\n> Which cheese was smoked?"
+          }
+        ],
+        "rationale": "The current card-payment question is unanswered; quoted cheese history is resolved.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_005_1",
+      "review_id": "f0ad3d78e14181c7bfc7a4eaef32667d",
+      "group": "i_test_family_005",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "f0ad3d78e14181c7bfc7a4eaef32667d",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "What time is your piano lesson, and who is teaching it?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I found the teacher name. I still need the start time."
+          }
+        ],
+        "rationale": "The lesson start time is still explicitly requested.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_029_1",
+      "review_id": "d08140d0bd70e579128661cbe3314acc",
+      "group": "i_test_family_029",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "d08140d0bd70e579128661cbe3314acc",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The bakery can offer two icing finishes."
+          },
+          {
+            "message_index": 1,
+            "quote": "Which one is safe to transport without refrigeration?"
+          }
+        ],
+        "rationale": "The user asks which icing transports safely.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_022_1",
+      "review_id": "df87606687c1462d065774f7511cb9f3",
+      "group": "i_test_family_022",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "df87606687c1462d065774f7511cb9f3",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which edition of the atlas did you consult?"
+          }
+        ],
+        "rationale": "The outbound atlas edition question requires the recipient answer.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_083_1",
+      "review_id": "c552e7752cdc57676c82314b8fa068fb",
+      "group": "i_test_family_083",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "c552e7752cdc57676c82314b8fa068fb",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will send you the survey drawings on Monday."
+          }
+        ],
+        "rationale": "The unsolicited future drawings delivery is a specific commitment.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_002_2",
+      "review_id": "cf9c037412dd8d43335620d051b2b06f",
+      "group": "i_test_family_002",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "cf9c037412dd8d43335620d051b2b06f",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Does the plan we discussed for crossing still stand?"
+          }
+        ],
+        "rationale": "An explicit question about the crossing plan requires an answer.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_096_2",
+      "review_id": "eb20c550a5cea351d46d2c3594606954",
+      "group": "i_test_family_096",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "eb20c550a5cea351d46d2c3594606954",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please take the cat to the groomer."
+          },
+          {
+            "message_index": 1,
+            "quote": "The appointment is canceled. Please clean the carrier instead."
+          }
+        ],
+        "rationale": "Carrier cleaning replaces the canceled grooming task and is still a user task.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_001_2",
+      "review_id": "84fef1b0dfa3d1feff48d5b5ce9f52ea",
+      "group": "i_test_family_001",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "84fef1b0dfa3d1feff48d5b5ce9f52ea",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you tell me whether your pottery needs the tall shelf? The firing slot is reserved."
+          }
+        ],
+        "rationale": "The sender asks about shelf needs, independently of the reserved slot.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_035_1",
+      "review_id": "58e4071f5e9a1a3c132802b23bd70b67",
+      "group": "i_test_family_035",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "58e4071f5e9a1a3c132802b23bd70b67",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Send me the revised tenancy dates."
+          },
+          {
+            "message_index": 1,
+            "quote": "I sent the old dates by mistake. The revision is still being checked."
+          }
+        ],
+        "rationale": "Old dates and ongoing checks do not fulfill the revision request.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_055_1",
+      "review_id": "97eb847b8ec1b7ba7355e22d32331ecc",
+      "group": "i_test_family_055",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "97eb847b8ec1b7ba7355e22d32331ecc",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I promised to send the animation preview. Here it is; the full preview is attached."
+          }
+        ],
+        "rationale": "The full promised preview is delivered.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_042_1",
+      "review_id": "e6da750f687bd3f6542f6763984c966c",
+      "group": "i_test_family_042",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "e6da750f687bd3f6542f6763984c966c",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "What is the alloy number?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The alloy number is 6082."
+          }
+        ],
+        "rationale": "The alloy number question is answered.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_043_2",
+      "review_id": "a6ba77b43dd12faa3153411501171425",
+      "group": "i_test_family_043",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "a6ba77b43dd12faa3153411501171425",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which stop will you arrive at?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I get off at Cedar Square."
+          }
+        ],
+        "rationale": "The user answers the requested arrival stop.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_023_2",
+      "review_id": "d152606dbc7cba808c043d2643cc1d0b",
+      "group": "i_test_family_023",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "d152606dbc7cba808c043d2643cc1d0b",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you send both the receipt scan and its reference number?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Reference R84. I still need to scan the receipt."
+          }
+        ],
+        "rationale": "The receipt scan remains after the reference number is supplied.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_041_2",
+      "review_id": "1a3a8692be42acdd6d062eb8231184fa",
+      "group": "i_test_family_041",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "1a3a8692be42acdd6d062eb8231184fa",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The maintenance crew reopened the building lift after its inspection."
+          }
+        ],
+        "rationale": "The lift reopening is useful information without an obligation.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_013_2",
+      "review_id": "a0f83bb85d883758964756a1343ca7a4",
+      "group": "i_test_family_013",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "a0f83bb85d883758964756a1343ca7a4",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please clarify the unit next to the butter quantity in your recipe."
+          }
+        ],
+        "rationale": "The sender requests clarification of the recipe unit.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_054_1",
+      "review_id": "ee45af52705bb3e41b43a484f869fc56",
+      "group": "i_test_family_054",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "ee45af52705bb3e41b43a484f869fc56",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The railway museum has changed its opening hour to ten. Passing this along because you mentioned visiting."
+          }
+        ],
+        "rationale": "Museum opening hours are shared as relevant news.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_013_1",
+      "review_id": "7a32d0935b43760bd8112cdc5d3d5ec5",
+      "group": "i_test_family_013",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "7a32d0935b43760bd8112cdc5d3d5ec5",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Did you mean grams or ounces in the biscuit recipe?"
+          }
+        ],
+        "rationale": "The sender explicitly asks which measurement unit was meant.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_079_1",
+      "review_id": "587205efc1d3d88edcda466eb69e4984",
+      "group": "i_test_family_079",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "587205efc1d3d88edcda466eb69e4984",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Order confirmation: your replacement vacuum bags were purchased successfully. Keep this receipt for your records."
+          }
+        ],
+        "rationale": "A completed purchase receipt is routine automated mail.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_081_2",
+      "review_id": "93c1bab5e1307640ad4deffebae3b8d2",
+      "group": "i_test_family_081",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "93c1bab5e1307640ad4deffebae3b8d2",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you turn the compost pile before the garden opens?"
+          }
+        ],
+        "rationale": "Compost turning is a physical user task rather than prose.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_097_1",
+      "review_id": "8ef2d9beccd47041e2e828d6ee5ac159",
+      "group": "i_test_family_097",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "8ef2d9beccd47041e2e828d6ee5ac159",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Someone needs to approve the theatre budget; I cannot tell whether it is assigned to you or Leila."
+          }
+        ],
+        "rationale": "The approval owner is explicitly uncertain between two people.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_078_1",
+      "review_id": "a0baa6c2e5977b9118d19208b358321a",
+      "group": "i_test_family_078",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "a0baa6c2e5977b9118d19208b358321a",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The latest issue of Aquarium Monthly is ready: moss care, filter comparisons, and reader photos."
+          }
+        ],
+        "rationale": "Aquarium magazine issue contents are newsletter mail.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_074_1",
+      "review_id": "189ad03b3261f2b6fcbfabff2d256b42",
+      "group": "i_test_family_074",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "189ad03b3261f2b6fcbfabff2d256b42",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Our online lecture discount expires Friday. Register now to save on any course in the catalogue."
+          }
+        ],
+        "rationale": "The lecture sale deadline is generic marketing.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_052_1",
+      "review_id": "2787d57ba62937fcd5396ba3ed3d4549",
+      "group": "i_test_family_052",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "2787d57ba62937fcd5396ba3ed3d4549",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you send the minutes and attendance list?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Both the minutes and the attendance list are attached."
+          }
+        ],
+        "rationale": "Both requested documents are attached.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_086_1",
+      "review_id": "07ef879d0c9c45a9a3da7c82847162a5",
+      "group": "i_test_family_086",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "07ef879d0c9c45a9a3da7c82847162a5",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The shed key again\u2026"
+          }
+        ],
+        "rationale": "The fragment does not establish a request or its owner.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_095_2",
+      "review_id": "d49221635dc3688153eb9ba08d49801a",
+      "group": "i_test_family_095",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "d49221635dc3688153eb9ba08d49801a",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I will pack the samples and print their labels."
+          },
+          {
+            "message_index": 1,
+            "quote": "The labels are printed, but I have not packed the samples."
+          }
+        ],
+        "rationale": "The user packing commitment remains despite printed labels.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_016_2",
+      "review_id": "9addb965c137c61e933dadb9255f8405",
+      "group": "i_test_family_016",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "9addb965c137c61e933dadb9255f8405",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please reply with your role at the rowing event so the printed list is accurate."
+          }
+        ],
+        "rationale": "The sender explicitly requests a written role answer.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_007_2",
+      "review_id": "dae34e0b5a08da9de3e1d39eac8b51c3",
+      "group": "i_test_family_007",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "dae34e0b5a08da9de3e1d39eac8b51c3",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated admissions notice: accept or decline your offered practical exam slot by noon Friday. Your place will otherwise be released."
+          }
+        ],
+        "rationale": "The automated admissions notice personally requires a decision by noon Friday.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_042_2",
+      "review_id": "fdc102922496a730c23059fd452b8fc3",
+      "group": "i_test_family_042",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "fdc102922496a730c23059fd452b8fc3",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Which metal did the workshop use?"
+          },
+          {
+            "message_index": 1,
+            "quote": "The frame is made of aluminum 6082."
+          }
+        ],
+        "rationale": "The requested metal identification is supplied.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_014_2",
+      "review_id": "06f3bdf7d1c31ff03cc1c5d0df32dba4",
+      "group": "i_test_family_014",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "06f3bdf7d1c31ff03cc1c5d0df32dba4",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Before the rabbit home visit, could you describe how we reach your entrance?"
+          }
+        ],
+        "rationale": "The sender requests a prose entrance description.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_038_2",
+      "review_id": "1c3d81c244929f9ab9e1c340e054171b",
+      "group": "i_test_family_038",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "1c3d81c244929f9ab9e1c340e054171b",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Perhaps we can start late. Where exactly does the winter trail begin?"
+          }
+        ],
+        "rationale": "The user asks the trail location; a speculative start time adds no commitment.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_023_1",
+      "review_id": "3348f1161f35c8fbb3e5f7364d6dd4fe",
+      "group": "i_test_family_023",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "3348f1161f35c8fbb3e5f7364d6dd4fe",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Send the invoice total and the itemized breakdown."
+          },
+          {
+            "message_index": 1,
+            "quote": "The total is 280 dollars; the breakdown will follow tomorrow."
+          }
+        ],
+        "rationale": "The requested breakdown remains outstanding after the total is given.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_084_1",
+      "review_id": "d674fe072e8470d21fde4abf44ac928c",
+      "group": "i_test_family_084",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "d674fe072e8470d21fde4abf44ac928c",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please send the route map. I will buy the group tickets tonight."
+          }
+        ],
+        "rationale": "The recipient owes a map while the user commits to buying tickets.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_015_1",
+      "review_id": "79b689ff73c00791ef2ae682178ab751",
+      "group": "i_test_family_015",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "79b689ff73c00791ef2ae682178ab751",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you describe the noise your sewing machine makes? A sentence or two is enough."
+          }
+        ],
+        "rationale": "The sender explicitly requests a short written noise description.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_091_2",
+      "review_id": "e86cdc970f001a8fa30003a8cc836c14",
+      "group": "i_test_family_091",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "e86cdc970f001a8fa30003a8cc836c14",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please clear the stage and reply with its width."
+          },
+          {
+            "message_index": 1,
+            "quote": "The stage is eight metres wide."
+          }
+        ],
+        "rationale": "The width answer does not complete the stage-clearing task.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_084_2",
+      "review_id": "5a1c40e5a9aceeb994ff8af22699fc10",
+      "group": "i_test_family_084",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "5a1c40e5a9aceeb994ff8af22699fc10",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you confirm the train number? I will reserve our seats this evening."
+          }
+        ],
+        "rationale": "The recipient owes a train number and the user promises seat reservation.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_077_2",
+      "review_id": "a277bb971dcb7e9aae50f1616e51dc73",
+      "group": "i_test_family_077",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "a277bb971dcb7e9aae50f1616e51dc73",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automatic platform notice: the routine database upgrade finished and service is normal."
+          }
+        ],
+        "rationale": "Routine automated successful database upgrade mail has no deadline.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_065_1",
+      "review_id": "58cc878711a77328289f61a99fad1a2a",
+      "group": "i_test_family_065",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "58cc878711a77328289f61a99fad1a2a",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Receipt: your monthly music subscription payment was processed successfully."
+          }
+        ],
+        "rationale": "A successful recurring payment receipt is routine mail.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_068_2",
+      "review_id": "5114eacc9e5bfb8576ac4c66bcfe64ce",
+      "group": "i_test_family_068",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "5114eacc9e5bfb8576ac4c66bcfe64ce",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Learning app update: congratulations on reaching level twelve. Explore your new badge."
+          }
+        ],
+        "rationale": "An app level and badge announcement is routine engagement mail.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_096_1",
+      "review_id": "92aaee8d733ae9b9f56b16a1e0cc73bc",
+      "group": "i_test_family_096",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "92aaee8d733ae9b9f56b16a1e0cc73bc",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you walk my dog on Friday?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Forget the walk; please feed the dog at my flat instead."
+          }
+        ],
+        "rationale": "Feeding replaces walking but remains a non-prose user task.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_064_2",
+      "review_id": "2ce6ac791f1f2299b597c6692602875a",
+      "group": "i_test_family_064",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "2ce6ac791f1f2299b597c6692602875a",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automatic shipment update: the carrier received your package at the transit hub."
+          }
+        ],
+        "rationale": "An automatic shipment scan is routine tracking mail.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_094_2",
+      "review_id": "809eb93cd6a7daa15aa742e2a81f1a36",
+      "group": "i_test_family_094",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "809eb93cd6a7daa15aa742e2a81f1a36",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "System alert: an approval is needed on the shared record; the responsible reviewer is not identified."
+          }
+        ],
+        "rationale": "The approval notice does not identify the responsible person.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_032_2",
+      "review_id": "bca83b7d391df6c987887eaac9ceadd7",
+      "group": "i_test_family_032",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "bca83b7d391df6c987887eaac9ceadd7",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please inspect the harness buckles for damage."
+          },
+          {
+            "message_index": 1,
+            "quote": "The gear is on my desk now."
+          }
+        ],
+        "rationale": "Possession of gear does not complete the requested buckle inspection.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_051_2",
+      "review_id": "95076bf821ccecddde1bb512caf301e0",
+      "group": "i_test_family_051",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "95076bf821ccecddde1bb512caf301e0",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I enjoyed the colour choices in your landscape painting."
+          }
+        ],
+        "rationale": "Painting appreciation does not require a response.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_075_1",
+      "review_id": "cd2790410f121dc9094f67429d03ff7b",
+      "group": "i_test_family_075",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "cd2790410f121dc9094f67429d03ff7b",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Weather digest: rain is expected across the district during the next three days."
+          }
+        ],
+        "rationale": "A weather digest is routine informational mail.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_086_2",
+      "review_id": "27cac937d76bebcf1a58381cefb1c547",
+      "group": "i_test_family_086",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "27cac937d76bebcf1a58381cefb1c547",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "About that same key situation."
+          }
+        ],
+        "rationale": "The key reference supplies no identifiable request or disposition.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_062_2",
+      "review_id": "030bfb914c0bbbae2bd924e618f8afde",
+      "group": "i_test_family_062",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "030bfb914c0bbbae2bd924e618f8afde",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Last chance for discounted sandals! Our public promotion closes at midnight."
+          }
+        ],
+        "rationale": "The midnight promotion cutoff is a marketing deadline.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_057_1",
+      "review_id": "efbdad49e570d3cfb9a90ef6599bcf05",
+      "group": "i_test_family_057",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "efbdad49e570d3cfb9a90ef6599bcf05",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The orchard frost did not damage our pear trees after all."
+          }
+        ],
+        "rationale": "Pear tree survival is useful news without a request.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_012_1",
+      "review_id": "a867081cca863b7ede66dc320058a91d",
+      "group": "i_test_family_012",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "a867081cca863b7ede66dc320058a91d",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "For the lost-property form, please reply with the colour of your umbrella."
+          }
+        ],
+        "rationale": "The sender explicitly requests the umbrella colour in a reply.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_065_2",
+      "review_id": "c0fa7c7bca28f42806fe7c77f14d699a",
+      "group": "i_test_family_065",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "c0fa7c7bca28f42806fe7c77f14d699a",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automatic billing receipt: the listening plan renewed and payment is complete."
+          }
+        ],
+        "rationale": "The automatic subscription receipt reports successful payment.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_043_1",
+      "review_id": "1db8bb33c67fe57a68fc588589d7b317",
+      "group": "i_test_family_043",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "1db8bb33c67fe57a68fc588589d7b317",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Can you send your bus arrival time?"
+          },
+          {
+            "message_index": 1,
+            "quote": "My bus arrives at 14:10."
+          }
+        ],
+        "rationale": "The requested bus arrival time is supplied.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_003_2",
+      "review_id": "11a667edec3e1e62e83bf4c1d0bf55d0",
+      "group": "i_test_family_003",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "11a667edec3e1e62e83bf4c1d0bf55d0",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "What name and title should appear on your conference badge?"
+          },
+          {
+            "message_index": 1,
+            "quote": "My title is archivist."
+          }
+        ],
+        "rationale": "The title is answered but the badge name is still missing.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_079_2",
+      "review_id": "46c34968e3fac8389a97e17951b2f0fe",
+      "group": "i_test_family_079",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "46c34968e3fac8389a97e17951b2f0fe",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automatic shop receipt: payment received for your filter pack. Your order number is V420."
+          }
+        ],
+        "rationale": "An automatic shop receipt imposes no personal deadline.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_092_2",
+      "review_id": "578160a87244fdd3b52b301cbee8fcdc",
+      "group": "i_test_family_092",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "578160a87244fdd3b52b301cbee8fcdc",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "What boot size do you wear? Also pick up your equipment bag at the desk."
+          }
+        ],
+        "rationale": "A boot-size question accompanies a separate equipment pickup task.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_061_2",
+      "review_id": "a33cbb6bf98cec7ff55066bd42a7c10e",
+      "group": "i_test_family_061",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "a33cbb6bf98cec7ff55066bd42a7c10e",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Tech digest issue 82: desk accessories, screen reviews, and links to our newest buying guides."
+          }
+        ],
+        "rationale": "Tech digest and buying guides are newsletter content.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_054_2",
+      "review_id": "3d5ef879c021e249b583b39e24b66fd6",
+      "group": "i_test_family_054",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "3d5ef879c021e249b583b39e24b66fd6",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "A heads-up for your museum trip: the east entrance is temporarily closed; the west entrance is open."
+          }
+        ],
+        "rationale": "Entrance availability is shared travel information without a new task.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_073_1",
+      "review_id": "b595e3fd08beddb38c41c5b326d6f505",
+      "group": "i_test_family_073",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "b595e3fd08beddb38c41c5b326d6f505",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Monthly analytics digest: your portfolio page received 43 views."
+          }
+        ],
+        "rationale": "Monthly page statistics are routine analytics mail.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_048_1",
+      "review_id": "f0ae973c5093a2a74d1f6f53d8f98ef0",
+      "group": "i_test_family_048",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "f0ae973c5093a2a74d1f6f53d8f98ef0",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "We settled the delivery entrance by phone; use the courtyard gate.\n> Which entrance should the courier use?"
+          }
+        ],
+        "rationale": "The message supplies the settled entrance answer rather than reopening quoted history.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_019_1",
+      "review_id": "7f8680d4625d0d108f459382318b47d9",
+      "group": "i_test_family_019",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "7f8680d4625d0d108f459382318b47d9",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "I no longer need your postal address. What email should receive the zine proof?"
+          }
+        ],
+        "rationale": "The postal question is withdrawn but a new email-address question remains.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_046_1",
+      "review_id": "b6e75210dfa64194778f8d7dfb689aa5",
+      "group": "i_test_family_046",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "b6e75210dfa64194778f8d7dfb689aa5",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Calendar invitation: Board-game evening, Wednesday at 19:00 in the common room."
+          }
+        ],
+        "rationale": "A calendar invitation is informational under the calendar exception.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_016_1",
+      "review_id": "e3b9d0747485a9704c9ec87dc2d4f900",
+      "group": "i_test_family_016",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "e3b9d0747485a9704c9ec87dc2d4f900",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Should I list you as a volunteer or a spectator for the regatta?"
+          }
+        ],
+        "rationale": "The sender asks which participation role to record.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_088_1",
+      "review_id": "900a980e52811401c0b916176b5e9435",
+      "group": "i_test_family_088",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "900a980e52811401c0b916176b5e9435",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you upload the tax worksheet to the secure portal?"
+          }
+        ],
+        "rationale": "Uploading a worksheet to a portal is a user task rather than a prose reply.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_039_1",
+      "review_id": "fcafe254bc28d727ff4d5a8675494d5b",
+      "group": "i_test_family_039",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "fcafe254bc28d727ff4d5a8675494d5b",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please erase my old access code from the shared note."
+          },
+          {
+            "message_index": 1,
+            "quote": "The note is locked; I have not edited it."
+          }
+        ],
+        "rationale": "The recipient explicitly reports the requested code deletion undone.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_030_1",
+      "review_id": "45e92a8fac111e420b90b10b5c6f173c",
+      "group": "i_test_family_030",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "45e92a8fac111e420b90b10b5c6f173c",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please replace the cracked aquarium hose."
+          },
+          {
+            "message_index": 1,
+            "quote": "Use the flexible replacement, not the rigid one."
+          }
+        ],
+        "rationale": "The replacement type clarification retains the hose replacement request.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_099_1",
+      "review_id": "beafc774282ead5a46ef92db6021dbd1",
+      "group": "i_test_family_099",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "beafc774282ead5a46ef92db6021dbd1",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "The old question is resolved. Please repaint the scraped fence panel.\n> Which colour is the fence?"
+          }
+        ],
+        "rationale": "The quoted question is resolved but repainting is an outstanding user task.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_040_2",
+      "review_id": "06ae3b3af50b556d7f0328197ebe8339",
+      "group": "i_test_family_040",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "06ae3b3af50b556d7f0328197ebe8339",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please choose between the wave and mountain sketches."
+          },
+          {
+            "message_index": 1,
+            "quote": "I need more time to choose."
+          }
+        ],
+        "rationale": "Needing more time does not supply the requested sketch choice.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_063_1",
+      "review_id": "2e19b3a88ff687b33c267b63d1355df1",
+      "group": "i_test_family_063",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "2e19b3a88ff687b33c267b63d1355df1",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Automated backup report: nightly snapshot succeeded. No errors detected."
+          }
+        ],
+        "rationale": "A successful automated backup report is routine mail.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_051_1",
+      "review_id": "31b76b844187863bd8bc3963bea6bb09",
+      "group": "i_test_family_051",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "31b76b844187863bd8bc3963bea6bb09",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Your watercolor looks beautiful in the frame."
+          }
+        ],
+        "rationale": "Watercolor appreciation imposes no obligation.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_036_2",
+      "review_id": "356a8c9ca534e42ab4a45095314f3793",
+      "group": "i_test_family_036",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "356a8c9ca534e42ab4a45095314f3793",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please take down the portrait you posted of me."
+          }
+        ],
+        "rationale": "The user explicitly requests portrait removal.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_081_1",
+      "review_id": "53ae6ef84cc9b2506531a1c8db1035c0",
+      "group": "i_test_family_081",
+      "author_label": "abstain",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "53ae6ef84cc9b2506531a1c8db1035c0",
+        "label": "abstain",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please haul the compost sacks behind the shed."
+          }
+        ],
+        "rationale": "Hauling compost is a physical task assigned to the user.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_053_1",
+      "review_id": "e496a370569117b1954de1e8772f3ad8",
+      "group": "i_test_family_053",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "e496a370569117b1954de1e8772f3ad8",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "What is your preferred display name?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Use Ellis. Thanks for checking."
+          }
+        ],
+        "rationale": "The display name question is answered.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_045_2",
+      "review_id": "2f9432a768918177abfe55a5e9ab4035",
+      "group": "i_test_family_045",
+      "author_label": "fyi",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "2f9432a768918177abfe55a5e9ab4035",
+        "label": "fyi",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Please mist the orchids while I am away."
+          },
+          {
+            "message_index": 1,
+            "quote": "Cancel that favor. My neighbor has taken the orchids and handled it."
+          }
+        ],
+        "rationale": "The orchid favor is explicitly canceled and handled elsewhere.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_032_1",
+      "review_id": "49dd7b9ff749eef18dc6bb462ec2269e",
+      "group": "i_test_family_032",
+      "author_label": "waiting_on_them",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "49dd7b9ff749eef18dc6bb462ec2269e",
+        "label": "waiting_on_them",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Could you count the usable helmets in the climbing cupboard?"
+          },
+          {
+            "message_index": 1,
+            "quote": "I found the cupboard key."
+          }
+        ],
+        "rationale": "Finding the key does not provide the requested helmet count.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_010_1",
+      "review_id": "14609d69d572e497d26ec5906e82d7f6",
+      "group": "i_test_family_010",
+      "author_label": "needs_reply",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "14609d69d572e497d26ec5906e82d7f6",
+        "label": "needs_reply",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Do you prefer the shaded campsite or the river site?"
+          },
+          {
+            "message_index": 1,
+            "quote": "Let me think about that."
+          }
+        ],
+        "rationale": "The user postpones but does not answer the campsite preference.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    },
+    {
+      "id": "i_test_063_2",
+      "review_id": "aca6fcbff63c8a56d299ec5374932966",
+      "group": "i_test_family_063",
+      "author_label": "noise",
+      "author_flags": [],
+      "status": "agreed",
+      "review": {
+        "id": "aca6fcbff63c8a56d299ec5374932966",
+        "label": "noise",
+        "evidence": [
+          {
+            "message_index": 0,
+            "quote": "Scheduled storage summary: all backup jobs completed normally during the overnight window."
+          }
+        ],
+        "rationale": "A scheduled successful backup summary is routine mail.",
+        "flags": [],
+        "reviewer": "v2i-test-blind"
+      }
+    }
+  ]
+}
