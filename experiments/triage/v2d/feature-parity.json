@@ -1,0 +1,42 @@
+{
+  "model_sha256": "517465b6a1f5c03d5144a8b383604e61ce38eaf97eb6cc0063f13f5660607581",
+  "head_version": 3,
+  "feature_layout": "joint-thread-v1",
+  "splits": {
+    "train": {
+      "cases": 1293,
+      "feature_shape": [
+        1293,
+        388
+      ],
+      "max_absolute_difference": 0.0,
+      "batch_max_absolute_difference": 0.0
+    },
+    "dev": {
+      "cases": 120,
+      "feature_shape": [
+        120,
+        388
+      ],
+      "max_absolute_difference": 0.0,
+      "batch_max_absolute_difference": 0.0
+    }
+  },
+  "thresholds": {
+    "abstain": 1.0,
+    "fyi": 0.995,
+    "needs_reply": 0.999,
+    "noise": 0.0,
+    "waiting_on_them": 1.0
+  },
+  "dev_selective": {
+    "cases": 120,
+    "accepted": 26,
+    "correct_accepted": 26,
+    "correct_abstentions": 29,
+    "false_reminders": 0,
+    "false_silencing": 0,
+    "actionable_abstained": 48,
+    "ambiguous_accepted": 0
+  }
+}

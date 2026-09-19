@@ -17,11 +17,11 @@ from shadow import (
     read_request,
     validate_head,
 )
-from train import HEAD_VERSION, LABELS
+from train import CONTEXT_TOKENS_MAX, FEATURE_LAYOUT, HEAD_VERSION, LABELS
 
 
 class EncoderStub:
-    max_seq_length = 256
+    max_seq_length = CONTEXT_TOKENS_MAX
 
     def __init__(self) -> None:
         self.tokenizer = self
@@ -31,7 +31,8 @@ class EncoderStub:
         self, texts: str | list[str], **kwargs: object
     ) -> list[str] | np.ndarray:
         if isinstance(texts, str):
-            return texts.split()
+            assert kwargs.get("truncation") is False
+            return ["[CLS]", *texts.split(), "[SEP]"]
         self.calls += 1
         return np.zeros((len(texts), 384), dtype=np.float32)
 
@@ -39,8 +40,9 @@ class EncoderStub:
 def head() -> dict:
     return {
         "version": HEAD_VERSION,
+        "feature_layout": FEATURE_LAYOUT,
         "labels": LABELS,
-        "coefficients": np.zeros((5, 1540)).tolist(),
+        "coefficients": np.zeros((5, 388)).tolist(),
         "intercepts": [0, 0, 5, 0, 0],
         "thresholds": {label: 1.0 if label == "abstain" else 0.8 for label in LABELS},
     }
@@ -114,7 +116,14 @@ class ShadowTests(unittest.TestCase):
         cases = [
             {"id": "good", "messages": [{"outbound": False, "body": "Please reply"}]},
             {"id": "missing"},
-            {"id": "long", "messages": [{"outbound": False, "body": "word " * 257}]},
+            {
+                "id": "combined",
+                "messages": [
+                    {"outbound": False, "body": "word " * 260},
+                    {"outbound": True, "body": "word " * 260},
+                ],
+            },
+            {"id": "long", "messages": [{"outbound": False, "body": "word " * 513}]},
             {"id": "bytes", "messages": [{"outbound": False, "body": "é" * 2001}]},
             {"id": "direction", "messages": [{"outbound": 1, "body": "Hello"}]},
             {"id": "empty", "messages": []},
@@ -171,6 +180,10 @@ class ShadowTests(unittest.TestCase):
             ("thresholds", {"fyi": 0.8}),
             ("thresholds", None),
             ("version", 1),
+            ("version", 2),
+            ("feature_layout", None),
+            ("feature_layout", "four-slot"),
+            ("coefficients", np.zeros((5, 1540)).tolist()),
             ("labels", LABELS[:4]),
             ("coefficients", [[0]]),
             ("label_policy", "unknown"),
@@ -197,6 +210,18 @@ class ShadowTests(unittest.TestCase):
                 encoder,
                 "a" * 64,
             )
+
+    def test_runtime_rejects_saved_encoder_with_wrong_context_limit(self) -> None:
+        encoder = EncoderStub()
+        encoder.max_seq_length = 256
+        with self.assertRaisesRegex(ValueError, "512-token"):
+            classify(
+                [{"id": "one", "messages": [{"outbound": False, "body": "Hi"}]}],
+                head(),
+                encoder,
+                "a" * 64,
+            )
+        self.assertEqual(encoder.calls, 0)
 
     def test_identity_covers_tokenizer_weights_and_head(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

@@ -1,20 +1,20 @@
 import copy
-import hashlib
-import json
-import tempfile
 import unittest
-from pathlib import Path
-from unittest.mock import patch
 
-from recalibrate import weights_sha256
 from release import (
     release_metrics,
-    validate_calibration,
     validate_reviewed_source,
     validate_test,
     validate_training,
 )
-from train import BASE, LABELS, REVISION, THRESHOLD_GRID, THRESHOLD_SELECTION
+from train import (
+    BASE,
+    CONTEXT_TOKENS_MAX,
+    FEATURE_LAYOUT,
+    LABELS,
+    REVISION,
+    THRESHOLD_SELECTION,
+)
 
 
 class ReleaseTests(unittest.TestCase):
@@ -88,6 +88,7 @@ class ReleaseTests(unittest.TestCase):
         self,
     ) -> None:
         head = {
+            "feature_layout": FEATURE_LAYOUT,
             "base": BASE,
             "revision": REVISION,
             "thresholds": {
@@ -96,6 +97,9 @@ class ReleaseTests(unittest.TestCase):
             "encoder_frozen": False,
         }
         report = {
+            "feature_layout": FEATURE_LAYOUT,
+            "max_seq_length": CONTEXT_TOKENS_MAX,
+            "base_position_capacity": CONTEXT_TOKENS_MAX,
             "label_policy": "reply-triage-v2",
             "base": BASE,
             "revision": REVISION,
@@ -121,6 +125,9 @@ class ReleaseTests(unittest.TestCase):
         validate_training(report, head, "input-hash", 100, 20)
         for field, value in (
             ("seed", 43),
+            ("feature_layout", "old-layout"),
+            ("max_seq_length", 256),
+            ("base_position_capacity", 256),
             ("epochs", 11),
             ("batch_size", 32),
             ("encoder_learning_rate", 1e-5),
@@ -165,79 +172,6 @@ class ReleaseTests(unittest.TestCase):
         for field in source:
             with self.subTest(field=field), self.assertRaises(ValueError):
                 validate_reviewed_source({**source, field: "unreviewed"})
-
-    def test_calibration_binds_unchanged_weights_encoder_and_training_history(
-        self,
-    ) -> None:
-        with tempfile.TemporaryDirectory() as directory:
-            model = Path(directory)
-            head = {
-                "version": 2,
-                "labels": LABELS,
-                "coefficients": [[2.0]],
-                "intercepts": [0.0],
-                "thresholds": dict.fromkeys(LABELS, 1.0),
-            }
-            source_head = {
-                key: value for key, value in head.items() if key != "thresholds"
-            }
-            source_head.update(version=1, threshold=1.0)
-            training = {
-                "seed": 42,
-                "thresholds": head["thresholds"],
-                "threshold_selection": THRESHOLD_SELECTION,
-            }
-            source_training = {
-                "seed": 42,
-                "threshold": 1.0,
-                "threshold_selection": "original",
-            }
-            source_head_bytes = json.dumps(source_head).encode()
-            source_training_bytes = json.dumps(source_training).encode()
-            (model / "source-head.json").write_bytes(source_head_bytes)
-            (model / "source-training.json").write_bytes(source_training_bytes)
-            calibration = {
-                "version": 1,
-                "label_policy": "reply-triage-v2",
-                "method": THRESHOLD_SELECTION,
-                "data_sha256": "input-hash",
-                "dev_count": 120,
-                "threshold_grid": THRESHOLD_GRID,
-                "thresholds": head["thresholds"],
-                "source_head_sha256": hashlib.sha256(source_head_bytes).hexdigest(),
-                "source_training_report_sha256": hashlib.sha256(
-                    source_training_bytes
-                ).hexdigest(),
-                "source_encoder_sha256": "encoder-hash",
-                "source_weights_sha256": weights_sha256(head),
-                "heldout_observed": False,
-            }
-            path = model / "calibration.json"
-            with patch("release.artifact_sha256", return_value="encoder-hash"):
-                path.write_text(json.dumps(calibration))
-                validate_calibration(model, head, training, "input-hash", 120)
-                for field, value in (
-                    ("heldout_observed", True),
-                    ("source_encoder_sha256", "changed"),
-                    ("source_head_sha256", "changed"),
-                    ("threshold_grid", [1.0]),
-                ):
-                    path.write_text(json.dumps({**calibration, field: value}))
-                    with self.subTest(field=field), self.assertRaises(ValueError):
-                        validate_calibration(model, head, training, "input-hash", 120)
-                path.write_text(json.dumps(calibration))
-                with self.assertRaises(ValueError):
-                    validate_calibration(
-                        model, head, {**training, "seed": 43}, "input-hash", 120
-                    )
-                with self.assertRaises(ValueError):
-                    validate_calibration(
-                        model,
-                        {**head, "coefficients": [[3.0]]},
-                        training,
-                        "input-hash",
-                        120,
-                    )
 
 
 if __name__ == "__main__":

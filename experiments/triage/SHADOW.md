@@ -14,8 +14,10 @@ for quality gates and the separate hash-pinned authority switch.
 
 Build the Go CLI, then enter the existing pinned Python environment. Install its
 dependencies as described in [TRAINING.md](TRAINING.md) if needed. A saved model
-directory must contain `head.json` and a complete local `encoder/`, including
-`model.safetensors`. Training artifacts remain ignored.
+directory must contain schema-3 `head.json` and a complete local `encoder/`, including
+`model.safetensors`. Current inference requires `joint-thread-v1`, class-specific
+cutoffs, and a saved 512-token context limit. Historical artifacts use their pinned
+older runtimes. Training artifacts remain ignored.
 
 ```sh
 nix-shell -p go gnumake --run 'make build'
@@ -27,7 +29,7 @@ import sys
 from pathlib import Path
 
 root = Path.cwd()
-model = root / "experiments/triage/runs/scaling-v1/full-model"
+model = root / "experiments/triage/runs/v2d-joint/model"
 wrapper = root / "experiments/triage/runs/shadow-infer"
 with wrapper.open("x") as output:
     output.write(
@@ -62,8 +64,9 @@ whole thread. Cache files are limited to 64 KiB and bodies to 4,000 bytes.
 It does not truncate bodies or fill skipped slots from older candidates.
 
 Inference takes one batch per subprocess, with a 30-second deadline, 256 KiB
-request bound, and 32 KiB output bound. Messages exceeding the encoder token
-limit produce `input_rejected` and abstain; other cases in the batch still run.
+request bound, and 32 KiB output bound. A combined exchange exceeding 512 tokens,
+including speaker markers, produces `input_rejected` and abstains; other cases
+in the batch still run.
 Timeouts, unavailable artifacts, malformed output, and nonfinite confidence fail
 the command with a sanitized error. The command never converts failures into FYI.
 
@@ -80,7 +83,7 @@ Reports include:
   existing classifications. New threads are excluded. Stored state is not ground
   truth; these counts are **not accuracy or error-rate estimates**.
 
-The threshold is the artifact's existing development-selected cutoff. Raw maximum
+The cutoffs are the artifact's existing per-class development selections. Raw maximum
 probability is not a calibrated guarantee, and can accompany an abstention.
 Artifact identity covers the head and every encoder file, including tokenizer and
 configuration, with deterministic length-prefixed hashing described in `shadow.py`.

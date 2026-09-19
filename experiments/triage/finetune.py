@@ -1,4 +1,4 @@
-"""Fine-tune MiniLM and its direction-aware head using synthetic train/dev data."""
+"""Fine-tune MiniLM over joint synthetic threads and their direction bits."""
 
 import argparse
 import hashlib
@@ -11,6 +11,8 @@ import torch
 from sentence_transformers import SentenceTransformer
 from train import (
     BASE,
+    CONTEXT_TOKENS_MAX,
+    FEATURE_LAYOUT,
     HEAD_VERSION,
     REVISION,
     THRESHOLD_SELECTION,
@@ -21,6 +23,7 @@ from train import (
     probabilities,
     score,
     select_thresholds,
+    thread_inputs,
     training_split,
 )
 
@@ -36,20 +39,31 @@ def main() -> None:
     torch.use_deterministic_algorithms(True)
     cases, policy = load_dataset(args.data)
     train, dev = training_split(cases)
-    if len(train) > 2000 or len(dev) > 1000:
-        raise ValueError(
-            "CPU experiment limited to 2000 training and 1000 development cases"
-        )
-    args.output.mkdir(parents=True, exist_ok=False)
+    if policy != "reply-triage-v2" or len(train) > 2000 or len(dev) > 1000:
+        raise ValueError("expected bounded v2 training/development data")
     encoder = SentenceTransformer(
-        BASE, revision=REVISION, device="cpu", trust_remote_code=False
+        BASE,
+        revision=REVISION,
+        device="cpu",
+        trust_remote_code=False,
+        local_files_only=True,
     )
-    classifier = fit_classifier(
-        features(encoder, train), [case["expected"] for case in train]
-    )
+    position_capacity = encoder[0].auto_model.config.max_position_embeddings
+    if position_capacity != CONTEXT_TOKENS_MAX:
+        raise ValueError("unexpected base positional capacity")
+    encoder.max_seq_length = CONTEXT_TOKENS_MAX
+    train_vectors = features(encoder, train)
     features(encoder, dev)
+    with torch.no_grad():
+        np.testing.assert_allclose(
+            batch_features(encoder, train[:16]).numpy(),
+            train_vectors[:16],
+            rtol=1e-4,
+            atol=1e-5,
+        )
+    classifier = fit_classifier(train_vectors, [case["expected"] for case in train])
     labels = classifier.classes_.tolist()
-    head = torch.nn.Linear(classifier.coef_.shape[1], len(labels))
+    head = torch.nn.Linear(388, len(labels))
     with torch.no_grad():
         head.weight.copy_(torch.from_numpy(classifier.coef_))
         head.bias.copy_(torch.from_numpy(classifier.intercept_))
@@ -65,6 +79,7 @@ def main() -> None:
     parameters = list(encoder.parameters()) + list(head.parameters())
     history, best_loss, best_epoch = [], float("inf"), 0
     best_values = None
+    args.output.mkdir(parents=True, exist_ok=False)
     for epoch in range(13):
         loss_total = 0.0
         if epoch:
@@ -113,6 +128,7 @@ def main() -> None:
             encoder.save_pretrained(args.output / "encoder", safe_serialization=True)
             saved_head = {
                 "version": HEAD_VERSION,
+                "feature_layout": FEATURE_LAYOUT,
                 "label_policy": policy,
                 "base": BASE,
                 "revision": REVISION,
@@ -125,8 +141,13 @@ def main() -> None:
                 json.dumps(saved_head, indent=2) + "\n"
             )
     encoder = SentenceTransformer(
-        str(args.output / "encoder"), device="cpu", local_files_only=True
+        str(args.output / "encoder"),
+        device="cpu",
+        local_files_only=True,
+        trust_remote_code=False,
     )
+    if encoder.max_seq_length != CONTEXT_TOKENS_MAX:
+        raise ValueError("saved encoder token limit changed")
     saved_head = json.loads((args.output / "head.json").read_text())
     values = probabilities(saved_head, features(encoder, dev))
     assert best_values is not None
@@ -137,6 +158,7 @@ def main() -> None:
         "label_policy": policy,
         "base": BASE,
         "revision": REVISION,
+        "feature_layout": FEATURE_LAYOUT,
         "encoder_frozen": best_epoch == 0,
         "data_sha256": hashlib.sha256(args.data.read_bytes()).hexdigest(),
         "train_count": len(train),
@@ -152,6 +174,8 @@ def main() -> None:
         "head_initialization": "frozen-encoder logistic regression",
         "checkpoint_selection": "lowest unweighted development cross entropy, including epoch zero",
         "selected_epoch": best_epoch,
+        "max_seq_length": CONTEXT_TOKENS_MAX,
+        "base_position_capacity": position_capacity,
         "thresholds": saved_head["thresholds"],
         "threshold_selection": THRESHOLD_SELECTION,
         "dev_raw": score(dev, predictions(saved_head, values)),
@@ -164,34 +188,20 @@ def main() -> None:
     print(
         json.dumps(
             {key: value for key, value in report.items() if key != "history"}, indent=2
-        )
+        ),
+        flush=True,
     )
 
 
 def batch_features(encoder: SentenceTransformer, cases: list[dict]) -> torch.Tensor:
     if not 1 <= len(cases) <= 16:
         raise ValueError("expected 1–16 cases per batch")
-    texts, slots = [], []
-    for row, case in enumerate(cases):
-        if not 1 <= len(case["messages"]) <= 2:
-            raise ValueError("expected one or two messages")
-        for position, message in enumerate(case["messages"]):
-            texts.append(message["body"])
-            slots.append(
-                row * 4
-                + (2 - len(case["messages"]) + position) * 2
-                + int(message["outbound"])
-            )
-    if (
-        max(len(encoder.tokenizer.encode(text)) for text in texts)
-        > encoder.max_seq_length
-    ):
-        raise ValueError("message exceeds encoder token limit")
+    texts, present = thread_inputs(encoder, cases)
     encoded = encoder(encoder.preprocess(inputs=texts))["sentence_embedding"]
+    if encoded.shape != (len(cases), 384):
+        raise ValueError("unexpected encoder dimensions")
     encoded = torch.nn.functional.normalize(encoded, dim=1)
-    present = torch.cat((encoded, encoded.new_ones((len(encoded), 1))), dim=1)
-    matrix = encoded.new_zeros((len(cases) * 4, present.shape[1]))
-    return matrix.index_copy(0, torch.tensor(slots), present).reshape(len(cases), -1)
+    return torch.cat((encoded, torch.from_numpy(present)), dim=1)
 
 
 def evaluate(

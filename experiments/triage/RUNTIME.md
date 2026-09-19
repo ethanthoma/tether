@@ -5,6 +5,10 @@ and the two inference scripts into an immutable Nix closure. Model weights and
 mail data remain outside that closure. The package does not download dependencies
 or load models during its build.
 
+Rebuild after inference source changes. Current source accepts only schema-3
+joint-thread artifacts; existing production's earlier runtime remains pinned until
+an approved replacement is deployed. See [JOINT.md](JOINT.md).
+
 Prepare `.venv` using the experiment setup and `requirements.txt`, then supply its
 absolute location and its immutable Nix Python executable explicitly:
 

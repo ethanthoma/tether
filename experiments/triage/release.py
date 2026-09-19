@@ -7,13 +7,13 @@ import math
 from pathlib import Path
 
 from calibrate import check_separation
-from recalibrate import weights_sha256
-from shadow import artifact_sha256, load_artifact
+from shadow import load_artifact
 from train import (
     BASE,
+    CONTEXT_TOKENS_MAX,
+    FEATURE_LAYOUT,
     LABELS,
     REVISION,
-    THRESHOLD_GRID,
     THRESHOLD_SELECTION,
     features,
     load_dataset,
@@ -52,9 +52,6 @@ def main() -> None:
     training_hash = hashlib.sha256(args.training_data.read_bytes()).hexdigest()
     training_report = json.loads(training_bytes)
     validate_training(training_report, head, training_hash, len(train), len(dev))
-    calibration = validate_calibration(
-        model, head, training_report, training_hash, len(dev)
-    )
     import torch
     from sentence_transformers import SentenceTransformer
 
@@ -65,6 +62,11 @@ def main() -> None:
         local_files_only=True,
         trust_remote_code=False,
     )
+    if (
+        encoder.max_seq_length != CONTEXT_TOKENS_MAX
+        or encoder[0].auto_model.config.max_position_embeddings != CONTEXT_TOKENS_MAX
+    ):
+        raise ValueError("encoder context limit differs from release recipe")
     development = probabilities(head, features(encoder, dev))
     if select_thresholds(head, dev, development) != head["thresholds"]:
         raise ValueError("artifact cutoffs do not match development-only selection")
@@ -81,7 +83,8 @@ def main() -> None:
         "training_data_sha256": training_hash,
         "train_count": len(train),
         "dev_count": len(dev),
-        "calibration": calibration,
+        "feature_layout": FEATURE_LAYOUT,
+        "max_seq_length": CONTEXT_TOKENS_MAX,
         "separation": separation,
         "thresholds": head["thresholds"],
         **release_metrics(cases, selected, raw),
@@ -117,56 +120,14 @@ def validate_reviewed_source(source: dict) -> None:
         raise ValueError("independently reviewed fully synthetic export required")
 
 
-def validate_calibration(
-    model: Path, head: dict, training: dict, data_hash: str, dev_count: int
-) -> dict:
-    calibration_bytes = (model / "calibration.json").read_bytes()
-    calibration = json.loads(calibration_bytes)
-    source_head_bytes = (model / "source-head.json").read_bytes()
-    source_training_bytes = (model / "source-training.json").read_bytes()
-    source_head = json.loads(source_head_bytes)
-    source_training = json.loads(source_training_bytes)
-    expected = {
-        "version": 1,
-        "label_policy": "reply-triage-v2",
-        "method": THRESHOLD_SELECTION,
-        "data_sha256": data_hash,
-        "dev_count": dev_count,
-        "threshold_grid": THRESHOLD_GRID,
-        "thresholds": head["thresholds"],
-        "source_head_sha256": hashlib.sha256(source_head_bytes).hexdigest(),
-        "source_training_report_sha256": hashlib.sha256(
-            source_training_bytes
-        ).hexdigest(),
-        "source_encoder_sha256": artifact_sha256(model, include_head=False),
-        "source_weights_sha256": weights_sha256(head),
-        "heldout_observed": False,
-    }
-    for key, value in expected.items():
-        if type(calibration.get(key)) is not type(value) or calibration[key] != value:
-            raise ValueError(f"calibration provenance mismatch: {key}")
-    if weights_sha256(source_head) != expected["source_weights_sha256"]:
-        raise ValueError("recalibration changed trained head weights")
-    mutable_head = {"version", "threshold", "thresholds"}
-    if {
-        key: value for key, value in source_head.items() if key not in mutable_head
-    } != {key: value for key, value in head.items() if key not in mutable_head}:
-        raise ValueError("recalibration changed model metadata")
-    mutable_report = {"threshold", "thresholds", "threshold_selection", "dev_selective"}
-    if {
-        key: value
-        for key, value in source_training.items()
-        if key not in mutable_report
-    } != {key: value for key, value in training.items() if key not in mutable_report}:
-        raise ValueError("recalibration changed training history")
-    return {"report_sha256": hashlib.sha256(calibration_bytes).hexdigest(), **expected}
-
-
 def validate_training(
     report: dict, head: dict, data_hash: str, train_count: int, dev_count: int
 ) -> None:
     expected = {
         "label_policy": "reply-triage-v2",
+        "feature_layout": FEATURE_LAYOUT,
+        "max_seq_length": CONTEXT_TOKENS_MAX,
+        "base_position_capacity": CONTEXT_TOKENS_MAX,
         "base": BASE,
         "revision": REVISION,
         "data_sha256": data_hash,
@@ -208,7 +169,7 @@ def validate_training(
         raise ValueError("selected epoch is not first minimum development loss")
     if report.get("encoder_frozen") is not (epoch == 0):
         raise ValueError("training encoder state differs from selected epoch")
-    for key in ("base", "revision", "encoder_frozen"):
+    for key in ("base", "revision", "encoder_frozen", "feature_layout"):
         if head.get(key) != report[key]:
             raise ValueError(f"model and training metadata differ: {key}")
 

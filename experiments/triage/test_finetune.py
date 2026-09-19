@@ -3,15 +3,15 @@ import unittest
 import numpy as np
 import torch
 from finetune import batch_features
-from train import LABELS, features, predictions, select_thresholds
+from train import CONTEXT_TOKENS_MAX, LABELS, features, predictions, select_thresholds
 
 
 class DifferentiableEncoder(torch.nn.Module):
-    max_seq_length = 256
+    max_seq_length = CONTEXT_TOKENS_MAX
 
     def __init__(self) -> None:
         super().__init__()
-        self.vector = torch.nn.Parameter(torch.tensor([1.0, 2.0]))
+        self.vector = torch.nn.Parameter(torch.arange(1.0, 385.0))
 
     @property
     def tokenizer(self) -> "DifferentiableEncoder":
@@ -25,7 +25,8 @@ class DifferentiableEncoder(torch.nn.Module):
 
     def encode(self, text: str | list[str], **kwargs: object) -> list[str] | np.ndarray:
         if isinstance(text, str):
-            return text.split()
+            assert kwargs.get("truncation") is False
+            return ["[CLS]", *text.split(), "[SEP]"]
         normalized = torch.nn.functional.normalize(self.vector, dim=0)
         return normalized.detach().expand(len(text), -1).numpy()
 
@@ -54,6 +55,11 @@ class FinetuningTests(unittest.TestCase):
         matrix.sum().backward()
         self.assertIsNotNone(encoder.vector.grad)
         self.assertGreater(float(encoder.vector.grad.abs().sum()), 0)
+        self.assertEqual(matrix.shape, (4, 388))
+        np.testing.assert_array_equal(
+            matrix.detach().numpy()[:, 384:],
+            [[0, 0, 1, 0], [0, 0, 0, 1], [1, 0, 0, 1], [0, 1, 1, 0]],
+        )
 
     def test_batch_and_token_limits(self) -> None:
         encoder = DifferentiableEncoder()
@@ -63,8 +69,21 @@ class FinetuningTests(unittest.TestCase):
             batch_features(encoder, [{}] * 17)
         with self.assertRaisesRegex(ValueError, "token limit"):
             batch_features(
-                encoder, [{"messages": [{"outbound": False, "body": "word " * 257}]}]
+                encoder, [{"messages": [{"outbound": False, "body": "word " * 513}]}]
             )
+
+    def test_combined_context_limit_rejects_differentiable_batch(self) -> None:
+        encoder = DifferentiableEncoder()
+        cases = [
+            {
+                "messages": [
+                    {"outbound": False, "body": "word " * 260},
+                    {"outbound": True, "body": "word " * 260},
+                ]
+            }
+        ]
+        with self.assertRaisesRegex(ValueError, "joint thread exceeds"):
+            batch_features(encoder, cases)
 
     def test_cutoff_rejects_errors_and_maximizes_correct_coverage(self) -> None:
         head = {"labels": LABELS}

@@ -2,8 +2,12 @@
 
 [SHADOW.md](SHADOW.md) describes the read-only CPU inference command.
 [POLICY.md](POLICY.md) records the production-aligned v2 labeling contract;
-the [v2 training corpus](v2/README.md) now has 893 cases passing blind review.
-Existing models and held-out evaluation labels remain v1.
+the [v2 training corpus](v2/README.md) supplies the reviewed base data.
+The [joint-context candidate](JOINT.md) is the current training implementation.
+Bend is active in production; the CPU classifier remains a read-only observer
+until a candidate passes its frozen release gate. V2c failed with four accepted
+test errors; v2d failed development coverage of the waiting class. Their results
+remain archived and are not production approvals.
 
 [REVIEW.md](REVIEW.md) describes the blind training-label review workflow and
 [LABELING.md](LABELING.md) specifies the experimental labels and production-policy

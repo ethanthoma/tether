@@ -21,12 +21,15 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 import numpy as np
 from train import (
+    CONTEXT_TOKENS_MAX,
+    FEATURE_LAYOUT,
     HEAD_VERSION,
     LABELS,
     features,
     label_policy,
     predictions,
     probabilities,
+    thread_inputs,
     validate_thresholds,
 )
 
@@ -104,7 +107,7 @@ def load_artifact(model: Path) -> tuple[dict, str]:
     return head, artifact_sha256(model)
 
 
-def artifact_sha256(model: Path, include_head: bool = True) -> str:
+def artifact_sha256(model: Path) -> str:
     head_path = model / "head.json"
     encoder = model / "encoder"
     if (
@@ -113,7 +116,7 @@ def artifact_sha256(model: Path, include_head: bool = True) -> str:
         or not (encoder / "model.safetensors").is_file()
     ):
         raise ValueError("invalid encoder")
-    paths = [head_path] if include_head else []
+    paths = [head_path]
     for directories_count, (directory, directories, files) in enumerate(
         os.walk(encoder, followlinks=False), 1
     ):
@@ -122,8 +125,8 @@ def artifact_sha256(model: Path, include_head: bool = True) -> str:
         paths.extend(Path(directory) / name for name in files)
         if len(paths) + len(directories) + directories_count > 128:
             raise ValueError("encoder file limit exceeded")
-    paths = ([head_path] if include_head else []) + sorted(
-        [path for path in paths if path != head_path],
+    paths = [head_path] + sorted(
+        paths[1:],
         key=lambda path: path.relative_to(model).as_posix(),
     )
     digest = hashlib.sha256()
@@ -154,6 +157,8 @@ def validate_head(head: dict) -> None:
         or head["version"] != HEAD_VERSION
     ):
         raise ValueError("invalid head version")
+    if head.get("feature_layout") != FEATURE_LAYOUT:
+        raise ValueError("invalid head feature layout")
     label_policy(head)
     labels = head.get("labels")
     if not isinstance(labels, list) or len(labels) != 5 or set(labels) != set(LABELS):
@@ -161,7 +166,7 @@ def validate_head(head: dict) -> None:
     if "threshold" in head:
         raise ValueError("scalar head thresholds are unsupported")
     validate_thresholds(head.get("thresholds"))
-    for field, shape in (("coefficients", (5, 1540)), ("intercepts", (5,))):
+    for field, shape in (("coefficients", (5, 388)), ("intercepts", (5,))):
         values = np.asarray(head.get(field), dtype=np.float64)
         if values.shape != shape or not np.isfinite(values).all():
             raise ValueError("invalid head weights")
@@ -183,13 +188,17 @@ def valid_messages(case: dict, encoder: object) -> bool:
             return False
         if body_size > 4000:
             return False
-        if len(encoder.tokenizer.encode(body)) > encoder.max_seq_length:
-            return False
+    try:
+        thread_inputs(encoder, [case])
+    except ValueError:
+        return False
     return True
 
 
 def classify(cases: list[dict], head: dict, encoder: object, identity: str) -> dict:
     validate_head(head)
+    if encoder.max_seq_length != CONTEXT_TOKENS_MAX:
+        raise ValueError("encoder must preserve the 512-token joint context")
     results = [
         {
             "id": case["id"],
@@ -204,7 +213,7 @@ def classify(cases: list[dict], head: dict, encoder: object, identity: str) -> d
     ]
     if accepted:
         matrix = features(encoder, [cases[index] for index in accepted])
-        if matrix.shape != (len(accepted), 1540) or not np.isfinite(matrix).all():
+        if matrix.shape != (len(accepted), 388) or not np.isfinite(matrix).all():
             raise ValueError("invalid encoder output")
         values = probabilities(head, matrix)
         if not np.isfinite(values).all() or np.any(values < 0) or np.any(values > 1):

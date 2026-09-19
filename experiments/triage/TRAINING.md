@@ -3,6 +3,9 @@
 The expanded fully synthetic dataset and measured learning curve are documented in
 [SCALING.md](SCALING.md). [SYNTHETIC.md](SYNTHETIC.md) describes the original corpus
 and MDL protocol. This page preserves the original pilot for comparison.
+Its representation and reproduction commands refer to commit `90a2130`.
+Current code uses the [joint-context representation](JOINT.md); archived scalar
+heads require their historical runtime and are not accepted by current inference.
 
 This experiment trains a custom logistic-regression head over frozen
 [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)

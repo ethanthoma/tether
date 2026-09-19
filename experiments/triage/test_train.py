@@ -1,13 +1,16 @@
 import copy
-import hashlib
 import json
 import tempfile
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import patch
 
 import numpy as np
 from train import (
+    CONTEXT_TOKENS_MAX,
+    FEATURE_LAYOUT,
+    HEAD_VERSION,
     LABELS,
     ROOT,
     features,
@@ -16,6 +19,7 @@ from train import (
     predictions,
     score,
     select_thresholds,
+    thread_inputs,
     train_model,
     training_split,
     validate_thresholds,
@@ -23,91 +27,73 @@ from train import (
 
 
 class EncoderStub:
-    max_seq_length = 256
+    max_seq_length = CONTEXT_TOKENS_MAX
 
     def __init__(self) -> None:
         self.tokenizer = self
+        self.texts = []
+        self.position_capacity = 512
+
+    def __getitem__(self, index: int) -> object:
+        assert index == 0
+        return SimpleNamespace(
+            auto_model=SimpleNamespace(
+                config=SimpleNamespace(max_position_embeddings=self.position_capacity)
+            )
+        )
 
     def encode(self, text: str | list[str], **kwargs: object) -> list[str] | np.ndarray:
         if isinstance(text, str):
-            return text.split()
-        return np.ones((len(text), 2), dtype=np.float32)
+            assert kwargs.get("truncation") is False
+            return ["[CLS]", *text.split(), "[SEP]"]
+        self.texts = text
+        return np.ones((len(text), 384), dtype=np.float32)
 
 
 class TrainingTests(unittest.TestCase):
-    def test_recalibration_preserves_weights_and_records_source_evidence(self) -> None:
-        from recalibrate import recalibrate, weights_sha256
-        from shadow import artifact_sha256, load_artifact
-
-        source = json.loads((ROOT / "seed.json").read_text())
-        source["label_policy"] = "reply-triage-v2"
-        train, dev = training_split(source["cases"])
-        original_head = {
-            "version": 1,
-            "label_policy": "reply-triage-v2",
-            "base": "test",
-            "revision": "test",
-            "encoder_frozen": False,
-            "labels": LABELS,
-            "threshold": 1,
-            "coefficients": np.zeros((5, 1540)).tolist(),
-            "intercepts": [0, 0, 0, 0, 0],
-        }
+    def test_base_context_is_extended_only_after_capacity_check(self) -> None:
+        cases = [
+            {
+                "id": f"{split}-{label}",
+                "group": f"{split}-{label}",
+                "split": split,
+                "expected": label,
+                "messages": [{"outbound": False, "body": f"{split} {label}"}],
+            }
+            for split in ("train", "dev")
+            for label in LABELS
+        ]
         with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            data = root / "data.json"
-            data.write_text(json.dumps(source))
-            model = root / "source"
-            (model / "encoder").mkdir(parents=True)
-            (model / "encoder/model.safetensors").write_bytes(b"unchanged weights")
-            original_report = {
-                "label_policy": "reply-triage-v2",
-                "data_sha256": hashlib.sha256(data.read_bytes()).hexdigest(),
-                "train_count": len(train),
-                "dev_count": len(dev),
-                "threshold": 1,
-                "history": [{"epoch": 2, "dev_loss": 0.5}],
-                "epochs": 12,
-            }
-            (model / "head.json").write_text(json.dumps(original_head))
-            (model / "training.json").write_text(json.dumps(original_report))
-            before = {
-                path.relative_to(model): path.read_bytes()
-                for path in model.rglob("*")
-                if path.is_file()
-            }
-            encoder = EncoderStub()
-            encoder.eval = lambda: None
-            encoder.encode = lambda texts, **kwargs: (
-                texts.split() if isinstance(texts, str) else np.zeros((len(texts), 384))
+            path = Path(directory) / "data.json"
+            path.write_text(
+                json.dumps({"label_policy": "reply-triage-v2", "cases": cases})
             )
-            with (
-                patch(
-                    "sentence_transformers.SentenceTransformer", return_value=encoder
-                ),
-                patch("builtins.print"),
-            ):
-                record = recalibrate(model, data, root / "output")
-            candidate, _ = load_artifact(root / "output")
-            self.assertEqual(weights_sha256(candidate), weights_sha256(original_head))
-            self.assertEqual(
-                artifact_sha256(root / "output", include_head=False),
-                record["source_encoder_sha256"],
-            )
-            self.assertFalse(record["heldout_observed"])
-            self.assertEqual(
-                (root / "output/source-head.json").read_bytes(),
-                before[Path("head.json")],
-            )
-            report = json.loads((root / "output/training.json").read_text())
-            self.assertEqual(report["history"], original_report["history"])
-            self.assertEqual(report["epochs"], 12)
-            self.assertNotIn("threshold", candidate)
-            self.assertNotIn("threshold", report)
-            for relative, content in before.items():
-                self.assertEqual((model / relative).read_bytes(), content)
-            reordered = {**candidate, "labels": list(reversed(LABELS))}
-            self.assertNotEqual(weights_sha256(candidate), weights_sha256(reordered))
+            for capacity in (256, 512):
+                encoder = EncoderStub()
+                encoder.max_seq_length = 256
+                encoder.position_capacity = capacity
+                encoder.save_pretrained = lambda *args, **kwargs: None
+                with (
+                    patch(
+                        "sentence_transformers.SentenceTransformer",
+                        return_value=encoder,
+                    ),
+                    patch("builtins.print"),
+                ):
+                    output = Path(directory) / str(capacity)
+                    if capacity == 256:
+                        with self.assertRaisesRegex(ValueError, "positional capacity"):
+                            train_model(path, output)
+                        self.assertEqual(encoder.max_seq_length, 256)
+                        self.assertEqual(encoder.texts, [])
+                    else:
+                        train_model(path, output)
+                        self.assertEqual(encoder.max_seq_length, 512)
+                        artifact = json.loads((output / "head.json").read_text())
+                        self.assertEqual(artifact["feature_layout"], FEATURE_LAYOUT)
+                        self.assertEqual(
+                            np.asarray(artifact["coefficients"]).shape, (5, 388)
+                        )
 
     def test_dataset_policy_rejects_unknown_and_mixed_contracts(self) -> None:
         source = json.loads((ROOT / "seed.json").read_text())
@@ -148,6 +134,13 @@ class TrainingTests(unittest.TestCase):
                 patch("builtins.print"),
             ):
                 train_model(path, output)
+            artifact = json.loads((output / "head.json").read_text())
+            self.assertEqual(artifact["version"], HEAD_VERSION)
+            self.assertEqual(artifact["feature_layout"], FEATURE_LAYOUT)
+            self.assertEqual(np.asarray(artifact["coefficients"]).shape, (5, 388))
+            report = json.loads((output / "training.json").read_text())
+            self.assertEqual(report["max_seq_length"], 512)
+            self.assertEqual(report["base_position_capacity"], 512)
             for name in ("head.json", "training.json"):
                 self.assertEqual(
                     json.loads((output / name).read_text())["label_policy"],
@@ -199,8 +192,81 @@ class TrainingTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "token limit"):
             features(
                 EncoderStub(),
-                [{"messages": [{"outbound": False, "body": "word " * 257}]}],
+                [{"messages": [{"outbound": False, "body": "word " * 513}]}],
             )
+
+    def test_joint_serialization_preserves_order_and_direction_bits(self) -> None:
+        cases = [
+            {
+                "messages": [
+                    {"outbound": False, "body": "First"},
+                    {"outbound": True, "body": "Second"},
+                ]
+            },
+            {
+                "messages": [
+                    {"outbound": True, "body": "Second"},
+                    {"outbound": False, "body": "First"},
+                ]
+            },
+            {
+                "messages": [
+                    {"outbound": False, "body": "First"},
+                    {"outbound": False, "body": "Second"},
+                ]
+            },
+            {
+                "messages": [
+                    {"outbound": False, "body": "Second"},
+                    {"outbound": False, "body": "First"},
+                ]
+            },
+            {"messages": [{"outbound": True, "body": "Only"}]},
+        ]
+        encoder = EncoderStub()
+        texts, present = thread_inputs(encoder, cases)
+        self.assertEqual(
+            texts[0],
+            "Message from the other person:\nFirst\n\n---\n\nMessage from you:\nSecond",
+        )
+        self.assertEqual(
+            texts[1],
+            "Message from you:\nSecond\n\n---\n\nMessage from the other person:\nFirst",
+        )
+        self.assertNotEqual(texts[2], texts[3])
+        self.assertEqual(texts[4], "Message from you:\nOnly")
+        np.testing.assert_array_equal(
+            present,
+            [[1, 0, 0, 1], [0, 1, 1, 0], [1, 0, 1, 0], [1, 0, 1, 0], [0, 0, 0, 1]],
+        )
+        matrix = features(encoder, cases)
+        self.assertEqual(encoder.texts, texts)
+        self.assertEqual(matrix.shape, (5, 388))
+        np.testing.assert_array_equal(matrix[:, 384:], present)
+
+    def test_joint_limit_counts_markers_and_rejects_before_embedding(self) -> None:
+        encoder = EncoderStub()
+        boundary = {"messages": [{"outbound": False, "body": "word " * 505}]}
+        self.assertEqual(features(encoder, [boundary]).shape, (1, 388))
+        invalid = [
+            {"messages": [{"outbound": False, "body": "word " * 506}]},
+            {
+                "messages": [
+                    {"outbound": False, "body": "word " * 260},
+                    {"outbound": True, "body": "word " * 260},
+                ]
+            },
+        ]
+        for case in invalid:
+            encoder.texts = []
+            for message in case["messages"]:
+                self.assertLess(len(message["body"].split()) + 2, CONTEXT_TOKENS_MAX)
+            with self.assertRaisesRegex(ValueError, "joint thread exceeds"):
+                features(encoder, [case])
+            self.assertEqual(encoder.texts, [])
+        encoder.max_seq_length = 256
+        with self.assertRaisesRegex(ValueError, "512-token"):
+            features(encoder, [boundary])
 
     def test_abstention_and_costs(self) -> None:
         head = {"labels": ["fyi", "needs_reply"]}

@@ -20,7 +20,9 @@ BASE = "sentence-transformers/all-MiniLM-L6-v2"
 REVISION = "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
 LABELS = ["abstain", "fyi", "needs_reply", "noise", "waiting_on_them"]
 LABEL_POLICIES = {"synthetic-obligations-v1", "reply-triage-v2"}
-HEAD_VERSION = 2
+HEAD_VERSION = 3
+FEATURE_LAYOUT = "joint-thread-v1"
+CONTEXT_TOKENS_MAX = 512
 THRESHOLD_GRID = [
     0.0,
     *[i / 100 for i in range(40, 100, 5)],
@@ -125,27 +127,40 @@ def training_split(cases: list[dict]) -> tuple[list[dict], list[dict]]:
     return train, dev
 
 
+def thread_inputs(
+    encoder: "SentenceTransformer", cases: list[dict]
+) -> tuple[list[str], np.ndarray]:
+    if encoder.max_seq_length != CONTEXT_TOKENS_MAX:
+        raise ValueError("encoder must preserve the 512-token joint context")
+    if not 1 <= len(cases) <= 2000:
+        raise ValueError("expected 1–2000 cases")
+    texts, present = [], np.zeros((len(cases), 4), dtype=np.float32)
+    for row, case in enumerate(cases):
+        if not 1 <= len(case["messages"]) <= 2:
+            raise ValueError("expected one or two messages")
+        messages = []
+        for position, message in enumerate(case["messages"]):
+            speaker = "you" if message["outbound"] else "the other person"
+            messages.append(f"Message from {speaker}:\n{message['body']}")
+            present[
+                row,
+                (2 - len(case["messages"]) + position) * 2 + int(message["outbound"]),
+            ] = 1
+        text = "\n\n---\n\n".join(messages)
+        if len(encoder.tokenizer.encode(text, truncation=False)) > CONTEXT_TOKENS_MAX:
+            raise ValueError("joint thread exceeds encoder token limit")
+        texts.append(text)
+    return texts, present
+
+
 def features(encoder: "SentenceTransformer", cases: list[dict]) -> np.ndarray:
-    texts = [message["body"] for case in cases for message in case["messages"]]
-    lengths = [len(encoder.tokenizer.encode(text)) for text in texts]
-    if max(lengths) > encoder.max_seq_length:
-        raise ValueError(
-            "message exceeds encoder token limit; refusing silent truncation"
-        )
+    texts, present = thread_inputs(encoder, cases)
     vectors = encoder.encode(
         texts, batch_size=32, normalize_embeddings=True, show_progress_bar=False
     )
-    width = vectors.shape[1] + 1
-    result = np.zeros((len(cases), 4 * width), dtype=np.float32)
-    index = 0
-    for row, case in enumerate(cases):
-        for position, message in enumerate(case["messages"]):
-            slot = (2 - len(case["messages"]) + position) * 2 + int(message["outbound"])
-            start = slot * width
-            result[row, start : start + width - 1] = vectors[index]
-            result[row, start + width - 1] = 1
-            index += 1
-    return result
+    if vectors.shape != (len(cases), 384):
+        raise ValueError("unexpected encoder dimensions")
+    return np.concatenate((vectors, present), axis=1)
 
 
 def probabilities(head: dict, matrix: np.ndarray) -> np.ndarray:
@@ -235,10 +250,15 @@ def train_model(data: Path, output: Path) -> None:
     encoder = SentenceTransformer(
         BASE, revision=REVISION, device="cpu", trust_remote_code=False
     )
+    position_capacity = encoder[0].auto_model.config.max_position_embeddings
+    if position_capacity != CONTEXT_TOKENS_MAX:
+        raise ValueError("unexpected base positional capacity")
+    encoder.max_seq_length = CONTEXT_TOKENS_MAX
     train_vectors = features(encoder, train)
     classifier = fit_classifier(train_vectors, [case["expected"] for case in train])
     head = {
         "version": HEAD_VERSION,
+        "feature_layout": FEATURE_LAYOUT,
         "label_policy": policy,
         "base": BASE,
         "revision": REVISION,
@@ -261,7 +281,9 @@ def train_model(data: Path, output: Path) -> None:
             "max_iter": 1000,
             "seed": 42,
         },
-        "features": "ordered previous/latest message; separate inbound/outbound embedding and presence slots",
+        "feature_layout": FEATURE_LAYOUT,
+        "max_seq_length": CONTEXT_TOKENS_MAX,
+        "base_position_capacity": position_capacity,
         "training_scenarios": len({case["group"] for case in train}),
         "dev_scenarios": len({case["group"] for case in dev}),
         "data_sha256": hashlib.sha256(data.read_bytes()).hexdigest(),
@@ -316,16 +338,11 @@ def predict_model(model: Path, data: Path, output: Path) -> None:
     from sentence_transformers import SentenceTransformer
 
     cases, policy = load_dataset(data)
-    head = json.loads((model / "head.json").read_text())
+    from shadow import load_artifact
+
+    head, _ = load_artifact(model)
     if label_policy(head) != policy:
         raise ValueError("model and dataset label policies differ")
-    if (
-        head["version"] != HEAD_VERSION
-        or "threshold" in head
-        or set(head["labels"]) != set(LABELS)
-    ):
-        raise ValueError("unsupported classifier artifact")
-    validate_thresholds(head.get("thresholds"))
     encoder = SentenceTransformer(
         str(model / "encoder"),
         device="cpu",
