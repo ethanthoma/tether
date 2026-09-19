@@ -5,12 +5,15 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
+from unittest.mock import Mock, patch
 
 import numpy as np
 from shadow import (
     REQUEST_BYTES_MAX,
     classify,
     load_artifact,
+    main,
     read_request,
     validate_head,
 )
@@ -44,6 +47,69 @@ def head() -> dict:
 
 
 class ShadowTests(unittest.TestCase):
+    def test_cli_pins_model_directory_when_current_changes(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            original, replacement = root / "original", root / "replacement"
+            for model in (original, replacement):
+                (model / "encoder").mkdir(parents=True)
+                (model / "head.json").write_text(json.dumps(head()))
+                (model / "encoder" / "model.safetensors").write_bytes(
+                    model.name.encode()
+                )
+            original_hash = load_artifact(original)[1]
+            self.assertNotEqual(original_hash, load_artifact(replacement)[1])
+            current = root / "current"
+            current.symlink_to(original, target_is_directory=True)
+
+            def load_and_switch(model: Path) -> tuple[dict, str]:
+                result = load_artifact(model)
+                next_link = root / "next"
+                next_link.symlink_to(replacement, target_is_directory=True)
+                next_link.replace(current)
+                return result
+
+            request = {
+                "version": 1,
+                "cases": [
+                    {"id": "one", "messages": [{"outbound": False, "body": "Hi"}]}
+                ],
+            }
+            output = io.StringIO()
+            encoder = EncoderStub()
+            factory = Mock(return_value=encoder)
+            with (
+                patch("sys.argv", ["shadow.py", "--model", str(current)]),
+                patch(
+                    "sys.stdin",
+                    SimpleNamespace(buffer=io.BytesIO(json.dumps(request).encode())),
+                ),
+                patch("sys.stdout", output),
+                patch("shadow.load_artifact", side_effect=load_and_switch) as loader,
+                patch.object(encoder, "eval", create=True),
+                patch.dict(
+                    sys.modules,
+                    {
+                        "torch": SimpleNamespace(set_num_threads=Mock()),
+                        "sentence_transformers": SimpleNamespace(
+                            SentenceTransformer=factory
+                        ),
+                    },
+                ),
+            ):
+                main()
+            loader.assert_called_once_with(original)
+            factory.assert_called_once_with(
+                str(original / "encoder"),
+                device="cpu",
+                local_files_only=True,
+                trust_remote_code=False,
+            )
+            self.assertEqual(current.resolve(), replacement)
+            self.assertEqual(
+                json.loads(output.getvalue())["model_sha256"], original_hash
+            )
+
     def test_batch_rejects_individual_inputs_and_preserves_order(self) -> None:
         cases = [
             {"id": "good", "messages": [{"outbound": False, "body": "Please reply"}]},

@@ -1,0 +1,239 @@
+{
+  "label_policy": "reply-triage-v2",
+  "base": "sentence-transformers/all-MiniLM-L6-v2",
+  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "encoder_frozen": false,
+  "data_sha256": "457c482d6a987e3312151179a51b8d4a4b89214d12f666f2fd2012a4d9bb2bf3",
+  "train_count": 893,
+  "dev_count": 120,
+  "seed": 42,
+  "epochs": 12,
+  "batch_size": 16,
+  "encoder_learning_rate": 2e-05,
+  "head_learning_rate": 0.001,
+  "weight_decay": 0.01,
+  "gradient_norm_max": 1.0,
+  "loss": "inverse-frequency-weighted cross entropy",
+  "head_initialization": "frozen-encoder logistic regression",
+  "checkpoint_selection": "lowest unweighted development cross entropy, including epoch zero",
+  "selected_epoch": 2,
+  "threshold": 1.0,
+  "threshold_selection": "maximum development coverage with zero accepted errors on the original fixed grid",
+  "dev_raw": {
+    "cases": 120,
+    "accepted": 81,
+    "correct_accepted": 51,
+    "correct_abstentions": 17,
+    "false_reminders": 8,
+    "false_silencing": 12,
+    "actionable_abstained": 10,
+    "ambiguous_accepted": 12
+  },
+  "dev_selective": {
+    "cases": 120,
+    "accepted": 0,
+    "correct_accepted": 0,
+    "correct_abstentions": 29,
+    "false_reminders": 0,
+    "false_silencing": 0,
+    "actionable_abstained": 56,
+    "ambiguous_accepted": 0
+  },
+  "history": [
+    {
+      "epoch": 0,
+      "train_loss": null,
+      "dev_loss": 1.3803069591522217,
+      "dev_raw": {
+        "cases": 120,
+        "accepted": 88,
+        "correct_accepted": 36,
+        "correct_abstentions": 14,
+        "false_reminders": 15,
+        "false_silencing": 25,
+        "actionable_abstained": 7,
+        "ambiguous_accepted": 15
+      }
+    },
+    {
+      "epoch": 1,
+      "train_loss": 0.20466907874734244,
+      "dev_loss": 1.2402119636535645,
+      "dev_raw": {
+        "cases": 120,
+        "accepted": 83,
+        "correct_accepted": 48,
+        "correct_abstentions": 14,
+        "false_reminders": 12,
+        "false_silencing": 14,
+        "actionable_abstained": 9,
+        "ambiguous_accepted": 15
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.07200966944995212,
+      "dev_loss": 1.1882041692733765,
+      "dev_raw": {
+        "cases": 120,
+        "accepted": 81,
+        "correct_accepted": 51,
+        "correct_abstentions": 17,
+        "false_reminders": 8,
+        "false_silencing": 12,
+        "actionable_abstained": 10,
+        "ambiguous_accepted": 12
+      }
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.03255284790779815,
+      "dev_loss": 1.2440930604934692,
+      "dev_raw": {
+        "cases": 120,
+        "accepted": 84,
+        "correct_accepted": 57,
+        "correct_abstentions": 20,
+        "false_reminders": 6,
+        "false_silencing": 11,
+        "actionable_abstained": 9,
+        "ambiguous_accepted": 9
+      }
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.016276717719946304,
+      "dev_loss": 1.3998078107833862,
+      "dev_raw": {
+        "cases": 120,
+        "accepted": 93,
+        "correct_accepted": 58,
+        "correct_abstentions": 13,
+        "false_reminders": 14,
+        "false_silencing": 11,
+        "actionable_abstained": 8,
+        "ambiguous_accepted": 16
+      }
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.00904259173520752,
+      "dev_loss": 1.3879338502883911,
+      "dev_raw": {
+        "cases": 120,
+        "accepted": 84,
+        "correct_accepted": 57,
+        "correct_abstentions": 20,
+        "false_reminders": 6,
+        "false_silencing": 11,
+        "actionable_abstained": 10,
+        "ambiguous_accepted": 9
+      }
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.007202350876085754,
+      "dev_loss": 1.4500643014907837,
+      "dev_raw": {
+        "cases": 120,
+        "accepted": 88,
+        "correct_accepted": 57,
+        "correct_abstentions": 17,
+        "false_reminders": 10,
+        "false_silencing": 11,
+        "actionable_abstained": 9,
+        "ambiguous_accepted": 12
+      }
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.002819833438009157,
+      "dev_loss": 1.4928925037384033,
+      "dev_raw": {
+        "cases": 120,
+        "accepted": 87,
+        "correct_accepted": 57,
+        "correct_abstentions": 18,
+        "false_reminders": 9,
+        "false_silencing": 11,
+        "actionable_abstained": 9,
+        "ambiguous_accepted": 11
+      }
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.0018376630484799189,
+      "dev_loss": 1.488715410232544,
+      "dev_raw": {
+        "cases": 120,
+        "accepted": 81,
+        "correct_accepted": 56,
+        "correct_abstentions": 20,
+        "false_reminders": 7,
+        "false_silencing": 8,
+        "actionable_abstained": 13,
+        "ambiguous_accepted": 9
+      }
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.0035172941449397085,
+      "dev_loss": 1.445549726486206,
+      "dev_raw": {
+        "cases": 120,
+        "accepted": 85,
+        "correct_accepted": 58,
+        "correct_abstentions": 19,
+        "false_reminders": 8,
+        "false_silencing": 8,
+        "actionable_abstained": 10,
+        "ambiguous_accepted": 10
+      }
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.001051015918194457,
+      "dev_loss": 1.53384530544281,
+      "dev_raw": {
+        "cases": 120,
+        "accepted": 89,
+        "correct_accepted": 59,
+        "correct_abstentions": 18,
+        "false_reminders": 9,
+        "false_silencing": 11,
+        "actionable_abstained": 7,
+        "ambiguous_accepted": 11
+      }
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.000611548814481288,
+      "dev_loss": 1.6070396900177002,
+      "dev_raw": {
+        "cases": 120,
+        "accepted": 86,
+        "correct_accepted": 57,
+        "correct_abstentions": 19,
+        "false_reminders": 8,
+        "false_silencing": 11,
+        "actionable_abstained": 9,
+        "ambiguous_accepted": 10
+      }
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.0006513499687355396,
+      "dev_loss": 1.546204686164856,
+      "dev_raw": {
+        "cases": 120,
+        "accepted": 88,
+        "correct_accepted": 60,
+        "correct_abstentions": 20,
+        "false_reminders": 7,
+        "false_silencing": 11,
+        "actionable_abstained": 6,
+        "ambiguous_accepted": 9
+      }
+    }
+  ]
+}

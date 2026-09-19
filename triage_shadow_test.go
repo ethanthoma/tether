@@ -47,6 +47,18 @@ func triageShadowTestHelper(mode string) {
 		response.Results = append(response.Results, triageShadowResult{ID: item.ID, Label: "fyi", Confidence: &confidence, Status: "ok"})
 	}
 	switch mode {
+	case "v2", "v2mixed", "v2queue":
+		response.Policy = "reply-triage-v2"
+		if mode == "v2mixed" {
+			response.Results[0].Label = "abstain"
+		}
+		if mode == "v2queue" {
+			for index, item := range request.Cases {
+				if item.Messages[0].Body == "Unclear." {
+					response.Results[index].Label = "abstain"
+				}
+			}
+		}
 	case "version":
 		response.Version = 2
 	case "policy":
@@ -96,13 +108,13 @@ func TestTriageShadowProtocol(t *testing.T) {
 	t.Setenv("TETHER_DISCORD_TOKEN", "secret")
 	t.Setenv("OPENAI_API_KEY", "secret")
 	cases := []triageShadowCase{{ID: "case-1", Messages: []triageShadowMessage{{Body: "Private body"}}}}
-	for _, mode := range []string{"good", "validrejected", "version", "policy", "hash", "id", "duplicate", "missing", "status", "label", "confidence", "null", "rejected", "oversized", "sensitiveerr", "timeout"} {
+	for _, mode := range []string{"good", "v2", "validrejected", "version", "policy", "hash", "id", "duplicate", "missing", "status", "label", "confidence", "null", "rejected", "oversized", "sensitiveerr", "timeout"} {
 		t.Run(mode, func(t *testing.T) {
 			ctx, cancel := context.WithTimeout(context.Background(), 500*time.Millisecond)
 			defer cancel()
 			started := time.Now()
 			response, err := readTriageShadow(ctx, triageShadowHelper(t, mode), cases)
-			if mode == "good" || mode == "validrejected" {
+			if mode == "good" || mode == "v2" || mode == "validrejected" {
 				if err != nil || len(response.Results) != 1 {
 					t.Fatalf("valid response: %+v, %v", response, err)
 				}

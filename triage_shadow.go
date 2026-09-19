@@ -112,6 +112,8 @@ func RunTriageShadow(store *Store, evaluator string, now time.Time) (string, err
 			return "", err
 		}
 		report.ModelSHA256 = response.ModelSHA256
+		report.ModelPolicy = response.Policy
+		report.PolicyAligned = response.Policy == "reply-triage-v2"
 		for _, result := range response.Results {
 			thread := threads[result.ID]
 			sum := sha256.Sum256([]byte(thread.ID))
@@ -214,7 +216,7 @@ func readTriageShadow(ctx context.Context, evaluator string, cases []triageShado
 		return response, fmt.Errorf("triage shadow: trailing output")
 	}
 	hash, err := hex.DecodeString(response.ModelSHA256)
-	if response.Version != 1 || response.Policy != "synthetic-obligations-v1" || err != nil || len(hash) != sha256.Size || strings.ToLower(response.ModelSHA256) != response.ModelSHA256 || len(response.Results) != len(cases) {
+	if response.Version != 1 || (response.Policy != "synthetic-obligations-v1" && response.Policy != "reply-triage-v2") || err != nil || len(hash) != sha256.Size || strings.ToLower(response.ModelSHA256) != response.ModelSHA256 || len(response.Results) != len(cases) {
 		return response, fmt.Errorf("triage shadow: invalid response metadata")
 	}
 	for _, result := range response.Results {

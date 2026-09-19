@@ -159,8 +159,8 @@ func Execute(store *Store, cfg *Config, now time.Time, command string, args []st
 	case "sync":
 		return cmdSync(store, cfg, now)
 	case "triage":
-		if err := cfg.need(map[string]string{"LLAMA_API_KEY": cfg.LLMKey}); err != nil {
-			return "", err
+		if cfg.LLMKey == "" && cfg.TriageShadow == "" {
+			return "", fmt.Errorf("triage requires LLAMA_API_KEY or TETHER_TRIAGE_SHADOW")
 		}
 		return cmdTriage(store, cfg, now)
 	case "nudge":
@@ -186,8 +186,8 @@ func Execute(store *Store, cfg *Config, now time.Time, command string, args []st
 		if err := cfg.needDiscord(); err != nil {
 			return "", err
 		}
-		if err := cfg.need(map[string]string{"LLAMA_API_KEY": cfg.LLMKey}); err != nil {
-			return "", err
+		if cfg.LLMKey == "" && cfg.TriageShadow == "" {
+			return "", fmt.Errorf("triage requires LLAMA_API_KEY or TETHER_TRIAGE_SHADOW")
 		}
 		synced, err := cmdSync(store, cfg, now)
 		if err != nil {

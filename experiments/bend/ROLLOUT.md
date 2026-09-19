@@ -183,3 +183,40 @@ inaccessible. It received only evaluator/snapshot paths, no credential environme
 HTTP used fake transports. Runtime was 179 ms; peak memory 14.1 MB. The private
 snapshot and test executable were removed after the gate. No switches or live
 state were changed. Deployment remains the separate next step.
+
+## Dispatch and delivery production activation — 2026-09-18
+
+Source `47adc4e` was deployed from `git archive`, excluding subsequent uncommitted
+classifier work. Comparing all 148 previously deployed files against `65bcd71`
+found only rollout-document metadata differences; no unrelated source edits were
+discarded. The prior source and generation remain in the private directory
+`/var/lib/tether-v2-staging-20260918/` (`source-before`, `system-before`).
+
+The complete NixOS system was built before activation. Its exact newly packaged
+policies passed native eligibility, dispatch, delivery, and the four-lane isolated
+production-snapshot gate again. The snapshot still contained 534 production
+threads; all assertions passed in a network-isolated transient unit. Temporary
+snapshots and test executables were removed afterward.
+
+Activated generation:
+`/nix/store/c0cmv9d6208pxnmbrdbp48fjdwkr2pmz-nixos-system-atlas-26.11.20260831.34ab990`
+
+Policy package:
+`/nix/store/pa4kvirkf9kx8cir5zxslr6d9qzrjhc7-tether-bend-shadow-2.0.5`
+
+Wrapper: `/nix/store/zg77a720sv969gibfsqvir140cm1114f-tether/bin/tether`.
+The exact built generation was switched with
+`sudo nixos-rebuild switch --no-reexec --store-path <generation>`.
+
+All three independent switches are now empty regular files owned by `ethoma:users`,
+mode `0600`: `bend-eligibility.enabled`, `bend-dispatch.enabled`, and
+`bend-delivery.enabled`. The bot and pulse, digest, and shadow timers are active.
+Llama remains inactive. A read-only live shadow run checked 534 threads with zero
+skips or disagreements; dispatch agreed on a quiet-hour zero batch with three
+prior confirmations. No manual nudge or external notification was triggered.
+Positive delivery under the newly enabled authority awaits a normal daytime batch.
+
+For independent rollback remove the relevant switch; no restart is required.
+For complete application rollback restore the backed-up source and switch to the
+generation recorded in `system-before`. Keep the current source and system backup
+until the new production observations are reviewed.

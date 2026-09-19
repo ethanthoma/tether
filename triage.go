@@ -45,17 +45,26 @@ type triageVerdict struct {
 }
 
 func RunTriage(store *Store, cfg *Config, now time.Time) error {
-	triaged := 0
-	for _, thread := range store.Threads {
-		if thread.State != ThreadNew || triaged >= triageMaxPerRun {
+	approved := productionTriageHash(store)
+	candidates := triageCandidates(store, now, approved != "")
+	classified := productionTriagePredictions(store, cfg.TriageShadow, approved, candidates)
+	llmUnavailable := false
+	for _, thread := range candidates {
+		var verdict *triageVerdict
+		var err error
+		if state, ok := classified[thread]; ok {
+			notes := map[ThreadState]string{ThreadNeedsReply: "You have an outstanding reply.", ThreadWaitingOnThem: "Waiting for the other person.", ThreadFYI: "No reply is required.", ThreadNoise: "Routine or promotional message."}
+			verdict = &triageVerdict{State: state, Note: notes[state]}
+		} else if llmUnavailable {
 			continue
+		} else {
+			verdict, err = triageThread(store, cfg, thread, now)
 		}
-		verdict, err := triageThread(store, cfg, thread, now)
-		triaged++
 		if err != nil {
 			if errors.Is(err, errLLMUnavailable) {
-				log.Printf("triage: paused, queued threads unchanged: %v", err)
-				return nil
+				log.Printf("triage: LLM unavailable, undecided threads remain queued: %v", err)
+				llmUnavailable = true
+				continue
 			}
 			thread.TriageAttempts++
 			log.Printf("triage: thread %s attempt %d: %v", thread.ShortID(), thread.TriageAttempts, err)
@@ -74,6 +83,42 @@ func RunTriage(store *Store, cfg *Config, now time.Time) error {
 		}
 	}
 	return nil
+}
+
+func triageCandidates(store *Store, now time.Time, rotate bool) []*Thread {
+	count := 0
+	for _, thread := range store.Threads {
+		if thread.State == ThreadNew {
+			count++
+		}
+	}
+	limit := min(count, triageMaxPerRun)
+	candidates := make([]*Thread, 0, limit)
+	if limit == 0 {
+		return candidates
+	}
+	offset := 0
+	if rotate && count > limit {
+		window := now.Unix() / 900
+		offset = int((window%int64(count)+int64(count))%int64(count)) * limit % count
+	}
+	for pass := 0; pass < 2; pass++ {
+		index := 0
+		for _, thread := range store.Threads {
+			if thread.State != ThreadNew {
+				continue
+			}
+			selected := (pass == 0 && index >= offset) || (pass == 1 && index < offset)
+			index++
+			if selected {
+				candidates = append(candidates, thread)
+				if len(candidates) == limit {
+					return candidates
+				}
+			}
+		}
+	}
+	return candidates
 }
 
 func triageThread(store *Store, cfg *Config, thread *Thread, now time.Time) (*triageVerdict, error) {

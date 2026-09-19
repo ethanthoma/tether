@@ -2,12 +2,13 @@
 
 `tether triage-shadow` runs the local MiniLM classifier on cached messages without
 changing threads, extracting commitments, sending reminders, or calling the LLM.
-It is a separate manual command, not part of `pulse` and not installed on a timer.
+It is a separate command, also configured on a production timer every 30 minutes.
 
-The current artifact uses `synthetic-obligations-v1`. Every report explicitly
-sets `policy_aligned: false`; the [v2 training corpus](v2/README.md) has been
-relabeled and reviewed, but this model has not been retrained or recalibrated. Shadow observations
-are diagnostic, not permission to classify live threads.
+Reports identify the artifact's policy: historical `synthetic-obligations-v1`
+sets `policy_aligned: false`, while `reply-triage-v2` sets it true. Policy alignment
+describes the label contract, not model quality. Shadow observations are diagnostic,
+not permission to classify live threads. See the [v2 rollout](v2/PRODUCTION.md)
+for quality gates and the separate hash-pinned authority switch.
 
 ## Run locally
 
@@ -68,7 +69,7 @@ the command with a sanitized error. The command never converts failures into FYI
 
 Reports include:
 
-- Model artifact hash, v1 policy marker, and end-to-end duration including cold load.
+- Model artifact hash, policy marker, and end-to-end duration including cold load.
 - `checked`: cases returned by inference, including token-rejected cases.
 - `skipped`: all stored threads not passed to inference, including done threads,
   selection limits, and invalid cached context.
@@ -97,8 +98,7 @@ credential isolation, timeout, and adversarial evaluator output. Python tests co
 artifact identity, input rejection, threshold handling, and sanitized failures.
 All 34 Python tests and the Go suite passed, with Ruff and gofmt checks clean.
 
-The next production step is a separately configured shadow run with a trusted
-packaged model and private report collection. Before live authority, complete
-v2 relabeling and blind review, retrain/recalibrate, evaluate on fresh families,
-and measure production shadow coverage and failures. No production service,
-deployment configuration, or reminder authority changed in this implementation.
+The production service uses the [immutable CPU runtime](RUNTIME.md), offline model
+files, a private network, and read-only state except for the normal store lock.
+Before live authority, require the frozen v2 quality gate and inspect production
+coverage and failures. Installing the shadow service does not enable authority.

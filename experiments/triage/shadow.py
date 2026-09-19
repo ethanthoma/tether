@@ -36,13 +36,14 @@ def main() -> None:
             contextlib.redirect_stdout(quiet),
             contextlib.redirect_stderr(quiet),
         ):
-            head, identity = load_artifact(args.model)
+            model = args.model.resolve(strict=True)
+            head, identity = load_artifact(model)
             import torch
             from sentence_transformers import SentenceTransformer
 
             torch.set_num_threads(4)
             encoder = SentenceTransformer(
-                str((args.model / "encoder").resolve()),
+                str(model / "encoder"),
                 device="cpu",
                 local_files_only=True,
                 trust_remote_code=False,

@@ -91,8 +91,9 @@ including all five labels. It preserves 412 valid abstentions; these are no long
 blanket-flagged as defects. The candidate and audit above remain the frozen inputs
 to that review, not a silently rewritten approved corpus.
 
-No model has been trained on this corpus and no production behavior changed.
-Existing dev/test labels still use v1 and cannot validate a v2 classifier as-is.
-Before training, prepare separately reviewed v2 development data and fresh
-evaluation families; retain the disputed training families in quarantine.
-Retain meaningful coverage of every class and keep model selection out of test.
+Fresh, separately blind-reviewed development and test families now accompany
+this corpus. The first v2 training run failed the frozen release coverage gate;
+its safe cutoff abstains on every case. See [production progress](PRODUCTION.md)
+and the complete `training-report.json`. The old v1 evaluation labels remain
+unused for v2, disputed families remain quarantined, and test predictions have
+not been used for model selection.
