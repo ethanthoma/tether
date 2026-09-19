@@ -41,7 +41,11 @@ can establish waiting, while the same task requested of the user cannot establis
 a prose-reply duty. The old sender/recipient obligation mapping is insufficient
 for version 2; it must not generate new labels unchanged.
 
-## Next relabel and review pass
+## Relabel and review protocol
+
+The [first v2 training pass](v2/README.md) now retains 893 blind-reviewed cases
+from 134 families. Development/evaluation preparation and model training remain
+pending. The protocol below records the requirements for this and future passes.
 
 1. Preserve all v1 corpora, review packets, judgments, reports, and model artifacts.
    Create a separately versioned candidate corpus. Review preparation requires

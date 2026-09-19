@@ -85,8 +85,14 @@ reproduces byte-for-byte.
 
 ## Adoption
 
+The [completed blind review](../reviews/v2/README.md) agrees on 967 labels and
+withholds 14 whole families. Its export contains **893 cases from 134 families**,
+including all five labels. It preserves 412 valid abstentions; these are no longer
+blanket-flagged as defects. The candidate and audit above remain the frozen inputs
+to that review, not a silently rewritten approved corpus.
+
 No model has been trained on this corpus and no production behavior changed.
 Existing dev/test labels still use v1 and cannot validate a v2 classifier as-is.
-Before training, complete the v2 blind review, adjudicate disputed families, and
-prepare separately reviewed v2 development data and fresh evaluation families.
+Before training, prepare separately reviewed v2 development data and fresh
+evaluation families; retain the disputed training families in quarantine.
 Retain meaningful coverage of every class and keep model selection out of test.

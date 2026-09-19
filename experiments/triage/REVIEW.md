@@ -105,6 +105,10 @@ can still train their explicitly provisional datasets.
 
 ## Current status
 
+The [v2 review](reviews/v2/README.md) has completed all 981 judgments and retains
+893 cases across 134 whole families, covering all five labels. Fourteen families
+remain quarantined. The v1 record below is historical and unchanged.
+
 The [completed first blind pass](reviews/v1/README.md) covers all 981 training cases
 across 148 families using three fresh model contexts. Author/reviewer labels agree
 on 979 cases; 336 cases carry review flags. The family gate retains 109 cases from

@@ -5,8 +5,8 @@ changing threads, extracting commitments, sending reminders, or calling the LLM.
 It is a separate manual command, not part of `pulse` and not installed on a timer.
 
 The current artifact uses `synthetic-obligations-v1`. Every report explicitly
-sets `policy_aligned: false`; the [version 2 policy](POLICY.md) has not yet been
-used to relabel, review, retrain, or recalibrate this model. Shadow observations
+sets `policy_aligned: false`; the [v2 training corpus](v2/README.md) has been
+relabeled and reviewed, but this model has not been retrained or recalibrated. Shadow observations
 are diagnostic, not permission to classify live threads.
 
 ## Run locally

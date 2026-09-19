@@ -2,7 +2,8 @@
 
 [SHADOW.md](SHADOW.md) describes the read-only CPU inference command.
 [POLICY.md](POLICY.md) records the production-aligned v2 labeling contract;
-existing models and datasets remain v1 until a new relabel/review/training pass.
+the [v2 training corpus](v2/README.md) now has 893 cases passing blind review.
+Existing models and held-out evaluation labels remain v1.
 
 [REVIEW.md](REVIEW.md) describes the blind training-label review workflow and
 [LABELING.md](LABELING.md) specifies the experimental labels and production-policy

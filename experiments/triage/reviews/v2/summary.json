@@ -1,0 +1,57 @@
+{
+  "label_policy": "reply-triage-v2",
+  "method": "separate-context semantic authoring and one blind model review per case; inherited model settings, not human validation",
+  "source_training_cases": 981,
+  "source_families": 148,
+  "changed_labels": 250,
+  "label_agreement": 967,
+  "disputed_cases": [
+    "scale_campsite_water_0",
+    "scale_map_attribution_2",
+    "scanner_loan_2_reversed",
+    "scale_cinema_referral_0",
+    "tooling_news_2",
+    "ceramic_promo_2",
+    "scale_tool_training_0",
+    "garden_plot_1_reversed",
+    "scale_survey_grid_2",
+    "optional_survey_0",
+    "scale_costume_return_2",
+    "membership_notice_1",
+    "scale_database_export_0",
+    "scale_field_sensor_1_reversed"
+  ],
+  "reviewer_flags": {
+    "label_ambiguity": 1
+  },
+  "accepted_cases": 893,
+  "accepted_families": 134,
+  "accepted_labels": {
+    "abstain": 412,
+    "fyi": 233,
+    "needs_reply": 89,
+    "noise": 45,
+    "waiting_on_them": 114
+  },
+  "blocked_families": [
+    "ceramic_promo",
+    "garden_plot",
+    "membership_notice",
+    "optional_survey",
+    "scale_campsite_water",
+    "scale_cinema_referral",
+    "scale_costume_return",
+    "scale_database_export",
+    "scale_field_sensor",
+    "scale_map_attribution",
+    "scale_survey_grid",
+    "scale_tool_training",
+    "scanner_loan",
+    "tooling_news"
+  ],
+  "training_ready": false,
+  "remaining": "v2 development labels and fresh reviewed evaluation families; disputed families quarantined",
+  "report_sha256": "539fd9c69643970f10b22fb68ad41219323f64f2afce405a542af7bae093c7be",
+  "reviewed_sha256": "e367c0013eb1c7e1bc19cd1d5b75b419418cc10e9cce01fe1303d6b08731dc3a",
+  "all_five_labels_present": true
+}
